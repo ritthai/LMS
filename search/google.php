@@ -14,6 +14,5 @@ foreach($results as $elem) {
 	$title = $elem['titleNoFormatting'];
 	array_push($store, array($title, $link));
 }
-$_SESSION['google'] = $store;
+$_SESSION['google'] = array_merge($_SESSION['google'], $store);
 ?>
-</ul>

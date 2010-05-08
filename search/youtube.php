@@ -3,7 +3,7 @@ session_start();
 
 $TERMS = urlencode($terms);
 
-$url = "http://gdata.youtube.com/feeds/api/videos?q=$TERMS&orderby=relevance&start-index=1&max-results=10&v=2";
+$url = "http://gdata.youtube.com/feeds/api/videos?q=$TERMS&orderby=relevance&start-index=1&max-results=2&v=2";
 $data = file_get_contents($url);
 $parser = xml_parser_create();
 xml_parse_into_struct($parser, $data, $xml);
@@ -19,6 +19,6 @@ foreach($xml as $elem) {
 		$content = $elem['attributes']['SRC'];
 		array_push($store, $content);
 	}
-	$_SESSION['youtube'] = $store;
 }
+$_SESSION['youtube'] = array_merge($_SESSION['youtube'], $store);
 ?>
