@@ -2,23 +2,18 @@
 session_start();
 
 $TERMS = urlencode($terms);
+$TAGS = $tags;
 
-$url = "http://gdata.youtube.com/feeds/api/videos?q=$TERMS&orderby=relevance&start-index=1&max-results=2&v=2";
-$data = file_get_contents($url);
-$parser = xml_parser_create();
-xml_parse_into_struct($parser, $data, $xml);
-xml_parser_free($parser);
-$store = array();
-foreach($xml as $elem) {
-	//if($elem['tag'] == "MEDIA:THUMBNAIL") {
-	//	echo "<img src=\"".$elem['attributes']['URL']."\" /><br/>";
-	//}
-	//print_r($elem);
-	$content = "";
-	if($elem['tag'] == "CONTENT") {
-		$content = $elem['attributes']['SRC'];
-		array_push($store, $content);
+$sub = subsets($TAGS);
+print_r($sub);
+foreach($sub as $s) {
+	if(!count($sub)) continue;
+	$r = youtube_query($TERMS, $s);
+	//print_r($r);
+	if(count($r)) {
+		//print_r($_SESSION['youtube']);
+		$_SESSION['youtube'] = array_merge($_SESSION['youtube'], $r);
+		break;
 	}
 }
-$_SESSION['youtube'] = array_merge($_SESSION['youtube'], $store);
 ?>
