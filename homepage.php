@@ -45,7 +45,7 @@ $courses = Course::ListCourses();
 ?>
 <p>List of courses:<br/>
 <?php foreach($courses as $course) { ?>
-	<a href="homepage.php?course=<?php echo $course[1]; ?>&prof=<?php echo $course[2]; ?>">
+	<a href="homepage.php?course=<?php echo urlencode($course[1]); ?>&prof=<?php echo urlencode($course[2]); ?>">
 		<?php echo $course[1].", ".$course[2].", ".$course[3]; ?><br/>
 	</a>
 <?php	} ?>

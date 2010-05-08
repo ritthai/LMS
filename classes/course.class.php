@@ -6,8 +6,8 @@ class Course {
 	public $id;
 	public $goog_res, $youtube_res;
 	function __construct($_name, $_prof, $_goog_res, $_youtube_res) {
-		$this->name = mysql_real_escape_string(urlencode($_name));
-		$this->prof = mysql_real_escape_string(urlencode($_prof));
+		$this->name = mysql_real_escape_string($_name);
+		$this->prof = mysql_real_escape_string($_prof);
 		$this->goog_res = $_goog_res;
 		if(!$_goog_res) $this->goog_res = array();
 		$this->youtube_res = $_youtube_res;
@@ -47,7 +47,7 @@ class Course {
 	function load() {
 		$hash = md5($this->name.$this->prof);
 		$res = database_query(sprintf(
-				"SELECT * FROM goog_res_tbl_%s", $hash));
+				"SELECT * FROM goog_res_tbl_%s", $hash)) or die(" -- invalid course");
 		while($row = mysql_fetch_row($res))
 			array_push($this->goog_res, array($row[1], $row[2]));
 		$res = database_query(sprintf(
