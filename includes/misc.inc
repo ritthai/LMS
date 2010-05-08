@@ -1,6 +1,5 @@
 <?php
 function subsets($arr) {
-	print_r($arr);
     $cnt=count($arr);
     $ret = array();
     for($i=1<<($cnt)-1; $i > 0; $i--) {
