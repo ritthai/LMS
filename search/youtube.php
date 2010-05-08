@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$TERMS = urlencode($terms);
+$TERMS = urlencode($descr);
 $TAGS = $tags;
 
 $sub = subsets($TAGS);

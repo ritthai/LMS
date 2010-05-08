@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$TERMS = urlencode($terms." Lecture Notes");
+$TERMS = urlencode($descr." Lecture Notes");
 $USERIP = $_SERVER['REMOTE_ADDR'];
 
 $url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=$TERMS&userip=$USERIP&rsz=small";
