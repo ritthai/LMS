@@ -17,6 +17,7 @@ function database_query($query) {
 	$status = mysql_query($query);
 	if(!$status)
 		echo "Database error: ".mysql_error();
+	return $status;
 }
 
 function database_close() {

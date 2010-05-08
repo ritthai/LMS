@@ -9,18 +9,12 @@ $data = file_get_contents($url);
 $arr = json_decode($data, true);
 $results = $arr['responseData']['results'];
 $store = array();
-?>
-<ul>
-<?php
 foreach($results as $elem) {
-	//print_r($elem);
 	$link = $elem['url'];
 	$title = $elem['titleNoFormatting'];
 	array_push($store, array($title, $link));
-?>
-<li><a href="<?php echo $link; ?>"><?php echo $title; ?></a></li>
-<?php
 }
 $_SESSION['google'] = $store;
+eval("?>".file_get_contents("search/google.view.php"));
 ?>
 </ul>

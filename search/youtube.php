@@ -18,15 +18,8 @@ foreach($xml as $elem) {
 	if($elem['tag'] == "CONTENT") {
 		$content = $elem['attributes']['SRC'];
 		array_push($store, $content);
-?>
-<object width="480" height="385">
-<param name="movie" value="<?php echo $content; ?>"></param>
-<param name="allowFullScreen" value="true"></param>
-<param name="allowscriptaccess" value="always"></param>
-<embed src="<?php echo $content; ?>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed>
-</object>
-<?php
 	}
 	$_SESSION['youtube'] = $store;
 }
+eval("?>".file_get_contents("search/youtube.view.php"));
 ?>
