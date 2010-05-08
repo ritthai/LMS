@@ -1,8 +1,5 @@
 <?php
-$dbhost = 'localhost';
-$dbuser = 'LMS_development';
-$dbpass = '';
-$dbname = 'LMS_development';
+include("../includes/mysql.inc");
 
 $h = mysql_connect($dbhost, $dbuser, $dbpass) or die("mysql_connect error: ".mysql_error());
 mysql_select_db($dbname, $h) or die("mysql_select_db error: ".mysql_error());
