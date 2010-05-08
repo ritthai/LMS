@@ -27,6 +27,8 @@ Prof: <input type="text" id="course_prof" name="course_prof" /><br/>
 $first_load = false;
 if(isset($_POST['terms'])) {
 	$terms = $_POST['terms'];
+	eval("?>".file_get_contents("search/google.php"));
+	eval("?>".file_get_contents("search/youtube.php"));
 } else if(isset($_SESSION['youtube']) && isset($_SESSION['google']) &&
 			isset($_POST['course_name']) && isset($_POST['course_prof'])) {
 	$crs = new Course($_POST['course_name'], $_POST['course_prof'],
@@ -35,6 +37,8 @@ if(isset($_POST['terms'])) {
 } else if(isset($_GET['course'])) {
 	$crs = new Course($_GET['course'], $_GET['prof'], null, null);
 	$crs->load();
+	$_SESSION['google'] = $crs->goog_res;
+	$_SESSION['youtube'] = $crs->youtube_res;
 } else $first_load = true;
 
 $courses = Course::ListCourses();
@@ -45,12 +49,13 @@ $courses = Course::ListCourses();
 		<?php echo $course[1].", ".$course[2].", ".$course[3]; ?><br/>
 	</a>
 <?php	} ?>
+</p>
 
 <?php
 if(!$first_load) {
-	eval("?>".file_get_contents("search/google.php"));
+	eval("?>".file_get_contents("search/google.view.php"));
 	echo "<hr/>";
-	eval("?>".file_get_contents("search/youtube.php"));
+	eval("?>".file_get_contents("search/youtube.view.php"));
 }
 ?>
 

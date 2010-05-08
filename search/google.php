@@ -15,6 +15,5 @@ foreach($results as $elem) {
 	array_push($store, array($title, $link));
 }
 $_SESSION['google'] = $store;
-eval("?>".file_get_contents("search/google.view.php"));
 ?>
 </ul>

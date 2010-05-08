@@ -6,8 +6,8 @@ class Course {
 	public $id;
 	public $goog_res, $youtube_res;
 	function __construct($_name, $_prof, $_goog_res, $_youtube_res) {
-		$this->name = mysql_real_escape_string($_name);
-		$this->prof = mysql_real_escape_string($_prof);
+		$this->name = mysql_real_escape_string(urlencode($_name));
+		$this->prof = mysql_real_escape_string(urlencode($_prof));
 		$this->goog_res = $_goog_res;
 		if(!$_goog_res) $this->goog_res = array();
 		$this->youtube_res = $_youtube_res;
@@ -16,9 +16,19 @@ class Course {
 	}
 	function save() {
 		$hash = md5($this->name.$this->prof);
-		database_query(sprintf(
-			"REPLACE INTO courses (name, prof) VALUES ('%s','%s')",
+		$res = database_query(sprintf(
+			"SELECT COUNT(*) FROM courses WHERE name='%s' AND prof='%s'",
 			$this->name, $this->prof));
+		$res = mysql_result($res, 0);
+		if($res < 1) {
+			database_query(sprintf(
+						"REPLACE INTO courses (name, prof) VALUES ('%s','%s')",
+						$this->name, $this->prof));
+		} else {
+			database_query(sprintf(
+				"UPDATE courses SET timestamp=NOW() WHERE name='%s' AND prof='%s'",
+				$this->name, $this->prof));
+		}
 	ob_start();
 		database_query("DROP TABLE goog_res_tbl_$hash");
 		database_query("DROP TABLE youtube_res_tbl_$hash");
@@ -43,7 +53,7 @@ class Course {
 		$res = database_query(sprintf(
 				"SELECT * FROM youtube_res_tbl_%s", $hash));
 		while($row = mysql_fetch_row($res))
-			array_push($this->youtube_res, array($row[1]));
+			array_push($this->youtube_res, $row[1]);
 		mysql_free_result($res);
 	}
 	static function ListCourses() {

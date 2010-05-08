@@ -21,5 +21,4 @@ foreach($xml as $elem) {
 	}
 	$_SESSION['youtube'] = $store;
 }
-eval("?>".file_get_contents("search/youtube.view.php"));
 ?>
