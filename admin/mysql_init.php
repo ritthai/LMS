@@ -18,7 +18,7 @@ mysql_query("CREATE TABLE courses (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(
 echo mysql_error();
 
 mysql_query("DROP TABLE coursedefns;");
-mysql_query("CREATE TABLE coursedefns (id INT NOT NULL AUTO_INCREMENT, code VARCHAR(10), title VARCHAR(40), descr VARCHAR(500), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
+mysql_query("CREATE TABLE coursedefns (id INT NOT NULL AUTO_INCREMENT, code VARCHAR(10), title VARCHAR(60), descr VARCHAR(1000), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
 echo mysql_error();
 
 $courses = file_get_contents("../scraping/courses2.xml");
