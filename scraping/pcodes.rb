@@ -30,15 +30,17 @@ def nice_slug(str)
 end
 
 http = Net::HTTP.new('ugradcalendar.uwaterloo.ca', 80)
-resp, data = http.get("/default.aspx?PageID=616", nil)
+resp, data = http.get("/default.aspx?PageID=615", nil)
 b = ""
 print "<body>"
 coder = HTMLEntities.new
-data.scan(/;Code=(...?.?.?.?.?)&amp;/m) { |a|
+#data.scan(/;Code=(...?.?.?.?.?)&amp;/m) { |a|
+data.scan(/<tr>\s*<td>([a-zA-Z]{2,8})\s*<\/td>\s*<td>(.{1,50})<\/td>/m) { |a|
 	$stdout.flush
-	if !a[0].eql?(b)
+	if true#!a[0].eql?(b)
 		print "<coursecode>"
-		print a[0]
+		print "<code>"+a[0]+"<\/code>"
+		print "<title>"+a[1]+"<\/title>"
 		print "</coursecode>\n"
 		b = a[0]
 		http2 = Net::HTTP.new('www.ucalendar.uwaterloo.ca', 80)

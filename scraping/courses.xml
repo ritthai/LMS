@@ -1,4 +1,25 @@
-<body><coursecode>AFM</coursecode>
+<body><coursecode><code>ACTSC</code><title>Actuarial Science</title></coursecode>
+<course><code>ACTSC291</code>
+<title>Mathematical Managerial Finance 1</title>
+<description>Time Value of Money and Capital Budgeting. Portfolio Theory, CAPM and APT. Cash and Credit Management.</description>
+<code>ACTSC391</code>
+<title>Mathematical Managerial Finance 2</title>
+<description>Efficient Capital Markets and Capital Structure. Dividend Policy and Corporate Debt Instruments. Mergers and Acquisitions. Introduction to International Corporate Finance.</description>
+<code>ACTSC453</code>
+<title>Basic Pension Mathematics</title>
+<description>Theory and practice of pension plan funding. Assumptions, basic actuarial functions and population theory applied to private pensions. Concepts of normal costs, supplemental liability, unfunded liability arising from individual accrued benefit and projected benefit cost methods.</description>
+<code>ACTSC455</code>
+<title>Advanced Life Insurance Practice</title>
+<description>Cash flow projection methods for pricing, reserving and profit testing; deterministic, stochastic and stress testing; pricing and risk management of embedded options in insurance products; mortality and maturity guarantees for equity-linked life insurance.</description>
+<code>ACTSC462</code>
+<title>Introduction to Property and Casualty Pricing</title>
+<description>An introduction to property/casualty rate making. The economics of insurance. The ratemaking process. Individual risk rating. Reinsurance, expense issues. Pricing for deductibles and increased limits.</description>
+<code>ACTSC471</code>
+<title>Advanced Corporate Finance</title>
+<description>This course will cover various topics in advanced Corporate Finance, including real options, inventory models and management, corporate governance, asymmetric information and signalling, agency theory and corporate incentives.</description>
+</course>
+
+<coursecode><code>AFM</code><title>Accounting &amp; Financial Management</title></coursecode>
 <course><code>AFM101</code>
 <title>Introduction to Financial Accounting</title>
 <description>This course is an introduction to financial accounting. The preparation and use of financial statements is examined. The accounting cycle, assets and liabilities reporting, is discussed.</description>
@@ -115,28 +136,208 @@
 <description>This is a capstone course designed to utilize students' understanding of financial accounting, cost and managerial accounting, finance, auditing, tax and accounting theory to interpret the current developments taking place in external reporting regulations in Canada.</description>
 </course>
 
-<coursecode>ACTSC</coursecode>
-<course><code>ACTSC291</code>
-<title>Mathematical Managerial Finance 1</title>
-<description>Time Value of Money and Capital Budgeting. Portfolio Theory, CAPM and APT. Cash and Credit Management.</description>
-<code>ACTSC391</code>
-<title>Mathematical Managerial Finance 2</title>
-<description>Efficient Capital Markets and Capital Structure. Dividend Policy and Corporate Debt Instruments. Mergers and Acquisitions. Introduction to International Corporate Finance.</description>
-<code>ACTSC453</code>
-<title>Basic Pension Mathematics</title>
-<description>Theory and practice of pension plan funding. Assumptions, basic actuarial functions and population theory applied to private pensions. Concepts of normal costs, supplemental liability, unfunded liability arising from individual accrued benefit and projected benefit cost methods.</description>
-<code>ACTSC455</code>
-<title>Advanced Life Insurance Practice</title>
-<description>Cash flow projection methods for pricing, reserving and profit testing; deterministic, stochastic and stress testing; pricing and risk management of embedded options in insurance products; mortality and maturity guarantees for equity-linked life insurance.</description>
-<code>ACTSC462</code>
-<title>Introduction to Property and Casualty Pricing</title>
-<description>An introduction to property/casualty rate making. The economics of insurance. The ratemaking process. Individual risk rating. Reinsurance, expense issues. Pricing for deductibles and increased limits.</description>
-<code>ACTSC471</code>
-<title>Advanced Corporate Finance</title>
-<description>This course will cover various topics in advanced Corporate Finance, including real options, inventory models and management, corporate governance, asymmetric information and signalling, agency theory and corporate incentives.</description>
+<coursecode><code>ANTH</code><title>Anthropology</title></coursecode>
+<course><code>ANTH101</code>
+<title>Human and Cultural Evolution</title>
+<description>A survey of the discoveries of Physical Anthropology and Anthropological Archaeology. Lectures on living and fossil primates, the fossil evidence for the origins and development of humans, and archaeological evidence concerning the origins and development of culture from the earliest tool making through the beginnings of civilization.</description>
+<code>ANTH102</code>
+<title>Introduction to Social and Cultural Anthropology</title>
+<description>The dynamic nature of socio-cultural systems is examined. Topics include language, technology, social organization, economics, politics, and religion. Data are drawn from a broad ethnographic base, including both 'primitive' cultures and modern, developed societies.</description>
+<code>ANTH103</code>
+<title>The Nature of Language</title>
+<description>A general introduction to the scientific study of language. Lectures on the nature of human language as compared with animal communication, some of the basic methods of historical and descriptive linguistics, and the importance of language in culture and society.</description>
+<code>ANTH201</code>
+<title>Principles of Archaeology</title>
+<description>An introduction to the working assumptions, analytic approaches, and integrative and descriptive methods of archaeological anthropology.</description>
+<code>ANTH202</code>
+<title>Principles of Social and Cultural Anthropology</title>
+<description>An introduction to basic concepts used by social and cultural anthropologists for the analysis of social, economic, political and ideational systems.</description>
+<code>ANTH203</code>
+<title>The Archaeology of North America</title>
+<description>This is a general introduction to North American Archaeology. The traditional cultural ecological approach is used.</description>
+<code>ANTH210</code>
+<title>Anthropology Through Science Fiction</title>
+<description>Basic anthropological concepts, such as evolution, culture, gender adaptability and culture contact will be explored through examples from science fiction and related anthropological studies.</description>
+<code>ANTH229</code>
+<title>Peoples of Africa</title>
+<description>A comparative survey of selected societies in Africa. Topics covered include traditional and changing religious, social, economic and political systems, colonialism and its legacy and current issues and culture as reflected in art, literature and the media.</description>
+<code>ANTH230</code>
+<title>Native Peoples of Canada</title>
+<description>First Nations of the Subarctic, Northeast, Plains, Plateau, and Northwest Coast culture areas are described as they existed when initially contacted by Europeans. Consideration is given to economic adaptation, social organization, political structure, material culture, ritual and mythology.</description>
+<code>ANTH233</code>
+<title>Inuit and Eskimo Cultures</title>
+<description>An examination of Inuit and Eskimo cultures of Alaska, Canada and Greenland from their prehistoric origins to the present. Administrative systems imposed upon the Inuit and Eskimo will be analysed and compared, as will the contemporary problems these communities face.</description>
+<code>ANTH260</code>
+<title>Human Evolution</title>
+<description>Data, methods and theory in the study of the origin and evolution of humans are surveyed. Topics will include genetic theory, primate evolution, human fossils and modern human adaptation.</description>
+<code>ANTH261</code>
+<title>Primate Behaviour</title>
+<description>An introduction to the behaviour of non-human primates and its relevance to human development. Topics will include social organization, role behaviour, and communications patterns, as well as the history of primate studies.</description>
+<code>ANTH290</code>
+<title>Audio-Visual Images and Ethnography</title>
+<description>The ability of audio-visual media to convey valid and accurate information on other ways of life is evaluated. Emphasis will be on recent attempts to record other cultures on motion picture film and video tapes. Pioneering efforts at 'scientific' illustration, as on voyages of exploration, as well as early still photography and sound recording, are also examined.</description>
+<code>ANTH300</code>
+<title>Design of Anthropological Inquiry and Practice</title>
+<description>This course systematically examines research design and methodology in anthropology.</description>
+<code>ANTH303</code>
+<title>Anthropology of Digital Media</title>
+<description>The course views digital media and culture through the various lenses of anthropology. It incorporates themes on globalization, transnationalism, diaspora, gender and expressions of modernity as studied by anthropologists working with digital media around the globe and examines research in both Western and non-Western societies and the substantive contributions made by a distinctively anthropological approach.</description>
+<code>ANTH311</code>
+<title>Anthropology of Religion</title>
+<description>Anthropological approaches to magic, witchcraft, ritual, cosmology, and other aspects of the system of behaviour and belief known as religion. </description>
+<code>ANTH320</code>
+<title>Studies in Hunter-Gatherer Archaeology</title>
+<description>Detailed consideration of prehistoric cultural developments from earliest toolmaking to the transition to agriculture. An examination of the human mode of adaptation and the increasing complexity of cultural systems among prehistoric hunters and gatherers. Areas and periods of emphasis will vary from year to year.</description>
+<code>ANTH321</code>
+<title>Archaeology of Complex Cultures</title>
+<description>Cultural development from the agricultural revolution to the rise of literacy. Special attention to the development of agriculture as a means of subsistence and to the rise of early civilization. Areas and periods of emphasis will vary from year to year.</description>
+<code>ANTH322</code>
+<title>The Archaeology of the Great Lakes Area</title>
+<description>An in-depth study of the archaeological evidence for prehistoric cultures in the Great Lakes area from their arrival ca. 11,000 years ago to the coming of Europeans. Cultural ecology and cultural evolution will be stressed.</description>
+<code>ANTH330</code>
+<title>Cultural Ecology</title>
+<description>An examination of the relationships among environment, technology, society, and culture. The increasing levels of complexity will be considered in the context of hunting and foraging bands, horticultural tribes and chiefdoms, pastoral tribes and agricultural peasantry.</description>
+<code>ANTH335</code>
+<title>Arctic Archaeology</title>
+<description>A detailed examination of the prehistoric development of human adaptations to the Inuit-Eskimo region of Arctic North America, eastern Siberia and Greenland. Topics covered will include the ecology of the Arctic and the culture history of the peoples who first colonized the region as revealed by archaeological research.</description>
+<code>ANTH345</code>
+<title>Directed Research in Anthropology</title>
+<description>Directed independent research on or off campus.</description>
+<code>ANTH347</code>
+<title>Survey of Medical Anthropology</title>
+<description>This course is a survey of the field of medical anthropology. Topics will focus on contemporary global health issues, and will include international health NGO's, reproductive health and demographic change, epidemiological transitions, infectious disease transmission and treatment, culture and disease narratives, organ transplantation and the international trade in body parts, and environmental threats to human health.</description>
+<code>ANTH348</code>
+<title>Anthropology of Tourism</title>
+<description>This course examines the nature of tourism as cross-cultural contact and critiques the phenomena of mass travel and globalized tourism. The various perspectives of anthropologists and tourists in understanding culture will be explored.</description>
+<code>ANTH350</code>
+<title>Culture and Sexuality</title>
+<description>An examination of the ways in which gender categories, sex roles and sexual behaviour are considered in the literature of cultural and physical anthropology.</description>
+<code>ANTH351</code>
+<title>Comparative Policies on Native Minorities</title>
+<description>An examination of the legal, social and cultural position of native minorities within the larger nation-state. The course will compare and contrast Canada's relation with its indigenous populations to those of the United States and other countries such as New Zealand and/or Australia.</description>
+<code>ANTH352</code>
+<title>History of Anthropological Thought</title>
+<description>An examination of the historical origins and development of culture theory. The major emphasis is on the period from the appearance of anthropology as a distinct discipline in the nineteenth century until the emergence of modern perspectives in the 1950s.</description>
+<code>ANTH355</code>
+<title>Osteology for Archaeologists</title>
+<description>This laboratory course will survey the osteology of humans and common domestic animals, with an emphasis on recovery and identification of skeletal material at archaeological sites. </description>
+<code>ANTH365</code>
+<title>Fossil Hominids</title>
+<description>A detailed examination of the fossil evidence for human evolution with particular emphasis on interpretation and reconstruction.</description>
+<code>ANTH371</code>
+<title>Anthropological Field Experience</title>
+<description>This course features a combination of academic content and field experience. </description>
+<code>ANTH390A</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH390B</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH391</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH393</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH395</code>
+<title>Topics in Anthropological Field Experience</title>
+<description>This course features a combination of academic study and first-hand field study of cultures and visits to or work experience at museums and archaeological sites. </description>
+<code>ANTH400</code>
+<title>Special Topics in Anthropological Theory</title>
+<description>Seminar on current topics in method and theory in Anthropology. Focus will vary from year to year.</description>
+<code>ANTH402</code>
+<title>Palestine/Israel: Anthropological Perspectives</title>
+<description>In this seminar, we explore contemporary ethnographies of Israel and Palestine. Emphasis will be placed on developing an anthropological understanding of historical and commemorative narratives, diaspora and exile communities, gender, political organization and the law, migrant labour, peace and human rights activism, and war.</description>
+<code>ANTH404</code>
+<title>Human Development in a Cross-Cultural Perspective</title>
+<description>Seminar in current issues in the anthropology of the life cycle. This course will deal with child rearing, young adulthood, aging and the female and male life cycles, among other topics, from the perspectives of various cultures.</description>
+<code>ANTH411</code>
+<title>Symbolic Anthropology</title>
+<description>This course is an advanced version of ANTH 311, restricted to Honours students in Anthropology. Students will attend lectures in ANTH 311 and complete the readings for that course, but will also be required to write a substantial research paper and gain broader and deeper familiarity with the anthropological literature in this field.</description>
+<code>ANTH420</code>
+<title>Social and Cultural Change</title>
+<description>An analysis of contemporary thought on culture contact and cultural evolution. The concepts explored might include integration, assimilation, conflict, nativistic reactions, and general and specific evolution.</description>
+<code>ANTH440</code>
+<title>Archaeological Analysis and Interpretation</title>
+<description>A study of contemporary archaeological method and theory, with emphasis on the process of deriving inferences concerning past peoples and societies from different kinds of archaeological materials and data. Students will be required to carry out an analysis of an actual archaeological assemblage. Specific topics will vary from year to year.</description>
+<code>ANTH455</code>
+<title>Skeletal Biology and Forensics</title>
+<description>This laboratory course will focus on the evaluation of human skeletal remains in archaeological and forensic contexts. Topics will include determination of basic biological categories, e.g. age, sex, race, evaluation of paleopathological conditions, and aspects of forensic anthropology.</description>
+<code>ANTH460</code>
+<title>Human Adaptation and Evolution</title>
+<description>An examination of the Principles of Variation in human evolution past and present. This will include the development of the genus Homo, adaptation of modern populations to heat, cold, altitude and stress, and the continuing micro-evolutionary development of humans.</description>
+<code>ANTH461</code>
+<title>Selected Topics in Primate Behaviour</title>
+<description>This course focuses on methodological and ideational aspects of studying primate behaviour. Topics include fieldwork methods, comparative theoretical approaches, mother-infant interaction, infanticide, socialization and communications patterns.</description>
+<code>ANTH470</code>
+<title>Archaeological Field Methods</title>
+<description>Data gathering techniques will be studied and applied in field work on archaeological sites. Enrolment is limited. </description>
+<code>ANTH492A</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH492B</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH495</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH497</code>
+<title>Reading in Anthropology</title>
+<description>Guided reading in a selected portion of the anthropological literature.</description>
+<code>ANTH499A</code>
+<title>Honours Essay</title>
+<description>Directed reading and research in a selected area of anthropology inquiry.</description>
+<code>ANTH499B</code>
+<title>Honours Essay</title>
+<description>Directed reading and research in a selected area of anthropology inquiry.</description>
 </course>
 
-<coursecode>ARCH</coursecode>
+<coursecode><code>AMATH</code><title>Applied Mathematics </title></coursecode>
+<course><code>AMATH242</code>
+<title>Introduction to Computational Mathematics</title>
+<description>A rigorous introduction to the field of computational mathematics. The focus is on the interplay between continuous models and their solution via discrete processes. Topics include: pitfalls in computation, solution of linear systems, interpolation, discrete Fourier transforms and numerical integration. Applications are used as motivation. </description>
+<code>AMATH331</code>
+<title>Applied Real Analysis</title>
+<description>Topology of Euclidean spaces, continuity, norms, completeness. Contraction mapping principle. Fourier series. Various applications, for example, to ordinary differential equations, optimization and numerical approximation. </description>
+<code>AMATH332</code>
+<title>Applied Complex Analysis</title>
+<description>Complex numbers, Cauchy-Riemann equations, analytic functions, conformal maps and applications to the solution of Laplace's equation, contour integrals, Cauchy integral formula, Taylor and Laurent expansions, residue calculus and applications. </description>
+<code>AMATH382</code>
+<title>Computational Modeling of Cellular Systems</title>
+<description>An introduction to dynamic mathematical modeling of cellular processes. The emphasis is on using computational tools to investigate differential equation-based models. A variety of cellular phenomena are discussed, including ion pumps, membrane potentials, intercellular communication, genetic networks, regulation of metabolic pathways, and signal transduction. </description>
+<code>AMATH391</code>
+<title>From Fourier to Wavelets</title>
+<description>An introduction to contemporary mathematical concepts in signal analysis. Fourier series and Fourier transforms (FFT), the classical sampling theorem and the time-frequency uncertainty principle. Wavelets and multiresolution analysis. Applications include oversampling, denoising of audio, data compression and singularity detection. </description>
+<code>AMATH433</code>
+<title>Differential Geometry</title>
+<description>An introduction to differentiable manifolds. The tangent and cotangent bundles. Vector fields and differential forms. The Lie bracket and Lie derivative of vector fields. Exterior differentiation, integration of differential forms, and Stokes's Theorem. Riemannian manifolds, affine connections, and the Riemann curvature tensor. </description>
+<code>AMATH447</code>
+<title>Introduction to Symbolic Computation</title>
+<description>An introduction to the use of computers for symbolic mathematical computation, involving traditional mathematical computations such as solving linear equations (exactly), analytic differentiation and integration of functions, and analytic solution of differential equations. </description>
+<code>AMATH477</code>
+<title>Statistical Mechanics</title>
+<description>Equilibrium statistical mechanics is developed from first principles, based on elementary probability theory and quantum theory (classical statistical mechanics is developed later as an appropriate limiting case). Emphasis is placed on the intimate connections between statistical mechanics and thermodynamics. Although it would be useful, prior knowledge of quantum theory is not necessary.</description>
+</course>
+
+<coursecode><code>ARBUS</code><title>Arts and Business</title></coursecode>
+<course><code>ARBUS101</code>
+<title>Introduction to Business in North America</title>
+<description>The functional areas of business: finance, personnel administration, production, marketing, and accounting are examined within differing organizational structures. Coverage also includes study of the principles of effective management and the financial system as a source of corporate capital.</description>
+<code>ARBUS102</code>
+<title>Accounting Information for Managers</title>
+<description>This course is designed for non-accountants who will use accounting information for planning, control and decision making.</description>
+<code>ARBUS201</code>
+<title>The Principles of Entrepreneurship</title>
+<description>The role of entrepreneurship in the economy, especially with respect to competition, innovation and investment; historical experience, theoretical framework, market dynamics, public policy and practical applications.</description>
+<code>ARBUS202</code>
+<title>Professional and Business Ethics</title>
+<description>Study of ethical and moral issues that typically arise in professional and business activity. What responsibilities to society at large do people in such business and professional activities as teaching, engineering, planning, architecture and accounting have? How far should professional autonomy extend?</description>
+<code>ARBUS301</code>
+<title>International Business</title>
+<description>This course examines the opportunities, risks, and challenges faced by businesses in international markets, as well as the preparation required to operate them.</description>
+</course>
+
+<coursecode><code>ARCH</code><title>Architecture</title></coursecode>
 <course><code>ARCH125</code>
 <title>Principles of Environmental Design</title>
 <description>An introduction to the environmental aspects of architectural design and to an analysis of the form that landscapes take and the processes and ideals leading to those forms. Topics of discussion include environmental concepts and influences on design, site planning, landscape, sustainability, embodied energy, climatic influences and microclimates. </description>
@@ -214,7 +415,7 @@
 <description>This offers a student an opportunity for independent research into architectural problems not offered in the regular curriculum. It allows guided exploration of a specific architectural problem area, of appropriate complexity to the particular term.</description>
 </course>
 
-<coursecode>ARTS</coursecode>
+<coursecode><code>ARTS</code><title>Arts</title></coursecode>
 <course><code>ARTS101</code>
 <title>Foundations for Writing</title>
 <description>This course helps students to develop the fundamental writing skills required by the Faculties of Arts and Environment. Students will be introduced to theories of strong composition and grammar, as well as relevant terminology, and will focus on practical applications, based on readings from Arts disciplines. </description>
@@ -241,7 +442,7 @@
 <description>Study abroad in the Spring term under Exchange Agreements supported by the Faculty of Arts. Discussion and approval of options with your Advisor is required. Credit for specific courses will be evaluated following receipt of a transcript of academic results and supporting course outline documentation. The approved Study Agreement will be recorded on the student's record.</description>
 </course>
 
-<coursecode>BIOL</coursecode>
+<coursecode><code>BIOL</code><title>Biology</title></coursecode>
 <course><code>BIOL112</code>
 <title>Introductory Biology 2</title>
 <description>An introduction to the basic principles of the structure and function of plants and animals within an ecological and evolutionary framework. The biology of multicellular organisms will be emphasized. </description>
@@ -334,7 +535,7 @@
 <description>A senior-year research project. </description>
 </course>
 
-<coursecode>BUS</coursecode>
+<coursecode><code>BUS</code><title>Business (Wilfrid Laurier University) </title></coursecode>
 <course><code>BUS111W</code>
 <title>Introduction to Business Organization (WLU)</title>
 <description>Taught at Wilfrid Laurier University. Refer to WLU Undergraduate Calendar for course description.</description>
@@ -343,7 +544,7 @@
 <description>Taught at Wilfrid Laurier University. Refer to WLU Undergraduate Calendar for course description.</description>
 </course>
 
-<coursecode>CHE</coursecode>
+<coursecode><code>CHE</code><title>Chemical Engineering</title></coursecode>
 <course><code>CHE201</code>
 <title>Seminar</title>
 <description>General Seminar.</description>
@@ -382,7 +583,7 @@
 <description>Special courses on advanced topics may be offered from time to time, when resources are available. For current offerings, inquire at the CHE undergraduate office.</description>
 </course>
 
-<coursecode>CHEM</coursecode>
+<coursecode><code>CHEM</code><title>Chemistry</title></coursecode>
 <course><code>CHEM1</code>
 <title>Pre-University Chemistry</title>
 <description>Essential preparation for first year chemistry courses. Formulae, nomenclature, stoichiometry, an introduction to thermochemistry, solution chemistry, chemical equilibria, acids, bases, oxidation-reduction reactions, kinetics and bonding. </description>
@@ -448,28 +649,10 @@
 <description>This course is only for exchange students wishing to carry out a research project during the spring term.</description>
 </course>
 
-<coursecode>CHINA</coursecode>
+<coursecode><code>CHINA</code><title>Chinese</title></coursecode>
 <course></course>
 
-<coursecode>CMW</coursecode>
-<course><code>CMW201</code>
-<title>Worship Practicum 1</title>
-<description>Skills development and practice in planning and leading Christian worship, including such activities as choosing and accompanying hymns, song-leading, teaching new music, the use of instrumental music, reading scripture, leading prayer, movement and gesture. </description>
-<code>CMW202</code>
-<title>Worship Practicum 2</title>
-<description>A Continuation of CMW 201. Skills development and practice in planning and leading Christian worship, including such activities as choosing and accompanying hymns, song-leading, teaching new music, the use of instrumental music, reading scripture, leading prayer, movement and gesture. </description>
-<code>CMW363</code>
-<title>Christian Hymnody</title>
-<description>The origins of the Christian hymn and its development up to the present. The course considers the hymn as theological, poetic, musical, cultural, and spiritual expression, and the use of hymns in a variety of worship settings. </description>
-<code>CMW364</code>
-<title>Worship and Music</title>
-<description>The nature of worship and the role of music within worship in historical, theological, and cultural perspective. Field trips to services of various traditions. </description>
-<code>CMW390</code>
-<title>Special Topics in Church Music and Worship</title>
-<description>Term courses will be offered from time to time as announced. Topics will be dependent on research and/or instructional interests of faculty.</description>
-</course>
-
-<coursecode>CIVE</coursecode>
+<coursecode><code>CIVE</code><title>Civil Engineering </title></coursecode>
 <course><code>CIVE291</code>
 <title>Survey Camp</title>
 <description>Introduction to surveying, length measurements, levelling, transit surveys.</description>
@@ -478,7 +661,7 @@
 <description>A special course on advanced topics in Civil Engineering is offered from time to time, when resources are available. For the current offering, inquire at the Department.</description>
 </course>
 
-<coursecode>CLAS</coursecode>
+<coursecode><code>CLAS</code><title>Classical Studies </title></coursecode>
 <course><code>CLAS100</code>
 <title>An Introduction to Classical Studies</title>
 <description>An introduction to Greek and Roman civilization, focusing on six key aspects of the discipline of classical studies: history, literature, philosophy, myth and religion, art and architecture, and classical archaeology.</description>
@@ -583,7 +766,55 @@
 <description>Under exceptional circumstances, and only with the prior approval of the Department, a student may substitute an individualized course of study at the senior level. Such circumstances might include, for example, the student's participation in an approved archaeological dig. For further details, consult the Department.</description>
 </course>
 
-<coursecode>CO</coursecode>
+<coursecode><code>CM</code><title>Computational Mathematics </title></coursecode>
+<course><code>CM271</code>
+<title>Introduction to Computational Mathematics</title>
+<description>A rigorous introduction to the field of computational mathematics. The focus is on the interplay between continuous models and their solution via discrete processes. Topics include: pitfalls in computation, solution of linear systems, interpolation, discrete Fourier transforms and numerical integration. Applications are used as motivation. </description>
+<code>CM339</code>
+<title>Algorithms</title>
+<description>The study of efficient algorithms and effective algorithm design techniques. Program design with emphasis on pragmatic and mathematical aspects of program efficiency. Topics include divide and conquer algorithms, recurrences, greedy algorithms, dynamic programming, graph search and backtrack, problems without algorithms, NP-completeness and its implications. </description>
+<code>CM353</code>
+<title>Computational Modeling of Cellular Systems</title>
+<description>An introduction to dynamic mathematical modeling of cellular processes. The emphasis is on using computational tools to investigate differential equation-based models. A variety of cellular phenomena are discussed, including ion pumps, membrane potentials, intercellular communication, genetic networks, regulation of metabolic pathways, and signal transduction. </description>
+<code>CM433</code>
+<title>Introduction to Symbolic Computation</title>
+<description>An introduction to the use of computers for symbolic mathematical computation, involving traditional mathematical computations such as solving linear equations (exactly), analytic differentiation and integration of functions, and analytic solution of differential equations. </description>
+<code>CM434</code>
+<title>Techniques in Computational Number Theory</title>
+<description>An introduction to: integer factorization, elliptic curves methods, primality testing, fast integer arithmetic, fast Fourier transforms and quantum computing. This course is taught with a philosophy that encourages experimentation. </description>
+<code>CM442</code>
+<title>Nonlinear Optimization</title>
+<description>A course on the fundamentals of nonlinear optimization, including both the mathematical and the computational aspects. Necessary and sufficient optimality conditions for unconstrained and constrained problems. Convexity and its applications. Computational techniques and their analysis. </description>
+<code>CM473</code>
+<title>Medical Image Processing</title>
+<description>An introduction to computational problems in medical imaging. Sources of medical images (MRI, CT, ultrasound, PET) as well as reconstruction methods for MRI and CT. Image manipulation and enhancement such as denoising and deblurring. Patient motion correction and optimal image alignment. Tissue classification and organ delineation using image topology. </description>
+<code>CM476</code>
+<title>Numeric Computation for Financial Modeling</title>
+<description>The interaction of financial models, numerical methods, and computing environments. Basic computational aspects of option pricing and hedging. Numerical methods for stochastic differential equations, strong and weak convergence. Generating correlated random numbers. Time-stepping methods. Finite difference methods for the Black-Scholes equation. Discretization, stability, convergence. Methods for portfolio optimization, effect of data errors on portfolio weights. </description>
+<code>CM498</code>
+<title>Advanced Topics in Computational Mathematics</title>
+<description>See the course offerings list on the Computational Mathematics website for topics available. </description>
+</course>
+
+<coursecode><code>CMW</code><title>Church Music and Worship </title></coursecode>
+<course><code>CMW201</code>
+<title>Worship Practicum 1</title>
+<description>Skills development and practice in planning and leading Christian worship, including such activities as choosing and accompanying hymns, song-leading, teaching new music, the use of instrumental music, reading scripture, leading prayer, movement and gesture. </description>
+<code>CMW202</code>
+<title>Worship Practicum 2</title>
+<description>A Continuation of CMW 201. Skills development and practice in planning and leading Christian worship, including such activities as choosing and accompanying hymns, song-leading, teaching new music, the use of instrumental music, reading scripture, leading prayer, movement and gesture. </description>
+<code>CMW363</code>
+<title>Christian Hymnody</title>
+<description>The origins of the Christian hymn and its development up to the present. The course considers the hymn as theological, poetic, musical, cultural, and spiritual expression, and the use of hymns in a variety of worship settings. </description>
+<code>CMW364</code>
+<title>Worship and Music</title>
+<description>The nature of worship and the role of music within worship in historical, theological, and cultural perspective. Field trips to services of various traditions. </description>
+<code>CMW390</code>
+<title>Special Topics in Church Music and Worship</title>
+<description>Term courses will be offered from time to time as announced. Topics will be dependent on research and/or instructional interests of faculty.</description>
+</course>
+
+<coursecode><code>CO</code><title>Combinatorics and Optimization </title></coursecode>
 <course><code>CO355</code>
 <title>Mathematical Optimization</title>
 <description>Linear optimization: feasibility theorems, duality, the simplex algorithm. Discrete optimization: integer linear programming, cutting planes, network flows. Continuous optimization: local and global optima, feasible directions, convexity, necessary optimality conditions. </description>
@@ -631,37 +862,65 @@
 <description>Basics of computational complexity; basics of quantum information; quantum phenomena; quantum circuits and universality; relationship between quantum and classical complexity classes; simple quantum algorithms; quantum Fourier transform; Shor factoring algorithm; Grover search algorithm; physical realization of quantum computation; error-correction and fault-tolerance; quantum key distribution.</description>
 </course>
 
-<coursecode>CM</coursecode>
-<course><code>CM271</code>
-<title>Introduction to Computational Mathematics</title>
-<description>A rigorous introduction to the field of computational mathematics. The focus is on the interplay between continuous models and their solution via discrete processes. Topics include: pitfalls in computation, solution of linear systems, interpolation, discrete Fourier transforms and numerical integration. Applications are used as motivation. </description>
-<code>CM339</code>
-<title>Algorithms</title>
-<description>The study of efficient algorithms and effective algorithm design techniques. Program design with emphasis on pragmatic and mathematical aspects of program efficiency. Topics include divide and conquer algorithms, recurrences, greedy algorithms, dynamic programming, graph search and backtrack, problems without algorithms, NP-completeness and its implications. </description>
-<code>CM353</code>
-<title>Computational Modeling of Cellular Systems</title>
-<description>An introduction to dynamic mathematical modeling of cellular processes. The emphasis is on using computational tools to investigate differential equation-based models. A variety of cellular phenomena are discussed, including ion pumps, membrane potentials, intercellular communication, genetic networks, regulation of metabolic pathways, and signal transduction. </description>
-<code>CM433</code>
-<title>Introduction to Symbolic Computation</title>
-<description>An introduction to the use of computers for symbolic mathematical computation, involving traditional mathematical computations such as solving linear equations (exactly), analytic differentiation and integration of functions, and analytic solution of differential equations. </description>
-<code>CM434</code>
-<title>Techniques in Computational Number Theory</title>
-<description>An introduction to: integer factorization, elliptic curves methods, primality testing, fast integer arithmetic, fast Fourier transforms and quantum computing. This course is taught with a philosophy that encourages experimentation. </description>
-<code>CM442</code>
-<title>Nonlinear Optimization</title>
-<description>A course on the fundamentals of nonlinear optimization, including both the mathematical and the computational aspects. Necessary and sufficient optimality conditions for unconstrained and constrained problems. Convexity and its applications. Computational techniques and their analysis. </description>
-<code>CM473</code>
-<title>Medical Image Processing</title>
-<description>An introduction to computational problems in medical imaging. Sources of medical images (MRI, CT, ultrasound, PET) as well as reconstruction methods for MRI and CT. Image manipulation and enhancement such as denoising and deblurring. Patient motion correction and optimal image alignment. Tissue classification and organ delineation using image topology. </description>
-<code>CM476</code>
-<title>Numeric Computation for Financial Modeling</title>
-<description>The interaction of financial models, numerical methods, and computing environments. Basic computational aspects of option pricing and hedging. Numerical methods for stochastic differential equations, strong and weak convergence. Generating correlated random numbers. Time-stepping methods. Finite difference methods for the Black-Scholes equation. Discretization, stability, convergence. Methods for portfolio optimization, effect of data errors on portfolio weights. </description>
-<code>CM498</code>
-<title>Advanced Topics in Computational Mathematics</title>
-<description>See the course offerings list on the Computational Mathematics website for topics available. </description>
+<coursecode><code>COOP</code><title>Co-operative Work Term </title></coursecode>
+<course><code>COOP1</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP2</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP3</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP4</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP5</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP6</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP7</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP8</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP9</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP10</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP11</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
+<code>COOP12</code>
+<title>Co-operative Work Term</title>
+<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
 </course>
 
-<coursecode>CS</coursecode>
+<coursecode><code>CROAT</code><title>Croatian</title></coursecode>
+<course><code>CROAT101</code>
+<title>Elementary Croatian 1</title>
+<description>For students with little or no knowledge of Croatian. The basic elements of Croatian grammar with emphasis on oral practice and pronunciation are stressed. 
+</description>
+<code>CROAT102</code>
+<title>Elementary Croatian II</title>
+<description>A continuation of CROAT 101. </description>
+<code>CROAT201</code>
+<title>Intermediate Croatian I</title>
+<description>This course is a continuation of Elementary Croatian. It offers extensive practice in both the spoken and written language. Vocabulary building, comprehension and pronunciation are stressed.</description>
+<code>CROAT202</code>
+<title>Intermediate Croatian II</title>
+<description>A continuation of CROAT 201.</description>
+<code>CROAT496</code>
+<title>Special Topics in Croatian Studies</title>
+<description>Selected topics in Croatian Studies.</description>
+</course>
+
+<coursecode><code>CS</code><title>Computer Science</title></coursecode>
 <course><code>CS115</code>
 <title>Introduction to Computer Science 1</title>
 <description>An introduction to the fundamentals of computer science through the application of elementary programming patterns in the functional style of programming. Function definition and application. Tracing via substitution. Design, testing, and documentation. Recursive data definitions. Lists and trees. Functional and data abstraction.
@@ -785,65 +1044,7 @@
 <description>The student will undertake new analysis, synthesis, measurement, or experimentation to produce a document that demonstrates a depth of understanding of a topic that goes beyond what is obtained in a standard undergraduate education. </description>
 </course>
 
-<coursecode>COOP</coursecode>
-<course><code>COOP1</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP2</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP3</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP4</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP5</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP6</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP7</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP8</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP9</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP10</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP11</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-<code>COOP12</code>
-<title>Co-operative Work Term</title>
-<description>Supervised and evaluated (as specified by the student's faculty) work term employment in business, industry, government, education or social services.</description>
-</course>
-
-<coursecode>CROAT</coursecode>
-<course><code>CROAT101</code>
-<title>Elementary Croatian 1</title>
-<description>For students with little or no knowledge of Croatian. The basic elements of Croatian grammar with emphasis on oral practice and pronunciation are stressed. 
-</description>
-<code>CROAT102</code>
-<title>Elementary Croatian II</title>
-<description>A continuation of CROAT 101. </description>
-<code>CROAT201</code>
-<title>Intermediate Croatian I</title>
-<description>This course is a continuation of Elementary Croatian. It offers extensive practice in both the spoken and written language. Vocabulary building, comprehension and pronunciation are stressed.</description>
-<code>CROAT202</code>
-<title>Intermediate Croatian II</title>
-<description>A continuation of CROAT 201.</description>
-<code>CROAT496</code>
-<title>Special Topics in Croatian Studies</title>
-<description>Selected topics in Croatian Studies.</description>
-</course>
-
-<coursecode>DAC</coursecode>
+<coursecode><code>DAC</code><title>Digital Arts Communication</title></coursecode>
 <course><code>DAC201</code>
 <title>Designing Digital Images and Hypertext</title>
 <description>This course draws on multiple theoretical perspectives to introduce students to the fundamental principles of multi-modal communication design in its social context. Students will analyze, design, and produce images and hypertext for use in a variety of digital platforms, including e-learning and business applications. </description>
@@ -867,7 +1068,7 @@
 <description>Students will work in small groups under the supervision of a faculty researcher on an ongoing, large-scale, digital design project.</description>
 </course>
 
-<coursecode>DRAMA</coursecode>
+<coursecode><code>DRAMA</code><title>Drama</title></coursecode>
 <course><code>DRAMA102</code>
 <title>Introduction to Performance</title>
 <description>Designed for majors in Drama and in Speech Communication, this workshop introduces the student to the tools of performance. Students will gain confidence through individual and group exercises in physical and emotional awareness, improvisational skills, scene study, character creation and voice. </description>
@@ -1083,7 +1284,7 @@
 <description>Seminars in special areas of drama and theatre.</description>
 </course>
 
-<coursecode>DUTCH</coursecode>
+<coursecode><code>DUTCH</code><title>Dutch</title></coursecode>
 <course><code>DUTCH101</code>
 <title>Elementary Dutch I</title>
 <description>The basic elements of Dutch grammar with emphasis on oral practice and pronunciation. Introduction to aspects of Dutch culture. </description>
@@ -1098,7 +1299,7 @@
 <description>A continuation of DUTCH 201. </description>
 </course>
 
-<coursecode>EARTH</coursecode>
+<coursecode><code>EARTH</code><title>Earth Sciences</title></coursecode>
 <course><code>EARTH121</code>
 <title>Introductory Earth Sciences</title>
 <description>This course explores the geological processes of the Earth's interior and surface. These include volcanism, earthquakes, mountain building, glaciation and weathering. Students will gain an appreciation of how these processes have controlled the evolution of our planet and the role of geology in meeting society's current and future demand for sustainable energy and mineral resources. </description>
@@ -1125,10 +1326,55 @@
 <description>One or more trips that emphasize field observations. Specific trips may be organized to examine field aspects of any of the disciplines within Earth Sciences or Geological Engineering. Field exercises and reports may be part of the requirements. Additional field trip fees will apply.</description>
 </course>
 
-<coursecode>EASIA</coursecode>
+<coursecode><code>EASIA</code><title>East Asian</title></coursecode>
 <course></course>
 
-<coursecode>ECON</coursecode>
+<coursecode><code>ECE</code><title>Electrical and Computer Engineering</title></coursecode>
+<course><code>ECE100A</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE100B</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE200A</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE200B</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE300A</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE300B</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE355</code>
+<title>Software Engineering</title>
+<description>Requirement analysis, specifications, software design, software development environments, testing, software project management, quality assurance and control. </description>
+<code>ECE400A</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE400B</code>
+<title>Electrical and Computer Engineering Practice</title>
+<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
+<code>ECE450</code>
+<title>Software Systems</title>
+<description>Introduction to selected areas of software science and engineering: data abstraction; object oriented approaches; real-time operating systems; translators; software specification, design and testing. </description>
+<code>ECE451</code>
+<title>Software Requirements Specification and Analysis</title>
+<description>Introduces students to the requirements definition phase of software development. Models, notations, and processes for software requirements identification, representation, analysis, and validation. Cost estimation from early documents and specifications. </description>
+<code>ECE452</code>
+<title>Software Design and Architectures</title>
+<description>Introduces students to the design, implementation, and evolution phases of software development. Software design processes, methods, and notation. Implementation of designs. Evolution of designs and implementations. Management of design activities. </description>
+<code>ECE484</code>
+<title>Digital Control Applications</title>
+<description>Dynamic system modeling: linear, nonlinear, state-space, sample data systems, computer simulation, system identification. Discrete system stability and dynamic performance. Nonlinear system analysis, limit cycles. Digital control system design: emulation methods, z-domain, frequency domain, pole placement. Implementation of digital controllers. Laboratory projects in computer control of mechatronic and other systems. </description>
+<code>ECE499</code>
+<title>Engineering Project</title>
+<description>An engineering project requiring the student to demonstrate initiative and assume responsibility. The student will arrange for a faculty supervisor prior to registration. Students can propose their own topic. A project report is required at the end of the term. </description>
+</course>
+
+<coursecode><code>ECON</code><title>Economics</title></coursecode>
 <course><code>ECON101</code>
 <title>Introduction to Microeconomics</title>
 <description>This course provides an introduction to microeconomic analysis relevant for understanding the Canadian economy. The behaviour of individual consumers and producers, the determination of market prices for commodities and resources, and the role of government policy in the functioning of the market system are the main topics covered.</description>
@@ -1299,52 +1545,52 @@
 <description>Research and reading courses under the direction of individual instructors. See Economics Undergraduate Officer for course registration.</description>
 </course>
 
-<coursecode>ECE</coursecode>
-<course><code>ECE100A</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE100B</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE200A</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE200B</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE300A</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE300B</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE355</code>
-<title>Software Engineering</title>
-<description>Requirement analysis, specifications, software design, software development environments, testing, software project management, quality assurance and control. </description>
-<code>ECE400A</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE400B</code>
-<title>Electrical and Computer Engineering Practice</title>
-<description>Areas of research and professional practice in Electrical and Computer Engineering. Exposure to concepts from other Engineering disciplines. Support material for the academic term, cooperative education, and professional or career development. </description>
-<code>ECE450</code>
-<title>Software Systems</title>
-<description>Introduction to selected areas of software science and engineering: data abstraction; object oriented approaches; real-time operating systems; translators; software specification, design and testing. </description>
-<code>ECE451</code>
-<title>Software Requirements Specification and Analysis</title>
-<description>Introduces students to the requirements definition phase of software development. Models, notations, and processes for software requirements identification, representation, analysis, and validation. Cost estimation from early documents and specifications. </description>
-<code>ECE452</code>
-<title>Software Design and Architectures</title>
-<description>Introduces students to the design, implementation, and evolution phases of software development. Software design processes, methods, and notation. Implementation of designs. Evolution of designs and implementations. Management of design activities. </description>
-<code>ECE484</code>
-<title>Digital Control Applications</title>
-<description>Dynamic system modeling: linear, nonlinear, state-space, sample data systems, computer simulation, system identification. Discrete system stability and dynamic performance. Nonlinear system analysis, limit cycles. Digital control system design: emulation methods, z-domain, frequency domain, pole placement. Implementation of digital controllers. Laboratory projects in computer control of mechatronic and other systems. </description>
-<code>ECE499</code>
-<title>Engineering Project</title>
-<description>An engineering project requiring the student to demonstrate initiative and assume responsibility. The student will arrange for a faculty supervisor prior to registration. Students can propose their own topic. A project report is required at the end of the term. </description>
+<coursecode><code>ENBUS</code><title>Environment and Business</title></coursecode>
+<course><code>ENBUS102</code>
+<title>Introduction to Environment and Business</title>
+<description>Introduction of ways in which business has and is responding to environmental and business issues; business and sustainable development; issues of corporate/business greening. </description>
+<code>ENBUS202</code>
+<title>Environmental Management Systems</title>
+<description>The examination and evaluation of Environmental Management Systems such as ISO 14001. Alternate EMS systems will be compared and reviewed to identify their respective strengths and weaknesses. Case studies will be used to illustrate the ideas presented. </description>
+<code>ENBUS203</code>
+<title>Green Entrepreneurship</title>
+<description>Introduction to entrepreneurship in the economy, with a focus on the environmental industry and green technologies. Addresses competition, innovation and investment; historical experience, theoretical framework, market dynamics, public policy and practical applications.</description>
+<code>ENBUS204</code>
+<title>Principles of Industrial Ecology</title>
+<description>The course presents the history of industrial ecology, defines its key concepts, presents its main methods, and discusses future directions. Local, national and international case studies will be discussed.</description>
+<code>ENBUS302</code>
+<title>Evaluation of Environment &amp; Business Integration</title>
+<description>A review of the successes and failures of businesses which have attempted to adopt environmental priorities in their operations. Case studies will be reviewed to identify barriers to adopting environmental priorities and the processes which proved successful in overcoming these obstacles. </description>
+<code>ENBUS307</code>
+<title>Environmental Declarations</title>
+<description>The course presents the development and history of environmental labeling, environmental declarations and related tools; covers the ISO standards for product eco-labeling and other schemes including different national and sectoral programs, considering declarations on products, packaging, services and organizations; addresses best practices and legislation; information and consumer programs to address climate change actions (such as the carbon neutral concept and GHG footprinting approaches).</description>
+<code>ENBUS309</code>
+<title>Occupational Health and Safety</title>
+<description>Students will focus on the recognition, assessment and control of occupational hazards, together with appropriate approaches to regulation, enforcement and policy development.</description>
+<code>ENBUS310</code>
+<title>Strategic Planning</title>
+<description>The course presents the principles essential for the formulation and evaluation of strategy for business and explores frameworks for strategic analysis, synthesis and action as it relates to sustainable business. Some key concepts to be considered are: market trends; core competence; competitive advantage.</description>
+<code>ENBUS311</code>
+<title>Green Marketing</title>
+<description>This course explores the principles of green marketing; green consumerism; green marketing myopia; the incorporation of environmental considerations into successful products and services; the role of social marketing, government regulations and other incentives related to green marketing.</description>
+<code>ENBUS312</code>
+<title>Company Organization and Engagement</title>
+<description>Discussion of company organization structures; factors that deter change together with means of overcoming these issues; and how the greening of industry has impacted organizational structure in different business sectors. Includes review of business case studies where environmental management changes have resulted.</description>
+<code>ENBUS407</code>
+<title>Environmental Reporting</title>
+<description>The course builds on EBUS 308 Advanced Environmental Auditing focusing on the environmental reporting mechanisms required of businesses by various levels of government in North America and overseas. The course will also evaluate best practices with reporting environmental performance in different business sectors.</description>
+<code>ENBUS408</code>
+<title>Best Practices in Regulations</title>
+<description>Well-crafted environmental regulations, smart regulations, can not only protect the environment but also enhance business competitiveness. This course will discuss issues with regard to smart regulations from the viewpoint of various stakeholders: for example, governments, businesses, and customers.</description>
+<code>ENBUS409</code>
+<title>Environmental Enterprise Project</title>
+<description>Students will gain practical experience of setting up an environmental enterprise. Students are required to develop an environmental idea into an action plan report, thereby learning to apply appropriate marketing, management and financial techniques that are necessary to develop their idea into a feasible venture.</description>
+<code>ENBUS410</code>
+<title>Engaging Community Stakeholders</title>
+<description>Business practices need to reflect responsibility not just to shareholders, customers and staff, but also towards the local community. This course discusses what this means for management, and the strategies and practices that are needed to express this responsibility successfully.</description>
 </course>
 
-<coursecode>ENGL</coursecode>
+<coursecode><code>ENGL</code><title>English</title></coursecode>
 <course><code>ENGL100A</code>
 <title>Fiction</title>
 <description>An introduction to fiction through the detailed examination of a range of novels and/or short stories.</description>
@@ -1797,22 +2043,70 @@
 <description>Senior Honours Essay will be completed under supervision.</description>
 </course>
 
-<coursecode>ESL</coursecode>
-<course><code>ESL100R</code>
-<title>English Language in Canadian Contexts</title>
-<description>This language skills course for non-Anglophones offers an exploration of forms and meanings of Canadian English in academic, workplace, and social contexts. Topics are events, issues and situations that Canadians face in everyday life. Students will strengthen their language skills, increase their vocabulary, and learn how to adapt their formal knowledge of English to real-life situations. </description>
-<code>ESL101R</code>
-<title>Fundamentals of Spoken English</title>
-<description>This course teaches the organizational, vocal, listening, and critical skills required for oral communications. It features intensive work on spoken English in all contexts, from conventional gambits to public speaking, including an emphasis on phonology and prosody to improve comprehensibility. Minimum of four hours of instruction each week. </description>
-<code>ESL102R</code>
-<title>Introduction to Error Correction in Writing</title>
-<description>This course offers sentence-level instruction in grammar and idiom to teach students to produce, evaluate, and edit writing under time constraints. It emphasizes readability and error reduction in sentences and paragraphs. Minimum of five hours of instruction each week. </description>
-<code>ESL129R</code>
-<title>Introduction to Written English</title>
-<description>This writing skills course is open only to students whose first language is not English. It provides instruction in basic grammar, sentence and paragraph structure, elements of composition and essay writing including a focus on theme, development of central ideas, exposition and argumentation.</description>
+<coursecode><code>ENVE</code><title>Environmental Engineering </title></coursecode>
+<course><code>ENVE298</code>
+<title>Seminar</title>
+<description>General Seminar</description>
+<code>ENVE299</code>
+<title>Seminar</title>
+<description>General Seminar</description>
+<code>ENVE398</code>
+<title>Seminar</title>
+<description>General Seminar</description>
+<code>ENVE399</code>
+<title>Seminar</title>
+<description>General Seminar</description>
+<code>ENVE498</code>
+<title>Seminar</title>
+<description>General Seminar</description>
+<code>ENVE499</code>
+<title>Seminar</title>
+<description>General Seminar</description>
 </course>
 
-<coursecode>ERS</coursecode>
+<coursecode><code>ENVS</code><title>Environmental Studies </title></coursecode>
+<course><code>ENVS131</code>
+<title>Communications for Environmental Professions</title>
+<description>This course provides an introduction to strategies and tools that enhance the effectiveness and impact of communications for environmental professionals. The course focuses on topics such as effective presentation methods in small or large group settings, digital presentation techniques, media relations, and corporate communications strategies. </description>
+<code>ENVS178</code>
+<title>Introduction to Environmental Research Methods</title>
+<description>Introduction to methods of developing, evaluating and using evidence in Environmental Studies. Methods for summarizing and critical appreciation of data describing environmental systems. Skill development in applying statistical techniques and in using microcomputers as a research tool. While not a prerequisite for this course, CS 100 or a high school computing course is helpful.</description>
+<code>ENVS195</code>
+<title>Introduction to Environmental Studies</title>
+<description>Provides an overview of human ecological aspects of environmental studies from an intercultural and global perspective.</description>
+<code>ENVS200</code>
+<title>Field Ecology</title>
+<description>Introduces the main concepts and principles of ecology; the cycling of elements; energetics and structural organization of major ecological systems; population dynamics; impact of natural resource management practices and urban and industrial development on the environment; incorporating environmental quality considerations into development activities. The lab sessions include field trips to study natural and disturbed ecosystems, urban and applied ecology. </description>
+<code>ENVS201</code>
+<title>Introduction to Environmental and Planning Law</title>
+<description>Introduction to legal concepts generally and to environmental and planning law concepts in particular. Topics to be covered include Sources of Law, Nature of Legal Remedies, Common Law, Administrative Agencies, Planning Act, Environmental Protection and Assessment Acts, and Federal Environmental Protection Act.</description>
+<code>ENVS220</code>
+<title>Ecological Economics</title>
+<description>Evaluation of various economic approaches to the environment. The links between economics, systems and the natural environment will be explored and future directions examined.</description>
+<code>ENVS278</code>
+<title>Advanced Environmental Research Methods</title>
+<description>Advanced methods for developing, evaluating and using primary and secondary data in Environmental Studies. Builds upon ENV S 178 by introducing probability and inferential statistics, statistical sampling procedures and hypothesis testing. Standard parametric and nonparametric statistical tests up to the linear regression model and extensions. Modelling of environmental phenomena in space and time using the microcomputer for data entry, storage and analysis.</description>
+<code>ENVS334</code>
+<title>Introduction to Park Management</title>
+<description>Introduction to the categories, administrative arrangements and functions of parks, including planning and management of parks at all government levels, with emphasis on law, policy system planning, management planning, site planning and management. The course will emphasize international aspects of park management.</description>
+<code>ENVS395</code>
+<title>Study Abroad</title>
+<description>Study abroad for academic transfer credit under a Faculty of Environment Exchange Program.</description>
+<code>ENVS401</code>
+<title>Environmental Law</title>
+<description>Detailed consideration of recent developments in Canadian environmental and resources regulatory regimes combined with guidance on presentation of expert evidence to courts and tribunals.</description>
+<code>ENVS433</code>
+<title>Ecotourism and Park Tourism</title>
+<description>Planning and management of ecotourism and park tourism. Emphasis is placed on public involvement, market segmentation, policy and law, visitor management strategies and international trends. The role of national parks and other categories of protected areas is highlighted.</description>
+<code>ENVS469</code>
+<title>Landscape Ecology, Restoration and Rehabilitation</title>
+<description>Survey of the major ideas and techniques of landscape ecology. Application of these concepts to a case study in restoration and/or rehabilitation. Interaction with professionals from government, NGOs and private industry on ecological issues will also be part of the course. The course includes a practical project on ecological restoration or rehabilitation. </description>
+<code>ENVS474</code>
+<title>Special Topics in Environmental Studies</title>
+<description>This course allows for additions to the program on a short-term basis, and for the development of future permanent courses. </description>
+</course>
+
+<coursecode><code>ERS</code><title>Environment and Resource Studies </title></coursecode>
 <course><code>ERS253</code>
 <title>The Politics of Sustainable Communities</title>
 <description>Considers a variety of contemporary issues within the context of local politics and governance. The course explores the nature of a healthy community by examining issues related to environmental concerns, land use, economic development, community health, transportation, and public participation.</description>
@@ -1899,70 +2193,22 @@
 <description>Examines the global nature of food systems from production to consumption, including both industrial and alternative models. Specific themes covered in the course include technological change in agriculture, corporate concentration, international agricultural trade, food aid, fair trade, and organic production in the Global North and South.</description>
 </course>
 
-<coursecode>ENVE</coursecode>
-<course><code>ENVE298</code>
-<title>Seminar</title>
-<description>General Seminar</description>
-<code>ENVE299</code>
-<title>Seminar</title>
-<description>General Seminar</description>
-<code>ENVE398</code>
-<title>Seminar</title>
-<description>General Seminar</description>
-<code>ENVE399</code>
-<title>Seminar</title>
-<description>General Seminar</description>
-<code>ENVE498</code>
-<title>Seminar</title>
-<description>General Seminar</description>
-<code>ENVE499</code>
-<title>Seminar</title>
-<description>General Seminar</description>
+<coursecode><code>ESL</code><title>English as a Second Language </title></coursecode>
+<course><code>ESL100R</code>
+<title>English Language in Canadian Contexts</title>
+<description>This language skills course for non-Anglophones offers an exploration of forms and meanings of Canadian English in academic, workplace, and social contexts. Topics are events, issues and situations that Canadians face in everyday life. Students will strengthen their language skills, increase their vocabulary, and learn how to adapt their formal knowledge of English to real-life situations. </description>
+<code>ESL101R</code>
+<title>Fundamentals of Spoken English</title>
+<description>This course teaches the organizational, vocal, listening, and critical skills required for oral communications. It features intensive work on spoken English in all contexts, from conventional gambits to public speaking, including an emphasis on phonology and prosody to improve comprehensibility. Minimum of four hours of instruction each week. </description>
+<code>ESL102R</code>
+<title>Introduction to Error Correction in Writing</title>
+<description>This course offers sentence-level instruction in grammar and idiom to teach students to produce, evaluate, and edit writing under time constraints. It emphasizes readability and error reduction in sentences and paragraphs. Minimum of five hours of instruction each week. </description>
+<code>ESL129R</code>
+<title>Introduction to Written English</title>
+<description>This writing skills course is open only to students whose first language is not English. It provides instruction in basic grammar, sentence and paragraph structure, elements of composition and essay writing including a focus on theme, development of central ideas, exposition and argumentation.</description>
 </course>
 
-<coursecode>ENVS</coursecode>
-<course><code>ENVS131</code>
-<title>Communications for Environmental Professions</title>
-<description>This course provides an introduction to strategies and tools that enhance the effectiveness and impact of communications for environmental professionals. The course focuses on topics such as effective presentation methods in small or large group settings, digital presentation techniques, media relations, and corporate communications strategies. </description>
-<code>ENVS178</code>
-<title>Introduction to Environmental Research Methods</title>
-<description>Introduction to methods of developing, evaluating and using evidence in Environmental Studies. Methods for summarizing and critical appreciation of data describing environmental systems. Skill development in applying statistical techniques and in using microcomputers as a research tool. While not a prerequisite for this course, CS 100 or a high school computing course is helpful.</description>
-<code>ENVS195</code>
-<title>Introduction to Environmental Studies</title>
-<description>Provides an overview of human ecological aspects of environmental studies from an intercultural and global perspective.</description>
-<code>ENVS200</code>
-<title>Field Ecology</title>
-<description>Introduces the main concepts and principles of ecology; the cycling of elements; energetics and structural organization of major ecological systems; population dynamics; impact of natural resource management practices and urban and industrial development on the environment; incorporating environmental quality considerations into development activities. The lab sessions include field trips to study natural and disturbed ecosystems, urban and applied ecology. </description>
-<code>ENVS201</code>
-<title>Introduction to Environmental and Planning Law</title>
-<description>Introduction to legal concepts generally and to environmental and planning law concepts in particular. Topics to be covered include Sources of Law, Nature of Legal Remedies, Common Law, Administrative Agencies, Planning Act, Environmental Protection and Assessment Acts, and Federal Environmental Protection Act.</description>
-<code>ENVS220</code>
-<title>Ecological Economics</title>
-<description>Evaluation of various economic approaches to the environment. The links between economics, systems and the natural environment will be explored and future directions examined.</description>
-<code>ENVS278</code>
-<title>Advanced Environmental Research Methods</title>
-<description>Advanced methods for developing, evaluating and using primary and secondary data in Environmental Studies. Builds upon ENV S 178 by introducing probability and inferential statistics, statistical sampling procedures and hypothesis testing. Standard parametric and nonparametric statistical tests up to the linear regression model and extensions. Modelling of environmental phenomena in space and time using the microcomputer for data entry, storage and analysis.</description>
-<code>ENVS334</code>
-<title>Introduction to Park Management</title>
-<description>Introduction to the categories, administrative arrangements and functions of parks, including planning and management of parks at all government levels, with emphasis on law, policy system planning, management planning, site planning and management. The course will emphasize international aspects of park management.</description>
-<code>ENVS395</code>
-<title>Study Abroad</title>
-<description>Study abroad for academic transfer credit under a Faculty of Environment Exchange Program.</description>
-<code>ENVS401</code>
-<title>Environmental Law</title>
-<description>Detailed consideration of recent developments in Canadian environmental and resources regulatory regimes combined with guidance on presentation of expert evidence to courts and tribunals.</description>
-<code>ENVS433</code>
-<title>Ecotourism and Park Tourism</title>
-<description>Planning and management of ecotourism and park tourism. Emphasis is placed on public involvement, market segmentation, policy and law, visitor management strategies and international trends. The role of national parks and other categories of protected areas is highlighted.</description>
-<code>ENVS469</code>
-<title>Landscape Ecology, Restoration and Rehabilitation</title>
-<description>Survey of the major ideas and techniques of landscape ecology. Application of these concepts to a case study in restoration and/or rehabilitation. Interaction with professionals from government, NGOs and private industry on ecological issues will also be part of the course. The course includes a practical project on ecological restoration or rehabilitation. </description>
-<code>ENVS474</code>
-<title>Special Topics in Environmental Studies</title>
-<description>This course allows for additions to the program on a short-term basis, and for the development of future permanent courses. </description>
-</course>
-
-<coursecode>FINE</coursecode>
+<coursecode><code>FINE</code><title>Fine Arts </title></coursecode>
 <course><code>FINE112</code>
 <title>Modern Art, 1874-1945</title>
 <description>A study of the culture of Europe and North America from 1874 (Impressionism) to 1945 (Nazi propaganda) with particular focus on the visual arts. Topics such as 'primitivism', Cubism, 'abstraction', artists' reactions to calamitous world events such as World War I, and various methodologies, including semiotic and Marxist analyses, will be explored through reading and writing assignments. </description>
@@ -2281,7 +2527,7 @@
 <description>Each student will work under the direction of a Fine Arts faculty member on an advanced research project in art history. The course is evaluated by a committee of Fine Arts faculty members.</description>
 </course>
 
-<coursecode>FR</coursecode>
+<coursecode><code>FR</code><title>French Studies/Études Françaises </title></coursecode>
 <course><code>FR151</code>
 <title>Basic French 1</title>
 <description>For students with some elementary or secondary school French not exceeding Year Two (Grade Ten in Ontario) or equivalent. Emphasizes comprehension, grammar and basic speaking skills. </description>
@@ -2494,7 +2740,34 @@
 <description>A small group of students follows a course of study under the supervision of a faculty member. For details, inquire of the Department.</description>
 </course>
 
-<coursecode>GEOG</coursecode>
+<coursecode><code>GENE</code><title>General Engineering </title></coursecode>
+<course><code>GENE123</code>
+<title>Electrical Engineering</title>
+<description>Introduction to electric and magnetic fields; basic dc circuits; amplifiers and operational amplifiers; ac circuit components; basic ac circuits; power circuits. </description>
+<code>GENE301</code>
+<title>Special Directed Studies</title>
+<description>This course is provided to allow enrichment for students in Engineering who have fulfilled the requirements of one or more of the courses in the 3A or 3B term by means of passing a course or courses taken during one or more work terms. The course comprises a special project pursued under the direction of a faculty member, normally in the department of the student's program. </description>
+<code>GENE302</code>
+<title>Special Directed Studies</title>
+<description>This course is provided to allow enrichment for students in Engineering who have fulfilled the requirements of one or more of the courses in the 3A or 3B term by means of passing a course or courses taken during one or more work terms. The course comprises a special project pursued under the direction of a faculty member, normally in the department of the student's program. </description>
+<code>GENE315</code>
+<title>Special Directed Non-Technical Studies</title>
+<description>This course is provided for students who, through academic studies during international exchange programs or other university related scholarly activities, wish to request a course credit for this work. Students wishing to claim this credit must show evidence of university level academic activity not otherwise claimed for credit. </description>
+<code>GENE401</code>
+<title>Special Directed Studies</title>
+<description>This course is provided to allow enrichment for students in Engineering who have fulfilled the requirements of one or more of the courses in the 4A or 4B term by means of passing a course or courses taken during one or more work terms. The course comprises a special project pursued under the direction of a faculty member, normally in the department of the student's program. </description>
+<code>GENE402</code>
+<title>Special Directed Studies</title>
+<description>This course is provided to allow enrichment for students in Engineering who have fulfilled the requirements of one or more of the courses in the 4A or 4B term by means of passing a course or courses taken during one or more work terms. The course comprises a special project pursued under the direction of a faculty member, normally in the department of the student's program. </description>
+<code>GENE415</code>
+<title>Special Directed Non-Technical Studies</title>
+<description>This course is provided for students who, through academic studies during international exchange programs or other university related scholarly activities, wish to request a course credit for this work. Students wishing to claim this credit must show evidence of university level academic activity not otherwise claimed for credit. </description>
+</course>
+
+<coursecode><code>GEOE</code><title>Geological Engineering </title></coursecode>
+<course></course>
+
+<coursecode><code>GEOG</code><title>Geography and Environmental Management</title></coursecode>
 <course><code>GEOG100</code>
 <title>On Becoming a Geographer</title>
 <description>An introduction to geographic themes and methods of inquiry. The emphasis will be placed on practical skills including literature searches, field observation, scholarly debate and professional writing.</description>
@@ -2675,10 +2948,7 @@
 <description>Completion of thesis.</description>
 </course>
 
-<coursecode>GEOE</coursecode>
-<course></course>
-
-<coursecode>GER</coursecode>
+<coursecode><code>GER</code><title>German</title></coursecode>
 <course><code>GER101</code>
 <title>Elementary German I</title>
 <description>For students with little or no knowledge of German. The basic elements of German grammar with emphasis on group and individual oral practice. Development of skills in listening/comprehension, speaking, reading and writing. Introduction to aspects of German culture and everyday life. Tapes and computer exercises accompany each chapter of the textbook. Students are encouraged to use them in the language laboratory and at home. </description>
@@ -2768,7 +3038,7 @@
 <description>Reading course in topics chosen in consultation with an advisor.</description>
 </course>
 
-<coursecode>GERON</coursecode>
+<coursecode><code>GERON</code><title>Gerontology</title></coursecode>
 <course><code>GERON210</code>
 <title>Development, Aging and Health</title>
 <description>The physiology of human growth, development and aging is examined, with special reference to the influence of diet, environment, exercise and disease on the normal processes.</description>
@@ -2786,7 +3056,7 @@
 <description>Faculty and students from various departments meet to discuss individual and population aging from a multidisciplinary perspective. Topics include the definition of aging, the demography of aging, evolutionary and genetic factors, aging as a social process, and human aging patterns.</description>
 </course>
 
-<coursecode>GRK</coursecode>
+<coursecode><code>GRK</code><title>Greek</title></coursecode>
 <course><code>GRK101</code>
 <title>Introductory Ancient Greek 1</title>
 <description>A course designed for students beginning the study of ancient Greek or who have not yet reached the level expected in GRK 201/202. The teaching approach emphasizes exposure to simple texts as soon as possible, but students desiring minimal competence in reading should go on to do GRK 102. </description>
@@ -2842,92 +3112,7 @@ knowledge of modern Greek or only limited experience with the language.</descrip
 <description>Under special circumstances, and with the approval of the Department, a student or small group of students may arrange to pursue individualized readings under the supervision of a faculty member.</description>
 </course>
 
-<coursecode>HLTH</coursecode>
-<course><code>HLTH210</code>
-<title>Development, Aging and Health</title>
-<description>The physiology of human growth, development and aging is examined, with special reference to the influence of diet, environment, exercise and disease on the normal processes.</description>
-<code>HLTH218</code>
-<title>Psychology of Death and Dying</title>
-<description>Variations in the meaning and significance of death and dying will be considered from a psychological perspective, with particular attention to the contexts (e.g., cultural, familial, life-span developmental) in which these variations occur.</description>
-<code>HLTH245</code>
-<title>The Canadian Health Care System</title>
-<description>This course examines the Canadian health care system by considering organizational principles, health resources, service utilization, health care planning and health promotion strategies. There is a focus on societal and political issues which affect the health of the society through the delivery system.</description>
-<code>HLTH253</code>
-<title>Demographic Change in Canada</title>
-<description>An introduction to the study of human population, with a focus on mortality, fertility, migration and spatial distribution in Canada. Methods and measures used in demographic research, sources of demographic data, and the health and social implications of the major demographic trends are discussed.</description>
-<code>HLTH330</code>
-<title>Health Informatics</title>
-<description>Health informatics is the multidisciplinary field devoted to the study of the generation, dissemination/communication, and utilization of health information. It covers the study of how providers of information design, produce, and interpret health information; how such information is communicated and stored; and how it is received, understoood, and used by its recipients.</description>
-<code>HLTH340</code>
-<title>Environmental Toxicology and Public Health</title>
-<description>An introduction to the basic biological and toxicological processes that determine the effects of environmental pollutants on human health. Emphasis is placed on the mechanisms that give rise to chronic or delayed health effects, such as cancer, genetic mutations, and birth defects.</description>
-<code>HLTH341</code>
-<title>Immunobiology and Public Health</title>
-<description>An introduction to the study of the immunobiological factors governing the occurrence of disease in humans. Selected chronic and acute diseases will be used to illustrate immunobiological mechanisms and the identification of risk factors from a public health perspective. The contribution of social determinants of health to modifying
-immunobiological mechanisms in human disease will also be considered.</description>
-<code>HLTH344</code>
-<title>Evaluation, Qualitative, and Survey Methods</title>
-<description>Increasingly, health services and community programs are under the scrutiny of their funders and the people using them and are being held more accountable. This course will expose students to political, ethical, social and methodological issues involved in program planning and evaluation. In addition, students will be introduced to survey and qualitative methods that are widely used in health research and program evaluation.</description>
-<code>HLTH346</code>
-<title>Human Nutrition</title>
-<description>An elementary course in nutrition with special emphasis on diet for sport and certain physiological conditions.</description>
-<code>HLTH348</code>
-<title>Social Psychology of Health Behaviour</title>
-<description>The study and application of basic social psychological processes in relation to selected health-related behaviours (e.g. family planning, overeating, smoking, non-medical drug use, cardiovascular risk factors, patient compliance, medical care utilization).</description>
-<code>HLTH349</code>
-<title>Health Behaviour Change</title>
-<description>The course will focus on the prevention of chronic disease through individual and population health behaviour change. Topics covered will include basic learning principles of behaviour, behaviour modification techniques, intrapersonal and interpersonal theories of behaviour change, motivation, and the role of policy in behaviour change. Application of principles will be examined using primary and secondary prevention trials and worksite health promotion programs.</description>
-<code>HLTH350</code>
-<title>Occupational Health</title>
-<description>Methodological approaches to the detection, assessment and management of toxic hazards (especially carcinogens) in the workplace and external environment. The health effects of chemical toxicants on specific human organ systems (lung, nervous system, immune system, etc.) are also examined.</description>
-<code>HLTH352</code>
-<title>Sociology of Aging</title>
-<description>An introduction to individual and population aging. Topics discussed include: aging from a historical and comparative perspective; aging in subcultures; aging and the social structure; aging and social processes; aging and the environment; work and retirement; and aging and leisure patterns.</description>
-<code>HLTH360</code>
-<title>Psychological Determinants of Health</title>
-<description>Psychological factors are critical to understanding how and why people act in the interests of their health. This course will examine how basic concepts from social psychology, learning theory, and models of health behaviour can help us to understand various health behaviours, health care utilization, and decision making in the context of health. The course will also explore the importance of health behaviour in the context of a population health perspective and population-level change.</description>
-<code>HLTH400</code>
-<title>Multidisciplinary Seminar on Aging</title>
-<description>Faculty and students from various departments meet to discuss individual and population aging from a multidisciplinary perspective. Topics include the definition of aging, the demography of aging, evolutionary and genetic factors, aging as a social process, and human aging patterns.</description>
-<code>HLTH405</code>
-<title>International Exchange</title>
-<description>Study abroad on an Exchange Agreement approved by the Faculty of Applied Health Sciences.</description>
-<code>HLTH407</code>
-<title>Physiology of Coronary Heart Disease</title>
-<description>An examination of the pathology, risk factors and rehabilitation programs related to coronary heart disease. Major emphasis is placed on the cardio-respiratory implications of exercise in the rehabilitation process.</description>
-<code>HLTH420</code>
-<title>Health, Environment, and Planning</title>
-<description>A seminar course on the environmental sources and causes of disease and illness, the concepts of health, e.g. medical, scientific, economic, political, etc., the health services and facilities and related technologies and the role and responsibilities of (urban and regional) planners in the creation of a more healthful environment. </description>
-<code>HLTH432A</code>
-<title>Honours Thesis (A)</title>
-<description>An independent research project on an approved topic, supervised by a faculty member. Includes an approved proposal and completion of -- introduction, review of literature, methods, data collection, data analysis and presentation of results in thesis form. Recommended for students planning graduate studies.</description>
-<code>HLTH432B</code>
-<title>Honours Thesis (B)</title>
-<description>An independent research project on an approved topic, supervised by a faculty member. Includes an approved proposal and completion of -- introduction, review of literature, methods, data collection, data analysis and presentation of results in thesis form. Recommended for students planning graduate studies.</description>
-<code>HLTH433</code>
-<title>Advanced Experimental Methods</title>
-<description>This course builds upon the concepts learned in HLTH 333 and focuses on the key issues related to the design, conduct, analyses and interpretation of experimental studies. Examples will be drawn from animal research investigating disease mechanisms, and from clinical and population studies investigating efficacy of preventive or therapeutic strategies.</description>
-<code>HLTH442</code>
-<title>Epidemiology of Chronic Diseases</title>
-<description>This course builds upon the concepts learned in HLTH 333 and HLTH 344 and provides an introduction to the field of epidemiology. The primary objective is to provide an understanding of the fundamental concepts, principles and applications of chronic disease epidemiology. The course emphasizes understanding of epidemiologic methods and identification of risk and protective factors.</description>
-<code>HLTH444</code>
-<title>Program Evaluation</title>
-<description>Building upon the concepts learned in HLTH 333 and HLTH 344 this course provides a comprehensive and systematic introduction to the key concepts, methodologies, and issues related to program evaluation in general and their application to health programs in particular. Administrative and policy implications as well as the technical/methodological evaluation issues that face individuals involved in administering, planning, implementing, and evaluating health programs will be discussed.</description>
-<code>HLTH445</code>
-<title>Seminar in Health Promotion</title>
-<description>A study of current issues pertaining to health promotion, health behaviour, or biomedical research. Topics may include pertinent research that is significant to the health of individuals, families and groups, or the community.</description>
-<code>HLTH448</code>
-<title>Advanced Studies in Social Determinants of Health</title>
-<description>This course will provide an in-depth examination of social determinants of health, both in North America and around the world. Students will apply their knowledge and understanding of nonbiological contributors to health by observing, studying and 'unpacking' actual health issues in the local community.</description>
-<code>HLTH472</code>
-<title>Independent Study</title>
-<description>For the student who desires to pursue a particular topic in depth through guided independent research and/or reading. A faculty member must approve a student's project prior to registration. May be repeated in subsequent terms. Depending on student demand and availability of teaching resources, special topics may be presented to small groups in a lecture format. Such topics have included Pharmacology, Behavioural Immunity, Nutrition, The Health Care System.</description>
-<code>HLTH473</code>
-<title>Contemporary Issues in Health</title>
-<description>One or more term courses will be offered from time to time as announced by the Department of Health Studies and Gerontology. Subjects will be dependent upon special research and/or instructional interests of the faculty.</description>
-</course>
-
-<coursecode>HIST</coursecode>
+<coursecode><code>HIST</code><title>History</title></coursecode>
 <course><code>HIST102</code>
 <title>War and Society in Europe, 1914-1945</title>
 <description>This course explores the impact of World Wars I and II on European society, with a special emphasis on the experiences of the ordinary person.</description>
@@ -3212,7 +3397,92 @@ imperialism influenced colonial subjects.</description>
 <description>May substitute for either a 4th year 'A' or 'B' History seminar, and can be either a readings or research seminar. The topic is determined by the individual faculty member supervising the seminar, in consultation with the student. </description>
 </course>
 
-<coursecode>HRM</coursecode>
+<coursecode><code>HLTH</code><title>Health Studies </title></coursecode>
+<course><code>HLTH210</code>
+<title>Development, Aging and Health</title>
+<description>The physiology of human growth, development and aging is examined, with special reference to the influence of diet, environment, exercise and disease on the normal processes.</description>
+<code>HLTH218</code>
+<title>Psychology of Death and Dying</title>
+<description>Variations in the meaning and significance of death and dying will be considered from a psychological perspective, with particular attention to the contexts (e.g., cultural, familial, life-span developmental) in which these variations occur.</description>
+<code>HLTH245</code>
+<title>The Canadian Health Care System</title>
+<description>This course examines the Canadian health care system by considering organizational principles, health resources, service utilization, health care planning and health promotion strategies. There is a focus on societal and political issues which affect the health of the society through the delivery system.</description>
+<code>HLTH253</code>
+<title>Demographic Change in Canada</title>
+<description>An introduction to the study of human population, with a focus on mortality, fertility, migration and spatial distribution in Canada. Methods and measures used in demographic research, sources of demographic data, and the health and social implications of the major demographic trends are discussed.</description>
+<code>HLTH330</code>
+<title>Health Informatics</title>
+<description>Health informatics is the multidisciplinary field devoted to the study of the generation, dissemination/communication, and utilization of health information. It covers the study of how providers of information design, produce, and interpret health information; how such information is communicated and stored; and how it is received, understoood, and used by its recipients.</description>
+<code>HLTH340</code>
+<title>Environmental Toxicology and Public Health</title>
+<description>An introduction to the basic biological and toxicological processes that determine the effects of environmental pollutants on human health. Emphasis is placed on the mechanisms that give rise to chronic or delayed health effects, such as cancer, genetic mutations, and birth defects.</description>
+<code>HLTH341</code>
+<title>Immunobiology and Public Health</title>
+<description>An introduction to the study of the immunobiological factors governing the occurrence of disease in humans. Selected chronic and acute diseases will be used to illustrate immunobiological mechanisms and the identification of risk factors from a public health perspective. The contribution of social determinants of health to modifying
+immunobiological mechanisms in human disease will also be considered.</description>
+<code>HLTH344</code>
+<title>Evaluation, Qualitative, and Survey Methods</title>
+<description>Increasingly, health services and community programs are under the scrutiny of their funders and the people using them and are being held more accountable. This course will expose students to political, ethical, social and methodological issues involved in program planning and evaluation. In addition, students will be introduced to survey and qualitative methods that are widely used in health research and program evaluation.</description>
+<code>HLTH346</code>
+<title>Human Nutrition</title>
+<description>An elementary course in nutrition with special emphasis on diet for sport and certain physiological conditions.</description>
+<code>HLTH348</code>
+<title>Social Psychology of Health Behaviour</title>
+<description>The study and application of basic social psychological processes in relation to selected health-related behaviours (e.g. family planning, overeating, smoking, non-medical drug use, cardiovascular risk factors, patient compliance, medical care utilization).</description>
+<code>HLTH349</code>
+<title>Health Behaviour Change</title>
+<description>The course will focus on the prevention of chronic disease through individual and population health behaviour change. Topics covered will include basic learning principles of behaviour, behaviour modification techniques, intrapersonal and interpersonal theories of behaviour change, motivation, and the role of policy in behaviour change. Application of principles will be examined using primary and secondary prevention trials and worksite health promotion programs.</description>
+<code>HLTH350</code>
+<title>Occupational Health</title>
+<description>Methodological approaches to the detection, assessment and management of toxic hazards (especially carcinogens) in the workplace and external environment. The health effects of chemical toxicants on specific human organ systems (lung, nervous system, immune system, etc.) are also examined.</description>
+<code>HLTH352</code>
+<title>Sociology of Aging</title>
+<description>An introduction to individual and population aging. Topics discussed include: aging from a historical and comparative perspective; aging in subcultures; aging and the social structure; aging and social processes; aging and the environment; work and retirement; and aging and leisure patterns.</description>
+<code>HLTH360</code>
+<title>Psychological Determinants of Health</title>
+<description>Psychological factors are critical to understanding how and why people act in the interests of their health. This course will examine how basic concepts from social psychology, learning theory, and models of health behaviour can help us to understand various health behaviours, health care utilization, and decision making in the context of health. The course will also explore the importance of health behaviour in the context of a population health perspective and population-level change.</description>
+<code>HLTH400</code>
+<title>Multidisciplinary Seminar on Aging</title>
+<description>Faculty and students from various departments meet to discuss individual and population aging from a multidisciplinary perspective. Topics include the definition of aging, the demography of aging, evolutionary and genetic factors, aging as a social process, and human aging patterns.</description>
+<code>HLTH405</code>
+<title>International Exchange</title>
+<description>Study abroad on an Exchange Agreement approved by the Faculty of Applied Health Sciences.</description>
+<code>HLTH407</code>
+<title>Physiology of Coronary Heart Disease</title>
+<description>An examination of the pathology, risk factors and rehabilitation programs related to coronary heart disease. Major emphasis is placed on the cardio-respiratory implications of exercise in the rehabilitation process.</description>
+<code>HLTH420</code>
+<title>Health, Environment, and Planning</title>
+<description>A seminar course on the environmental sources and causes of disease and illness, the concepts of health, e.g. medical, scientific, economic, political, etc., the health services and facilities and related technologies and the role and responsibilities of (urban and regional) planners in the creation of a more healthful environment. </description>
+<code>HLTH432A</code>
+<title>Honours Thesis (A)</title>
+<description>An independent research project on an approved topic, supervised by a faculty member. Includes an approved proposal and completion of -- introduction, review of literature, methods, data collection, data analysis and presentation of results in thesis form. Recommended for students planning graduate studies.</description>
+<code>HLTH432B</code>
+<title>Honours Thesis (B)</title>
+<description>An independent research project on an approved topic, supervised by a faculty member. Includes an approved proposal and completion of -- introduction, review of literature, methods, data collection, data analysis and presentation of results in thesis form. Recommended for students planning graduate studies.</description>
+<code>HLTH433</code>
+<title>Advanced Experimental Methods</title>
+<description>This course builds upon the concepts learned in HLTH 333 and focuses on the key issues related to the design, conduct, analyses and interpretation of experimental studies. Examples will be drawn from animal research investigating disease mechanisms, and from clinical and population studies investigating efficacy of preventive or therapeutic strategies.</description>
+<code>HLTH442</code>
+<title>Epidemiology of Chronic Diseases</title>
+<description>This course builds upon the concepts learned in HLTH 333 and HLTH 344 and provides an introduction to the field of epidemiology. The primary objective is to provide an understanding of the fundamental concepts, principles and applications of chronic disease epidemiology. The course emphasizes understanding of epidemiologic methods and identification of risk and protective factors.</description>
+<code>HLTH444</code>
+<title>Program Evaluation</title>
+<description>Building upon the concepts learned in HLTH 333 and HLTH 344 this course provides a comprehensive and systematic introduction to the key concepts, methodologies, and issues related to program evaluation in general and their application to health programs in particular. Administrative and policy implications as well as the technical/methodological evaluation issues that face individuals involved in administering, planning, implementing, and evaluating health programs will be discussed.</description>
+<code>HLTH445</code>
+<title>Seminar in Health Promotion</title>
+<description>A study of current issues pertaining to health promotion, health behaviour, or biomedical research. Topics may include pertinent research that is significant to the health of individuals, families and groups, or the community.</description>
+<code>HLTH448</code>
+<title>Advanced Studies in Social Determinants of Health</title>
+<description>This course will provide an in-depth examination of social determinants of health, both in North America and around the world. Students will apply their knowledge and understanding of nonbiological contributors to health by observing, studying and 'unpacking' actual health issues in the local community.</description>
+<code>HLTH472</code>
+<title>Independent Study</title>
+<description>For the student who desires to pursue a particular topic in depth through guided independent research and/or reading. A faculty member must approve a student's project prior to registration. May be repeated in subsequent terms. Depending on student demand and availability of teaching resources, special topics may be presented to small groups in a lecture format. Such topics have included Pharmacology, Behavioural Immunity, Nutrition, The Health Care System.</description>
+<code>HLTH473</code>
+<title>Contemporary Issues in Health</title>
+<description>One or more term courses will be offered from time to time as announced by the Department of Health Studies and Gerontology. Subjects will be dependent upon special research and/or instructional interests of the faculty.</description>
+</course>
+
+<coursecode><code>HRM</code><title>Human Resources Management </title></coursecode>
 <course><code>HRM301</code>
 <title>Strategic Human Resources Management</title>
 <description>An examination of the issues and challenges confronted by human resource professionals when planning and forecasting the staffing needs of an organization. Topics covered may include aligning human resource practices with organizational objectives, succession planning, redesign of work systems, and the impact of human resource practices on organizational outcomes.</description>
@@ -3227,7 +3497,7 @@ imperialism influenced colonial subjects.</description>
 <description>This course draws upon the disciplines of law and history to assess various aspects of the current industrial relations climate. Topics may include employment standards and labour relations legislation, collective bargaining, dispute resolution procedures, contract administration, industrial democracy, and the structure and growth of the Canadian labour movement.</description>
 </course>
 
-<coursecode>HUMSC</coursecode>
+<coursecode><code>HUMSC</code><title>Human Sciences </title></coursecode>
 <course><code>HUMSC101</code>
 <title>Great Dialogues: Reflection and Action</title>
 <description>What is the relationship between thinking and action? Do they pull us in different directions? Can they be integrated? This course investigates how our own dialogue with core texts, from antiquity (e.g., Homer, Plato, Christian Scriptures) to the present (e.g., Joyce, Arendt), offers ways of understanding the dilemmas and issues raised by these texts and present in our culture.</description>
@@ -3236,7 +3506,55 @@ imperialism influenced colonial subjects.</description>
 <description>What is the relationship between politics and morality? Are they opposites? Can they be integrated? This course investigates the way our own dialogue with core texts from the Renaissance to the present (authors may include Machiavelli, Shakespeare, Wollstonecraft, Marx, Conrad, and Arendt) offers ways of thinking through the dilemmas and issues raised by these texts and present in our culture.</description>
 </course>
 
-<coursecode>IS</coursecode>
+<coursecode><code>INDEV</code><title>International Development</title></coursecode>
+<course><code>INDEV10</code>
+<title>International Development Seminar</title>
+<description>General seminar on International Development topics and integrative practices of special interest to INDEV students, faculty, and alumni. INDEV students must register every term.</description>
+<code>INDEV100</code>
+<title>Introduction to International Development</title>
+<description>Students obtain an overview of the multi-dimensional and transdisciplinary nature of development. Themes include theories and strategies of development; history of development; relevance of context (culture, economics, and politics); the impact of law and international regulatory bodies; environmental influences; urbanization; the factors of health, literacy and violence; development agencies. Reference is made to particular development problems in specific developing countries.</description>
+<code>INDEV200</code>
+<title>The Political Economy of Development</title>
+<description>This course develops students' understanding of how the complex interplay of international economic and political economy factors influence development initiatives and outcomes. The relation of trade, aid, and international institutions (WTO, IMF, World Bank) on development activity is examined using case studies. Different economic views will be examined.</description>
+<code>INDEV202</code>
+<title>Accounting for Development Organizations</title>
+<description>Students will obtain a fundamental understanding of financial and management concepts, and an appreciation of the measurement issues and monetary impact of business decisions on communities, society and the environment. Topics include financial statement reporting and analysis, cost analysis, triple bottom-line reporting, corporate social responsibility including the Global Sullivan Principles, and green accounting.</description>
+<code>INDEV275</code>
+<title>Special Topics in International Development</title>
+<description>This course allows for additions to the program on a short-term basis, and for the development of future permanent courses. </description>
+<code>INDEV302</code>
+<title>Development Agents</title>
+<description>This course examines the nature, variety and inter-relationships of and among organizations, institutions, agencies and individuals involved in contemporary development activity. The many and various legal, political and financial factors that affect the organization and operation of development agents are studied with respect to implications for business model, management skills, governance oversight and public policy.</description>
+<code>INDEV303</code>
+<title>Marketing and Communication for Development Agents</title>
+<description>This course teaches the principles of marketing relevant to development organizations. Fundamentals include dealing with the media, raising funds, reporting to investors/funding agencies, and crisis management.</description>
+<code>INDEV304</code>
+<title>Language Conversation for Development Field Work</title>
+<description>This is a special intensive language course designed to develop a working verbal fluency in the language of the student's field assignment.</description>
+<code>INDEV375</code>
+<title>Special Topics in International Development</title>
+<description>This course allows for additions to the program on a short-term basis, and for the development of future permanent courses. </description>
+<code>INDEV474</code>
+<title>Special Topics in International Development</title>
+<description>This course consists of directed readings leading to a research essay that focuses on an agreed aspect of the country of the student's field work placement. This course enhances the effectiveness of the field work and the field based courses by developing the student's knowledge of the development context and issues of the field placement.</description>
+</course>
+
+<coursecode><code>INTST</code><title>International Studies </title></coursecode>
+<course><code>INTST101</code>
+<title>Introduction to International Studies</title>
+<description>&quot;International studies&quot; includes many fields, and this course will offer a comprehensive introduction to them. The goal is to develop within students a fundamental literacy about international subjects like: international law; diplomacy; globalization; war; trade and tourism; development and foreign aid; comparative culture and religion; and the impact of ideas and the environment on the international world.</description>
+</course>
+
+<coursecode><code>INTTS</code><title>International Trade </title></coursecode>
+<course><code>INTTS301</code>
+<title>Institutions of International Trade and Finance</title>
+<description>A political economy analysis of multilateral institutions of international trade and finance. Topics will include discussion of Free Trade Areas and Customs Unions, (NAFTA and EU), the WTO (formerly GATT), the International Monetary System and the IMF, the World Bank and the Bank for International Settlements.</description>
+<code>INTTS400</code>
+<title>International Trade Seminar</title>
+<description>A non-credit seminar directed at senior students in the International Trade Specialization, providing a regular forum (5-6 times a term) for discussion of issues in international trade. Seminars will be led by senior students returning from their double work term following 3B, and by invited speakers with academic or practical expertise in the area. </description>
+</course>
+
+<coursecode><code>IS</code><title>Independent Studies </title></coursecode>
 <course><code>IS100</code>
 <title>Introduction to Research Methods</title>
 <description>Students meet individually with the instructor once a week to discuss their particular research projects and to develop research and writing skills. Students do short assignments on topics of their choice using a variety of resources.</description>
@@ -3389,7 +3707,7 @@ imperialism influenced colonial subjects.</description>
 <description>A continuation of IS 421 to complete the Honours Independent degree Thesis Phase Stage II.</description>
 </course>
 
-<coursecode>ISS</coursecode>
+<coursecode><code>ISS</code><title>Interdisciplinary Social Science </title></coursecode>
 <course><code>ISS131R</code>
 <title>Social Ideas, Social Policy and Political Practice</title>
 <description>An introduction to some of the major social and political ideas of Western civilization. Attention is given to the influence and applicability of these ideas to social policy and political practice in contemporary Canada.</description>
@@ -3455,22 +3773,7 @@ imperialism influenced colonial subjects.</description>
 <description>The essay will normally be related to the student's chosen theme area, supervised by one faculty member, and critically examined by faculty from all areas of the program.</description>
 </course>
 
-<coursecode>INTST</coursecode>
-<course><code>INTST101</code>
-<title>Introduction to International Studies</title>
-<description>&quot;International studies&quot; includes many fields, and this course will offer a comprehensive introduction to them. The goal is to develop within students a fundamental literacy about international subjects like: international law; diplomacy; globalization; war; trade and tourism; development and foreign aid; comparative culture and religion; and the impact of ideas and the environment on the international world.</description>
-</course>
-
-<coursecode>INTTS</coursecode>
-<course><code>INTTS301</code>
-<title>Institutions of International Trade and Finance</title>
-<description>A political economy analysis of multilateral institutions of international trade and finance. Topics will include discussion of Free Trade Areas and Customs Unions, (NAFTA and EU), the WTO (formerly GATT), the International Monetary System and the IMF, the World Bank and the Bank for International Settlements.</description>
-<code>INTTS400</code>
-<title>International Trade Seminar</title>
-<description>A non-credit seminar directed at senior students in the International Trade Specialization, providing a regular forum (5-6 times a term) for discussion of issues in international trade. Seminars will be led by senior students returning from their double work term following 3B, and by invited speakers with academic or practical expertise in the area. </description>
-</course>
-
-<coursecode>ITAL</coursecode>
+<coursecode><code>ITAL</code><title>Italian </title></coursecode>
 <course><code>ITAL101</code>
 <title>Introduction to Italian Language 1</title>
 <description>An intensive study of the fundamentals of grammar and conversation. The language laboratory will be used.</description>
@@ -3512,13 +3815,13 @@ imperialism influenced colonial subjects.</description>
 <description>Winter term of ITAL/ITALST 396. </description>
 </course>
 
-<coursecode>ITALST</coursecode>
+<coursecode><code>ITALST</code><title>Italian Studies </title></coursecode>
 <course></course>
 
-<coursecode>JAPAN</coursecode>
+<coursecode><code>JAPAN</code><title>Japanese</title></coursecode>
 <course></course>
 
-<coursecode>JS</coursecode>
+<coursecode><code>JS</code><title>Jewish Studies </title></coursecode>
 <course><code>JS105A</code>
 <title>Introductory Biblical Hebrew 1</title>
 <description>Biblical Hebrew for beginners. A study of the alphabet, and some of the basic vocabulary and grammar of the language. </description>
@@ -3581,7 +3884,7 @@ imperialism influenced colonial subjects.</description>
 <description>One or more special courses will be offered at different times. Consult Jewish Studies for current offerings.</description>
 </course>
 
-<coursecode>KIN</coursecode>
+<coursecode><code>KIN</code><title>Kinesiology</title></coursecode>
 <course><code>KIN10</code>
 <title>Ergonomics Option Seminar</title>
 <description>A seminar for students to present and discuss ergonomic issues regarding their previous semester's work term and to participate in debate of ergonomic issues</description>
@@ -3722,46 +4025,10 @@ imperialism influenced colonial subjects.</description>
 <description>Practical experience in the examination, diagnosis, and treatment of sports injuries under the supervision of a physician. Case presentations are discussed in a group setting.</description>
 </course>
 
-<coursecode>INTEG</coursecode>
-<course><code>INTEG10</code>
-<title>Knowledge Integration Seminar</title>
-<description>General seminar on inter-disciplinary topics and integrative practices of special interest to INTEG students, faculty, and alumni. INTEG students must register every term.</description>
-<code>INTEG220</code>
-<title>On the Nature of Knowledge A</title>
-<description>This is a theme-based course about asking good questions: the nature of evidence, knowledge and inquiry in each discipline; the central questions and concerns; and, the next big questions. Guest professors introduce their disciplines by having students read and discuss a thematically-relevant academic paper on a key finding in the field.</description>
-<code>INTEG221</code>
-<title>On the Nature of Knowledge B</title>
-<description>A continuation of INTEG 220.</description>
-<code>INTEG230</code>
-<title>The Museum Course: Preparation and Field Trip</title>
-<description>Introduction to the issues and intent of the Museum Course. Planning and research for the destination. Field trip to study museums, exhibits, audiences, and curatorial practices on-site in a major museum city. For additional information on itinerary and travel costs, contact the Department. </description>
-<code>INTEG231</code>
-<title>The Museum Course: Field Trip Project</title>
-<description>Seminar and projects based on field trip study of museums, exhibits, audiences, and curatorial practices.</description>
-<code>INTEG275</code>
-<title>Special Topics in Knowledge Integration</title>
-<description>From time to time courses of special study may be added to the program at the second-year level. Students wishing to take such courses should consult the Department's Undergraduate Officer.</description>
-<code>INTEG320</code>
-<title>The Museum Course: Research &amp; Design</title>
-<description>An introduction to the museum, broadly interpreted as the public face of scholarship. Students work in small groups to research an inter-disciplinary topic of personal interest, in-depth, and design a museum exhibit suitable for a particular audience.</description>
-<code>INTEG321</code>
-<title>The Museum Course: Practicum and Presentation</title>
-<description>An introduction to the museum, broadly interpreted as the public face of scholarship. Students construct and exhibit their designs from INTEG 320, and present public talks on the scholarship and curatorial decisions behind their work. </description>
-<code>INTEG375</code>
-<title>Special Topics in Knowledge Integration</title>
-<description>From time to time courses of special study may be added to the program at the third-year level. Students wishing to take such courses should consult the Department's Undergraduate Officer.</description>
-<code>INTEG420</code>
-<title>Senior Research Project A</title>
-<description>Each student will work on a short research project under the dual direction of a member of the Department and an advisor from a discipline related to the topic. The results of this project will be presented in thesis form, and will be critically examined by members of this and, where pertinent, other departments.</description>
-<code>INTEG421</code>
-<title>Senior Research Project B</title>
-<description>A continuation of INTEG 420.</description>
-</course>
-
-<coursecode>KOREA</coursecode>
+<coursecode><code>KOREA</code><title>Korean</title></coursecode>
 <course></course>
 
-<coursecode>LAT</coursecode>
+<coursecode><code>LAT</code><title>Latin</title></coursecode>
 <course><code>LAT101</code>
 <title>Introductory Latin 1</title>
 <description>A course designed for students beginning the study of Latin or who have not yet reached the level expected in LAT 201/202. Although the teaching approach emphasizes exposure to simple texts as soon as possible, students desiring minimal competence in reading should go on to do LAT 102. </description>
@@ -3806,7 +4073,7 @@ imperialism influenced colonial subjects.</description>
 <description>Under special circumstances and with the approval of the Department, a student or small group of students may arrange to pursue individualized readings under the supervision of a faculty member.</description>
 </course>
 
-<coursecode>LS</coursecode>
+<coursecode><code>LS</code><title>Legal Studies </title></coursecode>
 <course><code>LS101</code>
 <title>Introduction to Legal Studies</title>
 <description>An introduction to the study of law, its structure, and legal institutions from a cross-cultural and historical perspective. This interdisciplinary course examines the origins of legal systems and their impact on society. Included is an analysis of the diverse historical, political, economic, and cultural conditions under which law arises and functions within society.</description>
@@ -3830,13 +4097,7 @@ imperialism influenced colonial subjects.</description>
 <description>Selected study and assignments under the direction of a faculty member who teaches courses in legal studies and criminology.</description>
 </course>
 
-<coursecode>MSCI</coursecode>
-<course><code>MSCI444</code>
-<title>Information Systems Analysis and Design</title>
-<description>The course is intended to provide students with the knowledge of the theory and practice of information systems development stages, techniques and methodologies. Course topics may include: requirements analysis, structured and object-oriented design techniques and system implementation strategies. </description>
-</course>
-
-<coursecode>MATH</coursecode>
+<coursecode><code>MATH</code><title>Mathematics</title></coursecode>
 <course><code>MATH51</code>
 <title>Pre-University Algebra and Geometry</title>
 <description>Topics covered in the course include operations with vectors, scalar multiplications dot and cross products, projections, equations of lines and planes, systems of equations, Gaussian elimination, operations with matrices, determinants, binomial theorem, proof by mathematical induction, complex numbers.</description>
@@ -3869,10 +4130,7 @@ imperialism influenced colonial subjects.</description>
 <description>Introduction to graph theory: colourings, matchings, connectivity, planarity. Introduction to combinatorial analysis: generating series, recurrence relations, binary strings, plane trees. </description>
 </course>
 
-<coursecode>MTHEL</coursecode>
-<course></course>
-
-<coursecode>ME</coursecode>
+<coursecode><code>ME</code><title>Mechanical Engineering </title></coursecode>
 <course><code>ME123</code>
 <title>Electrical Engineering for Mechanical Engineers</title>
 <description>Definitions of electric and magnetic fields. Introduction to circuit theory: DC circuits, amplifiers, operational amplifiers, single and three phase AC circuits. Introduction to basic electronic devices. </description>
@@ -3896,10 +4154,19 @@ imperialism influenced colonial subjects.</description>
 <description>Various courses dealing with selected topics at the undergraduate level in automation and control, solid mechanics and machine design, materials engineering and processing, fluid mechanics, and thermal engineering. Courses offered when resources permit.</description>
 </course>
 
-<coursecode>MTE</coursecode>
+<coursecode><code>MSCI</code><title>Management Sciences </title></coursecode>
+<course><code>MSCI444</code>
+<title>Information Systems Analysis and Design</title>
+<description>The course is intended to provide students with the knowledge of the theory and practice of information systems development stages, techniques and methodologies. Course topics may include: requirements analysis, structured and object-oriented design techniques and system implementation strategies. </description>
+</course>
+
+<coursecode><code>MTHEL</code><title>Mathematics Electives</title></coursecode>
 <course></course>
 
-<coursecode>MUSIC</coursecode>
+<coursecode><code>MTE</code><title>Mechatronics Engineering </title></coursecode>
+<course></course>
+
+<coursecode><code>MUSIC</code><title>Music</title></coursecode>
 <course><code>MUSIC100</code>
 <title>Understanding Music</title>
 <description>The styles, forms, techniques and terminology of Western music through lectures and listening, as exemplified by great works from all eras of music history.</description>
@@ -4037,10 +4304,13 @@ imperialism influenced colonial subjects.</description>
 <description>An independent research project for Honours Music students. The topic is determined through consultation between the student and a faculty advisor.</description>
 </course>
 
-<coursecode>NE</coursecode>
+<coursecode><code>NATST</code><title>Native Studies </title></coursecode>
 <course></course>
 
-<coursecode>OPTOM</coursecode>
+<coursecode><code>NE</code><title>Nanotechnology Engineering </title></coursecode>
+<course></course>
+
+<coursecode><code>OPTOM</code><title>Optometry</title></coursecode>
 <course><code>OPTOM103</code>
 <title>Pathophysiology</title>
 <description>Pathogenesis of human disease based on a molecular and cellular framework. Fundamental concepts such as homeostasis, cell injury, protective responses (inflammation, fever, immune response) and the healing process. Systemic pathophysiology: abnormal functions of the cardiovascular system, endocrine system, nervous system, urinary system, muscular system, respiratory system and digestive system.</description>
@@ -4169,7 +4439,7 @@ imperialism influenced colonial subjects.</description>
 <description>Remediation in areas failed during clinical exit examinations. On-site clinical rotations and self-study guided by the faculty.</description>
 </course>
 
-<coursecode>PACS</coursecode>
+<coursecode><code>PACS</code><title>Peace and Conflict Studies </title></coursecode>
 <course><code>PACS201</code>
 <title>Roots of Conflict, Violence and Peace</title>
 <description>An examination of influential theories about the sources and nature of conflict, violence and peace. Contributions from the social sciences as well as the humanities will be explored, with attention to connections between interpersonal, intergroup, and international levels of analysis.</description>
@@ -4241,7 +4511,37 @@ imperialism influenced colonial subjects.</description>
 <description>A continuation of PACS 401. Each student will work on an integrative research project or projects and will meet regularly with other students and faculty for discussion.</description>
 </course>
 
-<coursecode>PHARM</coursecode>
+<coursecode><code>PD</code><title>Professional Development </title></coursecode>
+<course></course>
+
+<coursecode><code>PDENG</code><title>Professional Development for Engineering Students </title></coursecode>
+<course></course>
+
+<coursecode><code>PDPHRM</code><title>Professional Development for Pharmacy Students</title></coursecode>
+<course><code>PDPHRM1</code>
+<title>Co-op Fundamentals</title>
+<description>This course explores aspects of career development related to preparing for and being successful in co-op work terms, such as preparing resumes, and interviewing effectively. </description>
+<code>PDPHRM2</code>
+<title>Communication for Pharmacy</title>
+<description>Students will have received strong grounding in key communication concepts during the first two academic semesters in the pharmacy program. This course requires that the student apply these concepts to their co-op work term and assess their own performance. Students are required to reflect on the development of their communication skills and formulate objectives to further develop their communication skills. </description>
+<code>PDPHRM3</code>
+<title>Drug Distribution for Pharmacy</title>
+<description>This course asks the student to apply concepts from the pharmacy professional practice courses including: medication dispensing, jurisprudence, drug information, self care, patient safety and human resources. Students are required to reflect on the development of their technical and interpersonal skills and formulate objectives to further develop these skills. Pharmacy students must complete this PDPHRM course in their first or second work term. </description>
+<code>PDPHRM4</code>
+<title>Patient Safety for Pharmacy</title>
+<description>Patient safety has been integrated throughout the four year pharmacy curriculum. This course requires the student to apply patient safety concepts to their co-op work term environment. </description>
+<code>PDPHRM5</code>
+<title>Patient Care for Pharmacy</title>
+<description>Pharmacy students have had extensive classroom opportunities to develop their skills in providing direct patient care. This course asks the student to apply their critical appraisal, patient assessment, and clinical problem-solving skills in the co-op work term to real-life scenarios. Students are expected to successfully provide pharmaceutical care to select patients in their work environment. Pharmacy students must complete this PDPHRM course in their third or fourth work term. </description>
+<code>PDPHRM7</code>
+<title>Interprofessional Relations</title>
+<description>Students are required to demonstrate their ability to work collaboratively with other health care providers to optimize patient safety and improve health outcomes. Students will apply teamwork skills to decision making, conflict resolution and leadership. Personal reflection is integrated with observations of interprofessional relations in the co-op work environment. </description>
+<code>PDPHRM8</code>
+<title>Pharmacy Practice - Management and Leadership</title>
+<description>This course requires the student to apply the business/management concepts learned in the classroom to the workplace. </description>
+</course>
+
+<coursecode><code>PHARM</code><title>Pharmacy </title></coursecode>
 <course><code>PHARM290</code>
 <title>Seminars in Pharmacy 1</title>
 <description>This course entails a weekly seminar on topics in Pharmacy. The range of materials to be presented include current issues, special topics demonstrating new trends in patient care and treatment, competing perspectives in the pharmaceutical arena, and scopes of Pharmacy practice. </description>
@@ -4259,7 +4559,7 @@ imperialism influenced colonial subjects.</description>
 <description>This course entails a weekly seminar on topics in Pharmacy. The range of materials to be presented include current issues, special topics demonstrating new trends in patient care and treatment, competing perspectives in the pharmaceutical arena, and scopes of Pharmacy practice. </description>
 </course>
 
-<coursecode>PHIL</coursecode>
+<coursecode><code>PHIL</code><title>Philosophy</title></coursecode>
 <course><code>PHIL100</code>
 <title>Introduction to Philosophy</title>
 <description>An introduction to central issues in metaphysics and epistemology. Questions to be considered might include: &quot;Can we know anything?&quot; &quot;Does God exist?&quot; &quot;Is the mind just a brain?&quot; &quot;Do human beings have free will?&quot;</description>
@@ -4556,7 +4856,7 @@ imperialism influenced colonial subjects.</description>
 <description>Readings in selected topics chosen in discussion with instructor.</description>
 </course>
 
-<coursecode>PHYS</coursecode>
+<coursecode><code>PHYS</code><title>Physics</title></coursecode>
 <course><code>PHYS111</code>
 <title>Physics 1</title>
 <description>An introduction to physics for students intending to concentrate their further studies in biology, dentistry, medicine and paramedicine; includes particle kinematics and dynamics, energy and momentum conservation, rotational mechanics, properties of liquids, temperature and heat. </description>
@@ -4631,7 +4931,7 @@ imperialism influenced colonial subjects.</description>
 <description>A lecture course offered in a particular branch of physics, subject to availability of instructor.</description>
 </course>
 
-<coursecode>PLAN</coursecode>
+<coursecode><code>PLAN</code><title>Planning</title></coursecode>
 <course><code>PLAN100</code>
 <title>The Evolution of Planning</title>
 <description>Introduction to planning in its historical and contemporary contexts. Discussion of city types and origins. Consideration of local, national, and international design and management of environment and human habitations. Introduction to selected main themes in planning and architecture. </description>
@@ -4749,7 +5049,61 @@ imperialism influenced colonial subjects.</description>
 <description>Practical experience in carrying out a research proposal under the direction of a faculty member. The results of this research will be presented in the form of an essay that meets both professional and academic standards.</description>
 </course>
 
-<coursecode>POLSH</coursecode>
+<coursecode><code>PMATH</code><title>Pure Mathematics</title></coursecode>
+<course><code>PMATH330</code>
+<title>Introduction to Mathematical Logic</title>
+<description>A broad introduction to Mathematical Logic. The logic of sentences: truth-functions and axiomatic approaches (eg. Natural Deduction and Gentzen sequences). A brief introduction to the logic of predicates and to the foundations of mathematics. </description>
+<code>PMATH331</code>
+<title>Applied Real Analysis</title>
+<description>Topology of Euclidean spaces, continuity, norms, completeness. Contraction mapping principle. Fourier series. Various applications, for example, to ordinary differential equations, optimization and numerical approximation. </description>
+<code>PMATH332</code>
+<title>Applied Complex Analysis</title>
+<description>Complex numbers, Cauchy-Riemann equations, analytic functions, conformal maps and applications to the solution of Laplace's equation, contour integrals, Cauchy integral formula, Taylor and Laurent expansions, residue calculus and applications. </description>
+<code>PMATH334</code>
+<title>Introduction to Rings and Fields with Applications</title>
+<description>Rings, ideals, factor rings, homomorphisms, finite and infinite fields, polynomials and roots, field extensions, algebraic numbers, and applications, for example, to Latin squares, finite geometries, geometrical constructions, error-correcting codes. </description>
+<code>PMATH336</code>
+<title>Introduction to Group Theory with Applications</title>
+<description>Groups, permutation groups, subgroups, homomorphisms, symmetry groups in 2 and 3 dimensions, direct products, Polya-Burnside enumeration. </description>
+<code>PMATH340</code>
+<title>Elementary Number Theory</title>
+<description>An elementary approach to the theory of numbers; the Euclidean algorithm, congruence equations, multiplicative functions, solutions to Diophantine equations, continued fractions, and rational approximations to real numbers. </description>
+<code>PMATH360</code>
+<title>Geometry</title>
+<description>An introduction to affine, projective and non-Euclidean forms of geometry. Conic sections in the projective plane. Inversion in circles. Theorems of Desargues, Pappus, and Pascal. </description>
+<code>PMATH370</code>
+<title>Chaos and Fractals</title>
+<description>The mathematics of iterated functions, properties of discrete dynamical systems, Mandelbrot and Julia sets. </description>
+<code>PMATH432</code>
+<title>First Order Logic and Computability</title>
+<description>The concepts of formal provability and logical consequence in first order logic are introduced, and their equivalence is proved in the soundness and completeness theorems. Goedel's incompleteness theorem is discussed, making use of the halting problem of computability theory. Relative computability and the Turing degrees are further studied. </description>
+<code>PMATH433</code>
+<title>Model Theory and Set Theory</title>
+<description>Model theory: the semantics of first order logic including the compactness theorem and its consequences, elementary embeddings and equivalence, the theory of definable sets and types, quantifier elimination, and omega-stability. Set theory: well-orderings, ordinals, cardinals, Zermelo-Fraenkel axioms, axiom of choice, informal discussion of classes and independence results. </description>
+<code>PMATH434</code>
+<title>Techniques in Computational Number Theory</title>
+<description>An introduction to: integer factorization, elliptic curves methods, primality testing, fast integer arithmetic, fast Fourier transforms and quantum computing. This course is taught with a philosophy that encourages experimentation. </description>
+<code>PMATH440</code>
+<title>Analytic Number Theory</title>
+<description>An introduction to elementary and analytic number theory; primitive roots, law of quadratic reciprocity, Gaussian sums, Riemann zeta-function, distribution of prime numbers. </description>
+<code>PMATH441</code>
+<title>Algebraic Number Theory</title>
+<description>An introduction to algebraic number theory; unique factorization, Dedekind domains, class numbers, Dirichlet's unit theorem, solutions of Diophantine equations, Fermat's &quot;last theorem&quot;. </description>
+<code>PMATH444</code>
+<title>Rings, Modules, and Representations</title>
+<description>Jacobson structure theory, density theorem, Jacobson radical, Maschke's theorem. Artinian rings, Artin-Wedderburn theorem, modules over semi-simple Artinian rings. Division rings. Representations of finite groups. </description>
+<code>PMATH464</code>
+<title>Algebraic Curves</title>
+<description>An introduction to the geometry of algebraic curves with applications to elliptic curves and computational algebraic geometry. Plane curves, affine varieties, the group law on the cubic, and applications. </description>
+<code>PMATH465</code>
+<title>Differential Geometry</title>
+<description>An introduction to differentiable manifolds. The tangent and cotangent bundles. Vector fields and differential forms. The Lie bracket and Lie derivative of vector fields. Exterior differentiation, integration of differential forms, and Stokes's Theorem. Riemannian manifolds, affine connections, and the Riemann curvature tensor. </description>
+<code>PMATH467</code>
+<title>Topology</title>
+<description>Review of general topology, quotient spaces, scissors and glue constructions. Basics on homotopy and topological manifolds. The fundamental group. Compact surfaces. Introduction to homology. Selected applications to covering spaces, homotopy theory, general manifolds, knots, differential equation, combinatorial group theory. </description>
+</course>
+
+<coursecode><code>POLSH</code><title>Polish</title></coursecode>
 <course><code>POLSH101</code>
 <title>Elementary Polish I</title>
 <description>The fundamentals of Polish grammar are taught with emphasis on oral practice and pronunciation. An introduction to Polish culture is given as well. 
@@ -4767,7 +5121,16 @@ imperialism influenced colonial subjects.</description>
 </description>
 </course>
 
-<coursecode>PSCI</coursecode>
+<coursecode><code>PORT</code><title>Portuguese</title></coursecode>
+<course><code>PORT101</code>
+<title>Introduction to Portuguese 1</title>
+<description>Intensive drill in the fundamentals of grammar, comprehension and speaking. Some reading, translation and composition. The language laboratory is used as an integral part of the course. </description>
+<code>PORT102</code>
+<title>Introduction to Portuguese 2</title>
+<description>A continuation of PORT 101.</description>
+</course>
+
+<coursecode><code>PSCI</code><title>Political Science </title></coursecode>
 <course><code>PSCI101</code>
 <title>Introduction to Political Ideas</title>
 <description>In this course, students are introduced to a number of concepts which have a bearing on how we respond to our political environment, including liberalism, conservatism, Marxism, feminism, equality, liberty, rights and justice. Some of the constraints that affect the application of these concepts to public policy are also examined.</description>
@@ -5010,16 +5373,7 @@ imperialism influenced colonial subjects.</description>
 <description>Honours Political Science students wishing to undertake a senior honours essay in their fourth year should consult the Department's Undergraduate Officer.</description>
 </course>
 
-<coursecode>PORT</coursecode>
-<course><code>PORT101</code>
-<title>Introduction to Portuguese 1</title>
-<description>Intensive drill in the fundamentals of grammar, comprehension and speaking. Some reading, translation and composition. The language laboratory is used as an integral part of the course. </description>
-<code>PORT102</code>
-<title>Introduction to Portuguese 2</title>
-<description>A continuation of PORT 101.</description>
-</course>
-
-<coursecode>PSYCH</coursecode>
+<coursecode><code>PSYCH</code><title>Psychology</title></coursecode>
 <course><code>PSYCH101</code>
 <title>Introductory Psychology</title>
 <description>A general survey course designed to provide the student with an understanding of the basic concepts and techniques of modern psychology as a behavioural science. </description>
@@ -5190,61 +5544,7 @@ imperialism influenced colonial subjects.</description>
 <description>The student will conduct an extensive study of advanced statistical techniques under the supervision of a faculty member. Course requirements will normally include assessment of competency through examination. The course application form must include a detailed course plan including the method of evaluation. </description>
 </course>
 
-<coursecode>PMATH</coursecode>
-<course><code>PMATH330</code>
-<title>Introduction to Mathematical Logic</title>
-<description>A broad introduction to Mathematical Logic. The logic of sentences: truth-functions and axiomatic approaches (eg. Natural Deduction and Gentzen sequences). A brief introduction to the logic of predicates and to the foundations of mathematics. </description>
-<code>PMATH331</code>
-<title>Applied Real Analysis</title>
-<description>Topology of Euclidean spaces, continuity, norms, completeness. Contraction mapping principle. Fourier series. Various applications, for example, to ordinary differential equations, optimization and numerical approximation. </description>
-<code>PMATH332</code>
-<title>Applied Complex Analysis</title>
-<description>Complex numbers, Cauchy-Riemann equations, analytic functions, conformal maps and applications to the solution of Laplace's equation, contour integrals, Cauchy integral formula, Taylor and Laurent expansions, residue calculus and applications. </description>
-<code>PMATH334</code>
-<title>Introduction to Rings and Fields with Applications</title>
-<description>Rings, ideals, factor rings, homomorphisms, finite and infinite fields, polynomials and roots, field extensions, algebraic numbers, and applications, for example, to Latin squares, finite geometries, geometrical constructions, error-correcting codes. </description>
-<code>PMATH336</code>
-<title>Introduction to Group Theory with Applications</title>
-<description>Groups, permutation groups, subgroups, homomorphisms, symmetry groups in 2 and 3 dimensions, direct products, Polya-Burnside enumeration. </description>
-<code>PMATH340</code>
-<title>Elementary Number Theory</title>
-<description>An elementary approach to the theory of numbers; the Euclidean algorithm, congruence equations, multiplicative functions, solutions to Diophantine equations, continued fractions, and rational approximations to real numbers. </description>
-<code>PMATH360</code>
-<title>Geometry</title>
-<description>An introduction to affine, projective and non-Euclidean forms of geometry. Conic sections in the projective plane. Inversion in circles. Theorems of Desargues, Pappus, and Pascal. </description>
-<code>PMATH370</code>
-<title>Chaos and Fractals</title>
-<description>The mathematics of iterated functions, properties of discrete dynamical systems, Mandelbrot and Julia sets. </description>
-<code>PMATH432</code>
-<title>First Order Logic and Computability</title>
-<description>The concepts of formal provability and logical consequence in first order logic are introduced, and their equivalence is proved in the soundness and completeness theorems. Goedel's incompleteness theorem is discussed, making use of the halting problem of computability theory. Relative computability and the Turing degrees are further studied. </description>
-<code>PMATH433</code>
-<title>Model Theory and Set Theory</title>
-<description>Model theory: the semantics of first order logic including the compactness theorem and its consequences, elementary embeddings and equivalence, the theory of definable sets and types, quantifier elimination, and omega-stability. Set theory: well-orderings, ordinals, cardinals, Zermelo-Fraenkel axioms, axiom of choice, informal discussion of classes and independence results. </description>
-<code>PMATH434</code>
-<title>Techniques in Computational Number Theory</title>
-<description>An introduction to: integer factorization, elliptic curves methods, primality testing, fast integer arithmetic, fast Fourier transforms and quantum computing. This course is taught with a philosophy that encourages experimentation. </description>
-<code>PMATH440</code>
-<title>Analytic Number Theory</title>
-<description>An introduction to elementary and analytic number theory; primitive roots, law of quadratic reciprocity, Gaussian sums, Riemann zeta-function, distribution of prime numbers. </description>
-<code>PMATH441</code>
-<title>Algebraic Number Theory</title>
-<description>An introduction to algebraic number theory; unique factorization, Dedekind domains, class numbers, Dirichlet's unit theorem, solutions of Diophantine equations, Fermat's &quot;last theorem&quot;. </description>
-<code>PMATH444</code>
-<title>Rings, Modules, and Representations</title>
-<description>Jacobson structure theory, density theorem, Jacobson radical, Maschke's theorem. Artinian rings, Artin-Wedderburn theorem, modules over semi-simple Artinian rings. Division rings. Representations of finite groups. </description>
-<code>PMATH464</code>
-<title>Algebraic Curves</title>
-<description>An introduction to the geometry of algebraic curves with applications to elliptic curves and computational algebraic geometry. Plane curves, affine varieties, the group law on the cubic, and applications. </description>
-<code>PMATH465</code>
-<title>Differential Geometry</title>
-<description>An introduction to differentiable manifolds. The tangent and cotangent bundles. Vector fields and differential forms. The Lie bracket and Lie derivative of vector fields. Exterior differentiation, integration of differential forms, and Stokes's Theorem. Riemannian manifolds, affine connections, and the Riemann curvature tensor. </description>
-<code>PMATH467</code>
-<title>Topology</title>
-<description>Review of general topology, quotient spaces, scissors and glue constructions. Basics on homotopy and topological manifolds. The fundamental group. Compact surfaces. Introduction to homology. Selected applications to covering spaces, homotopy theory, general manifolds, knots, differential equation, combinatorial group theory. </description>
-</course>
-
-<coursecode>REC</coursecode>
+<coursecode><code>REC</code><title>Recreation and Leisure Studies </title></coursecode>
 <course><code>REC101</code>
 <title>Introduction to Recreation and Leisure Services</title>
 <description>Using a wide variety of leisure service agencies as examples, this course introduces students to the nature and scope of leisure provision. Topics include program components, the classification and management of resources, professionalism, and current managerial trends and future developments.</description>
@@ -5378,7 +5678,67 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>Covers the role of tourism in economic and community development, and the roles of government and industry in formulating tourism policy. Students learn through case studies and practical assignments.</description>
 </course>
 
-<coursecode>RS</coursecode>
+<coursecode><code>REES</code><title>Russian and East European Studies </title></coursecode>
+<course><code>REES230</code>
+<title>The Devil</title>
+<description>An examination of the Devil and demonic figures in the Russian and Slavic cultural traditions based on examples drawn from literature, music, the visual arts, and film. Connections to a larger Western cultural context are also explored. </description>
+<code>REES260</code>
+<title>Special Topics</title>
+<description>Selected topics in Russian and East European Studies chosen by the instructor in consultation with the department. The topics chosen introduce students to important issues in eastern European culture. </description>
+<code>REES261</code>
+<title>Languages and Society I</title>
+<description>This course examines the role that languages play in multilingual societies from a linguistic perspective. It focuses on topics such as dialects, language contact and change, bilingualism, language choice, and language and identity. </description>
+<code>REES262</code>
+<title>Languages and Society II</title>
+<description>This course examines the role that languages play in multilingual societies from a social and cultural perspective. It focuses on topics such as plurilingualism and multilingualism, language maintenance and loss, language planning and politics, multilingual and heritage language education. </description>
+<code>REES271</code>
+<title>Russian Thought and Culture</title>
+<description>A survey of cultural history from the beginnings to 1861. Lectures will focus on major developments in literature, philosophy, art, architecture, and music as seen against the background of Russia's historical past. Discussion will be devoted primarily to works of Russian literature. </description>
+<code>REES272</code>
+<title>Russian Thought and Culture</title>
+<description>A survey of cultural history from 1861 to the present. Lectures will focus on major developments in literature, philosophy, art, and music as seen against the background of Russia's historical past. Discussion will be devoted primarily to works of Russian literature. </description>
+<code>REES273</code>
+<title>Croatian Culture and Literature</title>
+<description>This course presents the evolution of Croatian culture from the beginnings to 1835. Particular emphasis is placed on developments in literature; however, other significant manifestations of Croatian civilization (art, architecture, music) are also examined. </description>
+<code>REES274</code>
+<title>Croatian Culture and Literature</title>
+<description>This course presents the evolution of Croatian culture from 1835 to the present. Particular emphasis is placed on developments in literature; however, other significant manifestations of Croatian civilization (art, architecture, music) are also examined. Integral to this course are the cultural aspects of Croatian settlements in Canada. </description>
+<code>REES281</code>
+<title>Women in Russia: The Conscience of a Nation</title>
+<description>This course is a survey of the cultural, artistic, and literary impact of women on Russian society and intellectual development. It examines the changing images of Russian women from early tribal matriarchy to the present post-Communist period. Special attention is paid to the &quot;women's question&quot; in Russia, including nineteenth-century emancipation, the Revolutionary movement, and specific problems and achievements of women in Soviet and post-Soviet Russia. </description>
+<code>REES310</code>
+<title>Russian Folklore</title>
+<description>This course examines the cultural background of East Slavic mythology. Elements of the Russian fairy tale and Bylina (Epic Song) - such as a hero's or a heroine's journeys to the Other World, goddess worship, and the fearsome beings (for example the Baba-Yaga, the Zmei and Koshchei) - are analyzed. </description>
+<code>REES320</code>
+<title>The Slavic Short Story</title>
+<description>A detailed examination of Russian and eastern European short stories by major representative writers. </description>
+<code>REES330</code>
+<title>Russian Politics through Literature</title>
+<description>Russian literature and politics often seem inseparable, and this course illustrates this phenomenon by employing twentieth-century Russian literature to examine Soviet society. Representative works by writers such as Zalygin, Rasputin, Grekova, and Aitmatov will shed light on Soviet agricultural, educational, religious, and environmental policies. </description>
+<code>REES341</code>
+<title>Russian Drama before 1905</title>
+<description>A study of the origins and development of Russian drama up to 1905. Reading and critical analysis of major works in various genres with emphasis on authors of the 19th century. </description>
+<code>REES342</code>
+<title>Russian Drama after 1905</title>
+<description>A study of the origins and development of Russian drama after 1905. Reading and critical analysis of major works in various genres with emphasis on authors of the 20th century. </description>
+<code>REES360</code>
+<title>Special Topics</title>
+<description>Selected topics in Russian and East European Studies chosen by the instructor in consultation with the department. The topics chosen introduce students to important issues in eastern European culture. </description>
+<code>REES460</code>
+<title>Special Topics</title>
+<description>Selected topics in Russian and East European Studies chosen by the instructor in consultation with the department. The topics chosen introduce students to important issues in eastern European culture. </description>
+<code>REES490</code>
+<title>Senior Honours Project</title>
+<description>Russian and East European Honours students in their third or fourth year may complete a major project, the results of which must be presented in a substantial essay. The topic should reflect the student's field of interest. </description>
+<code>REES495</code>
+<title>Reading Course in Approved Topics</title>
+<description>Study in selected topics under direction of instructor. </description>
+<code>REES496</code>
+<title>Study Abroad</title>
+<description>Study abroad in Russian and Eastern European Studies. </description>
+</course>
+
+<coursecode><code>RS</code><title>Religious Studies </title></coursecode>
 <course><code>RS100</code>
 <title>Religions of the East</title>
 <description>An introduction to the religious traditions of the East: history, religious beliefs, and practices of Hinduism, Jainism, Buddhism, Sikhism, Confucianism, Taoism, and Shinto. </description>
@@ -5768,7 +6128,7 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>This seminar examines contemporary methods and theories in the study of religion and how they may be used to address specific themes in religious studies.</description>
 </course>
 
-<coursecode>RUSS</coursecode>
+<coursecode><code>RUSS</code><title>Russian</title></coursecode>
 <course><code>RUSS101</code>
 <title>Elementary Russian I</title>
 <description>A study of Russian grammar and composition with emphasis on oral practice and pronunciation. </description>
@@ -5789,67 +6149,10 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>A continuation of RUSS 301. </description>
 </course>
 
-<coursecode>REES</coursecode>
-<course><code>REES230</code>
-<title>The Devil</title>
-<description>An examination of the Devil and demonic figures in the Russian and Slavic cultural traditions based on examples drawn from literature, music, the visual arts, and film. Connections to a larger Western cultural context are also explored. </description>
-<code>REES260</code>
-<title>Special Topics</title>
-<description>Selected topics in Russian and East European Studies chosen by the instructor in consultation with the department. The topics chosen introduce students to important issues in eastern European culture. </description>
-<code>REES261</code>
-<title>Languages and Society I</title>
-<description>This course examines the role that languages play in multilingual societies from a linguistic perspective. It focuses on topics such as dialects, language contact and change, bilingualism, language choice, and language and identity. </description>
-<code>REES262</code>
-<title>Languages and Society II</title>
-<description>This course examines the role that languages play in multilingual societies from a social and cultural perspective. It focuses on topics such as plurilingualism and multilingualism, language maintenance and loss, language planning and politics, multilingual and heritage language education. </description>
-<code>REES271</code>
-<title>Russian Thought and Culture</title>
-<description>A survey of cultural history from the beginnings to 1861. Lectures will focus on major developments in literature, philosophy, art, architecture, and music as seen against the background of Russia's historical past. Discussion will be devoted primarily to works of Russian literature. </description>
-<code>REES272</code>
-<title>Russian Thought and Culture</title>
-<description>A survey of cultural history from 1861 to the present. Lectures will focus on major developments in literature, philosophy, art, and music as seen against the background of Russia's historical past. Discussion will be devoted primarily to works of Russian literature. </description>
-<code>REES273</code>
-<title>Croatian Culture and Literature</title>
-<description>This course presents the evolution of Croatian culture from the beginnings to 1835. Particular emphasis is placed on developments in literature; however, other significant manifestations of Croatian civilization (art, architecture, music) are also examined. </description>
-<code>REES274</code>
-<title>Croatian Culture and Literature</title>
-<description>This course presents the evolution of Croatian culture from 1835 to the present. Particular emphasis is placed on developments in literature; however, other significant manifestations of Croatian civilization (art, architecture, music) are also examined. Integral to this course are the cultural aspects of Croatian settlements in Canada. </description>
-<code>REES281</code>
-<title>Women in Russia: The Conscience of a Nation</title>
-<description>This course is a survey of the cultural, artistic, and literary impact of women on Russian society and intellectual development. It examines the changing images of Russian women from early tribal matriarchy to the present post-Communist period. Special attention is paid to the &quot;women's question&quot; in Russia, including nineteenth-century emancipation, the Revolutionary movement, and specific problems and achievements of women in Soviet and post-Soviet Russia. </description>
-<code>REES310</code>
-<title>Russian Folklore</title>
-<description>This course examines the cultural background of East Slavic mythology. Elements of the Russian fairy tale and Bylina (Epic Song) - such as a hero's or a heroine's journeys to the Other World, goddess worship, and the fearsome beings (for example the Baba-Yaga, the Zmei and Koshchei) - are analyzed. </description>
-<code>REES320</code>
-<title>The Slavic Short Story</title>
-<description>A detailed examination of Russian and eastern European short stories by major representative writers. </description>
-<code>REES330</code>
-<title>Russian Politics through Literature</title>
-<description>Russian literature and politics often seem inseparable, and this course illustrates this phenomenon by employing twentieth-century Russian literature to examine Soviet society. Representative works by writers such as Zalygin, Rasputin, Grekova, and Aitmatov will shed light on Soviet agricultural, educational, religious, and environmental policies. </description>
-<code>REES341</code>
-<title>Russian Drama before 1905</title>
-<description>A study of the origins and development of Russian drama up to 1905. Reading and critical analysis of major works in various genres with emphasis on authors of the 19th century. </description>
-<code>REES342</code>
-<title>Russian Drama after 1905</title>
-<description>A study of the origins and development of Russian drama after 1905. Reading and critical analysis of major works in various genres with emphasis on authors of the 20th century. </description>
-<code>REES360</code>
-<title>Special Topics</title>
-<description>Selected topics in Russian and East European Studies chosen by the instructor in consultation with the department. The topics chosen introduce students to important issues in eastern European culture. </description>
-<code>REES460</code>
-<title>Special Topics</title>
-<description>Selected topics in Russian and East European Studies chosen by the instructor in consultation with the department. The topics chosen introduce students to important issues in eastern European culture. </description>
-<code>REES490</code>
-<title>Senior Honours Project</title>
-<description>Russian and East European Honours students in their third or fourth year may complete a major project, the results of which must be presented in a substantial essay. The topic should reflect the student's field of interest. </description>
-<code>REES495</code>
-<title>Reading Course in Approved Topics</title>
-<description>Study in selected topics under direction of instructor. </description>
-<code>REES496</code>
-<title>Study Abroad</title>
-<description>Study abroad in Russian and Eastern European Studies. </description>
-</course>
+<coursecode><code>SCBUS</code><title>Science and Business</title></coursecode>
+<course></course>
 
-<coursecode>SCI</coursecode>
+<coursecode><code>SCI</code><title>Science</title></coursecode>
 <course><code>SCI205</code>
 <title>Physics of High Fidelity Sound Reproduction</title>
 <description>An application of elementary physical principles to the study of acoustics and high fidelity sound reproduction. This course will look at the physics behind the design of modern equipment and explain the meaning of its specifications. </description>
@@ -5876,10 +6179,34 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>An introduction to marine and freshwater ecosystems and examination of the impact of human activities such as eutrophication, contaminants, exotic invaders, hydrological alterations, and climate disruption. </description>
 </course>
 
-<coursecode>SCBUS</coursecode>
-<course></course>
+<coursecode><code>SE</code><title>Software Engineering </title></coursecode>
+<course><code>SE463</code>
+<title>Software Requirements Specification and Analysis</title>
+<description>Introduces students to the requirements definition phase of software development: Models, notations, and processes for software requirements identification, representation, analysis, and validation. Cost estimation from early documents and specifications. </description>
+<code>SE464</code>
+<title>Software Design and Architectures</title>
+<description>Introduces students to the design, implementation, and evolution phases of software development. Software design processes, methods, and notation. Implementation of designs. Evolution of designs and implementations. Management of design activities. </description>
+<code>SE465</code>
+<title>Software Testing and Quality Assurance</title>
+<description>Introduces students to systematic testing of software systems. Software verification, reviews, metrics, quality assurance, and prediction of software reliability and availability. Related management issues. </description>
+</course>
 
-<coursecode>SMF</coursecode>
+<coursecode><code>SI</code><title>Studies in Islam</title></coursecode>
+<course><code>SI101R</code>
+<title>Introduction to Arabic 1</title>
+<description>A course for students beginning to study and acquire skills in Modern Standard Arabic, in oral and written communication. Emphasis is on the spoken language in a conversational setting. The alphabet, basic reading and writing will be introduced. </description>
+<code>SI102R</code>
+<title>Introduction to Arabic 2</title>
+<description>This course builds on SI 101R, focusing on the vocabularies and grammatical conventions of everyday and professional interactions, oral and written. </description>
+<code>SI121R</code>
+<title>Islam in the World</title>
+<description>An introduction to the caliphates, cities, and cultures of Islam, through film and selected texts, including the experience of Islam in Canada as revealed through its writers. This course provides a foundation for Studies in Islam, establishing a context for multidisciplinary approaches to a wide variety of topics.</description>
+<code>SI390R</code>
+<title>Understanding Islam</title>
+<description>This course brings together the diverse strands that constitute the student's learning and experience in required as well as elective courses of Studies in Islam. Exploring Islam in a variety of contexts, the approach is interdisciplinary and integrative. </description>
+</course>
+
+<coursecode><code>SMF</code><title>Sexuality, Marriage, and Familty Studies</title></coursecode>
 <course><code>SMF204</code>
 <title>Introduction to Human Sexuality</title>
 <description>This course provides a broad interdisciplinary overview of theories and research on human sexuality.</description>
@@ -5948,34 +6275,7 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>This seminar allows students to integrate their knowledge in the domains of couples, marriages, and family studies. Topics reflect current issues from a theoretical and research perspective.</description>
 </course>
 
-<coursecode>SOCWK</coursecode>
-<course></course>
-
-<coursecode>SWREN</coursecode>
-<course></course>
-
-<coursecode>STV</coursecode>
-<course><code>STV100</code>
-<title>Society, Technology and Values: Introduction</title>
-<description>This course examines the interaction of the technologies developed by a culture with the values and social organization of that culture. The course exposes students to various definitions of society, technology and values, and it presents alternative views about how the three interact. These views are then applied to a number of spheres of influence, including patterns of employment and the role of work; medicine and health; polity and economy; sustainable development and the environment.</description>
-<code>STV201</code>
-<title>Society, Technology and Values: Special Topics</title>
-<description>Study of the interaction of society, technology and values in a particular topic area under tutorial guidance by visiting or adjunct faculty.</description>
-<code>STV205</code>
-<title>Cybernetics and Society</title>
-<description>Cybernetics is the study of the interfaces between humans and machines. This course will present an overview of cybernetics from automation and robotics to prosthetics and wearable computing. The roles of men and women in a post-human era will be discussed along with related themes dealing with gender, cyberspace, politics and popular culture.</description>
-<code>STV400</code>
-<title>Society, Technology and Values: Senior Project</title>
-<description>An independent, supervised research project related to the interaction of society, technology and values. Projects may take any format that demonstrates scholarly merit. Formats may include essays, impact studies, designs, computer software, or other media. Students are responsible for proposing suitable projects and are encouraged to seek faculty advice on plausible topics.</description>
-<code>STV401</code>
-<title>Society, Technology &amp; Values: Advanced Topics</title>
-<description>Advanced study of the interaction of society, technology and values in a particular topic area under tutorial guidance by visiting or adjunct faculty.</description>
-<code>STV404</code>
-<title>Technology in Canadian Society</title>
-<description>The course begins by questioning whether or not there is anything distinctive about Canadian design and its context. Through the use of historical and contemporary cases, this course examines factors influencing design and technology choice in Canada and their outcomes. The future of design is also considered in terms of current trends, issues, challenges and opportunities.</description>
-</course>
-
-<coursecode>SOC</coursecode>
+<coursecode><code>SOC</code><title>Sociology</title></coursecode>
 <course><code>SOC101</code>
 <title>Introduction to Sociology</title>
 <description>An introduction to the basic concepts and frames of reference of sociological investigation and interpretation. Topics for analysis will include communities, associations and institutions, classes and status groups, crowds and publics, social processes, and social change. Special attention is given to Canadian society.</description>
@@ -6260,19 +6560,10 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>Directed reading and research in a selected area of sociology inquiry.</description>
 </course>
 
-<coursecode>SE</coursecode>
-<course><code>SE463</code>
-<title>Software Requirements Specification and Analysis</title>
-<description>Introduces students to the requirements definition phase of software development: Models, notations, and processes for software requirements identification, representation, analysis, and validation. Cost estimation from early documents and specifications. </description>
-<code>SE464</code>
-<title>Software Design and Architectures</title>
-<description>Introduces students to the design, implementation, and evolution phases of software development. Software design processes, methods, and notation. Implementation of designs. Evolution of designs and implementations. Management of design activities. </description>
-<code>SE465</code>
-<title>Software Testing and Quality Assurance</title>
-<description>Introduces students to systematic testing of software systems. Software verification, reviews, metrics, quality assurance, and prediction of software reliability and availability. Related management issues. </description>
-</course>
+<coursecode><code>SOCWK</code><title>Social Work (Social Development Studies) </title></coursecode>
+<course></course>
 
-<coursecode>SPAN</coursecode>
+<coursecode><code>SPAN</code><title>Spanish</title></coursecode>
 <course><code>SPAN101</code>
 <title>Introduction to Spanish 1</title>
 <description>This course is for students with no previous knowledge of Spanish. The basic elements of Spanish grammar will be studied, with emphasis on group and individual oral practice. Focus will be given to the development of skills in listening/comprehension, speaking, reading and writing. Multimedia exercises accompany each chapter of the textbook. Students will be expected to use them in the multimedia language centre and at home. </description>
@@ -6416,7 +6707,7 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>Literary adaptations are usually considered to be secondary forms of the original. This course explores original literary works and their cinematic adaptation. In the process, the possibilities and limitations found in the process of adaptation will be analysed. Students will explore issues relevant to each medium as well as larger questions related to adaptation, style, translation and interpretation.</description>
 </course>
 
-<coursecode>SPCOM</coursecode>
+<coursecode><code>SPCOM</code><title>Speech Communication</title></coursecode>
 <course><code>SPCOM100</code>
 <title>Interpersonal Communication</title>
 <description>Focuses on the one-to-one, face-to-face communication in both the personal and professional realms. Such topics as verbal and non-verbal interactions, listening, and the better management of interpersonal communication will be studied. </description>
@@ -6494,7 +6785,7 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>Seminars in special areas of speech communication.</description>
 </course>
 
-<coursecode>SPD</coursecode>
+<coursecode><code>SPD</code><title>Spirituality and Personal Development </title></coursecode>
 <course><code>SPD270</code>
 <title>Psychology of Religion and Spirituality</title>
 <description>This course examines theories about the psychological nature of religious experience, the source of religious belief, and the religious significance of psychological phenomena. Attention will be given to the role of introspective, psychoanalytic, experimental, humanistic, and transpersonal methods in the psychology of religion. </description>
@@ -6515,7 +6806,7 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>Jung's analysis of the development of the personality through its life cycle, and of the central place which religion holds within the process of maturation. This includes a study of the unconscious, the collective unconscious, dreams, myths, symbols and archetypes; and the implications of Jung's theories for religious thought and therapy. </description>
 </course>
 
-<coursecode>STAT</coursecode>
+<coursecode><code>STAT</code><title>Statistics</title></coursecode>
 <course><code>STAT230</code>
 <title>Probability</title>
 <description>The laws of probability, discrete and continuous random variables, expectation, central limit theorem. </description>
@@ -6533,10 +6824,37 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <description>Maximum likelihood estimation. Random variables and distribution theory. Generating functions. Functions of random variables. Limiting distributions. Large sample theory of likelihood methods. Likelihood ratio tests. </description>
 </course>
 
-<coursecode>SYDE</coursecode>
+<coursecode><code>STV</code><title>Society, Technology and Values </title></coursecode>
+<course><code>STV100</code>
+<title>Society, Technology and Values: Introduction</title>
+<description>This course examines the interaction of the technologies developed by a culture with the values and social organization of that culture. The course exposes students to various definitions of society, technology and values, and it presents alternative views about how the three interact. These views are then applied to a number of spheres of influence, including patterns of employment and the role of work; medicine and health; polity and economy; sustainable development and the environment.</description>
+<code>STV201</code>
+<title>Society, Technology and Values: Special Topics</title>
+<description>Study of the interaction of society, technology and values in a particular topic area under tutorial guidance by visiting or adjunct faculty.</description>
+<code>STV205</code>
+<title>Cybernetics and Society</title>
+<description>Cybernetics is the study of the interfaces between humans and machines. This course will present an overview of cybernetics from automation and robotics to prosthetics and wearable computing. The roles of men and women in a post-human era will be discussed along with related themes dealing with gender, cyberspace, politics and popular culture.</description>
+<code>STV400</code>
+<title>Society, Technology and Values: Senior Project</title>
+<description>An independent, supervised research project related to the interaction of society, technology and values. Projects may take any format that demonstrates scholarly merit. Formats may include essays, impact studies, designs, computer software, or other media. Students are responsible for proposing suitable projects and are encouraged to seek faculty advice on plausible topics.</description>
+<code>STV401</code>
+<title>Society, Technology &amp; Values: Advanced Topics</title>
+<description>Advanced study of the interaction of society, technology and values in a particular topic area under tutorial guidance by visiting or adjunct faculty.</description>
+<code>STV404</code>
+<title>Technology in Canadian Society</title>
+<description>The course begins by questioning whether or not there is anything distinctive about Canadian design and its context. Through the use of historical and contemporary cases, this course examines factors influencing design and technology choice in Canada and their outcomes. The future of design is also considered in terms of current trends, issues, challenges and opportunities.</description>
+</course>
+
+<coursecode><code>SWREN</code><title>Social Work (Bachelor of Social Work) </title></coursecode>
 <course></course>
 
-<coursecode>WS</coursecode>
+<coursecode><code>SYDE</code><title>Systems Design Engineering </title></coursecode>
+<course></course>
+
+<coursecode><code>WKRPT</code><title>Work-term Report </title></coursecode>
+<course></course>
+
+<coursecode><code>WS</code><title>Women's Studies </title></coursecode>
 <course><code>WS101</code>
 <title>An Introduction to Women's Studies</title>
 <description>This is a survey course that provides an overview of the history of women's rights and struggles in western countries, with a special focus on Canada. The course provides an interdisciplinary focus that includes the impacts of culture, religion, politics and societal values on women's lives. The historical overview concludes with contemporary issues that include race/ethnicity, class, sexuality, body image, and violence.</description>
@@ -6625,8 +6943,5 @@ Note: A field trip fee may be required. The estimated additional cost to each st
 <title>Senior Honours Thesis</title>
 <description>Directed reading and research in a selected area of Women's Studies inquiry.</description>
 </course>
-
-<coursecode>WKRPT</coursecode>
-<course></course>
 
 </body>
