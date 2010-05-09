@@ -4,14 +4,21 @@ session_start();
 include("includes/mysql.inc");
 include("includes/misc.inc");
 include("classes/course.class.php");
+include("classes/coursedefn.class.php");
 
 database_connect();
 
 $PAGE_TITLE = "homepage.php";
 
 $course_code = "";
-if(isset($_POST['terms']))
+if(isset($_POST['terms'])) {
 	$course_code = $_POST['terms'];
+	$crs = new CourseDefn($_POST['terms']);
+	if(!$crs->load())
+		echo "Course not found<br/>";
+	echo "$crs->title";
+	$_POST['descr'] = $crs->descr;
+}
 $descr = "";
 if(isset($_POST['descr']))
 	$descr = ereg_replace("\\\\", "", $_POST['descr']);
@@ -38,6 +45,7 @@ Prof: <input type="text" id="course_prof" name="course_prof" /><br/>
 <hr/>
 <?php
 $first_load = false;
+
 if(isset($_POST['descr'])) {
 	$descr = $_POST['descr'];
 	
