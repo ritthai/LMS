@@ -18,12 +18,10 @@ class CourseDefn {
 					$this->code));
 		
 		if(!$res) return false;
-		$ret = mysql_result($res,0);
-//		while($row = mysql_fetch_row($res))
-//			print_r($row);
+		$ret = mysql_fetch_row($res);
 		mysql_free_result($res);
-		$this->title = $ret[1];
-		$this->descr = $ret[2];
+		$this->title = $ret[2];
+		$this->descr = $ret[3];
 		
 		return true;
 	}

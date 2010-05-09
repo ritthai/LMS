@@ -16,7 +16,6 @@ if(isset($_POST['terms'])) {
 	$crs = new CourseDefn($_POST['terms']);
 	if(!$crs->load())
 		echo "Course not found<br/>";
-	echo "$crs->title";
 	$_POST['descr'] = $crs->descr;
 }
 $descr = "";
