@@ -10,38 +10,23 @@ database_connect();
 
 $PAGE_TITLE = "homepage.php";
 
-$course_code = "";
+$gcourse_code = "";
+$gtitle = "";
 if(isset($_POST['terms'])) {
-	$course_code = $_POST['terms'];
+	$gcourse_code = $_POST['terms'];
 	$crs = new CourseDefn($_POST['terms']);
 	if(!$crs->load())
 		echo "Course not found<br/>";
 	$_POST['descr'] = $crs->descr;
+	$gtitle = $crs->title;
 }
-$descr = "";
+$gdescr = "";
 if(isset($_POST['descr']))
-	$descr = ereg_replace("\\\\", "", $_POST['descr']);
-$tags = "";
+	$gdescr = ereg_replace("\\\\", "", $_POST['descr']);
+$gtags = "";
 if(isset($_POST['tags']))
-	$tags = $_POST['tags'];
+	$gtags = $_POST['tags'];
 ?>
-<html>
-<body>
-<form action="<?php echo $PAGE_TITLE; ?>" method="post">
-Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $course_code; ?>" /><br/>
-Description: <textarea cols=40 rows=5 id="descr" name="descr" value="<?php echo $descr; ?>" /><?php echo $descr; ?></textarea><br/>
-Tags (comma-delimited): <textarea cols=30 rows=3 id="tags" name="tags" /><?php echo $tags; ?></textarea><br/>
-<input type="submit" value="Find resources" />
-</form>
-
-<hr/>
-
-<form action="<?php echo $PAGE_TITLE; ?>" method="post">
-Course name: <input type="text" id="course_name" name="course_name" /><br/>
-Prof: <input type="text" id="course_prof" name="course_prof" /><br/>
-<input type="submit" value="Save" />
-</form>
-<hr/>
 <?php
 $first_load = false;
 
@@ -78,7 +63,8 @@ if(isset($_POST['descr'])) {
 		eval("?>".file_get_contents("search/youtube.php"));
 } else if(isset($_SESSION['youtube']) && isset($_SESSION['google']) &&
 			isset($_POST['course_name']) && isset($_POST['course_prof'])) {
-	$crs = new Course($_POST['course_name'], $_POST['course_prof'],
+	echo $_POST['course_name'];
+	$crs = new Course(urlencode($_POST['course_name']), urlencode($_POST['course_prof']),
 					$_SESSION['google'], $_SESSION['youtube']);
 	$crs->save();
 } else if(isset($_GET['course'])) {
@@ -90,16 +76,44 @@ if(isset($_POST['descr'])) {
 
 $courses = Course::ListCourses();
 ?>
-<p>List of courses:<br/>
+
+<html>
+<body>
+<center><img src="images/logo.png" /></center>
+<form action="<?php echo $PAGE_TITLE; ?>" method="post">
+Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $gcourse_code; ?>" /><br/>
+<?php	if(!$first_load) {	?>
+Description: <textarea cols=40 rows=5 id="descr" name="descr" value="<?php echo $gdescr; ?>" /><?php echo $gdescr; ?></textarea><br/>
+Tags (comma-delimited): <textarea cols=30 rows=3 id="tags" name="tags" /><?php echo $gtags; ?></textarea><br/>
+<?php	}	?>
+<input type="submit" value="Find resources" />
+</form>
+
+<?php	if(!$first_load) {	?>
+<hr/>
+
+<form action="<?php echo $PAGE_TITLE; ?>" method="post">
+Course name: <input type="text" id="course_name" name="course_name" value="<?php echo $gtitle; ?>" /><br/>
+<!--Prof: --><input type="hidden" id="course_prof" name="course_prof" value="" />
+<input type="submit" value="Save" />
+</form>
+<hr/>
+<?php	}	?>
+<div style="float:right; width: 300px; border: 1px solid #000; margin: 10px; height: 600px">
+<p><div style="margin-left: 2em">List of Courses:</div><br/>
 <?php foreach($courses as $course) { ?>
 	<a href="homepage.php?course=<?php echo urlencode($course[1]); ?>&prof=<?php echo urlencode($course[2]); ?>">
-		<?php echo $course[1].", ".$course[2].", ".$course[3]; ?><br/>
+		<?php echo urldecode($course[1]);//.", ".$course[2].", ".$course[3]; ?><br/>
 	</a>
 <?php	} ?>
 </p>
+</div>
 
 <?php
 if(!$first_load) {
+	$terms = $gcourse_code;
+	$title = $gtitle;
+	$descr = $gdescr;
 	eval("?>".file_get_contents("search/google.view.php"));
 	echo "<hr/>";
 	eval("?>".file_get_contents("search/youtube.view.php"));

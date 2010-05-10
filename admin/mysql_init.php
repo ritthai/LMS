@@ -14,7 +14,7 @@ mysql_query("CREATE DATABASE LMS_development;");
 echo mysql_error();
 
 mysql_query("DROP TABLE courses;");
-mysql_query("CREATE TABLE courses (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(10), prof VARCHAR(30), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
+mysql_query("CREATE TABLE courses (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(40), prof VARCHAR(30), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
 echo mysql_error();
 
 mysql_query("DROP TABLE coursedefns;");
