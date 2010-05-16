@@ -34,7 +34,6 @@ resp, data = http.get("/default.aspx?PageID=615", nil)
 b = ""
 print "<body>"
 coder = HTMLEntities.new
-#data.scan(/;Code=(...?.?.?.?.?)&amp;/m) { |a|
 data.scan(/<tr>\s*<td>([a-zA-Z]{2,8})\s*<\/td>\s*<td>(.{1,50})<\/td>/m) { |a|
 	$stdout.flush
 	if true#!a[0].eql?(b)
