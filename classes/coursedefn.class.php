@@ -26,10 +26,13 @@ class CourseDefn {
 		return true;
 	}
 	static function ListCourseDefns() {
-		$results = database_query("SELECT (code,title,descr) FROM coursedefns");
+		$results = database_query("SELECT code,title,descr FROM coursedefns ORDER BY code");
 		$ret = array();
 		while($row = mysql_fetch_row($results))
-			array_push($ret, $row);
+			array_push(	$ret,
+						array(	"code" => $row[0],
+								"title" => $row[1],
+								"descr" => $row[2]));
 		mysql_free_result($results);
 		return $ret;
 	}

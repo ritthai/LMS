@@ -1,6 +1,6 @@
 <?php
-function google_search($procd_descr) {
-	$TERMS = urlencode($procd_descr." Lecture Notes");
+function itunesu_search($procd_descr) {
+	$TERMS = urlencode($procd_descr);
 	$USERIP = $_SERVER['REMOTE_ADDR'];
 	
 	$url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=$TERMS&userip=$USERIP&rsz=small";

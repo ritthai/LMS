@@ -1,4 +1,4 @@
-<?php foreach($_SESSION['youtube'] as $url) { ?>
+<?php foreach($YT_RESULTS as $url) { ?>
 	<object width="480" height="385">
 		<param name="movie" value="<?php echo $url; ?>"></param>
 		<param name="allowFullScreen" value="true"></param>

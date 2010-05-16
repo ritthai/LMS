@@ -11,28 +11,40 @@ function subsets($arr) {
     }
     return $ret;
 }
-function youtube_query($TERMS, $srch) {
-    $str = $TERMS."+".implode("+", $srch);
-    $url = "http://gdata.youtube.com/feeds/api/videos?q=$str&orderby=relevance&
-start-index=1&max-results=2&v=2";
-    $data = file_get_contents($url);
-    $parser = xml_parser_create();
-    xml_parse_into_struct($parser, $data, $xml);
-    xml_parser_free($parser);
-    $store = array();
-    foreach($xml as $elem) {
-        //if($elem['tag'] == "MEDIA:THUMBNAIL") {
-        //  echo "<img src=\"".$elem['attributes']['URL']."\" /><br/>";
-        //}
-        //print_r($elem);
-        $content = "";
-        if($elem['tag'] == "CONTENT") {
-            $content = $elem['attributes']['SRC'];
-			$content .= "(".$str.")";
-            array_push($store, $content);
-        }
-    }
-    return $store;
+function process_description($descr) {
+	// http://www.sequencepublishing.com/academic.html
+	$function_words = array("a bit of","a couple of","a few","a good deal of","a good many","a great deal of","a great many","a lack of","a little","a little bit of","a majority of","a minority of","a number of","a plethora of","a quantity of","all","an amount of","another","any","both","certain","each","either","enough","few","fewer","heaps of","less","little","loads","lots","many","masses of","more","most","much","neither","no","none","numbers of","part","plenty of","quantities of","several","some","the lack of","the majority of","the minority of","the number of","the plethora of","the remainder of","the rest of","the whole","tons of","various","all","another","any","anybody","anyone","anything","both","each","each other","either","everybody","everyone","everything","few","he","her","hers","herself","him","himself","his","I","it","its","itself","many","me","mine","myself","neither","no_one","nobody","none","nothing","one","one another","other","ours","ourselves","several","she","some","somebody","someone","something","such","that","theirs","them","themselves","these","they","this","those","us","we","what","whatever","which","whichever","who","whoever","whom","whomever","whose","you","yours","yourself","yourselves","aboard","about","above","absent","according to","across","after","against","ahead","ahead of","all over","along","alongside","amid","amidst","among","amongst","anti","around","as","as of","as to","aside","astraddle","astride","at","away from","bar","barring","because of","before","behind","below","beneath","beside","besides","between","beyond","but","by","by the time of","circa","close by","close to","concerning","considering","despite","down","due to","during","except","except for","excepting","excluding","failing","following","for","for all","from","given","in","in between","in front of","in keeping with","in place of","in spite of","in view of","including","inside","instead of","into","less","like","minus","near","near to","next to","notwithstanding","of","off","on","on top of","onto","opposite","other than","out","out of","outside","over","past","pending","per","pertaining to","plus","regarding","respecting","round","save","saving","similar to","since","than","thanks to","through","throughout","thru","till","to","toward","towards","under","underneath","unlike","until","unto","up","up to","upon","versus","via","wanting","with","within","without","a","all","an","another","any","both","each","either","every","her","his","its","my","neither","no","other","our","per","some","that","the","their","these","this","those","whatever","whichever","your","accordingly","after","albeit","although",/*"and",*/"as","because","before","both","but","consequently","either","for","hence","however","if","neither","nevertheless","nor","once","or","since","so","than","that","then","thence","therefore","tho'","though","thus","till","unless","until","when","whenever","where","whereas","wherever","whether","while","whilst","yet","be able to","can","could","dare","had better","have to","may","might","must","need to","ought","ought to","shall","should","used to","will","would");
+	
+	sort($function_words, SORT_STRING);
+	foreach($function_words as $key=>$fword)
+		$function_words[$key] = strtolower($fword);
+	
+	/* Do not require following and trailing spaces */
+	$pdelimiters = array(	',', '\.', ':', ';', '!', '\\?', '\\(', '\\)',
+							'examples?');
+	/* Require following and trailing spaces */
+	$wdelimiters = array(	'between', 'to', 'include', 'including');
+	foreach($pdelimiters as $key=>$val)
+		$pdelimiters[$key] = $val;
+	foreach($wdelimiters as $key=>$val)
+		$wdelimiters[$key] = '\s+'.$val.'\s+';
+	$chunks = preg_split('/'.implode('|',$pdelimiters).'|'
+							.implode('|',$wdelimiters).'/',
+							$descr, null, PREG_SPLIT_NO_EMPTY);
+	$chunks2 = array();
+	foreach($chunks as $key=>$chunk) {
+		if($key==0) continue;
+		$line = ereg_replace("^[a-z]?[a-z]?$", "", $chunk);
+		$words = split(' ', $line);
+		$left = array();
+		foreach($words as $word) {
+			$word = ereg_replace("[() ]", "", $word);
+			if(!array_search($word, $function_words))
+				array_push($left, $word);
+		}
+		array_push($chunks2, implode(" ", $left));
+	}
+	return $chunks2;
 }
 
 ?>

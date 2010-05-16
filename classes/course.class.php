@@ -57,10 +57,12 @@ class Course {
 		mysql_free_result($res);
 	}
 	static function ListCourses() {
-		$results = database_query("SELECT * FROM courses");
+		$results = database_query("SELECT name,prof FROM courses ORDER BY timestamp");
 		$ret = array();
 		while($row = mysql_fetch_row($results))
-			array_push($ret, $row);
+			array_push(	$ret,
+						array(	"name" => $row[0],
+								"prof" => $row[1]));
 		mysql_free_result($results);
 		return $ret;
 	}
