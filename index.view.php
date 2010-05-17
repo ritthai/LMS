@@ -24,7 +24,7 @@ Enter the course code: <input type="text" id="terms" name="terms" value="<?php e
 <input type="submit" value="Find resources" />
 		</form>
 
-<p>Search temporarily disabled until I figure out how it fits in to the site's functionality.</p>
+<p>Saving temporarily disabled until I figure out how it fits in to the site's functionality.</p>
 <?php   if(isset($COURSE) && false) {  ?>
 		<hr/>
 		
