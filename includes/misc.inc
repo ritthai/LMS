@@ -1,4 +1,13 @@
 <?php
+function count_matches($haystack, $needles) {
+	$l1 = explode(' ', $haystack);
+	$ret = 0;
+	foreach($l1 as $li)
+		foreach($needles as $n)
+			if(abs(strcasecmp($li, $n)) < 2)
+				$ret++;
+	return $ret;
+}
 function subsets($arr) {
     $cnt=count($arr);
     $ret = array();

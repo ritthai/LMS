@@ -6,6 +6,7 @@ include("classes/coursedefn.class.php");
 include("search/google.php");
 include("search/youtube.php");
 include("search/itunesu.php");
+include("search/khanacad.php");
 
 session_start();
 database_connect();
@@ -14,6 +15,7 @@ $first_load = false;
 $google_results = array();
 $youtube_results = array();
 $itunesu_results = array();
+$khanacad_results = array();
 $gcourse_code = "";
 $gtitle = "";
 $gdescr = "";
@@ -40,7 +42,8 @@ if(isset($_POST['descr'])) {
 	foreach($procd_descr as $descr) {
 		$google_results = array_merge($google_results, google_search($descr));
 		$youtube_results = array_merge($youtube_results, youtube_search($descr, $tags));
-		$itunesu_results = array_merge($itunesu_results, itunesu_search($descr, $tags));
+		$itunesu_results = array_merge($itunesu_results, itunesu_search($descr));
+		$khanacad_results = array_merge($khanacad_results, khanacad_search($descr));
 	}
 } else if(isset($_POST['save_name'])) {
 	$crs = new Course(urlencode($_POST['save_name']), urlencode($_POST['course_prof']),
@@ -63,6 +66,7 @@ $COURSES = Course::ListCourses();
 $G_RESULTS = $google_results;
 $YT_RESULTS = $youtube_results;
 $iTU_RESULTS = $itunesu_results;
+$KHANACAD_RESULTS = $khanacad_results;
 //$FIRST_LOAD = $first_load;
 eval("?>".file_get_contents("index.view.php"));
 

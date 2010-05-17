@@ -6,6 +6,8 @@
 			$COURSES
 			$G_RESULTS
 			$YT_RESULTS
+			$iTU_RESULTS
+			$KHANACAD_RESULTS
 */
 ?>
 <html>
@@ -54,6 +56,8 @@ if(isset($COURSE)) {
     eval("?>".file_get_contents("search/youtube.view.php"));
     echo "<hr/>";
     eval("?>".file_get_contents("search/itunesu.view.php"));
+    echo "<hr/>";
+    eval("?>".file_get_contents("search/khanacad.view.php"));
 }
 ?>
 
