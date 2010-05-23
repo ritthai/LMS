@@ -42,11 +42,11 @@ Course name: <input type="text" id="save_name" name="save_name" value="<?php ech
 		<div style="float:right; width: 300px; border: 1px solid #000; margin: 10px; height: 600px">
 			<p>
 				<div style="margin-left: 2em">List of Courses:</div><br/>
-<?php	foreach($COURSES as $course) { ?>
+<?php	/*foreach($COURSES as $course) { ?>
 				<a href="<?php echo $PAGE_REL_URL; ?>?course=<?php echo urlencode($course['name']); ?>&prof=<?php echo urlencode($course['prof']); ?>">
 					<?php echo urldecode($course['name']); ?><br/>
 				</a>
-<?php   } ?>
+<?php   }*/ ?>
 			</p>
 		</div>
 <?php

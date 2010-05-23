@@ -66,7 +66,7 @@ if(!$first_load)
 	$COURSE = array("title" => $gtitle,
 			"code" => $gcourse_code,
 			"descr" => $gdescr);
-$COURSES = Course::ListCourses();
+$COURSES = CourseDefn::ListAll();
 $G_RESULTS = $google_results;
 $YT_RESULTS = $youtube_results;
 $iTU_RESULTS = $itunesu_results;

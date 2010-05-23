@@ -25,7 +25,7 @@ class CourseDefn {
 		
 		return true;
 	}
-	static function ListCourseDefns() {
+	static function ListAll() {
 		$results = database_query("SELECT code,title,descr FROM coursedefns ORDER BY code");
 		$ret = array();
 		while($row = mysql_fetch_row($results))

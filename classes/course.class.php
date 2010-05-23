@@ -56,7 +56,7 @@ class Course {
 			array_push($this->youtube_res, $row[1]);
 		mysql_free_result($res);
 	}
-	static function ListCourses() {
+	static function ListAll() {
 		$results = database_query("SELECT name,prof FROM courses ORDER BY timestamp");
 		$ret = array();
 		while($row = mysql_fetch_row($results))
