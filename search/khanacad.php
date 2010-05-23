@@ -2,7 +2,7 @@
 function khanacad_search($procd_descr) {
 	$TERMS = urlencode($procd_descr);
 	$URL = "scraping/khan.xml";
-	$NMATCHES = 2;
+	$NMATCHES = 10;
 	$QLIMIT = 0.8;
 	
 	$data = file_get_contents($URL);
@@ -17,11 +17,12 @@ function khanacad_search($procd_descr) {
 	foreach($xml as $key=>$elem)
 		if($elem['tag'] == 'SUBJECT') {
 			$t = $elem['attributes']['TITLE'];
-			$lt = count(preg_split("/\s+|\+/",$t));
+			//$lt = count(preg_split("/\s+|\+/",$t));
+			$lt = count($terms);
 			$matches = count_matches($t, $terms);
 			array_push($store, array(
 						'matches'=>($matches/$lt),
-						'title'=>$elem['attributes']['TITLE'],
+						'title'=>$t,
 						'url'=>$elem['attributes']['LINK']));
 		}
 	usort($store, function ($a,$b) { return $a['matches']>$b['matches']?-1:1; } );
@@ -30,8 +31,11 @@ function khanacad_search($procd_descr) {
 	//for($i=0; $i<min($NMATCHES,count($store)); $i++)
 	//	array_push($ret, array('title'=>$store[$i]['title'], 'url'=>$store[$i]['url']));
 	foreach($store as $s)
-		if(count($ret) < $NMATCHES && $s['matches'] >= $QLIMIT)
-			array_push($ret, array('title'=>$s['title']."<b>Debugging output -- quality: ".$s['matches']." terms: ".$TERMS."</b>", 'url'=>$s['url']));
+		if(count($ret) < $NMATCHES && $s['matches'] >= $QLIMIT) {
+			$title = $s['title'];
+			if($CONFIG_DEBUG) $title .= "<b> -- quality: ".$s['matches']." terms: ".$TERMS."</b>";
+			array_push($ret, array('title'=>$title, 'url'=>$s['url']));
+		}
 	
 	return $ret;
 }
