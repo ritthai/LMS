@@ -22,19 +22,7 @@ function youtube_query($TERMS, $srch) {
     return $store;
 }
 function youtube_search($procd_descr, $tags) {
-	$TERMS = urlencode($procd_descr);
-	$TAGS = $tags;
-
-	$sub = subsets($TAGS);
-	$ret = array();
-	foreach($sub as $s) {
-		if(!count($sub)) continue;
-		$r = youtube_query($TERMS, $s);
-		if(count($r)) {
-			$ret = array_merge($ret, $r);
-			break;
-		}
-	}
-	return $ret;
+	$terms = urlencode($procd_descr);
+	return search_with_tags($terms, $tags, 'youtube_query');
 }
 ?>

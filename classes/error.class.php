@@ -3,6 +3,8 @@ class Error {
     static private $errors = array();
     static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>0);
     function generate($priority, $error) {
+		if(is_string($priority))
+			$priority = self::$PRIORITY[$priority];
 		$fp = fopen('admin/debug.log', 'a');
 		fwrite($fp, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
 		fclose($fp);
