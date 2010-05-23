@@ -1,9 +1,8 @@
 <?php
-include("includes/config.inc");
 include("includes/mysql.inc");
-include("includes/misc.inc");
 include("classes/course.class.php");
 include("classes/coursedefn.class.php");
+include("classes/httpaction.class.php");
 include("search/google.php");
 include("search/youtube.php");
 include("search/itunesu.php");
@@ -12,6 +11,7 @@ include("search/khanacad.php");
 session_start();
 database_connect();
 
+$PAGE_REL_URL = $_SERVER["REQUEST_URI"];
 $first_load = false;
 $google_results = array();
 $youtube_results = array();
@@ -19,25 +19,23 @@ $itunesu_results = array();
 $khanacad_results = array();
 $gcourse_code = "";
 $gtitle = "";
-$gdescr = "";
 $gtags = "";
+$gdescr = "";
+
+$ACTIONS = array('search' => new HttpAction($_SERVER["REQUEST_URI"], 'post', array('terms')));
 
 /**	
 	Identify course, populate fields
 */
-if(isset($_POST['terms'])) {
-	$gcourse_code = $_POST['terms'];
-	$crs = new CourseDefn($_POST['terms']);
+if($ACTIONS['search']->wasCalled()) {
+	$params = $ACTIONS['search']->getParams();
+	$gcourse_code = $gtitle = $params[0];
+	$crs = new CourseDefn($gtitle);
 	if(!$crs->load())
-		echo "Course not found<br/>";
-	$_POST['descr'] = $crs->descr;
-	$gtitle = $crs->title;
-}
-if(isset($_POST['tags']))
-	$gtags = $_POST['tags'];
-if(isset($_POST['descr'])) {
-	$gdescr = ereg_replace("\\\\", "", $_POST['descr']);
-	$tags = split('[,]', $_POST['tags']);
+		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
+	$gdescr = $crs->descr;
+	
+	$tags = split('[,]', $gtags);
 	$procd_descr = process_description($gdescr);
 	
 	foreach($procd_descr as $descr) {
@@ -59,7 +57,6 @@ if(!$CONFIG['debug']) {
 	$_SESSION['youtube'] = $crs->youtube_res;
 } else $first_load = true;
 
-$PAGE_REL_URL = "index.php";
 $PAGE_TITLE = "Homepage";
 if($CONFIG['debug']) $PAGE_TITLE .= " - Debugging Mode";
 if(!$first_load)

@@ -8,6 +8,7 @@
 			$YT_RESULTS
 			$iTU_RESULTS
 			$KHANACAD_RESULTS
+			$ACTIONS
 */
 ?>
 <html>
@@ -15,16 +16,28 @@
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
 	<body>
+<?php	if($errors=Error::get()) {	?>
+		<div style="border: 1px solid #F00; background-color: #fff5f5;">
+			<ul>
+			<?php foreach($errors as $error) {	?>
+				<li><?php echo Error::format_error($error); ?></li>
+			<?php }	?>
+			</ul>
+		</div>
+<?php	}	?>
 		<center><img src="images/logo.png" /></center>
 		
 		<form action="<?php echo $PAGE_REL_URL; ?>" method="post">
 Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $COURSE['code']; ?>" /><br/>
-<?php   if(isset($COURSE)) {  ?>
-	Description: <textarea cols=40 rows=5 id="descr" name="descr" /><?php echo $COURSE['descr']; ?></textarea><br/>
+<?php /* ?>
 	Tags (comma-delimited): <textarea cols=30 rows=3 id="tags" name="tags" /><?php echo $COURSE['tags']; ?></textarea><br/>
-<?php   }   ?>
+<?php */ ?>
 <input type="submit" value="Find resources" />
 		</form>
+
+<?php   if($ACTIONS['search']->wasCalled()) {  ?>
+	Description: <textarea cols=40 rows=5 id="descr" name="descr" /><?php echo $COURSE['descr']; ?></textarea><br/>
+<?		}	?>
 
 <p>Saving temporarily disabled until I figure out how it fits in to the site's functionality.</p>
 <?php   if(isset($COURSE) && false) {  ?>

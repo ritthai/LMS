@@ -19,6 +19,7 @@ class CourseDefn {
 		
 		if(!$res) return false;
 		$ret = mysql_fetch_row($res);
+		if(!$ret) return false;
 		mysql_free_result($res);
 		$this->title = $ret[2];
 		$this->descr = $ret[3];
