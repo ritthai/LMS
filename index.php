@@ -41,7 +41,7 @@ if(isset($_POST['descr'])) {
 	$procd_descr = process_description($gdescr);
 	
 	foreach($procd_descr as $descr) {
-if(!$CONFIG_DEBUG) {
+if(!$CONFIG['debug']) {
 		$google_results = array_merge($google_results, google_search($descr));
 		$youtube_results = array_merge($youtube_results, youtube_search($descr, $tags));
 		$itunesu_results = array_merge($itunesu_results, itunesu_search($descr));
@@ -61,7 +61,7 @@ if(!$CONFIG_DEBUG) {
 
 $PAGE_REL_URL = "index.php";
 $PAGE_TITLE = "Homepage";
-if($CONFIG_DEBUG) $PAGE_TITLE .= " - Debugging Mode";
+if($CONFIG['debug']) $PAGE_TITLE .= " - Debugging Mode";
 if(!$first_load)
 	$COURSE = array("title" => $gtitle,
 			"code" => $gcourse_code,

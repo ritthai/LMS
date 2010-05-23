@@ -1,9 +1,12 @@
 <?php
 function khanacad_search($procd_descr) {
+	global $CONFIG;
 	$TERMS = urlencode($procd_descr);
 	$URL = "scraping/khan.xml";
-	$NMATCHES = 10;
-	$QLIMIT = 0.8;
+	$MATCH_LIMIT_TYPE = 'number'; // number | percent
+	$NMATCHES = 4;
+	$MATCHPCT = 10; // 10% of matches
+	$QLIMIT = 1.1;
 	
 	$data = file_get_contents($URL);
 	$parser = xml_parser_create();
@@ -21,7 +24,7 @@ function khanacad_search($procd_descr) {
 			$lt = count($terms);
 			$matches = count_matches($t, $terms);
 			array_push($store, array(
-						'matches'=>($matches/$lt),
+						'matches'=>($matches),
 						'title'=>$t,
 						'url'=>$elem['attributes']['LINK']));
 		}
@@ -31,11 +34,15 @@ function khanacad_search($procd_descr) {
 	//for($i=0; $i<min($NMATCHES,count($store)); $i++)
 	//	array_push($ret, array('title'=>$store[$i]['title'], 'url'=>$store[$i]['url']));
 	foreach($store as $s)
-		if(count($ret) < $NMATCHES && $s['matches'] >= $QLIMIT) {
+		if( (($MATCH_LIMIT_TYPE == 'number' && count($ret) < $NMATCHES)
+			|| ($MATCH_LIMIT_TYPE == 'percent' && count($ret)/count($store) < $MATCHPCT/100))
+			&& $s['matches'] >= $QLIMIT)
+		{
 			$title = $s['title'];
-			if($CONFIG_DEBUG) $title .= "<b> -- quality: ".$s['matches']." terms: ".$TERMS."</b>";
+			if($CONFIG['debug']) $title .= "<b> -- quality: ".$s['matches']." terms: ".$TERMS."</b>";
 			array_push($ret, array('title'=>$title, 'url'=>$s['url']));
 		}
+	usort($ret, function ($a,$b) { return strnatcasecmp($a['title'],$b['title']); } );
 	
 	return $ret;
 }

@@ -1,10 +1,10 @@
 <?php
-function count_matches($haystack, $needles) {
+function count_matches($haystack, $needles, $tolerance=0) {
 	$l1 = explode(' ', $haystack);
 	$ret = 0;
 	foreach($l1 as $li)
 		foreach($needles as $n)
-			if(abs(strcasecmp($li, $n)) < 2)
+			if(abs(strcasecmp($li, $n)) < $tolerance+1)
 				$ret++;
 	return $ret;
 }
