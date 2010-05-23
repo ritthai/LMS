@@ -27,13 +27,11 @@
 <?php	}	?>
 		<center><img src="images/logo.png" /></center>
 		
-		<form action="<?php echo $PAGE_REL_URL; ?>" method="post">
-Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $COURSE['code']; ?>" /><br/>
-<?php /* ?>
+<?php $ACTIONS['search']->FORM_BEGIN(); ?>
+	Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $COURSE['code']; ?>" /><br/>
 	Tags (comma-delimited): <textarea cols=30 rows=3 id="tags" name="tags" /><?php echo $COURSE['tags']; ?></textarea><br/>
-<?php */ ?>
 <input type="submit" value="Find resources" />
-		</form>
+<?php $ACTIONS['search']->FORM_END(); ?>
 
 <?php   if($ACTIONS['search']->wasCalled()) {  ?>
 	Description: <textarea cols=40 rows=5 id="descr" name="descr" /><?php echo $COURSE['descr']; ?></textarea><br/>

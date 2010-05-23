@@ -34,5 +34,11 @@ class HttpAction {
 			array_push($params, $val);
 		return $params;
 	}
+	function FORM_BEGIN() {
+		echo "<form action=\"$this->url\" method=\"$this->method\">";
+	}
+	function FORM_END() {
+		echo "</form>";
+	}
 }
 ?>
