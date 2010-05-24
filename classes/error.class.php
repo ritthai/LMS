@@ -4,6 +4,7 @@ class Error {
     static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0);
     function generate($priority, $error) {
 		global $CONFIG;
+		global $ROOT;
 		if(is_string($priority))
 			$priority = self::$PRIORITY[$priority];
 		if($CONFIG['debug'] === false && $priority==self::$PRIORITY['debug']) return;
@@ -18,7 +19,7 @@ class Error {
 		$fmt = "<div class=\"$pname\">%s</div>\r\n";
 		
 		// log it
-		$fp = fopen('admin/debug.html', 'a');
+		$fp = fopen($ROOT.'/admin/debug.html', 'a');
 		fprintf($fp, $fmt, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
 		fclose($fp);
 		
@@ -29,9 +30,10 @@ class Error {
             break;
         case self::$PRIORITY['warn']:
         case self::$PRIORITY['notice']:
-        case self::$PRIORITY['debug']:
             array_push(self::$errors, array('priority'=>$priority, 'msg'=>$error));
             break;
+        case self::$PRIORITY['debug']:
+			break;
 		}
     }
     // Error with priority >= $priority

@@ -81,5 +81,27 @@ function process_description($descr) {
 	}
 	return $chunks2;
 }
+function cached_file_update($url) {
+	Error::generate('debug', "cached_file_update $url");
+	$text = file_get_contents($url);
+	database_query(sprintf(
+		"REPLACE INTO primitive_cache (url, content) VALUES ('%s', '%s')",
+		mysql_real_escape_string($url),
+		mysql_real_escape_string($text)));
+	return $text;
+}
+function cached_file_get_contents($url) {
+	Error::generate('debug', "cached_file_get_contents $url");
+	$res = database_query(sprintf(
+		"SELECT * FROM primitive_cache WHERE url='%s'",
+		mysql_real_escape_string($url)));
+	if(!$res)
+		return cached_file_update($url);
+	$ret = mysql_fetch_row($res);
+	if(!$ret)
+		return cached_file_update($url);
+	mysql_free_result($res);
+	return $ret[1];
+}
 
 ?>

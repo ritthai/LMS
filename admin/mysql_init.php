@@ -21,6 +21,10 @@ mysql_query("DROP TABLE coursedefns;");
 mysql_query("CREATE TABLE coursedefns (id INT NOT NULL AUTO_INCREMENT, code VARCHAR(10), title VARCHAR(60), descr VARCHAR(1000), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
 echo mysql_error();
 
+mysql_query("DROP TABLE primitive_cache;");
+mysql_query("CREATE TABLE primitive_cache (url VARCHAR(255), content TEXT, timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(url));");
+echo mysql_error();
+
 $courses = file_get_contents("../scraping/courses2.xml");
 
 $parser = xml_parser_create();

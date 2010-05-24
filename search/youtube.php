@@ -1,9 +1,8 @@
 <?php
 function youtube_query($TERMS, $srch) {
 	$str = $TERMS."+".implode("+", $srch);
-	Error::generate('notice', $str);
 	$url = "http://gdata.youtube.com/feeds/api/videos?q=$str&orderby=relevance&start-index=1&max-results=2&v=2&format=5";
-    $data = file_get_contents($url);
+    $data = cached_file_get_contents($url);
     $parser = xml_parser_create();
     xml_parse_into_struct($parser, $data, $xml);
     xml_parser_free($parser);

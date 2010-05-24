@@ -39,12 +39,9 @@ if($ACTIONS['search']->wasCalled()) {
 	$procd_descr = process_description($gdescr);
 	
 	foreach($procd_descr as $descr) {
-		print_r($descr);
-if(!$CONFIG['debug']) {
 		$google_results = array_merge($google_results, google_search($descr));
 		$youtube_results = array_merge($youtube_results, youtube_search($descr, $tags));
 		$itunesu_results = array_merge($itunesu_results, itunesu_search($descr));
-}
 		$khanacad_results = array_merge($khanacad_results, khanacad_search($descr));
 	}
 } else if(isset($_POST['save_name'])) {

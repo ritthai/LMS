@@ -17,9 +17,11 @@ class CourseDefn {
 					"SELECT * FROM coursedefns WHERE code LIKE '%s'",
 					$this->code));
 		
-		if(!$res) return false;
+		if(!$res)
+			Error::generate('warn', 'CourseDefn->load: $res is null');
 		$ret = mysql_fetch_row($res);
-		if(!$ret) return false;
+		if(!$ret)
+			Error::generate('warn', 'CourseDefn->load: $ret is null');
 		mysql_free_result($res);
 		$this->title = $ret[2];
 		$this->descr = $ret[3];

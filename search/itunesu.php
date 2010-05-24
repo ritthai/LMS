@@ -5,7 +5,7 @@ function itunesu_search($procd_descr) {
 	
 	ini_set('user_agent', 'iTunes/8.1');
 	$url = "http://ax.search.itunes.apple.com/WebObjects/MZSearch.woa/wa/advancedSearch?descriptionTerm=$TERMS&media=iTunesU";
-	$data = file_get_contents($url);
+	$data = cached_file_get_contents($url);
 	$parser = xml_parser_create();
 	xml_parse_into_struct($parser, $data, $xml);
 	xml_parser_free($parser);

@@ -15,8 +15,9 @@ function database_connect() {
 function database_query($query) {
 	global $dbuser, $dbpass, $dbname, $dbhost, $h;
 	$status = mysql_query($query);
+	Error::generate('debug', 'mysql query: '.$query);
 	if(!$status)
-		echo "Database error: ".mysql_error();
+		Error::generate('warn', "Database error: ".mysql_error());
 	return $status;
 }
 
