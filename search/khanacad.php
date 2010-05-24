@@ -1,27 +1,19 @@
 <?php
-function khanacad_search($procd_descr) {
+function khanacad_query($terms, $tags, $xml) {
 	global $CONFIG;
-	$TERMS = urlencode($procd_descr);
-	$URL = "scraping/khan.xml";
 	$MATCH_LIMIT_TYPE = 'number'; // number | percent
 	$NMATCHES = 4;
 	$MATCHPCT = 10; // 10% of matches
 	$QLIMIT = 1.1;
-	
-	$data = file_get_contents($URL);
-	$parser = xml_parser_create();
-	$status = xml_parse_into_struct($parser, $data, $xml);
-	if($status == 0)
-		echo xml_error_string(xml_get_error_code($parser));
-	xml_parser_free($parser);
-	
+	$terms = array_merge($terms, $tags);
+	$TERMS = implode(' ', $terms);
 	$store = array();
-	$terms = preg_split("/\s+|\+/", $TERMS, null, PREG_SPLIT_NO_EMPTY);
 	foreach($xml as $key=>$elem)
 		if($elem['tag'] == 'SUBJECT') {
 			$t = $elem['attributes']['TITLE'];
 			//$lt = count(preg_split("/\s+|\+/",$t));
-			$lt = count($terms);
+			$ltitle = count($t);
+			$lterms = count($terms);
 			$matches = count_matches($t, $terms);
 			array_push($store, array(
 						'matches'=>($matches),
@@ -45,5 +37,20 @@ function khanacad_search($procd_descr) {
 	usort($ret, function ($a,$b) { return strnatcasecmp($a['title'],$b['title']); } );
 	
 	return $ret;
+}
+function khanacad_search($procd_descr, $tags=array()) {
+	global $CONFIG;
+	$TERMS = urlencode($procd_descr);
+	$URL = "scraping/khan.xml";
+	
+	$data = file_get_contents($URL);
+	$parser = xml_parser_create();
+	$status = xml_parse_into_struct($parser, $data, $xml);
+	if($status == 0)
+		echo xml_error_string(xml_get_error_code($parser));
+	xml_parser_free($parser);
+	
+	$terms = preg_split("/\s+|\+/", $TERMS, null, PREG_SPLIT_NO_EMPTY);
+	return search_with_tags($terms, $tags, 'khanacad_query', $xml);
 }
 ?>

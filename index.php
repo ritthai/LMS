@@ -22,7 +22,7 @@ $gtitle = "";
 $gtags = "";
 $gdescr = "";
 
-$ACTIONS = array('search' => new HttpAction($_SERVER["REQUEST_URI"], 'post', array('terms')));
+$ACTIONS = array('search' => new HttpAction($_SERVER["REQUEST_URI"], 'post', array('terms', 'tags')));
 
 /**	
 	Identify course, populate fields
@@ -39,6 +39,7 @@ if($ACTIONS['search']->wasCalled()) {
 	$procd_descr = process_description($gdescr);
 	
 	foreach($procd_descr as $descr) {
+		print_r($descr);
 if(!$CONFIG['debug']) {
 		$google_results = array_merge($google_results, google_search($descr));
 		$youtube_results = array_merge($youtube_results, youtube_search($descr, $tags));

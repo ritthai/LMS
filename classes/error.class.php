@@ -1,19 +1,35 @@
 <?php
 class Error {
     static private $errors = array();
-    static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>0);
+    static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0);
     function generate($priority, $error) {
+		global $CONFIG;
 		if(is_string($priority))
 			$priority = self::$PRIORITY[$priority];
-		$fp = fopen('admin/debug.log', 'a');
-		fwrite($fp, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
+		if($CONFIG['debug'] === false && $priority==self::$PRIORITY['debug']) return;
+		
+		// format string
+		$pname = 'notice';
+		foreach(self::$PRIORITY as $k=>$v)
+			if($v == $priority) {
+				$pname = $k;
+				break;
+			}
+		$fmt = "<div class=\"$pname\">%s</div>\r\n";
+		
+		// log it
+		$fp = fopen('admin/debug.html', 'a');
+		fprintf($fp, $fmt, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
 		fclose($fp);
+		
+		// behaviour on error
         switch($priority) {
         case self::$PRIORITY['fatal']:
             die($error);
             break;
         case self::$PRIORITY['warn']:
         case self::$PRIORITY['notice']:
+        case self::$PRIORITY['debug']:
             array_push(self::$errors, array('priority'=>$priority, 'msg'=>$error));
             break;
 		}
@@ -31,7 +47,7 @@ class Error {
 	// Same formatting as in log
 	function format_error($error) {
 		date_default_timezone_set('America/New_York');
-		return sprintf("%s [%d] %s\r\n", date(DATE_RFC822), $error[priority], $error[msg]);
+		return sprintf("%s [%d] %s", date(DATE_RFC822), $error[priority], $error[msg]);
 	}
 }
 ?>
