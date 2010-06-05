@@ -10,10 +10,7 @@ database_connect();
 
 $PAGE_REL_URL = $_SERVER["REQUEST_URI"];
 $first_load = false;
-$google_results = array();
-$youtube_results = array();
-$itunesu_results = array();
-$khanacad_results = array();
+$search_results = array();
 $gcourse_code = "";
 $gtitle = "";
 $gtags = "";
@@ -36,10 +33,12 @@ if($ACTIONS['search']->wasCalled()) {
 	$procd_descr = process_description($gdescr);
 	
 	foreach($procd_descr as $descr) {
-		$google_results = array_merge($google_results, google_search($descr));
-		$youtube_results = array_merge($youtube_results, youtube_search($descr, $tags));
-		$itunesu_results = array_merge($itunesu_results, itunesu_search($descr));
-		$khanacad_results = array_merge($khanacad_results, khanacad_search($descr));
+		array_push(	$search_results,
+					array(	'subject' => $descr,
+							'google' => google_search($descr),
+							'youtube' => youtube_search($descr, $tags),
+							'itunesu' => itunesu_search($descr),
+							'khanacad' => khanacad_search($descr)));
 	}
 } else if(isset($_POST['save_name'])) {
 	$crs = new Course(urlencode($_POST['save_name']), urlencode($_POST['course_prof']),
@@ -56,13 +55,10 @@ $PAGE_TITLE = "Homepage";
 if($CONFIG['debug']) $PAGE_TITLE .= " - Debugging Mode";
 if(!$first_load)
 	$COURSE = array("title" => $gtitle,
-			"code" => $gcourse_code,
-			"descr" => $gdescr);
+					"code" => $gcourse_code,
+					"descr" => $gdescr);
 $COURSES = CourseDefn::ListAll();
-$G_RESULTS = $google_results;
-$YT_RESULTS = $youtube_results;
-$iTU_RESULTS = $itunesu_results;
-$KHANACAD_RESULTS = $khanacad_results;
+$SEARCH_RESULTS = $search_results;
 //$FIRST_LOAD = $first_load;
 eval("?>".file_get_contents("index.view.php"));
 

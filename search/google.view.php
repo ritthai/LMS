@@ -1,7 +1,12 @@
-<ul>
-<?php	foreach($G_RESULTS as $lst) {
-			$title = $lst[0]; $link = $lst[1];
+<?php	foreach($G_RESULTS as $subject) {
+			foreach($subject as $result) {
+				$title = $result[0]; $link = $result[1];
+				$sub = $subject[1];
 ?>
-	<li><a href="<?php echo $link; ?>"><?php echo $title; ?></a></li>
-<?php	}	?>
-</ul>
+<dl>
+<lh><?php echo $sub; ?></lh>
+	<dd><a href="<?php echo $link; ?>"><?php echo $title; ?></a></dd>
+</dl>
+<?php		}
+		}
+?>

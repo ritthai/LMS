@@ -4,10 +4,7 @@
 			$PAGE_REL_URL
 			$COURSE
 			$COURSES
-			$G_RESULTS
-			$YT_RESULTS
-			$iTU_RESULTS
-			$KHANACAD_RESULTS
+			$SEARCH_RESULTS
 			$ACTIONS
 */
 ?>
@@ -49,7 +46,7 @@ Course name: <input type="text" id="save_name" name="save_name" value="<?php ech
 		</form>
 		<hr/>
 <?php   }   ?>
-
+<!--
 		<div style="float:right; width: 300px; border: 1px solid #000; margin: 10px; height: 600px">
 			<p>
 				<div style="margin-left: 2em">List of Courses:</div><br/>
@@ -60,15 +57,10 @@ Course name: <input type="text" id="save_name" name="save_name" value="<?php ech
 <?php   }*/ ?>
 			</p>
 		</div>
+-->
 <?php
 if(isset($COURSE)) {
-    eval("?>".file_get_contents("search/google.view.php"));
-    echo "<hr/>";
-    eval("?>".file_get_contents("search/youtube.view.php"));
-    echo "<hr/>";
-    eval("?>".file_get_contents("search/itunesu.view.php"));
-    echo "<hr/>";
-    eval("?>".file_get_contents("search/khanacad.view.php"));
+	eval("?>".file_get_contents("search/search.view.php"));
 }
 ?>
 
