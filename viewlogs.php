@@ -10,7 +10,7 @@
 				background-color: #f00;
 			}
 			.warn {
-				background-color: #ff0;
+				background-color: #980;
 			}
 			.notice {
 				background-color: #000;

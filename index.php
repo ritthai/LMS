@@ -1,8 +1,5 @@
 <?php
 include("includes/mysql.inc");
-include("classes/course.class.php");
-include("classes/coursedefn.class.php");
-include("classes/httpaction.class.php");
 include("search/google.php");
 include("search/youtube.php");
 include("search/itunesu.php");
