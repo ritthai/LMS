@@ -51,7 +51,7 @@ foreach($xml as $a) {
 	}
 }
 
-
+exec("mysql -u$dbuser -p$dbpass -D$dbname < migrations/create_users.sql");
 
 mysql_close($h);
 ?>

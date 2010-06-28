@@ -1,3 +1,4 @@
-Order Allow,Deny
-Allow from All
-Deny from All
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule (.*) index.php?action=$1 [QSA]

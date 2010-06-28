@@ -1,55 +1,48 @@
 <?php
-class Error {
-    static private $errors = array();
-    static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0);
-    function generate($priority, $error) {
-		global $CONFIG;
-		global $ROOT;
-		if(is_string($priority))
-			$priority = self::$PRIORITY[$priority];
-		if($CONFIG['debug'] === false && $priority==self::$PRIORITY['debug']) return;
-		
-		// format string
-		$pname = 'notice';
-		foreach(self::$PRIORITY as $k=>$v)
-			if($v == $priority) {
-				$pname = $k;
-				break;
-			}
-		$fmt = "<div class=\"$pname\">%s</div>\r\n";
-		
-		// log it
-		$fp = fopen($ROOT.'/admin/debug.html', 'a');
-		fprintf($fp, $fmt, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
-		fclose($fp);
-		
-		// behaviour on error
-        switch($priority) {
-        case self::$PRIORITY['fatal']:
-            die($error);
-            break;
-        case self::$PRIORITY['warn']:
-        case self::$PRIORITY['notice']:
-            array_push(self::$errors, array('priority'=>$priority, 'msg'=>$error));
-            break;
-        case self::$PRIORITY['debug']:
-			break;
+class User {
+	private function create_user($name) {
+		$res = database_query(sprintf(
+			"SELECT COUNT(*) FROM users WHERE name='%s'",
+			mysql_real_escape_string($name)));
+		if(mysql_result($res, 0) < 1) {
+			database_query(sprintf(
+				"INSERT INTO users (name) VALUES ('%s')",
+				mysql_real_escape_string($name)));
+			return mysql_insert_id();
+		} else {
+			Error::generate('fatal', 'Username already taken.');
+			return -1;
 		}
-    }
-    // Error with priority >= $priority
-    function get($priority=0) {
-		if(count(self::$errors) == 0)
-			return null;
-        $ret = array_filter(self::$errors,
-                            function ($a) { return $a[priority] >= $priority; });
-        self::$errors = array_filter(self::$errors,
-                                function ($a) { return $a[priority] < $priority; });
-        return $ret;
-    }
-	// Same formatting as in log
-	function format_error($error) {
-		date_default_timezone_set('America/New_York');
-		return sprintf("%s [%d] %s", date(DATE_RFC822), $error[priority], $error[msg]);
+	}
+	private function store_user_attribute_as_string($id, $attrib, $val) {
+		database_query(sprintf(
+			"REPLACE INTO user_data (userid, attrib, stringdata) VALUES ('%d', '%s', '%s')",
+			$id, $attrib, $val));
+		if(mysql_affected_rows() < 1) {
+			Error::generate('debug', "Could not store user attribute as string: (id=$id, attrib=$attrib, val=$val)");
+			return -1;
+		}
+	}
+	/**
+		Static Functions
+	*/
+	function create($userCfg) {
+		$id = create_user($userCfg['name']);
+		if($id < 0) return -1;
+		foreach($userCfg as $attrib => $val) {
+			switch($attrib) {
+			case 'email':
+			case 'role':
+				store_user_attrib_as_string($id, $attrib, $val);
+				break;
+			case 'password':
+				store_user_attrib_as_string($id, $attrib, hash('sha256', $val));
+				break;
+			default:
+				Error::generate('debug', 'Invalid user attribute in User::create');
+			}
+		}
+		return $id;
 	}
 }
 ?>
