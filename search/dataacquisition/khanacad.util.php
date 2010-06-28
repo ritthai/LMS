@@ -40,8 +40,9 @@ function khanacad_query($terms, $tags, $xml) {
 }
 function khanacad_search($procd_descr, $tags=array()) {
 	global $CONFIG;
+	global $ROOT;
 	$TERMS = urlencode($procd_descr);
-	$URL = "scraping/khan.xml";
+	$URL = "$ROOT/scraping/khan.xml";
 	
 	$data = file_get_contents($URL);
 	$parser = xml_parser_create();

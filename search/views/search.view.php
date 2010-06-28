@@ -1,4 +1,4 @@
-<?php foreach($SEARCH_RESULTS as $subject) { ?>
+<?php foreach($args['searchresults'] as $subject) { ?>
 <div style="border: 1px solid #000">
 <ul>Subject: <?php echo $subject['subject']; ?>
 	<li><ul>Google results:

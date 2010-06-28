@@ -1,16 +1,18 @@
 <?php
 /**
-	Given:	$PAGE_TITLE
-			$PAGE_REL_URL
-			$COURSE
-			$COURSES
-			$SEARCH_RESULTS
-			$ACTIONS
+	Given:	pagetitle,
+			pageurl,
+			course:	title,
+					code,
+					descr
+			courses,
+			searchresults,
+			actions
 */
 ?>
 <html>
 	<head>
-		<title><?php echo $PAGE_TITLE; ?></title>
+		<title><?php echo $args['pagetitle']; ?></title>
 	</head>
 	<body>
 <?php	if($errors=Error::get()) {	?>
@@ -24,18 +26,18 @@
 <?php	}	?>
 		<center><img src="<?php echo $HTMLROOT; ?>/images/logo.png" /></center>
 		
-<?php $ACTIONS['search']->FORM_BEGIN(); ?>
-	Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $COURSE['code']; ?>" /><br/>
-	Tags (comma-delimited): <textarea cols=30 rows=3 id="tags" name="tags" /><?php echo $COURSE['tags']; ?></textarea><br/>
+<?php $args['actions']['search']->FORM_BEGIN(); ?>
+	Enter the course code: <input type="text" id="terms" name="terms" value="<?php echo $args['course']['code']; ?>" /><br/>
+	Tags (comma-delimited): <textarea cols=30 rows=3 id="tags" name="tags" /><?php echo $args['course']['tags']; ?></textarea><br/>
 <input type="submit" value="Find resources" />
-<?php $ACTIONS['search']->FORM_END(); ?>
+<?php $args['actions']['search']->FORM_END(); ?>
 
-<?php   if($ACTIONS['search']->wasCalled()) {  ?>
-	Description: <textarea cols=40 rows=5 id="descr" name="descr" /><?php echo $COURSE['descr']; ?></textarea><br/>
+<?php   if($args['actions']['search']->wasCalled()) {  ?>
+	Description: <textarea cols=40 rows=5 id="descr" name="descr" /><?php echo $args['course']['descr']; ?></textarea><br/>
 <?		}	?>
 
 <p>Saving temporarily disabled until I figure out how it fits in to the site's functionality.</p>
-<?php   if(isset($COURSE) && false) {  ?>
+<?php   if(false) {  ?>
 		<hr/>
 		
 		<form action="<?php echo $PAGE_REL_URL; ?>" method="post">
@@ -45,8 +47,6 @@ Course name: <input type="text" id="save_name" name="save_name" value="<?php ech
 <input type="submit" value="Save" />
 		</form>
 		<hr/>
-<?php   }   ?>
-<!--
 		<div style="float:right; width: 300px; border: 1px solid #000; margin: 10px; height: 600px">
 			<p>
 				<div style="margin-left: 2em">List of Courses:</div><br/>
@@ -57,10 +57,10 @@ Course name: <input type="text" id="save_name" name="save_name" value="<?php ech
 <?php   }*/ ?>
 			</p>
 		</div>
--->
+<?php   }   ?>
 <?php
-if(isset($COURSE)) {
-	eval("?>".file_get_contents("search/search.view.php"));
+if($args['actions']['search']->wasCalled()) {
+	eval("?>".file_get_contents("views/search.view.php"));
 }
 ?>
 
