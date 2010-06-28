@@ -1,5 +1,6 @@
 <?php
 $ROOT = '/Library/WebServer/Documents/lms'; // Also change prepend file in .htaccess
+$HTMLROOT = 'http://localhost/lms';
 include("$ROOT/includes/config.inc");
 include("$ROOT/includes/misc.inc");
 
