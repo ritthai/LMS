@@ -1,3 +1,12 @@
+<?php
+/**
+	Given:	pagetitle,
+			actions,
+			userlist :	(id,
+						name,
+						creation_timestamp)
+*/
+?>
 <html>
 	<head>
 		<title><?php echo $args['pagetitle']; ?></title>
@@ -12,9 +21,20 @@
             </ul>
         </div>
 <?php   }   ?>
-		<ul>
-			<li><a href="create">create</a></li>
-			<li><a href="list">list</a></li>
-		</ul>
+
+		<table>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>creation_timestamp</th>
+			</tr>
+<?php	foreach($args['userlist'] as $user) {	?>
+			<tr>
+				<td><?php echo $user['id']; ?></td>
+				<td><?php echo $user['name']; ?></td>
+				<td><?php echo $user['creation_timestamp']; ?></td>
+			</tr>
+<?php	}	?>
+
 	</body>
 </html>

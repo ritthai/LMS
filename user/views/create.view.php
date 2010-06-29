@@ -20,10 +20,10 @@
 <?php   }   ?>
 
 <?php $args['actions']['create']->FORM_BEGIN(); ?>
-	Username:		<input type="text" id="name" /><br/>
-	Email address:	<input type="text" id="email" /><br/>
-	Password:		<input type="password" id="password" /><br/>
-	Role:			<select id="role">
+	Username:		<input type="text" name="name" /><br/>
+	Email address:	<input type="text" name="email" /><br/>
+	Password:		<input type="password" name="password" /><br/>
+	Role:			<select name="role">
 						<option value="admin">Admin</option>
 						<option value="user">User</option>
 					</select>

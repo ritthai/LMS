@@ -1,6 +1,7 @@
 <?php
 class User {
 	private function create_user($name) {
+		Error::generate('debug', 'Creating user '.$name);
 		$res = database_query(sprintf(
 			"SELECT COUNT(*) FROM users WHERE name='%s'",
 			mysql_real_escape_string($name)));
@@ -14,10 +15,13 @@ class User {
 			return -1;
 		}
 	}
-	private function store_user_attribute_as_string($id, $attrib, $val) {
+	private function store_user_attrib_as_string($id, $attrib, $val) {
+		Error::generate('debug', sprintf(
+			'Storing attribute (id, attrib (hash), val) = (%d, %s (%d), %s)',
+			$id, $attrib, hash('sha256', $attrib), $val));
 		database_query(sprintf(
-			"REPLACE INTO user_data (userid, attrib, stringdata) VALUES ('%d', '%s', '%s')",
-			$id, $attrib, $val));
+			"REPLACE INTO user_data (userid, attrib, stringdata) VALUES ('%d', '%d', '%s')",
+			$id, hash('sha256', $attrib), $val));
 		if(mysql_affected_rows() < 1) {
 			Error::generate('debug', "Could not store user attribute as string: (id=$id, attrib=$attrib, val=$val)");
 			return -1;
@@ -26,23 +30,40 @@ class User {
 	/**
 		Static Functions
 	*/
-	function create($userCfg) {
-		$id = create_user($userCfg['name']);
+	function Create($userCfg) {
+		$id = User::create_user($userCfg['name']);
 		if($id < 0) return -1;
 		foreach($userCfg as $attrib => $val) {
+			Error::generate('debug', "attrib=$attrib, val=$val");
 			switch($attrib) {
+			case 'name':
 			case 'email':
 			case 'role':
-				store_user_attrib_as_string($id, $attrib, $val);
+				User::store_user_attrib_as_string($id, $attrib, $val);
 				break;
 			case 'password':
-				store_user_attrib_as_string($id, $attrib, hash('sha256', $val));
+				User::store_user_attrib_as_string($id, $attrib, hash('sha256', $val));
 				break;
 			default:
-				Error::generate('debug', 'Invalid user attribute in User::create');
+				Error::generate('debug', 'Invalid user attribute in User::Create');
 			}
 		}
 		return $id;
+	}
+	function ListAll($userCfg) {
+		$res = database_query("SELECT * FROM users ORDER BY creation_timestamp");
+		$ret = array();
+		if(!$res) {
+			Error::generate('debug', 'Could not query database in User::ListAll');
+			return array();
+		}
+		while($row = mysql_fetch_row($res)) {
+			array_push(	$ret, array(	'id' => $row[0],
+										'name' => $row[1],
+										'creation_timestamp' => $row[2] ));
+		}
+		mysql_free_result($res);
+		return $ret;
 	}
 }
 ?>

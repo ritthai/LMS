@@ -36,7 +36,8 @@ class HttpAction {
 		$parr = strcmp($this->method,'get')==0 ? $_GET : $_POST;
 		$params = array();
 		foreach($parr as $key=>$val)
-			array_push($params, $val);
+			$params[$key] = $val;
+			//array_push($params, $val);
 		return $params;
 	}
 	function FORM_BEGIN() {
