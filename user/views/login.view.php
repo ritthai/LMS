@@ -1,3 +1,9 @@
+<?php
+/**
+	Given:	pagetitle,
+			actions
+*/
+?>
 <html>
 	<head>
 		<title><?php echo $args['pagetitle']; ?></title>
@@ -12,10 +18,11 @@
             </ul>
         </div>
 <?php   }   ?>
-		<ul>
-			<li><a href="create">create</a></li>
-			<li><a href="list">list</a></li>
-			<li><a href="login">login</a></li>
-		</ul>
+
+<?php $args['actions']['login']->FORM_BEGIN(); ?>
+	Username:		<input type="text" name="name" /><br/>
+	Password:		<input type="password" name="password" /><br/>
+					<input type="submit" value="Log in" />
+<?php $args['actions']['login']->FORM_END(); ?>
 	</body>
 </html>

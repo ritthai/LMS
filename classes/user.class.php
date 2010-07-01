@@ -58,7 +58,7 @@ class User {
 		if($res) {
 			return mysql_insert_id();
 		} else {
-			Error::generate('fatal', 'Username already taken.');
+			Error::generate('notice', 'Username already taken.');
 			return false;
 		}
 	}
@@ -159,7 +159,7 @@ class User {
 	function Create($userCfg) {
 		$id = User::create_user($userCfg['name']);
 		if($id < 0) {
-			Error::generate('fatal', 'Username already taken.');
+			Error::generate('notice', 'Username already taken.');
 			return false;
 		}
 		foreach($userCfg as $attrib => $val) {
@@ -212,6 +212,42 @@ class User {
 			if($attrval) $ret[User::get_attrib_str($attrib)] = $attrval;
 		}
 		return $ret;
+	}
+	// Returns true on success, false on failure
+	function Authenticate($name, $password) {
+		$id = self::get_user_id($name);
+		if(!$id) {
+			Error::generate('debug', 'Invalid username/password combination');
+			return false;
+		}
+		$correctpasshash = self::get_user_attrib($id, 'password');
+		if($correctpasshash == hash('sha256', $password)) {
+			if(session_id() == "" || !isset($_SESSION)) {
+				Error::generate('debug', 'Authentication passed, but session did not exist');
+				return false;
+			} else {
+				$_SESSION['userid'] = $id;
+				return true;
+			}
+		} else {
+			Error::generate('debug', 'Invalid username/password combination');
+			return false;
+		}
+	}
+	function Deauthenticate() {
+		if(session_id() != "" && isset($_SESSION))
+			$_SESSION['userid'] = false;
+	}
+	function IsAuthenticated() {
+		if(session_id() != "" && isset($_SESSION) && $_SESSION['userid'])
+			return true;
+		else
+			return false;
+	}
+	function HasPermissions($role) {
+		if(!self::IsAuthenticated())
+			return false;
+		return self::get_user_attrib($_SESSION['userid'], 'role') & get_role_id($role);
 	}
 }
 ?>

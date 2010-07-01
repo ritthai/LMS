@@ -13,7 +13,9 @@ $ACTIONS = array(
 	'list' => new HttpAction("$PAGE_REL_URL/list", 'get',
 				array()),
 	'show' => new HttpAction("$PAGE_REL_URL/show", 'get',
-				array('userid'))
+				array('userid')),
+	'login' => new HttpAction("$PAGE_REL_URL/login", 'post',
+				array('name', 'password'))
 	);
 
 $PAGE_TITLE = "User management";
@@ -41,7 +43,7 @@ if($ACTIONS['create']->wasCalled()) {
 	}
 	$userid = User::Create($filtered_params);
 	if($userid > 0)
-		Error::generate('notice', 'Account created!');
+		Error::generate('fatal', 'Account created!');
 	else
 		Error::generate('fatal', 'Account creation failed.');
 	header("Location: $PAGE_REL_URL");
@@ -51,11 +53,17 @@ if($ACTIONS['create']->wasCalled()) {
     //$args['userinfo']['id'] = $params['userid'];
 	//foreach(User::GetAttribs($args['userinfo']['id']) as $attrib
     eval("?>".file_get_contents("views/show.view.php"));
-}/* else if($ACTIONS['list']->wasCalled()) {
-	$params = $ACTIONS['list']->getParams();
-	$args['userlist'] = User::ListAll($params);
-	eval("?>".file_get_contents("views/list.view.php"));
-} */else if(isset($_GET['action'])) { // Action with no params
+} else if($ACTIONS['login']->wasCalled()) {
+	$params = $ACTIONS['login']->getParams();
+	$res = User::Authenticate($params['name'], $params['password']);
+	if($res) {
+		Error::generate('notice', 'Authentication successful');
+		header("Location: $PAGE_REL_URL");
+	} else {
+		Error::generate('notice', 'Invalid username/password combination');
+		eval("?>".file_get_contents("views/login.view.php"));
+	}
+} else if(isset($_GET['action']) && $_GET['action'] != "") { // Action with no params
 	$action = $_GET['action'];
 	switch($action) {
 	case 'list':
@@ -63,10 +71,11 @@ if($ACTIONS['create']->wasCalled()) {
 		// Fallthrough
 	case 'show':
 	case 'create':
+	case 'login':
 		eval("?>".file_get_contents("views/$action.view.php"));
 		break;
 	default:
-		eval("?>".file_get_contents("views/index.view.php"));
+		header("Location: $PAGE_REL_URL");
 	}
 } else {
 	eval("?>".file_get_contents("views/index.view.php"));
