@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS users, user_data, user_attribs;
 # EAV
 CREATE TABLE users (	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-						name VARCHAR(64),
+						name VARCHAR(64) UNIQUE KEY,
 						creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE user_data (	id INT NOT NULL,
 							attrib INT NOT NULL,

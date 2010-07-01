@@ -23,6 +23,28 @@ class HttpAction {
 		return $ret;
 	}
 	function wasCalled() {
+		//echo $cur_uri."<br/>";
+		//echo $req_uri."<br/>";
+		$req_uri = $_SERVER['REQUEST_URI'];
+		$qpos = strrpos($req_uri, '?');
+		if($qpos) $req_uri = substr($req_uri, 0, $qpos);
+		$cur_uri = $this->getLink();
+		$req_uri = rtrim($req_uri, " /\r\n");
+		$cur_uri = rtrim($cur_uri, " /\r\n");
+		$req_uri = ltrim($req_uri, " /\r\n");
+		$cur_uri = ltrim($cur_uri, " /\r\n");
+		$req_uri = explode('/', $req_uri);
+		$cur_uri = explode('/', $cur_uri);
+		if(count($req_uri) > count($cur_uri))
+			$req_uri = array_slice($req_uri, count($cur_uri));
+		else if(count($req_uri) < count($cur_uri))
+			$cur_uri = array_slice($cur_uri, count($req_uri));
+		$req_uri = implode('/', $req_uri);
+		$cur_uri = implode('/', $cur_uri);
+		//echo $req_uri."<br/>";
+		if($req_uri != $cur_uri) return false;
+		//echo $req_uri."-<br/>";
+		
 		$parr = strcmp($this->method,'get')==0 ? $_GET : $_POST;
 		$params = array();
 		foreach($parr as $key=>$val)
@@ -39,7 +61,6 @@ class HttpAction {
 		$params = array();
 		foreach($parr as $key=>$val)
 			$params[$key] = $val;
-			//array_push($params, $val);
 		return $params;
 	}
 	function FORM_BEGIN() {

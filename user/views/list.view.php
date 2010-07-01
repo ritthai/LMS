@@ -27,7 +27,6 @@
 				<th>id</th>
 				<th>name</th>
 				<th>creation_timestamp</th>
-				<th>test</th>
 			</tr>
 <?php	foreach($args['userlist'] as $user) {	?>
 			<tr>

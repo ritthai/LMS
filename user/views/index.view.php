@@ -16,6 +16,8 @@
 			<li><a href="create">create</a></li>
 			<li><a href="list">list</a></li>
 			<li><a href="login">login</a></li>
+			<li><a href="logout">logout</a></li>
+			<li><a href="status">status</a></li>
 		</ul>
 	</body>
 </html>

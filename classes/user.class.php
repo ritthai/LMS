@@ -235,8 +235,12 @@ class User {
 		}
 	}
 	function Deauthenticate() {
-		if(session_id() != "" && isset($_SESSION))
+		if(session_id() != "" && isset($_SESSION) && $_SESSION['userid']) {
 			$_SESSION['userid'] = false;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	function IsAuthenticated() {
 		if(session_id() != "" && isset($_SESSION) && $_SESSION['userid'])
@@ -245,9 +249,18 @@ class User {
 			return false;
 	}
 	function HasPermissions($role) {
-		if(!self::IsAuthenticated())
+		if(!self::IsAuthenticated()) {
+			Error::generate('debug', 'Not authenticated in HasPermissions');
 			return false;
-		return self::get_user_attrib($_SESSION['userid'], 'role') & get_role_id($role);
+		}
+		return self::get_user_attrib($_SESSION['userid'], self::get_attrib_id('role')) & self::get_role_id($role);
+	}
+	function GetAuthenticatedID() {
+		if(!self::IsAuthenticated()) {
+			Error::generate('debug', 'Not authenticated in GetAuthenticatedID');
+			return false;
+		}
+		return $_SESSION['userid'];
 	}
 }
 ?>
