@@ -23,10 +23,8 @@
 	Username:		<input type="text" name="name" /><br/>
 	Email address:	<input type="text" name="email" /><br/>
 	Password:		<input type="password" name="password" /><br/>
-	Role:			<select name="role">
-						<option value="admin">Admin</option>
-						<option value="user">User</option>
-					</select>
+	Role:			<input type="text" name="role" value="user,admin" /><br/>
+
 					<input type="submit" value="Create account" />
 <?php $args['actions']['create']->FORM_END(); ?>
 	</body>

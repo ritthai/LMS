@@ -1,7 +1,7 @@
 <?php
 class Error {
     static private $errors = array();
-    static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0);
+    static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0, 'suspicious'=>-1);
     function generate($priority, $error) {
 		global $CONFIG;
 		global $ROOT;
@@ -33,6 +33,7 @@ class Error {
             array_push(self::$errors, array('priority'=>$priority, 'msg'=>$error));
             break;
         case self::$PRIORITY['debug']:
+        case self::$PRIORITY['suspicious']:
 			break;
 		}
     }

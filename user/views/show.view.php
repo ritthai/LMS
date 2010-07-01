@@ -2,9 +2,7 @@
 /**
 	Given:	pagetitle,
 			actions,
-			userlist :	(id,
-						name,
-						creation_timestamp)
+			userinfo : id
 */
 ?>
 <html>
@@ -21,24 +19,14 @@
             </ul>
         </div>
 <?php   }   ?>
-
+		
 		<table>
+<?php	foreach($args['userinfo'] as $key=>$val) {	?>
 			<tr>
-				<th>id</th>
-				<th>name</th>
-				<th>creation_timestamp</th>
-				<th>test</th>
-			</tr>
-<?php	foreach($args['userlist'] as $user) {	?>
-			<tr>
-				<td><a href="<?php echo $args['actions']['show']->getLink(array('userid'=>$user['id'])); ?>">
-						<?php echo $user['id']; ?>
-					</a>
-				</td>
-				<td><?php echo $user['name']; ?></td>
-				<td><?php echo $user['creation_timestamp']; ?></td>
+				<td><?php echo $key; ?></td>
+				<td><?php echo $val ? $val : 'Could not retrieve field'; ?></td>
 			</tr>
 <?php	}	?>
-
+		</table>
 	</body>
 </html>

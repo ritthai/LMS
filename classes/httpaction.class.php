@@ -13,11 +13,13 @@ class HttpAction {
 		$this->params = $params;
 		$this->perms = $perms;
 	}
-	function getLink() {
+	function getLink($params=array()) {
 		$ret = $this->url;
-		if(count($this->params) > 0)
+		if(count($params) > 0)
 			$ret .= '?';
-		$ret .= implode('&', $this->params);
+		foreach($params as $k=>$v)
+			$params[$k] = "$k=$v";
+		$ret .= implode('&', $params);
 		return $ret;
 	}
 	function wasCalled() {
