@@ -1,9 +1,9 @@
 <?php
-include("$ROOT/includes/mysql.inc");
+@include("$ROOT/includes/mysql.inc");
 
-session_start();
-db_connect();
-User::init();
+@session_start();
+@db_connect();
+@User::init();
 
 $PAGE_REL_URL = "$HTMLROOT/user";
 
@@ -44,7 +44,7 @@ if($ACTIONS['create']->wasCalled()) {
 		Error::generate('notice', 'Account created!');
 	else
 		Error::generate('fatal', 'Account creation failed.');
-	eval("?>".file_get_contents("views/index.view.php"));
+	header("Location: $PAGE_REL_URL");
 } else if($ACTIONS['show']->wasCalled()) {
     $params = $ACTIONS['show']->getParams();
 	$args['userinfo'] = User::GetAttribs($params['userid']);

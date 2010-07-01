@@ -8,6 +8,9 @@ class Error {
 		if(is_string($priority))
 			$priority = self::$PRIORITY[$priority];
 		if($CONFIG['debug'] === false && $priority==self::$PRIORITY['debug']) return;
+
+		if(session_id() != "" && isset($_SESSION['errors']))
+			self::$errors = $_SESSION['errors'];
 		
 		// format string
 		$pname = 'notice';
@@ -36,15 +39,25 @@ class Error {
         case self::$PRIORITY['suspicious']:
 			break;
 		}
+		
+		if(session_id() != "")
+			$_SESSION['errors'] = self::$errors;
     }
     // Error with priority >= $priority
     function get($priority=0) {
+		if(session_id() != "" && isset($_SESSION['errors']))
+			self::$errors = $_SESSION['errors'];
+		
 		if(count(self::$errors) == 0)
 			return null;
         $ret = array_filter(self::$errors,
                             function ($a) { return $a[priority] >= $priority; });
         self::$errors = array_filter(self::$errors,
                                 function ($a) { return $a[priority] < $priority; });
+		
+		if(session_id() != "")
+			$_SESSION['errors'] = self::$errors;
+
         return $ret;
     }
 	// Same formatting as in log

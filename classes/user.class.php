@@ -158,7 +158,10 @@ class User {
 	}
 	function Create($userCfg) {
 		$id = User::create_user($userCfg['name']);
-		if($id < 0) return false;
+		if($id < 0) {
+			Error::generate('fatal', 'Username already taken.');
+			return false;
+		}
 		foreach($userCfg as $attrib => $val) {
 			switch($attrib) {
 			case 'role':
