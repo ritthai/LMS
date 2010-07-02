@@ -154,6 +154,7 @@ if($ACTIONS['create']->wasCalled()) {
 		header("Location: $PAGE_REL_URL");
 		break;
 	default:
+		Error::generate('suspicious', "Invalid action $action in /user/");
 		header("Location: $PAGE_REL_URL");
 	}
 } else {

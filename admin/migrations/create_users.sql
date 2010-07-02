@@ -10,7 +10,7 @@ CREATE TABLE user_data (	id INT NOT NULL,
 							stringdata VARCHAR(255)	);
 INSERT
 	INTO users (name)
-	VALUES ('admin');
+	VALUES ('jkoff');
 INSERT
 	INTO user_data (id, attrib, intdata, stringdata)
 	VALUES	('1','1',NULL,'jkoff'),
