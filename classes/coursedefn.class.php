@@ -18,13 +18,13 @@ class CourseDefn {
 			Error::generate('warn', 'CourseDefn->load: $res is null');
 			return false;
 		}
-		$ret = db_get_result($res);
+		$ret = db_get_assoc($res);
 		if(!$ret) {
 			Error::generate('warn', 'CourseDefn->load: $ret is null');
 			return false;
 		}
-		$this->title = $ret[2];
-		$this->descr = $ret[3];
+		$this->title = $ret['title'];
+		$this->descr = $ret['descr'];
 		
 		return true;
 	}

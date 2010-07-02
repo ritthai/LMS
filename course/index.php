@@ -17,10 +17,6 @@ $ACTIONS = array(	'search' => new HttpAction("$PAGE_REL_URL/search", 'get',
 				);
 
 $search_results = array();
-$gcourse_code = "";
-$gtitle = "";
-$gtags = "";
-$gdescr = "";
 
 /*foreach($ACTIONS as $key => $val)
 	if($val->wasCalled())
@@ -31,14 +27,12 @@ $gdescr = "";
 */
 if($ACTIONS['search']->wasCalled()) {
 	$params = $ACTIONS['search']->getParams();
-	$gcourse_code = $gtitle = $params[0];
-	$crs = new CourseDefn($gtitle);
+	$crs = new CourseDefn($params['terms']);
 	if(!$crs->load())
 		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
-	$gdescr = $crs->descr;
 	
-	$tags = split('[,]', $gtags);
-	$procd_descr = process_description($gdescr);
+	$tags = split('[,]', $params['tags']);
+	$procd_descr = process_description($crs->descr);
 	
 	foreach($procd_descr as $descr) {
 		array_push(	$search_results,
@@ -51,9 +45,9 @@ if($ACTIONS['search']->wasCalled()) {
 
 	$args = array(	'pagetitle'		=> 'Search',
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
-					'course'		=> array(	'title'	=> $gtitle,
-												'code'	=> $gcourse_code,
-												'descr' => $gdescr),
+					'course'		=> array(	'title'	=> $crs->title,
+												'code'	=> $crs->code,
+												'descr' => $crs->descr),
 					'searchresults'	=> $search_results,
 					'actions'		=> $ACTIONS);
 	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';

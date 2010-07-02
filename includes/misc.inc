@@ -24,7 +24,7 @@ function subsets($arr) {
 }
 function search_with_tags($terms, $tags, $cb, $args=null) {
 	if(!is_callable($cb)) {
-		Error::generate('warn', 'search_with_tags: invalid callback');
+		Error::generate('debug', 'search_with_tags: invalid callback');
 		return array();
 	}
 	$sub = subsets($tags);
@@ -84,17 +84,14 @@ function process_description($descr) {
 function cached_file_update($url) {
 	Error::generate('debug', "cached_file_update $url");
 	$text = file_get_contents($url);
-	database_query(sprintf(
-		"REPLACE INTO primitive_cache (url, content) VALUES ('%s', '%s')",
-		mysql_real_escape_string($url),
-		mysql_real_escape_string($text)));
+	db_query(	"REPLACE INTO primitive_cache (url, content) VALUES ('%s', '%s')",
+				$url, $text );
 	return $text;
 }
 function cached_file_get_contents($url) {
 	Error::generate('debug', "cached_file_get_contents $url");
-	$res = database_query(sprintf(
-		"SELECT * FROM primitive_cache WHERE url='%s'",
-		mysql_real_escape_string($url)));
+	$res = db_query("SELECT * FROM primitive_cache WHERE url='%s'",
+					$url );
 	if(!$res)
 		return cached_file_update($url);
 	$ret = mysql_fetch_row($res);

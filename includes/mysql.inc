@@ -43,6 +43,17 @@ function db_get_list_result($res) {
 	return $ret;
 }
 
+function db_get_assoc($res) {
+	$ret = @mysql_fetch_assoc($res);
+	@mysql_free_result($res);
+	if(!$ret) {
+		Error::generate('debug', 'Row not found in database_get_result.');
+		return false;
+	} else {
+		return $ret;
+	}
+}
+
 function db_get_result($res) {
 	$ret = @mysql_fetch_row($res);
 	@mysql_free_result($res);
