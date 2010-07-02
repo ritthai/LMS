@@ -2,7 +2,10 @@
 class Error {
     static private $errors = array();
     static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0, 'suspicious'=>-1);
-    function generate($priority, $error) {
+    static public $FLAGS = array(	'none'=>0,
+									'single'=>1		// Only add if the error queue is empty
+								);
+    function generate($priority, $error, $flags='none') {
 		global $CONFIG;
 		global $ROOT;
 		if(is_string($priority))
@@ -11,7 +14,9 @@ class Error {
 
 		if(session_id() != "" && isset($_SESSION['errors']))
 			self::$errors = $_SESSION['errors'];
-		
+
+		if($flags & self::$FLAGS['single'] && count(self::$errors) > 0) return;
+
 		// format string
 		$pname = 'notice';
 		foreach(self::$PRIORITY as $k=>$v)

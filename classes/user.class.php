@@ -4,7 +4,8 @@ class User {
 	const ATTRIB_TYPE_INT		= 1;
 	const ATTRIB_PROP_NONE		= 0;
 	const ATTRIB_PROP_NODISPLAY	= 1; // for passwords and whatnot.
-	//const ATTRIB_PROP_INTERNAL	= 2; // cannot be provided to User::Create
+	//const ATTRIB_PROP_INTERNAL= 2; // cannot be provided to User::Create
+	const ATTRIB_PROP_READONLY	= 2; // cannot be provided to User::SetAttrib
 	private static $__inited = false;
 	private static $ATTRIBUTES = null; // modify User::Init function
 	private static $ROLES = null; // modify User::Init function
@@ -77,13 +78,29 @@ class User {
 			Error::generate('debug', "Bad attribute type in store_user_attrib($id, $attribstr, $val)");
 			return false;
 		}
+		db_query(	"DELETE FROM user_data WHERE id='%d' AND attrib='%d'",
+					$id, self::get_attrib_id($attribstr));
 		db_query(	"REPLACE INTO user_data (id, attrib, %s) VALUES ('%d', '%d', '%s')",
 					$datacol, $id, self::get_attrib_id($attribstr), $val);
 		if(mysql_affected_rows() < 1) {
-			Error::generate('debug', "Could not store user attribute as string: (id=$id, attrib=$attribstr, val=$val)");
+			Error::generate('debug', "Could not store user attribute");
 			return false;
+		} else {
+			return true;
 		}
 	}
+	/*private function run_user_attrib_func($id, $attribstr, $func) {
+		$attribid = self::get_attrib_id($attribstr);
+		$attribtype = self::get_attrib_type($attribid);
+		$attribprops = self::get_attrib_props($attribid);
+		$datacol = 'stringdata';
+		db_query(	"REPLACE INTO user_data (id, attrib, %s) VALUES ('%d', '%d', %s)",
+					$datacol, $id, self::get_attrib_id($attribstr), $func);
+		if(mysql_affected_rows() < 1) {
+			Error::generate('debug', "Could not store user attribute with func");
+			return false;
+		}
+	}*/
 	private function get_user_attrib($id, $attribid) {
 		$attribtype = self::get_attrib_type($attribid);
 		switch($attribtype) {
@@ -94,7 +111,7 @@ class User {
 			$datacol = 'intdata';
 			break;
 		default:
-			Error::generate('debug', "Bad attribute type in store_user_attrib($id, $attribstr, $val)");
+			Error::generate('debug', "Bad attribute type in get_user_attrib($id, $attribstr, $val)");
 			return false;
 		}
 
@@ -145,15 +162,17 @@ class User {
 		else $__inited = true;
 		if(is_null(self::$ATTRIBUTES)) {
 			self::$ATTRIBUTES =
-				array(	1=>	array( 'NAME',		self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NONE ),
-							array( 'EMAIL',		self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NONE ),
-							array( 'ROLE',		self::ATTRIB_TYPE_INT	, self::ATTRIB_PROP_NONE ),
-							array( 'PASSWORD',	self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ) );
+				array(	1=>	array( 'NAME',						self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NONE ),
+							array( 'EMAIL',						self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NONE ),
+							array( 'ROLE',						self::ATTRIB_TYPE_INT	, self::ATTRIB_PROP_NONE ),
+							array( 'PASSWORD',					self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ),
+							array( 'FORGOTN_PASS_RST_KEY',		self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ),
+							array( 'FORGOTN_PASS_TIMESTAMP',	self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ) );
 		}
 		if(is_null(self::$ROLES)) {
 			self::$ROLES =
-				array(	array( 'USER',		1 ),
-						array( 'ADMIN',		2 ) );
+				array(	array( 'ADMIN',			1 ),
+						array( 'BANNED',		2 ) );
 		}
 	}
 	function Create($userCfg) {
@@ -163,11 +182,11 @@ class User {
 			return false;
 		}
 		foreach($userCfg as $attrib => $val) {
-			switch($attrib) {
-			case 'role':
+			switch(strtoupper($attrib)) {
+			case 'ROLE':
 				$storeval = self::get_role_id($val);
 				break;
-			case 'password':
+			case 'PASSWORD':
 				$storeval = hash('sha256', $val);
 				break;
 			default:
@@ -192,13 +211,36 @@ class User {
 		} else {
 			$attribid = self::get_attrib_id($attrib);
 		}
-		if($attribid && !(self::get_attrib_props($attribid) & ATTRIB_PROP_NODISPLAY)) {
+		if($attribid && !(self::get_attrib_props($attribid) & self::ATTRIB_PROP_NODISPLAY)) {
 			$ret = self::get_user_attrib($id, $attribid);
 			switch(strtoupper(self::get_attrib_str($attribid))) {
 			case 'ROLE':
 				$ret = self::get_role_str($ret);
 				break;
 			}
+		} else {
+			$ret = false;
+		}
+		return $ret;
+	}
+	function SetAttrib($id, $attrib, $val) {
+		if(is_int($attrib)) {
+			$attribid = $attrib;
+		} else {
+			$attribid = self::get_attrib_id($attrib);
+		}
+		if($attribid && !(self::get_attrib_props($attribid) & self::ATTRIB_PROP_READONLY)) {
+			switch(strtoupper(self::get_attrib_str($attribid))) {
+			case 'ROLE':
+				$storeval = self::get_role_id($val);
+				break;
+			case 'PASSWORD':
+				$storeval = hash('sha256', $val);
+				break;
+			default:
+				$storeval = $val;
+			}
+			$ret = self::store_user_attrib($id, $attribid, $storeval);
 		} else {
 			$ret = false;
 		}
@@ -213,24 +255,31 @@ class User {
 		}
 		return $ret;
 	}
+	function GetUserID($name) {
+		return self::get_user_id($name);
+	}
 	// Returns true on success, false on failure
 	function Authenticate($name, $password) {
 		$id = self::get_user_id($name);
 		if(!$id) {
-			Error::generate('debug', 'Invalid username/password combination');
+			Error::generate('debug', 'Invalid username/password combination in User::Authenticate');
 			return false;
 		}
 		$correctpasshash = self::get_user_attrib($id, 'password');
+		$role = self::get_user_attrib($id, self::get_attrib_id('role'));
 		if($correctpasshash == hash('sha256', $password)) {
 			if(session_id() == "" || !isset($_SESSION)) {
-				Error::generate('debug', 'Authentication passed, but session did not exist');
+				Error::generate('debug', 'Authentication passed, but session did not exist in User::Authenticate');
+				return false;
+			} else if($role && $role & self::get_role_id('banned')) {
+				Error::generate('notice', 'This account has been banned.');
 				return false;
 			} else {
 				$_SESSION['userid'] = $id;
 				return true;
 			}
 		} else {
-			Error::generate('debug', 'Invalid username/password combination');
+			Error::generate('debug', 'Invalid username/password combination in User::Authenticate');
 			return false;
 		}
 	}
@@ -250,17 +299,42 @@ class User {
 	}
 	function HasPermissions($role) {
 		if(!self::IsAuthenticated()) {
-			Error::generate('debug', 'Not authenticated in HasPermissions');
+			Error::generate('debug', 'Not authenticated in HasPermissions in User::Authenticate');
 			return false;
 		}
 		return self::get_user_attrib($_SESSION['userid'], self::get_attrib_id('role')) & self::get_role_id($role);
 	}
 	function GetAuthenticatedID() {
 		if(!self::IsAuthenticated()) {
-			Error::generate('debug', 'Not authenticated in GetAuthenticatedID');
+			Error::generate('debug', 'Not authenticated in GetAuthenticatedID in User::Authenticate');
 			return false;
 		}
 		return $_SESSION['userid'];
+	}
+	function GenerateForgottenPasswordKey($name) {
+		$id = self::get_user_id($name);
+		if(!$id) {
+			Error::generate('notice', 'Invalid username.');
+			return false;
+		}
+		$key = $id.'_'.hash('sha256', uniqid('hvs29tr1'.mt_rand()));
+		self::store_user_attrib($id, 'FORGOTN_PASS_RST_KEY', $key);
+		self::store_user_attrib($id, 'FORGOTN_PASS_TIMESTAMP', time());
+		return $key;
+	}
+	function ValidateForgottenPasswordKey($key) {
+		$id = intval(substr($key, 0, strpos($key, '_')));
+		$stored_key = self::get_user_attrib($id, self::get_attrib_id('FORGOTN_PASS_RST_KEY'));
+		$stored_timestamp = self::get_user_attrib($id, self::get_attrib_id('FORGOTN_PASS_TIMESTAMP'));
+		if($key != $stored_key) {
+			Error::generate('notice', 'The URL you have followed is invalid.');
+			return false;
+		}
+		if((time() - $stored_timestamp)/(60*60*24) > 1) { // 1 day expiration
+			Error::generate('notice', 'The URL you have followed is expired.');
+			return false;
+		}
+		return $id;
 	}
 }
 ?>

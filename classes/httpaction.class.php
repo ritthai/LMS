@@ -23,8 +23,6 @@ class HttpAction {
 		return $ret;
 	}
 	function wasCalled() {
-		//echo $cur_uri."<br/>";
-		//echo $req_uri."<br/>";
 		$req_uri = $_SERVER['REQUEST_URI'];
 		$qpos = strrpos($req_uri, '?');
 		if($qpos) $req_uri = substr($req_uri, 0, $qpos);
@@ -41,9 +39,7 @@ class HttpAction {
 			$cur_uri = array_slice($cur_uri, count($req_uri));
 		$req_uri = implode('/', $req_uri);
 		$cur_uri = implode('/', $cur_uri);
-		//echo $req_uri."<br/>";
 		if($req_uri != $cur_uri) return false;
-		//echo $req_uri."-<br/>";
 		
 		$parr = strcmp($this->method,'get')==0 ? $_GET : $_POST;
 		$params = array();

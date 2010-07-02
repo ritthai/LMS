@@ -1,7 +1,9 @@
 <?php
 /**
 	Given:	pagetitle,
-			actions
+			actions,
+			id,
+			key
 */
 ?>
 <html>
@@ -19,14 +21,11 @@
         </div>
 <?php   }   ?>
 
-<?php $args['actions']['create']->FORM_BEGIN(); ?>
-	Username:		<input type="text" name="name" /><br/>
-	Email address:	<input type="text" name="email" /><br/>
+<?php $args['actions']['reset_password']->FORM_BEGIN(); ?>
 	Password:		<input type="password" name="password" /><br/>
-<?php	if(User::HasPermissions('admin')) { ?>
-	Role:			<input type="text" name="role" value="banned,admin" /><br/>
-<?php	} ?>
-					<input type="submit" value="Create account" />
-<?php $args['actions']['create']->FORM_END(); ?>
+					<input type="hidden" name="id" value="<?php echo $args['id']; ?>" />
+					<input type="hidden" name="key" value="<?php echo $args['key']; ?>" />
+					<input type="submit" value="Reset password" />
+<?php $args['actions']['reset_password']->FORM_END(); ?>
 	</body>
 </html>

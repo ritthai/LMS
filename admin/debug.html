@@ -1335,3 +1335,753 @@
 <div class="debug">Thu, 01 Jul 10 19:31:38 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
 <div class="debug">Thu, 01 Jul 10 19:31:46 -0400 [0] Loading page: User management - Debugging Mode</div>
 <div class="debug">Thu, 01 Jul 10 19:31:46 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Thu, 01 Jul 10 22:55:06 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:55:06 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Thu, 01 Jul 10 22:55:07 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:55:08 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:55:11 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:55:11 -0400 [0] Not authenticated in HasPermissions in User::Authenticate</div>
+<div class="debug">Thu, 01 Jul 10 22:55:29 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:55:29 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Thu, 01 Jul 10 22:55:29 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 22:55:29 -0400 [0] Invalid username/password combination in User::Authenticate</div>
+<div class="notice">Thu, 01 Jul 10 22:55:29 -0400 [1] Invalid username/password combination</div>
+<div class="debug">Thu, 01 Jul 10 22:56:35 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] mysql query: INSERT INTO users (name) VALUES ('jkoff')</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] Database error: Duplicate entry 'jkoff' for key 'name'</div>
+<div class="notice">Thu, 01 Jul 10 22:58:17 -0400 [1] Username already taken.</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('0', '1', 'jkoff')</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('0', '2', 'jonathankoff@gmail.com')</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('0', '4', '5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d')</div>
+<div class="notice">Thu, 01 Jul 10 22:58:17 -0400 [1] Account creation failed</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 22:58:17 -0400 [0] Not authenticated in HasPermissions in User::Authenticate</div>
+<div class="debug">Thu, 01 Jul 10 23:13:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:09 -0400 [0] mysql query: INSERT INTO users (name) VALUES ('jkoff10')</div>
+<div class="debug">Thu, 01 Jul 10 23:13:09 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '1', 'jkoff10')</div>
+<div class="debug">Thu, 01 Jul 10 23:13:09 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '2', 'jonathankoff@gmail.com')</div>
+<div class="debug">Thu, 01 Jul 10 23:13:09 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '4', '5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d')</div>
+<div class="notice">Thu, 01 Jul 10 23:13:09 -0400 [1] Account created!</div>
+<div class="debug">Thu, 01 Jul 10 23:13:10 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:14 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:14 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Thu, 01 Jul 10 23:13:16 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:16 -0400 [0] Not authenticated in HasPermissions in User::Authenticate</div>
+<div class="debug">Thu, 01 Jul 10 23:13:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:26 -0400 [0] mysql query: INSERT INTO users (name) VALUES ('jkoff11')</div>
+<div class="debug">Thu, 01 Jul 10 23:13:26 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('8', '1', 'jkoff11')</div>
+<div class="debug">Thu, 01 Jul 10 23:13:26 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('8', '2', 'jonathankoff@gmail.com')</div>
+<div class="debug">Thu, 01 Jul 10 23:13:26 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('8', '4', '5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d')</div>
+<div class="notice">Thu, 01 Jul 10 23:13:26 -0400 [1] Account created!</div>
+<div class="debug">Thu, 01 Jul 10 23:13:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:28 -0400 [0] Not authenticated in GetAuthenticatedID in User::Authenticate</div>
+<div class="notice">Thu, 01 Jul 10 23:13:28 -0400 [1] Not logged in</div>
+<div class="debug">Thu, 01 Jul 10 23:13:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:30 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:13:37 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="notice">Thu, 01 Jul 10 23:13:37 -0400 [1] Invalid username.</div>
+<div class="notice">Thu, 01 Jul 10 23:13:37 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] Invalid email address</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:14:02 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="notice">Thu, 01 Jul 10 23:14:02 -0400 [1] Invalid username.</div>
+<div class="notice">Thu, 01 Jul 10 23:14:03 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:14:03 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:15:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:15:21 -0400 [0] Not authenticated in GetAuthenticatedID in User::Authenticate</div>
+<div class="notice">Thu, 01 Jul 10 23:15:21 -0400 [1] Not logged in</div>
+<div class="debug">Thu, 01 Jul 10 23:15:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:15:22 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] Invalid email address</div>
+<div class="debug">Thu, 01 Jul 10 23:15:40 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:02 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] Invalid email address</div>
+<div class="debug">Thu, 01 Jul 10 23:16:06 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:17 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:26 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:16:26 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:16:26 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:16:26 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="notice">Thu, 01 Jul 10 23:16:26 -0400 [1] Invalid email address</div>
+<div class="debug">Thu, 01 Jul 10 23:16:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:51 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:51 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:16:51 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:16:51 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:16:51 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="notice">Thu, 01 Jul 10 23:16:51 -0400 [1] Invalid email address and/or username</div>
+<div class="debug">Thu, 01 Jul 10 23:16:51 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:16:53 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:17:17 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:17:17 -0400 [0] mysql query: SELECT id FROM users WHERE name=''</div>
+<div class="debug">Thu, 01 Jul 10 23:17:17 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:17:17 -0400 [0] Could not query database in User::get_user_id</div>
+<div class="debug">Thu, 01 Jul 10 23:17:17 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="notice">Thu, 01 Jul 10 23:17:17 -0400 [1] Invalid email address and/or username</div>
+<div class="debug">Thu, 01 Jul 10 23:18:19 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:18:19 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:18:19 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:18:19 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:18:19 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_e608cb39418a4f60dd0aa9c32ec13514420d953de0d6b2e03c8457f792deff5f')</div>
+<div class="debug">Thu, 01 Jul 10 23:18:19 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278040699')</div>
+<div class="notice">Thu, 01 Jul 10 23:18:19 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_7ef8a9af5271618f8134efbe0793a344a7853184134098c9417850521721c64a')</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278040812')</div>
+<div class="notice">Thu, 01 Jul 10 23:20:12 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:20:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:20:16 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_5f93bfb6a47455ca40de3eddba16b04c5563bc4cccc3086625442f8c3f043cdb')</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278040821')</div>
+<div class="notice">Thu, 01 Jul 10 23:20:21 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:20:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:07 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:14 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:14 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:37:14 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="notice">Thu, 01 Jul 10 23:37:14 -0400 [1] Invalid email address and/or username</div>
+<div class="debug">Thu, 01 Jul 10 23:37:14 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:20 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_2c3da1298a8c0d49bcbd6ef6aa7cdc664ca9e9ab8869b7670a39679243a19265')</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278041848')</div>
+<div class="notice">Thu, 01 Jul 10 23:37:28 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:37:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:45:47 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_6effb775f83bdeb370386374ba8ea61be93d281571a0e364276a58ace74752cd')</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278042354')</div>
+<div class="notice">Thu, 01 Jul 10 23:45:54 -0400 [1] Follow the following URL to reset your password:\
+				http://localhost/lms/user/reset_password?key=7_6effb775f83bdeb370386374ba8ea61be93d281571a0e364276a58ace74752cd</div>
+<div class="notice">Thu, 01 Jul 10 23:45:54 -0400 [1] Password reset instructions were sent to the email address associated with your account.</div>
+<div class="debug">Thu, 01 Jul 10 23:45:54 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:46:06 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:46:06 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:46:06 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Thu, 01 Jul 10 23:46:06 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Thu, 01 Jul 10 23:46:06 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='0' AND attrib='0'</div>
+<div class="notice">Thu, 01 Jul 10 23:46:06 -0400 [1] The URL you have followed is invalid.</div>
+<div class="notice">Thu, 01 Jul 10 23:46:06 -0400 [1] Invalid URL</div>
+<div class="debug">Thu, 01 Jul 10 23:47:04 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:47:04 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:47:04 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="notice">Thu, 01 Jul 10 23:47:04 -0400 [1] The URL you have followed is invalid.</div>
+<div class="notice">Thu, 01 Jul 10 23:47:04 -0400 [1] Invalid URL</div>
+<div class="debug">Thu, 01 Jul 10 23:47:04 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:47:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:47:26 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:47:26 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="notice">Thu, 01 Jul 10 23:47:26 -0400 [1] The URL you have followed is invalid.</div>
+<div class="notice">Thu, 01 Jul 10 23:47:26 -0400 [1] Invalid URL</div>
+<div class="debug">Thu, 01 Jul 10 23:47:48 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:49:27 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_4f7b99dcafddc794fc917c6d47780afe616e0084e243ee9d1ee03730af89baac')</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278042574')</div>
+<div class="notice">Thu, 01 Jul 10 23:49:34 -0400 [1] Follow the following URL to reset your password:\
+				http://localhost/lms/user/reset_password?key=7_4f7b99dcafddc794fc917c6d47780afe616e0084e243ee9d1ee03730af89baac</div>
+<div class="notice">Thu, 01 Jul 10 23:49:34 -0400 [1] Could not send password reset email.</div>
+<div class="debug">Thu, 01 Jul 10 23:49:34 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:49:39 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:49:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:49:46 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:51:25 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:51:25 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:25 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:51:28 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:28 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:55 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:51:55 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:55 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:55 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:51:55 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', 'w00t')</div>
+<div class="notice">Thu, 01 Jul 10 23:51:55 -0400 [1] Your password could not be reset.</div>
+<div class="debug">Thu, 01 Jul 10 23:51:55 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:54:41 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:54:43 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:54:50 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_bbdd7555e44ad6a4631c7ea6b16d85a070c158fa53c7a4695853588f58189c8d')</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278042899')</div>
+<div class="notice">Thu, 01 Jul 10 23:54:59 -0400 [1] Follow the following URL to reset your password:\
+				http://localhost/lms/user/reset_password?key=7_bbdd7555e44ad6a4631c7ea6b16d85a070c158fa53c7a4695853588f58189c8d</div>
+<div class="notice">Thu, 01 Jul 10 23:54:59 -0400 [1] Could not send password reset email.</div>
+<div class="debug">Thu, 01 Jul 10 23:54:59 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:04 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:04 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:04 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:09 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:09 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:09 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:09 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08')</div>
+<div class="notice">Thu, 01 Jul 10 23:55:09 -0400 [1] Your password was set successfully. You may now log in.</div>
+<div class="debug">Thu, 01 Jul 10 23:55:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:12 -0400 [0] Not authenticated in GetAuthenticatedID in User::Authenticate</div>
+<div class="notice">Thu, 01 Jul 10 23:55:12 -0400 [1] Not logged in</div>
+<div class="debug">Thu, 01 Jul 10 23:55:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:13 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:18 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:18 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:18 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:18 -0400 [0] Invalid username/password combination in User::Authenticate</div>
+<div class="notice">Thu, 01 Jul 10 23:55:18 -0400 [1] Invalid username/password combination</div>
+<div class="debug">Thu, 01 Jul 10 23:55:22 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:22 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="notice">Thu, 01 Jul 10 23:55:23 -0400 [1] Authentication successful</div>
+<div class="debug">Thu, 01 Jul 10 23:55:23 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:24 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:55:24 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:24 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:24 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:24 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Thu, 01 Jul 10 23:55:24 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:57:33 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:57:33 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Thu, 01 Jul 10 23:57:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Thu, 01 Jul 10 23:57:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:57:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Thu, 01 Jul 10 23:57:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:16 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:59:16 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:30 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Thu, 01 Jul 10 23:59:30 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:30 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:30 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:30 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Thu, 01 Jul 10 23:59:30 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:00:44 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:00:44 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:00:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:00:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:00:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:00:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:16 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:16 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:16 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:31 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:31 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:31 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:31 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:31 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:31 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:32 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:32 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:36 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:36 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:36 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:36 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:36 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:36 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:42 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:42 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:42 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:42 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:42 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:42 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:49 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:49 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:52 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:52 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:56 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:01:56 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:01:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:07 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:02:07 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:08 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:08 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:08 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:08 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:38 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:02:38 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:38 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:38 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:38 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:38 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:44 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:02:44 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:02:44 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:02 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:03:02 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:18 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:03:18 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:18 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:18 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:18 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:18 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:32 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:03:32 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:32 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:56 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:03:56 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:03:56 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:07 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:04:07 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:07 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:07 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:07 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:07 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:22 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:04:22 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:33 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:04:33 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:34 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:04:34 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:04:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:05:12 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:12 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:12 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:17 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:05:17 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:05:20 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:05:20 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='8'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:20 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='8' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:20 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='8' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:05:21 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:21 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:05:21 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:06:24 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:06:24 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:06:24 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:06:24 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:31 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:09:31 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:09:34 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:09:34 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:34 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:37 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:09:37 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='8'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:37 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='8' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:37 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='8' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:40 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:09:40 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='6'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:40 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='6' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:40 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='6' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:09:40 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:09:40 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='6' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:36 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:10:36 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:10:49 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:10:49 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='5' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='5' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:49 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:10:50 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='5' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:51 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:10:51 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:51 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='4' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:51 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='4' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:51 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:10:52 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:10:52 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='3' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='3' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:52 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:10:55 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:10:55 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='7' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:10:55 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:10:55 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:11:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:28 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:11:30 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:30 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:30 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:30 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:30 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:31 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:31 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:31 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='2' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:31 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='2' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:33 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:33 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='3' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:33 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='3' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:33 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:11:36 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:36 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:36 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:36 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:36 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:38 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:38 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:38 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='4' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:38 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='4' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:38 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:11:39 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:39 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='5' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='5' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:39 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:11:39 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='5' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:40 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:40 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='6'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:40 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='6' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:40 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='6' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:40 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:11:40 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='6' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:41 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:41 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:41 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:42 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:45 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:45 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='8'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:45 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='8' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:45 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='8' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:48 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:11:48 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='7' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:11:48 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:11:48 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:12:02 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:02 -0400 [0] mysql query: INSERT INTO users (name) VALUES ('jkoff12')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: INSERT INTO users (name) VALUES ('jkoff12')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] Database error: Duplicate entry 'jkoff12' for key 'name'</div>
+<div class="notice">Fri, 02 Jul 10 00:12:10 -0400 [1] Username already taken.</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: DELETE FROM user_data WHERE id='0' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('0', '1', 'jkoff12')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: DELETE FROM user_data WHERE id='0' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('0', '2', 'jonathankoff@gmail.com')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: DELETE FROM user_data WHERE id='0' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('0', '4', '5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='7' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:12:10 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: INSERT INTO users (name) VALUES ('jkoff13')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: DELETE FROM user_data WHERE id='10' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('10', '1', 'jkoff13')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: DELETE FROM user_data WHERE id='10' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('10', '2', 'jonathankoff@gmail.com')</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: DELETE FROM user_data WHERE id='10' AND attrib='4'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('10', '4', '5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d')</div>
+<div class="notice">Fri, 02 Jul 10 00:12:20 -0400 [1] Account created!</div>
+<div class="debug">Fri, 02 Jul 10 00:12:20 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:22 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:22 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:26 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:12:27 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:27 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='10'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:27 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='10' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:27 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='10' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:29 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:12:29 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:29 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:29 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:12:29 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:13:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:13:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:13:26 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:13:26 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:13:26 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="notice">Fri, 02 Jul 10 00:13:26 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:13:26 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:13:28 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:13:28 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:13:28 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:13:28 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:13:28 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:14:11 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:12 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:14:38 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:38 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:14:40 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:45 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:45 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:14:45 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:14:45 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="notice">Fri, 02 Jul 10 00:14:45 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:14:45 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:55 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:14:57 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:01 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:01 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:15:01 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:15:01 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="notice">Fri, 02 Jul 10 00:15:01 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:15:01 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:15 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:16 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:19 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:19 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:15:19 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:15:19 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="notice">Fri, 02 Jul 10 00:15:19 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:15:35 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:15:35 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:15:35 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:15:35 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="notice">Fri, 02 Jul 10 00:15:35 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:16:02 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:16:02 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:16:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:16:02 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:16:02 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:16:03 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:16:06 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:16:10 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:16:10 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:16:10 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:16:10 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:16:10 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:16:10 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:16:58 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:17:01 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:17:02 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:17:02 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:17:02 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:17:02 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:17:53 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:17:53 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:17:53 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:17:53 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:17:53 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:18:18 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:18:18 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:18:18 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:18:18 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:18:18 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:19:17 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:19:17 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:19:17 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:19:17 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:19:23 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:19:23 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:19:23 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:19:23 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:19:23 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:20:49 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:20:49 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:20:49 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:20:49 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:20:49 -0400 [1] This account has been banned.</div>
+<div class="notice">Fri, 02 Jul 10 00:20:49 -0400 [1] Invalid username/password combination</div>
+<div class="debug">Fri, 02 Jul 10 00:21:47 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:21:47 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:47 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:47 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:21:47 -0400 [1] This account has been banned.</div>
+<div class="debug">Fri, 02 Jul 10 00:21:51 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:21:51 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:51 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:51 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="notice">Fri, 02 Jul 10 00:21:51 -0400 [1] This account has been banned.</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='7' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:21:58 -0400 [0] Invalid username/password combination in User::Authenticate</div>
+<div class="notice">Fri, 02 Jul 10 00:21:58 -0400 [1] Invalid username/password combination</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='7' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:22:09 -0400 [0] Invalid username/password combination in User::Authenticate</div>
+<div class="notice">Fri, 02 Jul 10 00:22:09 -0400 [1] Invalid username/password combination</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff12'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='9' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='9' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:22:13 -0400 [0] Invalid username/password combination in User::Authenticate</div>
+<div class="notice">Fri, 02 Jul 10 00:22:13 -0400 [1] Invalid username/password combination</div>
+<div class="debug">Fri, 02 Jul 10 00:22:19 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:21 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:21 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:22:22 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:22 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='10'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='10' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:22 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='10' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:24 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '5', '7_18d9b4186879d150d68995ade3d28ba613ae650d9e9a88cf980d285a7a8de981')</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '1278044554')</div>
+<div class="notice">Fri, 02 Jul 10 00:22:34 -0400 [1] Follow the following URL to reset your password:\
+				http://localhost/lms/user/reset_password?key=7_18d9b4186879d150d68995ade3d28ba613ae650d9e9a88cf980d285a7a8de981</div>
+<div class="notice">Fri, 02 Jul 10 00:22:34 -0400 [1] Could not send password reset email.</div>
+<div class="debug">Fri, 02 Jul 10 00:22:34 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:39 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:39 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:46 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:46 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='5'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:46 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:46 -0400 [0] mysql query: DELETE FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:22:46 -0400 [0] mysql query: REPLACE INTO user_data (id, attrib, stringdata) VALUES ('7', '0', '5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d')</div>
+<div class="notice">Fri, 02 Jul 10 00:22:46 -0400 [1] Your password was set successfully. You may now log in.</div>
+<div class="debug">Fri, 02 Jul 10 00:22:46 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:22:49 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] mysql query: SELECT id FROM users WHERE name='jkoff10'</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='0'</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='7' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] Row not found in database_get_result.</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="notice">Fri, 02 Jul 10 00:23:07 -0400 [1] Authentication successful</div>
+<div class="debug">Fri, 02 Jul 10 00:23:07 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:23:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:23:09 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='7'</div>
+<div class="debug">Fri, 02 Jul 10 00:23:09 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:23:09 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='7' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:27:12 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:27:14 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:27:14 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:14 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:14 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:14 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:14 -0400 [0] No result, or could not query database in User::get_user_attrib</div>
+<div class="debug">Fri, 02 Jul 10 00:27:52 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:27:52 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:52 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:27:52 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:00 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:28:00 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:00 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:00 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:00 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:01 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:28:01 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:01 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:01 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:01 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:03 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:28:03 -0400 [0] mysql query: SELECT attrib FROM user_data WHERE id='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:03 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='1'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:03 -0400 [0] mysql query: SELECT stringdata FROM user_data WHERE id='1' AND attrib='2'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:03 -0400 [0] mysql query: SELECT intdata FROM user_data WHERE id='1' AND attrib='3'</div>
+<div class="debug">Fri, 02 Jul 10 00:28:10 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:28:12 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:28:12 -0400 [0] mysql query: SELECT * FROM users ORDER BY creation_timestamp</div>
+<div class="debug">Fri, 02 Jul 10 00:28:15 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:29:09 -0400 [0] Loading page: User management - Debugging Mode</div>
+<div class="debug">Fri, 02 Jul 10 00:29:23 -0400 [0] Loading page: User management - Debugging Mode</div>

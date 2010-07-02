@@ -1,3 +1,9 @@
+<?php
+/**
+	Given:	pagetitle,
+			actions
+*/
+?>
 <html>
 	<head>
 		<title><?php echo $args['pagetitle']; ?></title>
@@ -12,13 +18,11 @@
             </ul>
         </div>
 <?php   }   ?>
-		<ul>
-			<li><a href="create">create</a></li>
-			<li><a href="list">list</a></li>
-			<li><a href="login">login</a></li>
-			<li><a href="logout">logout</a></li>
-			<li><a href="status">status</a></li>
-			<li><a href="forgot_password">forgot_password</a></li>
-		</ul>
+
+<?php $args['actions']['forgot_password']->FORM_BEGIN(); ?>
+	Username:		<input type="text" name="name" /><br/>
+	Email address:	<input type="text" name="email" /><br/>
+					<input type="submit" value="Send password reset instructions" />
+<?php $args['actions']['forgot_password']->FORM_END(); ?>
 	</body>
 </html>
