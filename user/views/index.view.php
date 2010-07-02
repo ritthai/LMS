@@ -19,6 +19,7 @@
 			<li><a href="logout">logout</a></li>
 			<li><a href="status">status</a></li>
 			<li><a href="forgot_password">forgot_password</a></li>
+			<li><a href="upload">upload</a></li>
 		</ul>
 	</body>
 </html>

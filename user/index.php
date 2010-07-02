@@ -6,7 +6,7 @@
 @User::init();
 
 $PAGE_REL_URL = "$HTMLROOT/user";
-
+$UPLOAD_ROOT = "$ROOT/user/uploads";
 $ACTIONS = array(
 	'create' => new HttpAction("$PAGE_REL_URL/create", 'post',
 				array('name', 'email', 'password')),
@@ -25,7 +25,9 @@ $ACTIONS = array(
 	'reset_password' => new HttpAction("$PAGE_REL_URL/reset_password", 'get',
 				array('key')),
 	'finish_reset_password' => new HttpAction("$PAGE_REL_URL/reset_password", 'post',
-				array('key', 'id', 'password'))
+				array('key', 'id', 'password')),
+	'upload' => new HttpAction("$PAGE_REL_URL/upload", 'post',
+				array('MAX_FILE_SIZE'))
 	);
 
 $PAGE_TITLE = "User management";
@@ -118,6 +120,49 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'Your password could not be reset.', Error::$FLAGS['single']);
 		header("Location: $PAGE_REL_URL");
 	}
+} else if($ACTIONS['upload']->wasCalled()) {
+	// TODO: Check file extension.
+	if(!isset($_FILES['file'])) {
+		Error::generate('notice', 'No file specified.');
+		eval("?>".file_get_contents("views/upload.view.php"));
+	} else if(!User::IsAuthenticated()) {
+		Error::generate('notice', 'Not logged in.');
+		eval("?>".file_get_contents("views/upload.view.php"));
+	} else {
+		switch($_FILES['file']['error']) {
+		case UPLOAD_ERR_INI_SIZE:
+		case UPLOAD_ERR_FORM_SIZE:
+			Error::generate('notice', 'File too big.');
+			eval("?>".file_get_contents("views/upload.view.php"));
+			break;
+		case UPLOAD_ERR_PARTIAL:
+		case UPLOAD_ERR_NO_TMP_DIR:
+		case UPLOAD_ERR_CANT_WRITE:
+		case UPLOAD_ERR_EXTENSION:
+		default:
+			Error::generate('debug', 'File upload error: '.$_FILES['file']['error']);
+			Error::generate('notice', 'Could not upload file.');
+			eval("?>".file_get_contents("views/upload.view.php"));
+			break;
+		case UPLOAD_ERR_NO_FILE:
+			Error::generate('notice', 'No file specified.');
+			eval("?>".file_get_contents("views/upload.view.php"));
+			break;
+		case UPLOAD_ERR_OK:
+			// TODO: Check if $_FILES['file']['name'] in a path is a vulnerability.
+			$upload_dir = $UPLOAD_ROOT.'/'.User::GetAuthenticatedID().'/';
+			$upload_path = $upload_dir.$_FILES['file']['name'];
+			if(!file_exists($upload_dir)) mkdir($upload_dir);
+			$res = move_uploaded_file($_FILES['file']['tmp_name'], $upload_path);
+			if($res && User::SetAttrib(User::GetAuthenticatedID(), 'file', $upload_path)) {
+				Error::generate('notice', 'File was successfully uploaded.');
+			} else {
+				Error::generate('notice', 'Could not upload file.', Error::$FLAGS['single']);
+				Error::generate('suspicious', 'Failed to move_uploaded_file');
+			}
+			header("Location: $PAGE_REL_URL");
+		}
+	}
 } else if(isset($_GET['action']) && $_GET['action'] != "") { // Action with no params
 	$action = $_GET['action'];
 	switch($action) {
@@ -125,7 +170,7 @@ if($ACTIONS['create']->wasCalled()) {
 		$authid = User::GetAuthenticatedID();
 		if(!$authid) {
 			Error::generate('notice', 'Not logged in');
-			// watch out, execution continues after acall to header()
+			// watch out, execution continues after a call to header("Location: ...")
 			header("Location: $PAGE_REL_URL");
 		} else {
 			$args['userinfo'] = User::GetAttribs($authid);
@@ -147,6 +192,7 @@ if($ACTIONS['create']->wasCalled()) {
 	case 'login':
 	case 'forgot_password':
 	case 'reset_password':
+	case 'upload':
 		eval("?>".file_get_contents("views/$action.view.php"));
 		break;
 	case 'show':

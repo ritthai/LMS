@@ -20,13 +20,10 @@
         </div>
 <?php   }   ?>
 		
-		<table>
-<?php	foreach($args['userinfo'] as $val) {	?>
-			<tr>
-				<td><?php echo $val[0]; ?></td>
-				<td><?php echo $val[1] ? $val[1] : 'Could not retrieve field'; ?></td>
-			</tr>
-<?php	}	?>
-		</table>
+<?php	$args['actions']['upload']->FORM_BEGIN('enctype="multipart/form-data"');	?>
+									<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> <!-- 4 MB -->
+		<!--File to upload:-->		<input type="file" name="file" /><br/>
+									<input type="submit" value="Upload" />
+<?php	$args['actions']['upload']->FORM_END();	?>
 	</body>
 </html>

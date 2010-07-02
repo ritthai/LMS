@@ -59,8 +59,8 @@ class HttpAction {
 			$params[$key] = $val;
 		return $params;
 	}
-	function FORM_BEGIN() {
-		echo "<form action=\"$this->url\" method=\"$this->method\">";
+	function FORM_BEGIN($extraAttribs="") {
+		echo "<form action=\"$this->url\" method=\"$this->method\" $extraAttribs>";
 	}
 	function FORM_END() {
 		echo "</form>";

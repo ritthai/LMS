@@ -4,8 +4,8 @@ class User {
 	const ATTRIB_TYPE_INT		= 1;
 	const ATTRIB_PROP_NONE		= 0;
 	const ATTRIB_PROP_NODISPLAY	= 1; // for passwords and whatnot.
-	//const ATTRIB_PROP_INTERNAL= 2; // cannot be provided to User::Create
 	const ATTRIB_PROP_READONLY	= 2; // cannot be provided to User::SetAttrib
+	const ATTRIB_PROP_UNIQUE	= 4;
 	private static $__inited = false;
 	private static $ATTRIBUTES = null; // modify User::Init function
 	private static $ROLES = null; // modify User::Init function
@@ -29,9 +29,10 @@ class User {
 			return implode(',', $res);
 	}
 	private function get_attrib_id($attribstr) {
-		for($i=0; $i < count(self::$ATTRIBUTES); $i++)
+		for($i=1; $i < count(self::$ATTRIBUTES)+1; $i++) {
 			if(self::$ATTRIBUTES[$i][0] == strtoupper($attribstr))
-				return intval($i);
+				return $i;
+		}
 		return false;
 	}
 	private function get_attrib_str($attribid) {
@@ -63,8 +64,11 @@ class User {
 			return false;
 		}
 	}
-	private function store_user_attrib($id, $attribstr, $val) {
-		$attribid = self::get_attrib_id($attribstr);
+	private function store_user_attrib($id, $attrib, $val) {
+		if(is_int($attrib))
+			$attribid = $attrib;
+		else
+			$attribid = self::get_attrib_id($attribstr);
 		$attribtype = self::get_attrib_type($attribid);
 		$attribprops = self::get_attrib_props($attribid);
 		switch($attribtype) {
@@ -78,10 +82,12 @@ class User {
 			Error::generate('debug', "Bad attribute type in store_user_attrib($id, $attribstr, $val)");
 			return false;
 		}
-		db_query(	"DELETE FROM user_data WHERE id='%d' AND attrib='%d'",
-					$id, self::get_attrib_id($attribstr));
+		if($attribprops & self::ATTRIB_PROP_UNIQUE) {
+			db_query(	"DELETE FROM user_data WHERE id='%d' AND attrib='%d'",
+						$id, $attribid);
+		}
 		db_query(	"REPLACE INTO user_data (id, attrib, %s) VALUES ('%d', '%d', '%s')",
-					$datacol, $id, self::get_attrib_id($attribstr), $val);
+					$datacol, $id, $attribid, $val);
 		if(mysql_affected_rows() < 1) {
 			Error::generate('debug', "Could not store user attribute");
 			return false;
@@ -102,7 +108,9 @@ class User {
 		}
 	}*/
 	private function get_user_attrib($id, $attribid) {
+		if(!is_int($attribid)) $attribid = self::get_attrib_id($attribid);
 		$attribtype = self::get_attrib_type($attribid);
+		$attribprops = self::get_attrib_props($attribid);
 		switch($attribtype) {
 		case self::ATTRIB_TYPE_STRING:
 			$datacol = 'stringdata';
@@ -117,10 +125,16 @@ class User {
 
 		$res = db_query("SELECT %s FROM user_data WHERE id='%d' AND attrib='%d'",
 						$datacol, $id, $attribid);
-		if( !$res || !($ret = db_get_result($res)) ) {
+		if( !$res ) {
 			Error::generate('debug', 'No result, or could not query database in User::get_user_attrib');
 			return false;
 		}
+
+		if($attribprops & self::ATTRIB_PROP_UNIQUE)
+			$ret = db_get_result($res);
+		else	
+			$ret = db_get_list_result_numeric($res);
+
 		switch($attribtype) {
 		case self::ATTRIB_TYPE_INT:
 			$ret = intval($ret);
@@ -140,7 +154,7 @@ class User {
 		}
 		foreach($ret as $key=>$val)
 			$ret[$key] = intval($val['attrib']);
-		
+		$ret = array_unique($ret, SORT_NUMERIC);
 		return $ret;
 	}
 	private function get_user_id($name) {
@@ -162,12 +176,23 @@ class User {
 		else $__inited = true;
 		if(is_null(self::$ATTRIBUTES)) {
 			self::$ATTRIBUTES =
-				array(	1=>	array( 'NAME',						self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NONE ),
-							array( 'EMAIL',						self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NONE ),
-							array( 'ROLE',						self::ATTRIB_TYPE_INT	, self::ATTRIB_PROP_NONE ),
-							array( 'PASSWORD',					self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ),
-							array( 'FORGOTN_PASS_RST_KEY',		self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ),
-							array( 'FORGOTN_PASS_TIMESTAMP',	self::ATTRIB_TYPE_STRING, self::ATTRIB_PROP_NODISPLAY ) );
+				array(	1=>	array( 'NAME',	self::ATTRIB_TYPE_STRING,
+											self::ATTRIB_PROP_NONE | self::ATTRIB_PROP_UNIQUE ),
+							array( 'EMAIL', self::ATTRIB_TYPE_STRING,
+											self::ATTRIB_PROP_NONE | self::ATTRIB_PROP_UNIQUE ),
+							array( 'ROLE',	self::ATTRIB_TYPE_INT ,
+											self::ATTRIB_PROP_NONE | self::ATTRIB_PROP_UNIQUE ),
+							array( 'PASSWORD',
+											self::ATTRIB_TYPE_STRING,
+											self::ATTRIB_PROP_NODISPLAY | self::ATTRIB_PROP_UNIQUE ),
+							array( 'FORGOTN_PASS_RST_KEY',
+											self::ATTRIB_TYPE_STRING,
+											self::ATTRIB_PROP_NODISPLAY | self::ATTRIB_PROP_UNIQUE ),
+							array( 'FORGOTN_PASS_TIMESTAMP',
+											self::ATTRIB_TYPE_STRING,
+											self::ATTRIB_PROP_NODISPLAY | self::ATTRIB_PROP_UNIQUE ),
+							array( 'FILE',	self::ATTRIB_TYPE_STRING,
+											self::ATTRIB_PROP_NONE ) );
 		}
 		if(is_null(self::$ROLES)) {
 			self::$ROLES =
@@ -192,7 +217,7 @@ class User {
 			default:
 				$storeval = $val;
 			}
-			User::store_user_attrib($id, $attrib, $storeval);
+			self::store_user_attrib($id, $attrib, $storeval);
 		}
 		return $id;
 	}
@@ -251,7 +276,15 @@ class User {
 		$ret = array();
 		foreach($attribs as $attrib) {
 			$attrval = self::GetAttrib($id, $attrib);
-			if($attrval) $ret[User::get_attrib_str($attrib)] = $attrval;
+			if($attrval) {
+				if(is_array($attrval)) {
+					foreach($attrval as $v) {
+						array_push($ret, array(self::get_attrib_str($attrib), $v[0]));
+					}
+				} else {
+					array_push($ret, array(self::get_attrib_str($attrib), $attrval));
+				}
+			}
 		}
 		return $ret;
 	}
@@ -262,7 +295,7 @@ class User {
 	function Authenticate($name, $password) {
 		$id = self::get_user_id($name);
 		if(!$id) {
-			Error::generate('debug', 'Invalid username/password combination in User::Authenticate');
+			Error::generate('debug', 'Invalid username/password combination in User::Authenticate (bad id)');
 			return false;
 		}
 		$correctpasshash = self::get_user_attrib($id, 'password');
@@ -279,7 +312,7 @@ class User {
 				return true;
 			}
 		} else {
-			Error::generate('debug', 'Invalid username/password combination in User::Authenticate');
+			Error::generate('debug', 'Invalid username/password combination in User::Authenticate (bad pass)');
 			return false;
 		}
 	}

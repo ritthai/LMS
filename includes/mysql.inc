@@ -43,6 +43,15 @@ function db_get_list_result($res) {
 	return $ret;
 }
 
+function db_get_list_result_numeric($res) {
+	$ret = array();
+	while($row = @mysql_fetch_row($res)) {
+		array_push( $ret, $row );
+	}
+	@mysql_free_result($res);
+	return $ret;
+}
+
 function db_get_assoc($res) {
 	$ret = @mysql_fetch_assoc($res);
 	@mysql_free_result($res);
