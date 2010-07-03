@@ -4,9 +4,10 @@
 @session_start();
 @db_connect();
 @User::init();
+@File::init();
 
 $PAGE_REL_URL = "$HTMLROOT/user";
-$UPLOAD_ROOT = "$ROOT/user/uploads";
+$UPLOAD_ROOT = "user/uploads";
 $ACTIONS = array(
 	'create' => new HttpAction("$PAGE_REL_URL/create", 'post',
 				array('name', 'email', 'password')),
@@ -128,7 +129,7 @@ if($ACTIONS['create']->wasCalled()) {
 	} else if(!User::IsAuthenticated()) {
 		Error::generate('notice', 'Not logged in.');
 		eval("?>".file_get_contents("views/upload.view.php"));
-	} else {
+	} else if($_FILES['file']['error'] != UPLOAD_ERR_OK) {
 		switch($_FILES['file']['error']) {
 		case UPLOAD_ERR_INI_SIZE:
 		case UPLOAD_ERR_FORM_SIZE:
@@ -148,20 +149,25 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'No file specified.');
 			eval("?>".file_get_contents("views/upload.view.php"));
 			break;
-		case UPLOAD_ERR_OK:
-			// TODO: Check if $_FILES['file']['name'] in a path is a vulnerability.
-			$upload_dir = $UPLOAD_ROOT.'/'.User::GetAuthenticatedID().'/';
-			$upload_path = $upload_dir.$_FILES['file']['name'];
-			if(!file_exists($upload_dir)) mkdir($upload_dir);
-			$res = move_uploaded_file($_FILES['file']['tmp_name'], $upload_path);
-			if($res && User::SetAttrib(User::GetAuthenticatedID(), 'file', $upload_path)) {
-				Error::generate('notice', 'File was successfully uploaded.');
-			} else {
-				Error::generate('notice', 'Could not upload file.', Error::$FLAGS['single']);
-				Error::generate('suspicious', 'Failed to move_uploaded_file');
-			}
-			header("Location: $PAGE_REL_URL");
 		}
+	} else {
+		$id = User::GetAuthenticatedID();
+		$upload_dir = $UPLOAD_ROOT.'/'.$id.'/';
+		$upload_path = $upload_dir.hash('sha256', $_FILES['file']['name']);
+		if(!file_exists("$ROOT/$upload_dir")) {
+			mkdir("$ROOT/$upload_dir");
+		}
+		$fileCfg = array(	'name'	=> 'Temporary Name',
+							'path'	=> $upload_path,
+							'owner'	=> $id,
+							'roles'	=> ""	);
+		$res = File::Create($fileCfg, $_FILES['file']['tmp_name']);
+		if($res && User::SetAttrib($id, 'file', $res)) {
+			Error::generate('notice', 'File was successfully uploaded.');
+		} else {
+			Error::generate('notice', 'Could not upload file.', Error::$FLAGS['single']);
+		}
+		header("Location: $PAGE_REL_URL");
 	}
 } else if(isset($_GET['action']) && $_GET['action'] != "") { // Action with no params
 	$action = $_GET['action'];

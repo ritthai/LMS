@@ -1,10 +1,18 @@
-DROP TABLE IF EXISTS users, user_data, user_attribs;
+DROP TABLE IF EXISTS users, user_data;
+DROP TABLE IF EXISTS files, file_data;
 #DROP PROCEDURE IF EXISTS SetForgottenPassTimestamp, ValidateForgottenPassTimestamp;
 # EAV
-CREATE TABLE users (	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-						name VARCHAR(64) UNIQUE KEY,
-						creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+CREATE TABLE users (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+							name VARCHAR(64) UNIQUE KEY,
+							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE user_data (	id INT NOT NULL,
+							attrib INT NOT NULL,
+							intdata INT,
+							stringdata VARCHAR(255)	);
+CREATE TABLE files (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+							name VARCHAR(64),
+							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+CREATE TABLE file_data (	id INT NOT NULL,
 							attrib INT NOT NULL,
 							intdata INT,
 							stringdata VARCHAR(255)	);
