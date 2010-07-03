@@ -72,7 +72,7 @@ if($ACTIONS['create']->wasCalled()) {
 } else if($ACTIONS['show']->wasCalled()) {
     $params = $ACTIONS['show']->getParams();
 	$args['userinfo'] = User::GetAttribs($params['userid']);
-    eval("?>".file_get_contents("views/show.view.php"));
+    include("views/show.view.php");
 } else if($ACTIONS['login']->wasCalled()) {
 	$params = $ACTIONS['login']->getParams();
 	$res = User::Authenticate($params['name'], $params['password']);
@@ -81,7 +81,7 @@ if($ACTIONS['create']->wasCalled()) {
 		header("Location: $PAGE_REL_URL");
 	} else {
 		Error::generate('notice', 'Invalid username/password combination', Error::$FLAGS['single']);
-		eval("?>".file_get_contents("views/login.view.php"));
+		include("views/login.view.php");
 	}
 } else if($ACTIONS['forgot_password']->wasCalled()) {
 	$params = $ACTIONS['forgot_password']->getParams();
@@ -112,7 +112,7 @@ if($ACTIONS['create']->wasCalled()) {
 	} else if(!isset($params['id'])) { // stage 1 - ask for new password
 		$args['id'] = $id;
 		$args['key'] = $params['key'];
-		eval("?>".file_get_contents("views/reset_password.view.php"));
+		include("views/reset_password.view.php");
 	} else { // stage 2 - reset password
 		$ret = User::SetAttrib($id, 'password', $params['password']);
 		if($ret)
@@ -125,16 +125,16 @@ if($ACTIONS['create']->wasCalled()) {
 	// TODO: Check file extension.
 	if(!isset($_FILES['file'])) {
 		Error::generate('notice', 'No file specified.');
-		eval("?>".file_get_contents("views/upload.view.php"));
+		include("views/upload.view.php");
 	} else if(!User::IsAuthenticated()) {
 		Error::generate('notice', 'Not logged in.');
-		eval("?>".file_get_contents("views/upload.view.php"));
+		include("views/upload.view.php");
 	} else if($_FILES['file']['error'] != UPLOAD_ERR_OK) {
 		switch($_FILES['file']['error']) {
 		case UPLOAD_ERR_INI_SIZE:
 		case UPLOAD_ERR_FORM_SIZE:
 			Error::generate('notice', 'File too big.');
-			eval("?>".file_get_contents("views/upload.view.php"));
+			include("views/upload.view.php");
 			break;
 		case UPLOAD_ERR_PARTIAL:
 		case UPLOAD_ERR_NO_TMP_DIR:
@@ -143,11 +143,11 @@ if($ACTIONS['create']->wasCalled()) {
 		default:
 			Error::generate('debug', 'File upload error: '.$_FILES['file']['error']);
 			Error::generate('notice', 'Could not upload file.');
-			eval("?>".file_get_contents("views/upload.view.php"));
+			include("views/upload.view.php");
 			break;
 		case UPLOAD_ERR_NO_FILE:
 			Error::generate('notice', 'No file specified.');
-			eval("?>".file_get_contents("views/upload.view.php"));
+			include("views/upload.view.php");
 			break;
 		}
 	} else {
@@ -180,7 +180,7 @@ if($ACTIONS['create']->wasCalled()) {
 			header("Location: $PAGE_REL_URL");
 		} else {
 			$args['userinfo'] = User::GetAttribs($authid);
-			eval("?>".file_get_contents("views/show.view.php"));
+			include('views/show.view.php');
 		}
 		break;
 	case 'logout':
@@ -199,7 +199,7 @@ if($ACTIONS['create']->wasCalled()) {
 	case 'forgot_password':
 	case 'reset_password':
 	case 'upload':
-		eval("?>".file_get_contents("views/$action.view.php"));
+		include("views/$action.view.php");
 		break;
 	case 'show':
 		Error::generate('notice', 'Invalid user ID', Error::$FLAGS['single']);
@@ -210,7 +210,7 @@ if($ACTIONS['create']->wasCalled()) {
 		header("Location: $PAGE_REL_URL");
 	}
 } else {
-	eval("?>".file_get_contents("views/index.view.php"));
+	include("views/index.view.php");
 }
 
 db_close();

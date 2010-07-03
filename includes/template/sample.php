@@ -1,11 +1,12 @@
 <?php
 /**
-	Given:	pagetitle,
-			actions,
+	Given:	...
 */
 ?>
 
-<?php include("$TEMPLATEROOT/template_begin.inc"); ?>
+<!-- /* ##### Beginning of template_begin ##### */ -->
+<?php include('template_begin.inc'); ?>
+<!-- /* ##### End of template_begin ##### */ -->
 
 		<script src="<?php echo "$HTMLROOT/js/prototype-1.6.0.3.js"; ?>" type="text/javascript"></script>
 		<script type="text/javascript">
@@ -22,13 +23,11 @@
 		}
 		</script>
 
-<?php include("$TEMPLATEROOT/template_notices.inc"); ?>
+<!-- /* ##### Beginning of template_notices ##### */ -->
+<?php include('template_notices.inc'); ?>
+<!-- /* ##### End of template_notices ##### */ -->
 
-<?php	$args['actions']['upload']->FORM_BEGIN('enctype="multipart/form-data" onsubmit="closeKeepAlive();"');	?>
-									<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> <!-- 4 MB -->
-		<!--File to upload:-->		<input type="file" name="file" /><br/>
-									<input type="submit" value="Upload" />
-<?php	$args['actions']['upload']->FORM_END();	?>
-
-<?php include("$TEMPLATEROOT/template_end.inc"); ?>
+<!-- /* ##### Beginning of template_end ##### */ -->
+<?php include('template_end.inc'); ?>
+<!-- /* ##### End of template_end ##### */ -->
 

@@ -51,14 +51,14 @@ if($ACTIONS['search']->wasCalled()) {
 					'searchresults'	=> $search_results,
 					'actions'		=> $ACTIONS);
 	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
-	eval("?>".file_get_contents("views/search.view.php"));
+	include("views/search.view.php");
 } else if($ACTIONS['list']->wasCalled()) {
 	$args = array(	'pagetitle'		=> 'List',
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
 					'courses'		=> CourseDefn::ListAll(),
 					'actions'		=> $ACTIONS);
 	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
-	eval("?>".file_get_contents("views/list.view.php"));
+	include("views/list.view.php");
 } else if(isset($_GET['action']) && $_GET['action'] != '') { // Action with no params
 	$action = $_GET['action'];
 	$args = array(	'pagetitle'		=> ucfirst($action),
@@ -67,7 +67,7 @@ if($ACTIONS['search']->wasCalled()) {
 	switch($action) {
 		case 'search':
 		case 'list':
-			eval('?>'.file_get_contents("views/$action.view.php"));
+			include("views/$action.view.php");
 			break;
 		default:
 			Error::generate('suspicious', "Invalid action $action in /course/");
@@ -80,7 +80,7 @@ if($ACTIONS['search']->wasCalled()) {
 					'courses'		=> CourseDefn::ListAll(),
 					'actions'		=> $ACTIONS);
 	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
-	eval("?>".file_get_contents("views/index.view.php"));
+	include("views/index.view.php");
 }
 /* else if(isset($_POST['save_name'])) {
 	$crs = new Course(	urlencode($_POST['save_name']), urlencode($_POST['course_prof']),
