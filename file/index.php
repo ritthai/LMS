@@ -23,8 +23,16 @@ $PAGE_TITLE = "File management";
 $args = array(	'pagetitle'	=> $PAGE_TITLE,
 				'actions'	=> $ACTIONS	);
 
-if($ACTIONS['show']->wasCalled()) {
-    $params = $ACTIONS['show']->getParams();
+$action = false;
+$params = array();
+foreach($ACTIONS as $key => $val) {
+    if($val->wasCalled()) {
+        if(!$action) $action = $key;
+        $params = array_merge($params, $ACTIONS[$action]->getParams());
+    }
+}
+
+if($action == 'show') {
 	$id = $params['id'];
 	$args['fileinfo'] = File::GetAttribs($id);
 	if(!$args['fileinfo']) {
@@ -43,8 +51,7 @@ if($ACTIONS['show']->wasCalled()) {
 		}
 		include("views/show.view.php");
 	}
-} else if($ACTIONS['get']->wasCalled()) {
-	$params = $ACTIONS['get']->getParams();
+} else if($action == 'get') {
 	$id = $params['id'];
 	$name = File::GetAttrib($id, 'name');
 	$path = File::GetAttrib($id, 'path');

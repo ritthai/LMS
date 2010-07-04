@@ -29,6 +29,7 @@ foreach($ACTIONS as $key => $val) {
 	if($val->wasCalled()) {
 		if(!$action) $action = $key;
 		$params = array_merge($params, $ACTIONS[$action]->getParams());
+		break;
 	}
 }
 if($action == 'list2') $action = $list;

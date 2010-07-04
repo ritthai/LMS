@@ -42,8 +42,17 @@ $allowed_upload_extensions = array(	"txt", "csv", "htm", "html", "xml",
 									"css", "doc", "xls", "rtf", "ppt", "pdf", "swf", "flv", "avi",
 									"wmv", "mov", "jpg", "jpeg", "gif", "png");
 
-if($ACTIONS['create']->wasCalled()) {
-	$params = $ACTIONS['create']->getParams();
+$action = false;
+$params = array();
+foreach($ACTIONS as $key => $val) {
+    if($val->wasCalled()) {
+        if(!$action) $action = $key;
+        $params = array_merge($params, $ACTIONS[$action]->getParams());
+		break;
+    }
+}
+
+if($action == 'create') {
 	$filtered_params = array();
 	$authorized = true;
 	$recaptcha_resp = recaptcha_check_answer(	$CONFIG['recaptcha_prikey'], $_SERVER['REMOTE_ADDR'],
@@ -80,8 +89,7 @@ if($ACTIONS['create']->wasCalled()) {
 		Error::generate('notice', 'Account creation failed', Error::$FLAGS['single']);
 		redirect('create');
 	}
-} else if($ACTIONS['show']->wasCalled() || ($status_called = $ACTIONS['status']->wasCalled())) {
-    $params = $ACTIONS['show']->getParams();
+} else if($action == 'show' || ($status_called = ($action == 'status'))) {
 	$id = $status_called ? User::GetAuthenticatedID() : $params['id'];
 	if(!$id) {
 		Error::generate('notice', 'Must be logged in.');
@@ -102,8 +110,7 @@ if($ACTIONS['create']->wasCalled()) {
 		}
 		include("views/show.view.php");
 	}
-} else if($ACTIONS['login']->wasCalled()) {
-	$params = $ACTIONS['login']->getParams();
+} else if($action == 'login') {
 	$res = User::Authenticate($params['name'], $params['password']);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');
@@ -112,8 +119,7 @@ if($ACTIONS['create']->wasCalled()) {
 		Error::generate('notice', 'Invalid username/password combination', Error::$FLAGS['single']);
 		include("views/login.view.php");
 	}
-} else if($ACTIONS['forgot_password']->wasCalled()) {
-	$params = $ACTIONS['forgot_password']->getParams();
+} else if($action == 'forgot_password') {
 	$name = $params['name'];
 	$email = User::GetAttrib(User::GetUserID($name), 'email');
 	if($email != $params['email']) {
@@ -133,8 +139,7 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'Could not send password reset email.');
 		redirect();
 	}
-} else if($ACTIONS['reset_password']->wasCalled()) {
-	$params = $ACTIONS['reset_password']->getParams();
+} else if($action == 'reset_password') {
 	if(!$id = User::ValidateForgottenPasswordKey($params['key'])) {
 		Error::generate('notice', 'Invalid URL');
 		redirect();
@@ -150,8 +155,7 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'Your password could not be reset.', Error::$FLAGS['single']);
 		redirect();
 	}
-} else if($ACTIONS['upload']->wasCalled()) {
-	$params = $ACTIONS['upload']->getParams();
+} else if($action == 'upload') {
 	$ext = end(explode('.', $_FILES['file']['name']));
 	// TODO: Check file extension.
 	if(!isset($_FILES['file'])) {
