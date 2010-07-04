@@ -18,7 +18,10 @@
 			</tr>
 <?php	foreach($args['courses'] as $course) {	?>
 			<tr>
-				<td><?php echo $course['title']; ?></td>
+				<td>	<a href="<?php echo $ACTIONS['show']->getLink(array('id'=>$course['id'])); ?>">
+							<?php echo $course['title']; ?>
+						</a>
+				</td>
 				<td><?php echo $course['code']; ?></td>
 				<td><?php echo $course['descr']; ?></td>
 			</tr>

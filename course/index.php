@@ -8,25 +8,62 @@ include("dataacquisition/khanacad.util.php");
 session_start();
 db_connect();
 
+$CONTROLLER = 'course';
 $PAGE_REL_URL = "$HTMLROOT/course";
 
-$ACTIONS = array(	'search' => new HttpAction("$PAGE_REL_URL/search", 'get',
-								array('terms', 'tags')),
-					'list' => new HttpAction("$PAGE_REL_URL/list", 'get',
-								array())
+$ACTIONS = array(	'search'	=> new HttpAction("$PAGE_REL_URL/search", 'get',
+													array('terms', 'tags')),
+					'list'		=> new HttpAction("$PAGE_REL_URL/list", 'get',
+													array()),
+					'show'		=> new HttpAction("$PAGE_REL_URL/show", 'get',
+													array('id')),
+					'list2'		=> new HttpAction("$PAGE_REL_URL/show", 'get',
+													array())
 				);
 
 $search_results = array();
 
-/*foreach($ACTIONS as $key => $val)
-	if($val->wasCalled())
-		$action = $key;*/
+$action = false;
+$params = array();
+foreach($ACTIONS as $key => $val) {
+	if($val->wasCalled()) {
+		if(!$action) $action = $key;
+		$params = array_merge($params, $ACTIONS[$action]->getParams());
+	}
+}
+if($action == 'list2') $action = $list;
 
 /**	
 	Identify course, populate fields
 */
-if($ACTIONS['search']->wasCalled()) {
-	$params = $ACTIONS['search']->getParams();
+if($action == 'show') {
+	$crs = new CourseDefn((int)$params['id']);
+	if(!$crs->load()) {
+		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
+		redirect('search');
+	} else {
+		$procd_descr = process_description($crs->descr);
+		foreach($procd_descr as $descr) {
+			array_push(	$search_results,
+					array(	'subject' => $descr,
+							'google' => google_search($descr),
+							'youtube' => youtube_search($descr, $tags),
+							'itunesu' => itunesu_search($descr),
+							'khanacad' => khanacad_search($descr)));
+		}
+
+		$args = array(	'pagetitle'		=> 'Show',
+						'pageurl'		=> $_SERVER['REQUEST_URI'],
+						'course'		=> array(	'id'	=> $crs->id,
+													'title'	=> $crs->title,
+													'code'	=> $crs->code,
+													'descr' => $crs->descr),
+						'searchresults'	=> $search_results,
+						'actions'		=> $ACTIONS);
+		if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
+		include("views/show.view.php");
+	}
+} else if($action == 'search') {
 	$crs = new CourseDefn($params['terms']);
 	if(!$crs->load())
 		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
@@ -45,14 +82,15 @@ if($ACTIONS['search']->wasCalled()) {
 
 	$args = array(	'pagetitle'		=> 'Search',
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
-					'course'		=> array(	'title'	=> $crs->title,
+					'course'		=> array(	'id'	=> $crs->id,
+												'title'	=> $crs->title,
 												'code'	=> $crs->code,
 												'descr' => $crs->descr),
 					'searchresults'	=> $search_results,
 					'actions'		=> $ACTIONS);
 	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 	include("views/search.view.php");
-} else if($ACTIONS['list']->wasCalled()) {
+} else if($action == 'list') {
 	$args = array(	'pagetitle'		=> 'List',
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
 					'courses'		=> CourseDefn::ListAll(),

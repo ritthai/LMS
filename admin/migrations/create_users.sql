@@ -18,6 +18,14 @@ CREATE TABLE file_data (	id INT NOT NULL,
 							options INT NOT NULL,
 							intdata INT,
 							stringdata TEXT	);
+CREATE TABLE comments (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+							name VARCHAR(64),
+							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+CREATE TABLE comment_data (	id INT NOT NULL,
+							attrib INT NOT NULL,
+							options INT NOT NULL,
+							intdata INT,
+							stringdata TEXT	);
 INSERT
 	INTO users (name)
 	VALUES ('jkoff');

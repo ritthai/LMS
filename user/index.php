@@ -39,8 +39,6 @@ if($CONFIG['debug']) $PAGE_TITLE .= " - Debugging Mode";
 $args = array(	'pagetitle'	=> $PAGE_TITLE,
 				'actions'	=> $ACTIONS	);
 
-Error::generate('debug', 'Loading page: '.$PAGE_TITLE);
-
 $allowed_upload_extensions = array(	"txt", "csv", "htm", "html", "xml",
 									"css", "doc", "xls", "rtf", "ppt", "pdf", "swf", "flv", "avi",
 									"wmv", "mov", "jpg", "jpeg", "gif", "png");

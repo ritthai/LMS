@@ -5,31 +5,46 @@ class CourseDefn {
 	public $title;
 	public $descr;
 	function __construct($code) {
-		$this->code = mysql_real_escape_string($code);
+		$this->id = $this->code = $this->title = $this->descr = false;
+		if(is_int($code)) {
+			$this->id = $code;
+		} else {
+			$this->code = $code;
+		}
 	}
 	function save() {
 		db_query(	"REPLACE INTO coursedefns (code, title, descr) VALUES ('%s','%s', '%s')",
 					$this->code, $this->title, $this->descr);
 	}
 	function load() {
-		$res = db_query("SELECT * FROM coursedefns WHERE code LIKE '%s'",
-						$this->code);
+		if($this->code) {
+			$res = db_query("SELECT * FROM coursedefns WHERE code LIKE '%s'",
+							$this->code);
+		} else if($this->id) {
+			$res = db_query("SELECT * FROM coursedefns WHERE id='%d'",
+							$this->id);
+
+		} else {
+			Error::generate('debug', 'Not enough information to find course in CourseDefn::load().');
+		}
 		if(!$res) {
-			Error::generate('warn', 'CourseDefn->load: $res is null');
+			Error::generate('debug', 'CourseDefn->load: $res is null');
 			return false;
 		}
 		$ret = db_get_assoc($res);
 		if(!$ret) {
-			Error::generate('warn', 'CourseDefn->load: $ret is null');
+			Error::generate('debug', 'CourseDefn->load: $ret is null');
 			return false;
 		}
 		$this->title = $ret['title'];
+		$this->code = $ret['code'];
+		$this->id = $ret['id'];
 		$this->descr = $ret['descr'];
 		
 		return true;
 	}
 	static function ListAll() {
-		$res = db_query("SELECT code,title,descr FROM coursedefns ORDER BY code");
+		$res = db_query("SELECT id,code,title,descr FROM coursedefns ORDER BY code");
 		$ret = db_get_list_result($res);
 		return $ret;
 	}

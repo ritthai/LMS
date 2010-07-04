@@ -1,4 +1,5 @@
 <?php
+Error::generate('debug', "Loading $CONTROLLER/$action");
 /**
 	Given:	pagetitle
 */
