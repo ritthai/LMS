@@ -1,19 +1,15 @@
 <?php
-$dbhost = 'localhost';
-$dbuser = 'LMS_development';
-$dbpass = '';
-$dbname = 'LMS_development';
 
 $h = null;
 
 function db_connect() {
-	global $dbuser, $dbpass, $dbname, $dbhost, $h;
-	$h = @mysql_connect($dbhost, $dbuser, $dbpass) or die("mysql_connect error: ".mysql_error());
-	@mysql_select_db($dbname, $h) or die("mysql_select_db error: ".mysql_error());
+	global $CONFIG, $h;
+	$h = @mysql_connect($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpass']) or die("mysql_connect error: ".mysql_error());
+	@mysql_select_db($CONFIG['dbname'], $h) or die("mysql_select_db error: ".mysql_error());
 }
 
 function db_query(/* fmt, ... */) {
-	global $dbuser, $dbpass, $dbname, $dbhost, $h;
+	global $h;
 	$argv = func_get_args();
 	$fmt = array_shift($argv);
 	foreach($argv as $k=>$v) {
@@ -30,7 +26,7 @@ function db_query(/* fmt, ... */) {
 }
 
 function db_close() {
-	global $dbuser, $dbpass, $dbname, $dbhost, $h;
+	global $h;
 	@mysql_close($h);
 }
 
