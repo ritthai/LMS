@@ -1,6 +1,2 @@
-*.log
-*.swo
-*.swp
-*.tmp
-.DS_Store
 admin/debug.html
+user/uploads/*
