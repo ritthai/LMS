@@ -35,7 +35,6 @@ $ACTIONS = array(
 	);
 
 $PAGE_TITLE = "User management";
-if($CONFIG['debug']) $PAGE_TITLE .= " - Debugging Mode";
 $args = array(	'pagetitle'	=> $PAGE_TITLE,
 				'actions'	=> $ACTIONS	);
 

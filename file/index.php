@@ -20,7 +20,6 @@ $ACTIONS = array(
 	);
 
 $PAGE_TITLE = "File management";
-if($CONFIG['debug']) $PAGE_TITLE .= " - Debugging Mode";
 $args = array(	'pagetitle'	=> $PAGE_TITLE,
 				'actions'	=> $ACTIONS	);
 

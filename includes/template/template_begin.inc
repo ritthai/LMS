@@ -1,5 +1,6 @@
 <?php
 Error::generate('debug', "Loading $CONTROLLER/$action");
+if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 /**
 	Given:	pagetitle
 */

@@ -60,7 +60,6 @@ if($action == 'show') {
 													'descr' => $crs->descr),
 						'searchresults'	=> $search_results,
 						'actions'		=> $ACTIONS);
-		if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 		include("views/show.view.php");
 	}
 } else if($action == 'search') {
@@ -88,14 +87,12 @@ if($action == 'show') {
 												'descr' => $crs->descr),
 					'searchresults'	=> $search_results,
 					'actions'		=> $ACTIONS);
-	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 	include("views/search.view.php");
 } else if($action == 'list') {
 	$args = array(	'pagetitle'		=> 'List',
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
 					'courses'		=> CourseDefn::ListAll(),
 					'actions'		=> $ACTIONS);
-	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 	include("views/list.view.php");
 } else if(isset($_GET['action']) && $_GET['action'] != '') { // Action with no params
 	$action = $_GET['action'];
@@ -117,7 +114,6 @@ if($action == 'show') {
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
 					'courses'		=> CourseDefn::ListAll(),
 					'actions'		=> $ACTIONS);
-	if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 	include("views/index.view.php");
 }
 /* else if(isset($_POST['save_name'])) {
