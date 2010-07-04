@@ -1,5 +1,6 @@
 <?php
-@include("$ROOT/includes/mysql.inc");
+@require_once("$ROOT/includes/recaptchalib.php");
+@require_once("$ROOT/includes/mysql.inc");
 
 @session_start();
 @db_connect();
@@ -11,7 +12,8 @@ $PAGE_REL_URL = "$HTMLROOT/$CONTROLLER";
 $UPLOAD_ROOT = "$CONTROLLER/uploads";
 $ACTIONS = array(
 	'create' => new HttpAction("$PAGE_REL_URL/create", 'post',
-				array('name', 'email', 'password')),
+				array(	'name', 'email', 'password',
+						'recaptcha_challenge_field', 'recaptcha_response_field')),
 	'list' => new HttpAction("$PAGE_REL_URL/list", 'get',
 				array()),
 	'show' => new HttpAction("$PAGE_REL_URL/show", 'get',
@@ -47,6 +49,13 @@ if($ACTIONS['create']->wasCalled()) {
 	$params = $ACTIONS['create']->getParams();
 	$filtered_params = array();
 	$authorized = true;
+	$recaptcha_resp = recaptcha_check_answer(	$CONFIG['recaptcha_prikey'], $_SERVER['REMOTE_ADDR'],
+												$params['recaptcha_challenge_field'], $params['recaptcha_response_field'] );
+	if(!$recaptcha_resp->is_valid) {
+		$args['recaptcha_error'] = $recaptcha_resp->error;
+		Error::generate('notice', 'Incorrect captcha answer.');
+		$authorized = false;
+	}
 	foreach($params as $k=>$v) {
 		switch($k) {
 		case 'role':

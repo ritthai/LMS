@@ -1,5 +1,9 @@
 <?php
 // This is an array so that functions can access all config data with one global call.
-$CONFIG = array( 'debug' => true );
+$CONFIG = array('debug'				=> true,
+				'recaptcha_pubkey'	=> '6LerQrsSAAAAAK768_OCsBc8uf7KLlqofEVopSt1',
+				'recaptcha_prikey'	=> '6LerQrsSAAAAAK0Z9QcFtZNGEnL1ARtBqOYptABp',
+				'mailhide_pubkey'	=> '013lK5nSug0owYEdHGzuwFrA==',
+				'mailhide_prikey'	=> '7e238da27498ccb66006d1dcf9ed629b' );
 //ini_set('upload_max_filesize', '16M') or die('ini_set failed for upload_max_filesize'); // change in .htaccess
 ?>

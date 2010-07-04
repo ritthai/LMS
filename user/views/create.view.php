@@ -1,8 +1,10 @@
 <?php
 /**
 	Given:	pagetitle,
-			actions
+			actions,
+			recaptcha_error
 */
+
 ?>
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
 <?php include("$TEMPLATEROOT/template_notices.inc"); ?>
@@ -14,6 +16,7 @@
 <?php	if(User::HasPermissions('admin')) { ?>
 	Role:			<input type="text" name="role" value="banned,admin" /><br/>
 <?php	} ?>
+					<?php echo recaptcha_get_html($CONFIG['recaptcha_pubkey'], $args['recaptcha_error']); ?>
 					<input type="submit" value="Create account" />
 <?php $args['actions']['create']->FORM_END(); ?>
 
