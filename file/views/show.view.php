@@ -2,16 +2,16 @@
 /**
 	Given:	pagetitle,
 			actions,
-			userinfo : id
+			fileinfo : id
 */
 ?>
 
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
 <?php include("$TEMPLATEROOT/template_notices.inc"); ?>
-		
-<?php	if($args['userinfo']) { ?>
+
+<?php	if($args['fileinfo']) { ?>
 		<table>
-<?php		foreach($args['userinfo'] as $val) { ?>
+<?php		foreach($args['fileinfo'] as $val) {	?>
 			<tr>
 				<td><?php echo $val[0]; ?></td>
 				<td><?php echo $val[1] ? $val[1] : 'Could not retrieve field'; ?></td>

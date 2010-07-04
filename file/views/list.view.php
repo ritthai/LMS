@@ -2,7 +2,7 @@
 /**
 	Given:	pagetitle,
 			actions,
-			userlist :	(id,
+			filelist :	(id,
 						name,
 						creation_timestamp)
 */
@@ -17,14 +17,14 @@
 				<th>name</th>
 				<th>creation_timestamp</th>
 			</tr>
-<?php	foreach($args['userlist'] as $user) {	?>
+<?php	foreach($args['filelist'] as $file) {	?>
 			<tr>
-				<td><a href="<?php echo $args['actions']['show']->getLink(array('id'=>$user['id'])); ?>">
-						<?php echo $user['id']; ?>
+				<td><a href="<?php echo $args['actions']['show']->getLink(array('fileid'=>$file['id'])); ?>">
+						<?php echo $file['id']; ?>
 					</a>
 				</td>
-				<td><?php echo $user['name']; ?></td>
-				<td><?php echo $user['creation_timestamp']; ?></td>
+				<td><?php echo $file['name']; ?></td>
+				<td><?php echo $file['creation_timestamp']; ?></td>
 			</tr>
 <?php	}	?>
 

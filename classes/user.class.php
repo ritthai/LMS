@@ -5,7 +5,27 @@ class User extends EAV {
 		return 'user';
 	}
 	protected static function subGetAttribs() {
-		return static::$ATTRIBUTES;
+		return array(	1=>	array( 'NAME',	static::ATTRIB_TYPE_STRING,
+											static::ATTRIB_PROP_UNIQUE ),
+							array( 'EMAIL', static::ATTRIB_TYPE_STRING,
+											static::ATTRIB_PROP_UNIQUE ),
+							array( 'ROLE',	static::ATTRIB_TYPE_INT ,
+											static::ATTRIB_PROP_UNIQUE ),
+							array( 'PASSWORD',
+											static::ATTRIB_TYPE_STRING,
+											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
+							array( 'FORGOTN_PASS_RST_KEY',
+											static::ATTRIB_TYPE_STRING,
+											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
+							array( 'FORGOTN_PASS_TIMESTAMP',
+											static::ATTRIB_TYPE_STRING,
+											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
+							array( 'FILE',	static::ATTRIB_TYPE_INT,
+											static::ATTRIB_PROP_NONE ) );/*,
+							array( 'PUBLIC_ATTRIB',		static::ATTRIB_TYPE_INT,
+														static::ATTRIB_PROP_NONE ),
+							array( 'PRIVATE_ATTRIB',	static::ATTRIB_TYPE_INT,
+														static::ATTRIB_PROP_NONE ) );*/
 	}
 	private static function get_role_id($rolestr) {
 		$ret = 0;
@@ -32,26 +52,6 @@ class User extends EAV {
 	public static function Init() {
 		if($__inited) return;
 		else $__inited = true;
-		if(is_null(static::$ATTRIBUTES)) {
-			static::$ATTRIBUTES =
-				array(	1=>	array( 'NAME',	static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NONE | static::ATTRIB_PROP_UNIQUE ),
-							array( 'EMAIL', static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NONE | static::ATTRIB_PROP_UNIQUE ),
-							array( 'ROLE',	static::ATTRIB_TYPE_INT ,
-											static::ATTRIB_PROP_NONE | static::ATTRIB_PROP_UNIQUE ),
-							array( 'PASSWORD',
-											static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
-							array( 'FORGOTN_PASS_RST_KEY',
-											static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
-							array( 'FORGOTN_PASS_TIMESTAMP',
-											static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
-							array( 'FILE',	static::ATTRIB_TYPE_INT,
-											static::ATTRIB_PROP_NONE ) );
-		}
 		if(is_null(static::$ROLES)) {
 			static::$ROLES =
 				array(	array( 'ADMIN',			1 ),
@@ -88,24 +88,6 @@ class User extends EAV {
 		}
 		return db_get_list_result($res, array('id', 'name', 'creation_timestamp'));
 	}
-	public static function GetAttrib($id, $attrib) {
-		if(is_int($attrib)) {
-			$attribid = $attrib;
-		} else {
-			$attribid = static::get_attrib_id($attrib);
-		}
-		if($attribid && !(static::get_attrib_props($attribid) & static::ATTRIB_PROP_NODISPLAY)) {
-			$ret = static::get_attrib($id, $attribid);
-			switch(strtoupper(static::get_attrib_str($attribid))) {
-			case 'ROLE':
-				$ret = static::get_role_str($ret);
-				break;
-			}
-		} else {
-			$ret = false;
-		}
-		return $ret;
-	}
 	public static function SetAttrib($id, $attrib, $val) {
 		if(is_int($attrib)) {
 			$attribid = $attrib;
@@ -129,6 +111,24 @@ class User extends EAV {
 		}
 		return $ret;
 	}
+	public static function GetAttrib($id, $attrib) {
+		if(is_int($attrib)) {
+			$attribid = $attrib;
+		} else {
+			$attribid = static::get_attrib_id($attrib);
+		}
+		if($attribid && !(static::get_attrib_props($attribid) & static::ATTRIB_PROP_NODISPLAY)) {
+			$ret = static::get_attrib($id, $attribid);
+			switch(strtoupper(static::get_attrib_str($attribid))) {
+			case 'ROLE':
+				$ret = static::get_role_str($ret);
+				break;
+			}
+		} else {
+			$ret = false;
+		}
+		return $ret;
+	}
 	public static function GetAttribs($id) {
 		$attribs = static::get_attribs($id);
 		$ret = array();
@@ -137,7 +137,7 @@ class User extends EAV {
 			if($attrval) {
 				if(is_array($attrval)) {
 					foreach($attrval as $v) {
-						array_push($ret, array(static::get_attrib_str($attrib), $v[0]));
+						array_push($ret, array(static::get_attrib_str($attrib), $v));
 					}
 				} else {
 					array_push($ret, array(static::get_attrib_str($attrib), $attrval));

@@ -43,10 +43,11 @@ function db_get_list_result($res) {
 	return $ret;
 }
 
-function db_get_list_result_numeric($res) {
+function db_get_list_of_results($res) {
 	$ret = array();
 	while($row = @mysql_fetch_row($res)) {
-		array_push( $ret, $row );
+		Error::generate('debug', 'mysql result: '.$row[0]);
+		array_push( $ret, $row[0] );
 	}
 	@mysql_free_result($res);
 	return $ret;
@@ -70,6 +71,7 @@ function db_get_result($res) {
 		Error::generate('debug', 'Row not found in database_get_result.');
 		return false;
 	} else {
+		Error::generate('debug', 'mysql result: '.$ret[0]);
 		return $ret[0];
 	}
 }

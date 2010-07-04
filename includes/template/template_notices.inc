@@ -15,5 +15,5 @@
         </div>
 <?php   }   ?>
 
-<center><img src="<?php echo $HTMLROOT; ?>/images/logo.png" /></center>
+<!--<center><img src="<?php echo $HTMLROOT; ?>/images/logo.png" /></center>-->
 

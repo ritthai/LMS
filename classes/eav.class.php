@@ -1,13 +1,13 @@
 <?php
-class EAV {
+abstract class EAV {
 	const ATTRIB_TYPE_STRING	= 0;
 	const ATTRIB_TYPE_INT		= 1;
 	const ATTRIB_PROP_NONE		= 0;
 	const ATTRIB_PROP_NODISPLAY	= 1; // for passwords and whatnot.
 	const ATTRIB_PROP_READONLY	= 2; // cannot be provided to User::SetAttrib
 	const ATTRIB_PROP_UNIQUE	= 4;
-	protected static $__inited = false;
-	protected static $ATTRIBUTES = null; // modify User::Init function
+	protected static $__inited		= false;
+	protected static $ATTRIBUTES	= null; // modify User::Init function
 	protected static function get_attrib_id($attribstr) {
 		$attribs = static::subGetAttribs();
 		for($i=1; $i < count(static::subGetAttribs())+1; $i++) {
@@ -49,10 +49,12 @@ class EAV {
 		}
 	}
 	protected static function store_attrib($id, $attrib, $val) {
-		if(is_int($attrib))
+		Error::generate('debug', "store_attrib($id, $attrib, $val)");
+		if(is_int($attrib)) {
 			$attribid = $attrib;
-		else
+		} else {
 			$attribid = static::get_attrib_id($attrib);
+		}
 		$attribtype = static::get_attrib_type($attribid);
 		$attribprops = static::get_attrib_props($attribid);
 		switch($attribtype) {
@@ -102,19 +104,12 @@ class EAV {
 			return false;
 		}
 
-		if($attribprops & static::ATTRIB_PROP_UNIQUE)
+		if($attribprops & static::ATTRIB_PROP_UNIQUE) {
 			$ret = db_get_result($res);
-		else	
-			$ret = db_get_list_result_numeric($res);
-
-		switch($attribtype) {
-		case static::ATTRIB_TYPE_INT:
-			$ret = intval($ret);
-			break;
-		case static::ATTRIB_TYPE_STRING:
-		default:
-			break;
+		} else {
+			$ret = db_get_list_of_results($res);
 		}
+
 		return $ret;
 	}
 	protected static function get_attribs($id) {

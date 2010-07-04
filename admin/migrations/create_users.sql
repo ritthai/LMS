@@ -7,15 +7,17 @@ CREATE TABLE users (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE user_data (	id INT NOT NULL,
 							attrib INT NOT NULL,
+							options INT NOT NULL,
 							intdata INT,
-							stringdata VARCHAR(255)	);
+							stringdata TEXT	);
 CREATE TABLE files (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 							name VARCHAR(64),
 							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE file_data (	id INT NOT NULL,
 							attrib INT NOT NULL,
+							options INT NOT NULL,
 							intdata INT,
-							stringdata VARCHAR(255)	);
+							stringdata TEXT	);
 INSERT
 	INTO users (name)
 	VALUES ('jkoff');

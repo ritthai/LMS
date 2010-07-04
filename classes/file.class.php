@@ -4,7 +4,19 @@ class File extends EAV {
 		return 'file';
 	}
 	protected static function subGetAttribs() {
-		return static::$ATTRIBUTES;
+		return array(	1=>	array( 'NAME',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'PATH',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'OWNER',		static::ATTRIB_TYPE_INT ,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'ROLES',		static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'TYPE',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'COMMENT',	static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE )
+					);
 	}
 	/**
 		Public Functions
@@ -12,17 +24,6 @@ class File extends EAV {
 	public static function Init() {
 		if($__inited) return;
 		else $__inited = true;
-		if(is_null(static::$ATTRIBUTES)) {
-			static::$ATTRIBUTES =
-				array(	1=>	array( 'NAME',		static::ATTRIB_TYPE_STRING,
-												static::ATTRIB_PROP_UNIQUE ),
-							array( 'PATH',		static::ATTRIB_TYPE_STRING,
-												static::ATTRIB_PROP_UNIQUE ),
-							array( 'OWNER',		static::ATTRIB_TYPE_INT ,
-												static::ATTRIB_PROP_UNIQUE ),
-							array( 'ROLES',		static::ATTRIB_TYPE_INT,
-												static::ATTRIB_PROP_UNIQUE ) );
-		}
 	}
 	public static function Create($userCfg, $uploadPath) {
 		global $ROOT;
@@ -45,17 +46,15 @@ class File extends EAV {
 		}
 		return $id;
 	}
-/*
 	public static function ListAll() {
-		$res = db_query("SELECT * FROM users ORDER BY creation_timestamp");
+		$res = db_query("SELECT * FROM files ORDER BY creation_timestamp");
 		$ret = array();
 		if(!$res) {
-			Error::generate('debug', 'Could not query database in static::ListAll');
+			Error::generate('debug', 'Could not query database in file::ListAll');
 			return array();
 		}
 		return db_get_list_result($res, array('id', 'name', 'creation_timestamp'));
 	}
-*/
 	public static function GetAttrib($id, $attrib) {
 		if(is_int($attrib)) {
 			$attribid = $attrib;

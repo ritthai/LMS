@@ -25,8 +25,10 @@
 <?php include("$TEMPLATEROOT/template_notices.inc"); ?>
 
 <?php	$args['actions']['upload']->FORM_BEGIN('enctype="multipart/form-data" onsubmit="closeKeepAlive();"');	?>
-									<input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> <!-- 4 MB -->
+									<input type="hidden" name="MAX_FILE_SIZE" value="16777216" /> <!-- 16 MB -->
+		Filename:					<input type="text" name="name" /><br/>
 		<!--File to upload:-->		<input type="file" name="file" /><br/>
+		Comment:					<textarea name="comment" rows="3" cols="40"></textarea><br/>
 									<input type="submit" value="Upload" />
 <?php	$args['actions']['upload']->FORM_END();	?>
 

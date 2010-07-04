@@ -6,15 +6,16 @@
 @User::init();
 @File::init();
 
-$PAGE_REL_URL = "$HTMLROOT/user";
-$UPLOAD_ROOT = "user/uploads";
+$CONTROLLER = 'user';
+$PAGE_REL_URL = "$HTMLROOT/$CONTROLLER";
+$UPLOAD_ROOT = "$CONTROLLER/uploads";
 $ACTIONS = array(
 	'create' => new HttpAction("$PAGE_REL_URL/create", 'post',
 				array('name', 'email', 'password')),
 	'list' => new HttpAction("$PAGE_REL_URL/list", 'get',
 				array()),
 	'show' => new HttpAction("$PAGE_REL_URL/show", 'get',
-				array('userid')),
+				array('id')),
 	'login' => new HttpAction("$PAGE_REL_URL/login", 'post',
 				array('name', 'password')),
 	'logout' => new HttpAction("$PAGE_REL_URL/logout", 'get',
@@ -28,7 +29,7 @@ $ACTIONS = array(
 	'finish_reset_password' => new HttpAction("$PAGE_REL_URL/reset_password", 'post',
 				array('key', 'id', 'password')),
 	'upload' => new HttpAction("$PAGE_REL_URL/upload", 'post',
-				array('MAX_FILE_SIZE'))
+				array('MAX_FILE_SIZE', 'name', 'comment'))
 	);
 
 $PAGE_TITLE = "User management";
@@ -37,6 +38,10 @@ $args = array(	'pagetitle'	=> $PAGE_TITLE,
 				'actions'	=> $ACTIONS	);
 
 Error::generate('debug', 'Loading page: '.$PAGE_TITLE);
+
+$allowed_upload_extensions = array(	"txt", "csv", "htm", "html", "xml",
+									"css", "doc", "xls", "rtf", "ppt", "pdf", "swf", "flv", "avi",
+									"wmv", "mov", "jpg", "jpeg", "gif", "png");
 
 if($ACTIONS['create']->wasCalled()) {
 	$params = $ACTIONS['create']->getParams();
@@ -60,25 +65,43 @@ if($ACTIONS['create']->wasCalled()) {
 			// complain about extra params?
 		}
 	}
-	if($authorized) $userid = User::Create($filtered_params);
-	else $userid = 0;
-	if($userid > 0) {
+	if($authorized) $id = User::Create($filtered_params);
+	else $id = 0;
+	if($id > 0) {
 		Error::generate('notice', 'Account created!');
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	} else {
 		Error::generate('notice', 'Account creation failed', Error::$FLAGS['single']);
-		header("Location: $PAGE_REL_URL/create");
+		redirect('create');
 	}
-} else if($ACTIONS['show']->wasCalled()) {
+} else if($ACTIONS['show']->wasCalled() || ($status_called = $ACTIONS['status']->wasCalled())) {
     $params = $ACTIONS['show']->getParams();
-	$args['userinfo'] = User::GetAttribs($params['userid']);
-    include("views/show.view.php");
+	$id = $status_called ? User::GetAuthenticatedID() : $params['id'];
+	if(!$id) {
+		Error::generate('notice', 'Must be logged in.');
+		redirect();
+	} else if(!($args['userinfo'] = User::GetAttribs($id))) {
+		Error::generate('notice', 'Invalid user ID.');
+		redirect();
+	} else {
+		foreach($args['userinfo'] as $key=>$param) {
+			switch(strtolower($param[0])) {
+				case 'file':
+					$id = $param[1];
+					$fname = File::GetAttrib($id, 'name');
+					$args['userinfo'][$key] = array($param[0], "<a href=\"$HTMLROOT/file/show?id=$id\">$fname</a>");
+					break;
+				default:
+			}
+		}
+		include("views/show.view.php");
+	}
 } else if($ACTIONS['login']->wasCalled()) {
 	$params = $ACTIONS['login']->getParams();
 	$res = User::Authenticate($params['name'], $params['password']);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	} else {
 		Error::generate('notice', 'Invalid username/password combination', Error::$FLAGS['single']);
 		include("views/login.view.php");
@@ -89,7 +112,7 @@ if($ACTIONS['create']->wasCalled()) {
 	$email = User::GetAttrib(User::GetUserID($name), 'email');
 	if($email != $params['email']) {
 		Error::generate('notice', 'Invalid email address and/or username');
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	} else {
 		$key = User::GenerateForgottenPasswordKey($name);
 		$hdr = "From: jkoff@129-97-224-169.uwaterloo.ca";
@@ -102,13 +125,13 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'Password reset instructions were sent to the email address associated with your account.');
 		else
 			Error::generate('notice', 'Could not send password reset email.');
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	}
 } else if($ACTIONS['reset_password']->wasCalled()) {
 	$params = $ACTIONS['reset_password']->getParams();
 	if(!$id = User::ValidateForgottenPasswordKey($params['key'])) {
 		Error::generate('notice', 'Invalid URL');
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	} else if(!isset($params['id'])) { // stage 1 - ask for new password
 		$args['id'] = $id;
 		$args['key'] = $params['key'];
@@ -119,9 +142,11 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'Your password was set successfully. You may now log in.');
 		else
 			Error::generate('notice', 'Your password could not be reset.', Error::$FLAGS['single']);
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	}
 } else if($ACTIONS['upload']->wasCalled()) {
+	$params = $ACTIONS['upload']->getParams();
+	$ext = end(explode('.', $_FILES['file']['name']));
 	// TODO: Check file extension.
 	if(!isset($_FILES['file'])) {
 		Error::generate('notice', 'No file specified.');
@@ -130,6 +155,7 @@ if($ACTIONS['create']->wasCalled()) {
 		Error::generate('notice', 'Not logged in.');
 		include("views/upload.view.php");
 	} else if($_FILES['file']['error'] != UPLOAD_ERR_OK) {
+		Error::generate('debug', 'File upload error: '.$_FILES['file']['error']);
 		switch($_FILES['file']['error']) {
 		case UPLOAD_ERR_INI_SIZE:
 		case UPLOAD_ERR_FORM_SIZE:
@@ -150,6 +176,9 @@ if($ACTIONS['create']->wasCalled()) {
 			include("views/upload.view.php");
 			break;
 		}
+	} else if(!in_array($ext, $allowed_upload_extensions)) {
+		Error::generate('notice', 'Invalid file extension.');
+		include("views/upload.view.php");
 	} else {
 		$id = User::GetAuthenticatedID();
 		$upload_dir = $UPLOAD_ROOT.'/'.$id.'/';
@@ -157,31 +186,27 @@ if($ACTIONS['create']->wasCalled()) {
 		if(!file_exists("$ROOT/$upload_dir")) {
 			mkdir("$ROOT/$upload_dir");
 		}
-		$fileCfg = array(	'name'	=> 'Temporary Name',
+		$fileCfg = array(	'name'	=> $params['name'],
 							'path'	=> $upload_path,
 							'owner'	=> $id,
-							'roles'	=> ""	);
+							'roles'	=> "",
+							'type'	=> $ext,
+							'comment' => $params['comment']	);
 		$res = File::Create($fileCfg, $_FILES['file']['tmp_name']);
 		if($res && User::SetAttrib($id, 'file', $res)) {
 			Error::generate('notice', 'File was successfully uploaded.');
 		} else {
 			Error::generate('notice', 'Could not upload file.', Error::$FLAGS['single']);
 		}
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	}
 } else if(isset($_GET['action']) && $_GET['action'] != "") { // Action with no params
 	$action = $_GET['action'];
 	switch($action) {
 	case 'status':
-		$authid = User::GetAuthenticatedID();
-		if(!$authid) {
-			Error::generate('notice', 'Not logged in');
-			// watch out, execution continues after a call to header("Location: ...")
-			header("Location: $PAGE_REL_URL");
-		} else {
-			$args['userinfo'] = User::GetAttribs($authid);
-			include('views/show.view.php');
-		}
+		// This should never happen.
+		Error::generate('debug', 'In case \'status\': in action with no params in user controller');
+		redirect();
 		break;
 	case 'logout':
 		$res = User::Deauthenticate();
@@ -189,7 +214,7 @@ if($ACTIONS['create']->wasCalled()) {
 			Error::generate('notice', 'Logged out successfully');
 		else
 			Error::generate('notice', 'Not logged in');
-		header("Location: $PAGE_REL_URL");
+		redirect();
 		break;
 	case 'list':
 		$args['userlist'] = User::ListAll();
@@ -203,15 +228,16 @@ if($ACTIONS['create']->wasCalled()) {
 		break;
 	case 'show':
 		Error::generate('notice', 'Invalid user ID', Error::$FLAGS['single']);
-		header("Location: $PAGE_REL_URL");
+		redirect();
 		break;
 	default:
 		Error::generate('suspicious', "Invalid action $action in /user/");
-		header("Location: $PAGE_REL_URL");
+		redirect();
 	}
 } else {
 	include("views/index.view.php");
 }
+
 
 db_close();
 ?>
