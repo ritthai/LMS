@@ -14,7 +14,7 @@ function khanacad_query($terms, $tags, $xml) {
 			//$lt = count(preg_split("/\s+|\+/",$t));
 			$ltitle = count($t);
 			$lterms = count($terms);
-			$matches = count_matches($t, $terms);
+			$matches = count_matches(explode(' ',$t), $terms);
 			array_push($store, array(
 						'matches'=>($matches),
 						'title'=>$t,

@@ -1,11 +1,14 @@
 <?php
 @require_once("$ROOT/includes/recaptchalib.php");
 @require_once("$ROOT/includes/mysql.inc");
+@require_once("$ROOT/includes/prefix.inc");
 
 @session_start();
 @db_connect();
 @User::init();
 @File::init();
+
+controller_prefix();
 
 $CONTROLLER = 'user';
 $PAGE_REL_URL = "$HTMLROOT/$CONTROLLER";
@@ -111,6 +114,7 @@ if($action == 'create') {
 		include("views/show.view.php");
 	}
 } else if($action == 'login') {
+	session_regenerate_id();
 	$res = User::Authenticate($params['name'], $params['password']);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');

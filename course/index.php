@@ -1,12 +1,16 @@
 <?php
-include("$ROOT/includes/mysql.inc");
-include("dataacquisition/google.util.php");
-include("dataacquisition/youtube.util.php");
-include("dataacquisition/itunesu.util.php");
-include("dataacquisition/khanacad.util.php");
+@include("$ROOT/includes/mysql.inc");
+@include("$ROOT/includes/tags.inc");
+@include("$ROOT/includes/prefix.inc");
+@include("dataacquisition/google.util.php");
+@include("dataacquisition/youtube.util.php");
+@include("dataacquisition/itunesu.util.php");
+@include("dataacquisition/khanacad.util.php");
 
 session_start();
 db_connect();
+
+controller_prefix();
 
 $CONTROLLER = 'course';
 $PAGE_REL_URL = "$HTMLROOT/course";
@@ -44,11 +48,15 @@ if($action == 'show') {
 		redirect('search');
 	} else {
 		$procd_descr = process_description($crs->descr);
+		$tags = split('[,]', get_tags($crs));
+
 		foreach($procd_descr as $descr) {
+			if($descr == ' ') continue;
+			$descr = ereg_replace('[^A-Za-z0-9& -]', '', $descr);
 			array_push(	$search_results,
 					array(	'subject' => $descr,
 							'google' => google_search($descr),
-							'youtube' => youtube_search($descr, $tags),
+							'youtube' => youtube_search($descr, $tags, $crs),
 							'itunesu' => itunesu_search($descr),
 							'khanacad' => khanacad_search($descr)));
 		}
@@ -68,14 +76,17 @@ if($action == 'show') {
 	if(!$crs->load())
 		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
 	
-	$tags = split('[,]', $params['tags']);
+	//$tags = split('[,]', $params['tags']);
+	$tags = split('[,]', get_tags($crs->code));
 	$procd_descr = process_description($crs->descr);
 	
 	foreach($procd_descr as $descr) {
+		if($descr == ' ') continue;
+		$descr = ereg_replace('[^A-Za-z0-9 -]', '', $descr);
 		array_push(	$search_results,
 					array(	'subject' => $descr,
 							'google' => google_search($descr),
-							'youtube' => youtube_search($descr, $tags),
+							'youtube' => youtube_search($descr, $tags, $crs),
 							'itunesu' => itunesu_search($descr),
 							'khanacad' => khanacad_search($descr)));
 	}

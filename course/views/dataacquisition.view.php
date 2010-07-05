@@ -8,24 +8,31 @@
 		<li><a href="<?php echo $link; ?>"><?php echo $title; ?></a></li>
 <?		} ?>
 	</ul></li>
-	<li><ul>YouTube results:
+	<li>YouTube results:
+		<table>
 <?php	foreach($subject['youtube'] as $res) {
 			$width = 480/2; $height = 385/2;
 ?>
-		<li>
-			<object width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-			<param name="movie" value="<?php echo $res; ?>"></param>
-			<param name="allowFullScreen" value="true"></param>
-			<param name="allowscriptaccess" value="always"></param>
-			<embed	src="<?php echo $url; ?>"
+		<tr>
+			<td><?php echo $res['title'] ? $res['title'] : '-'; ?></td>
+			<td><?php echo $res['media:description'] ? $res['media:description'] : '-'; ?></td>
+			<td><?php echo $res['media:keywords'] ? $res['media:keywords'] : '-'; ?></td>
+			<td><?php echo $res['category'] ? $res['category'] : '-'; ?></td>
+			<td>
+				<object width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+				<param name="movie" value="<?php echo $res['src']; ?>"></param>
+				<param name="allowFullScreen" value="true"></param>
+				<param name="allowscriptaccess" value="always"></param>
+				<embed	src="<?php echo $url; ?>"
 					type="application/x-shockwave-flash"
 					allowscriptaccess="always" allowfullscreen="true"
 					width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-			</embed>
-			</object>
-		</li>
+				</embed>
+				</object>
+			</td>
+		</tr>
 <?		} ?>
-	</ul></li>
+	</table></li>
 	<li><ul>iTunesU results:
 <?php	foreach($subject['itunesu'] as $res) {
 			$imgwidth = $imgheight = 160;
