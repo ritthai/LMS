@@ -110,7 +110,11 @@ abstract class EAV {
 			$ret = db_get_list_of_results($res);
 		}
 
-		return $ret;
+		if($attribtype == static::ATTRIB_TYPE_INT && !is_array($ret)) {
+			return intval($ret);
+		} else {
+			return $ret;
+		}
 	}
 	protected static function get_attribs($id) {
 		$res = db_query("SELECT attrib FROM %s_data WHERE id='%d'",

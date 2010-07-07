@@ -8,18 +8,23 @@
 
 controller_prefix();
 
-$PAGE_REL_URL = "$HTMLROOT/file";
-$UPLOAD_ROOT = "file/uploads";
-$ACTIONS = array(
+$PAGE_REL_URL		= "$HTMLROOT/file";
+$UPLOAD_ROOT		= "file/uploads";
+$CONTROLLER			= 'file';
+$CONTROLLER_PERMS	= 'admin';
+$ACTIONS			= array(
 	// Files are created through the file controller
 	//'create' => new HttpAction("$PAGE_REL_URL/create", 'post',
 	//			array('name', 'email', 'password')),
 	'list' => new HttpAction("$PAGE_REL_URL/list", 'get',
-				array()),
+				array(),
+				'admin'),
 	'show' => new HttpAction("$PAGE_REL_URL/show", 'get',
-				array('id')),
+				array('id'),
+				'any'),
 	'get' => new HttpAction("$PAGE_REL_URL/get", 'get',
-				array('id')),
+				array('id'),
+				'any'),
 	);
 
 $PAGE_TITLE = "File management";
@@ -31,15 +36,27 @@ $params = array();
 foreach($ACTIONS as $key => $val) {
     if($val->wasCalled()) {
         if(!$action) $action = $key;
-        $params = array_merge($params, $ACTIONS[$action]->getParams());
+        $params = array_merge($params, $val->getParams());
     }
 }
+
+$bypass_auth = false;
+if($params['id'] && $action == 'show') { // owner can always see his file
+	$owner = File::GetAttrib($params['id'], 'owner');
+	$bypass_auth = $owner && $owner == User::GetAuthenticatedID();
+}
+if($action && $ACTIONS[$action]) {
+	check_perms($ACTIONS[$action]);
+} else { // index
+	check_perms(User::HasPermissions($CONTROLLER_PERMS) || $bypass_auth);
+}
+
 
 if($action == 'show') {
 	$id = $params['id'];
 	$args['fileinfo'] = File::GetAttribs($id);
 	if(!$args['fileinfo']) {
-		Error::generate('notice', 'Invalid user ID.');
+		Error::generate('notice', 'Invalid file ID in action show.');
 		header("Location: $PAGE_REL_URL");
 	} else {
 		foreach($args['fileinfo'] as $key=>$param) {

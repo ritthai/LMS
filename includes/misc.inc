@@ -76,7 +76,6 @@ function process_description($descr) {
 			$offset = $matches[3][$i][1] + $shift;
 			$descr[$offset] = $descr[$offset+2] = ' ';
 			$descr[$offset+1] = ',';
-			//var_dump($matches);
 			//$a = substr($descr, 0, $offset-1);
 			//$b = substr($descr, $offset+4);
 			//$descr = $a.', '.$b;

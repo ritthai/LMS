@@ -106,7 +106,18 @@ if($action == 'create') {
 				case 'file':
 					$id = $param[1];
 					$fname = File::GetAttrib($id, 'name');
-					$args['userinfo'][$key] = array($param[0], "<a href=\"$HTMLROOT/file/show?id=$id\">$fname</a>");
+					$frole = File::GetAttrib($id, 'roles');
+					$fowner = File::GetAttrib($id, 'owner');
+					if(!User::HasPermissions($frole)) { // if you can see it, you're the owner
+						$prefix = '(Pending approval) ';
+					} else {
+						$prefix = '';
+					}
+					if(User::HasPermissions($frole) || User::GetAuthenticatedID() == $fowner) {
+						$args['userinfo'][$key] = array($prefix.$param[0], "<a href=\"$HTMLROOT/file/show?id=$id\">$fname</a>");
+					} else {
+						unset($args['userinfo'][$key]);
+					}
 					break;
 				default:
 			}
@@ -118,7 +129,11 @@ if($action == 'create') {
 	$res = User::Authenticate($params['name'], $params['password']);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');
-		redirect();
+		if(isset($_SESSION['last_page']) && $_SESSION['last_page']) {
+			redirect_raw($_SESSION['last_page']);
+		} else {
+			redirect();
+		}
 	} else {
 		Error::generate('notice', 'Invalid username/password combination', Error::$FLAGS['single']);
 		include("views/login.view.php");
@@ -200,15 +215,15 @@ if($action == 'create') {
 		if(!file_exists("$ROOT/$upload_dir")) {
 			mkdir("$ROOT/$upload_dir");
 		}
-		$fileCfg = array(	'name'	=> $params['name'],
-							'path'	=> $upload_path,
-							'owner'	=> $id,
-							'roles'	=> "",
-							'type'	=> $ext,
-							'comment' => $params['comment']	);
+		$fileCfg = array(	'name'		=> $params['name'],
+							'path'		=> $upload_path,
+							'owner'		=> $id,
+							'roles'		=> 'admin',
+							'type'		=> $ext,
+							'comment'	=> $params['comment'] );
 		$res = File::Create($fileCfg, $_FILES['file']['tmp_name']);
 		if($res && User::SetAttrib($id, 'file', $res)) {
-			Error::generate('notice', 'File was successfully uploaded.');
+			Error::generate('notice', 'File was successfully uploaded, and is pending approval by an administrator.');
 		} else {
 			Error::generate('notice', 'Could not upload file.', Error::$FLAGS['single']);
 		}

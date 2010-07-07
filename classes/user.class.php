@@ -27,24 +27,35 @@ class User extends EAV {
 							array( 'PRIVATE_ATTRIB',	static::ATTRIB_TYPE_INT,
 														static::ATTRIB_PROP_NONE ) );*/
 	}
+	protected static function subGetRoles() {
+		// Note: Not all of these apply to a User.
+		// Some apply to objects associated with a User, like a File.
+		return array(	array( 'ANY',			0 ),
+						array( 'ADMIN',			1 ),
+						array( 'BANNED',		2 ) );
+	}
 	private static function get_role_id($rolestr) {
+		if(is_int($rolestr)) return $rolestr;
 		$ret = 0;
 		$roles = explode(',',$rolestr);
-		for($i=0; $i < count(static::$ROLES); $i++)
+		$all_roles = static::subGetRoles();
+		for($i=0; $i < count($all_roles); $i++)
 			for($j=0; $j < count($roles); $j++)
-				if(static::$ROLES[$i][0] == strtoupper($roles[$j]))
-					$ret |= static::$ROLES[$i][1];
-		return intval($ret);
+				if($all_roles[$i][0] == strtoupper($roles[$j]))
+					$ret |= $all_roles[$i][1];
+		return $ret;
 	}
 	private static function get_role_str($roleid) {
 		$res = array();
-		for($i=0; $i < count(static::$ROLES); $i++)
-			if(static::$ROLES[$i][1] & $roleid)
-				array_push($res, static::$ROLES[$i][0]);
-		if(count($res) == 0)
+		$all_roles = static::subGetRoles();
+		for($i=0; $i < count($all_roles); $i++)
+			if($all_roles[$i][1] & $roleid)
+				array_push($res, $all_roles[$i][0]);
+		if(count($res) == 0) {
 			return 'NONE';
-		else
+		} else {
 			return implode(',', $res);
+		}
 	}
 	/**
 		Public Functions
@@ -52,10 +63,7 @@ class User extends EAV {
 	public static function Init() {
 		if($__inited) return;
 		else $__inited = true;
-		if(is_null(static::$ROLES)) {
-			static::$ROLES =
-				array(	array( 'ADMIN',			1 ),
-						array( 'BANNED',		2 ) );
+		if(is_null(static::subGetRoles())) {
 		}
 	}
 	public static function Create($userCfg) {
@@ -189,11 +197,19 @@ class User extends EAV {
 			return false;
 	}
 	public static function HasPermissions($role) {
+		$fail = false;
+		// $role == false | 0 = 'any'
+		if(!$role || !static::get_role_id($role)) {
+			return true;
+		}
 		if(!static::IsAuthenticated()) {
 			Error::generate('debug', 'Not authenticated in HasPermissions in static::Authenticate');
 			return false;
 		}
-		return static::get_attrib($_SESSION['userid'], static::get_attrib_id('role')) & static::get_role_id($role);
+		return (!$fail && 
+				(static::get_attrib($_SESSION['userid'], static::get_attrib_id('role'))
+					& static::get_role_id($role))
+				!= 0);
 	}
 	public static function GetAuthenticatedID() {
 		if(!static::IsAuthenticated()) {

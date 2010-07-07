@@ -48,9 +48,8 @@ class HttpAction {
 		if(count($params) == 0) return false;
 		return count(array_intersect($params, $this->params))==count($this->params);
 	}
-	function checkPerms($perms) {
-		if($this->perms == 'any') return true;
-		return in_array($perms, $this->perms);
+	function checkPerms() {
+		return ($this->perms == 'any' || User::HasPermissions($this->perms));
 	}
 	function getParams() {
 		$parr = strcmp($this->method,'get')==0 ? $_GET : $_POST;

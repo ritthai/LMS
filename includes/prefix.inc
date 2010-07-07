@@ -10,4 +10,29 @@ function controller_prefix() {
 		$_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT']);
 	}
 }
+function check_perms($action) {
+	global $CONTROLLER, $HTMLROOT;
+	if(is_bool($action)) {
+		$decision = !$action;
+	} else {
+		$decision = !($action && $action->checkPerms());
+	}
+	if($decision) {
+		if(User::IsAuthenticated()) {
+			Error::generate('warn', 'Insufficient privileges to access page.');
+			Error::generate('suspicious', 'Insufficient privileges to access page.');
+			if($_SESSION['last_rendered_page']) {
+				redirect_raw($_SESSION['last_rendered_page']);
+			} else {
+				redirect_raw($HTMLROOT);
+			}
+		} else {
+			$_SESSION['last_page'] = $HTMLROOT.$_SERVER['REQUEST_URI'];
+			redirect('user', 'login');
+		}
+		return false;
+	} else {
+		return true;
+	}
+}
 ?>

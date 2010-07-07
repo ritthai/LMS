@@ -10,7 +10,7 @@ class File extends EAV {
 												static::ATTRIB_PROP_UNIQUE ),
 							array( 'OWNER',		static::ATTRIB_TYPE_INT ,
 												static::ATTRIB_PROP_UNIQUE ),
-							array( 'ROLES',		static::ATTRIB_TYPE_INT,
+							array( 'ROLES',		static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),
 							array( 'TYPE',		static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),

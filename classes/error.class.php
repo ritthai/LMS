@@ -28,7 +28,15 @@ class Error {
 		
 		// log it
 		$fp = fopen($ROOT.'/admin/debug.html', 'a');
-		fprintf($fp, $fmt, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
+		if(is_array($error)){
+			Error::generate($priority, '> array start');
+			foreach($error as $err) {
+				Error::generate($priority, $err);
+			}
+			Error::generate($priority, '< array end');
+		} else {
+			fprintf($fp, $fmt, self::format_error(array('priority'=>$priority, 'msg'=>$error)));
+		}
 		fclose($fp);
 		
 		// behaviour on error

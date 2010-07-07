@@ -19,7 +19,7 @@
 			</tr>
 <?php	foreach($args['filelist'] as $file) {	?>
 			<tr>
-				<td><a href="<?php echo $args['actions']['show']->getLink(array('fileid'=>$file['id'])); ?>">
+				<td><a href="<?php echo $args['actions']['show']->getLink(array('id'=>$file['id'])); ?>">
 						<?php echo $file['id']; ?>
 					</a>
 				</td>
