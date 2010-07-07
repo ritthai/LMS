@@ -1,6 +1,7 @@
 <?php
 class User extends EAV {
-	private static $ROLES = null; // modify static::Init function
+	private static $ROLES	= null; // modify static::Init function
+	private static $SALT	= 'g39gqks9023';
 	protected static function subGetClass() {
 		return 'user';
 	}
@@ -78,7 +79,7 @@ class User extends EAV {
 				$storeval = static::get_role_id($val);
 				break;
 			case 'PASSWORD':
-				$storeval = hash('sha256', $val);
+				$storeval = hash('sha256', $SALT.$val);
 				break;
 			default:
 				$storeval = $val;
@@ -108,7 +109,7 @@ class User extends EAV {
 				$storeval = static::get_role_id($val);
 				break;
 			case 'PASSWORD':
-				$storeval = hash('sha256', $val);
+				$storeval = hash('sha256', $SALT.$val);
 				break;
 			default:
 				$storeval = $val;
