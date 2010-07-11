@@ -1,6 +1,6 @@
 <?php
-$ROOT = '/Library/WebServer/Documents/lms'; // Also change prepend file in .htaccess
-$HTMLROOT = 'http://localhost/lms';
+$ROOT = '/Library/WebServer/Documents'; // Also change prepend file in .htaccess
+$HTMLROOT = 'http://localhost';
 $TEMPLATEROOT = "$ROOT/includes/template";
 include("$ROOT/includes/config.inc");
 include("$ROOT/includes/util.inc");
@@ -10,6 +10,6 @@ header('X-Powered-By: Pigeons');
 
 function __autoload($cname) {
 	global $ROOT;
-	require_once $ROOT . '/classes/' . $cname . '.class.php';
+	require_once $ROOT . '/classes/' . strtolower($cname) . '.class.php';
 }
 ?>
