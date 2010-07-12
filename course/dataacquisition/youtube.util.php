@@ -12,6 +12,14 @@ function youtube_query($TERMS, $srch, $crs) {
     $store = array();
     foreach($xml as $elem) {
 		switch($elem['tag']) {
+		case 'MEDIA:THUMBNAIL':
+			$content[strtolower($elem['tag'])] = array( 'url'	=> $elem['attributes']['URL'],
+														'width'	=> $elem['attributes']['WIDTH'],
+														'height'=> $elem['attributes']['HEIGHT'] );
+			break;
+		case 'MEDIA:PLAYER':
+			$content['link'] = $elem['attributes']['URL'];
+			break;
 		case 'CONTENT':
 			if($elem['attributes']['TYPE'] == 'application/x-shockwave-flash') {
 				$val = $elem['attributes']['SRC'];
@@ -80,7 +88,8 @@ function youtube_query($TERMS, $srch, $crs) {
 		case 'ENTRY':
 			if($elem['type'] == 'open') {
 				$content = array(	'src'=>false, 'title'=>false, 'media:keywords'=>false,
-									'media:description'=>false, 'category'=>false, 'rating'=>10 );
+									'media:description'=>false, 'category'=>false, 'rating'=>10,
+									'media:thumbnail'=>false, 'link'=>false );
 			} else if($elem['type'] == 'close') {
 				if($content['rating'] > 8) {
 					if($CONFIG['debug']) $content['title'] .= ' - rating='.$content['rating'];
