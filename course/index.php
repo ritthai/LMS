@@ -52,7 +52,7 @@ if($action == 'show') {
 
 		foreach($procd_descr as $descr) {
 			if($descr == ' ') continue;
-			$descr = ereg_replace('[^A-Za-z0-9& -]', '', $descr);
+			$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
 			array_push(	$search_results,
 					array(	'subject' => $descr,
 							'google' => google_search($descr),
@@ -82,7 +82,7 @@ if($action == 'show') {
 	
 	foreach($procd_descr as $descr) {
 		if($descr == ' ') continue;
-		$descr = ereg_replace('[^A-Za-z0-9 -]', '', $descr);
+		$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
 		array_push(	$search_results,
 					array(	'subject' => $descr,
 							'google' => google_search($descr),

@@ -14,7 +14,8 @@ class CourseDefn {
 		}
 	}
 	function save() {
-		db_query(	"REPLACE INTO coursedefns (code, title, descr, cid) VALUES ('%s','%s', '%s')",
+		db_query(	"REPLACE INTO coursedefns (code, title, descr, cid)
+						VALUES ('%s', '%s', '%s', '%s')",
 					$this->code, $this->title, $this->descr, $this->cid);
 	}
 	function load() {
