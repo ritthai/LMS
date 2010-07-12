@@ -10,8 +10,8 @@ function syscall($command) {
 }
 
 $passarg = "";
-if($dbpass != "") $passarg = ' -p'.$dbpass;
+if($CONFIG['dbpass'] != "") $passarg = ' -p'.$CONFIG['dbpass'];
 
-echo syscall("/usr/local/mysql/bin/mysql -u$dbuser$passarg -D$dbname < $ROOT/admin/migrations/create_users.sql", $status);
+echo syscall("/usr/local/mysql/bin/mysql -u$CONFIG[dbuser]$passarg -D$CONFIG[dbname] < $ROOT/admin/migrations/create_users.sql", $status);
 
 ?>

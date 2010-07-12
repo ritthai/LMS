@@ -2,29 +2,27 @@
 /**
 	Given:	pagetitle,
 			actions,
-			filelist :	(id,
-						name,
-						creation_timestamp)
+			list :	id,
+					subject,
+					creation_timestamp
 */
 ?>
-
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
 <?php include("$TEMPLATEROOT/template_notices.inc"); ?>
 
 		<table>
 			<tr>
 				<th>id</th>
-				<th>name</th>
 				<th>creation_timestamp</th>
 			</tr>
-<?php	foreach($args['filelist'] as $file) {	?>
+<?php	foreach($args['list'] as $res) {	?>
 			<tr>
-				<td><a href="<?php echo $args['actions']['show']->getLink(array('fileid'=>$file['id'])); ?>">
-						<?php echo $file['id']; ?>
+				<td><a href="<?php echo $args['actions']['show']->getLink(array('id'=>$res['id'])); ?>">
+						<?php echo $res['id']; ?>
 					</a>
 				</td>
-				<td><?php echo $file['name']; ?></td>
-				<td><?php echo $file['creation_timestamp']; ?></td>
+				<td><?php echo $res['subject']; ?></td>
+				<td><?php echo $res['creation_timestamp']; ?></td>
 			</tr>
 <?php	}	?>
 

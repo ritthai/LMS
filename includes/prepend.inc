@@ -10,6 +10,6 @@ header('X-Powered-By: Pigeons');
 
 function __autoload($cname) {
 	global $ROOT;
-	require_once $ROOT . '/classes/' . strtolower($cname) . '.class.php';
+	require_once($ROOT . '/classes/' . strtolower($cname) . '.class.php');
 }
 ?>

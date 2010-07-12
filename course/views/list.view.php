@@ -2,7 +2,10 @@
 /**
 	Given:	pagetitle,
 			pageurl,
-			courses,
+			courses :	id,
+						title,
+						code,
+						descr
 			actions
 */
 ?>

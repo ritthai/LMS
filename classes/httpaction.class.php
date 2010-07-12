@@ -34,9 +34,9 @@ class HttpAction {
 		$req_uri = explode('/', $req_uri);
 		$cur_uri = explode('/', $cur_uri);
 		if(count($req_uri) > count($cur_uri))
-			$req_uri = array_slice($req_uri, count($cur_uri));
+			$req_uri = array_slice($req_uri, count($req_uri)-count($cur_uri));
 		else if(count($req_uri) < count($cur_uri))
-			$cur_uri = array_slice($cur_uri, count($req_uri));
+			$cur_uri = array_slice($cur_uri, count($cur_uri)-count($req_uri));
 		$req_uri = implode('/', $req_uri);
 		$cur_uri = implode('/', $cur_uri);
 		if($req_uri != $cur_uri) return false;

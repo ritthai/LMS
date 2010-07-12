@@ -1,16 +1,14 @@
 <?php
-class File extends EAV {
+class Comment extends EavNestedSet {
 	protected static function subGetClass() {
-		return 'file';
+		return 'comment';
 	}
 	protected static function subGetAttribs() {
-		return array(	1=>	array( 'SUBJECT',	static::ATTRIB_TYPE_STRING,
+		return array(	1=>	array( 'OWNER',		static::ATTRIB_TYPE_INT ,
 												static::ATTRIB_PROP_UNIQUE ),
-							array( 'OWNER',		static::ATTRIB_TYPE_INT ,
+							array( 'SUBJECT',	static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),
-							array( 'PARENT',	static::ATTRIB_TYPE_INT,
-												static::ATTRIB_PROP_UNIQUE ),
-							array( 'COMMENT',	static::ATTRIB_TYPE_STRING,
+							array( 'BODY',		static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE )
 					);
 	}
@@ -21,20 +19,16 @@ class File extends EAV {
 		if($__inited) return;
 		else $__inited = true;
 	}
-	public static function Create($userCfg, $uploadPath) {
-		global $ROOT;
-		$id = static::eav_create($userCfg['name']);
-		if($id < 1) { // pretty sure this shouldn't happen with current schema
-			Error::generate('notice', 'Filename already taken.');
-			return false;
-		}
-		// Copy the file from the uploadPath to the given userCfg['path']
-		if(!isset($userCfg['path']) || !move_uploaded_file($uploadPath, "$ROOT/".$userCfg['path'])) {
-			Error::generate('debug', 'Could not move file');
-			return false;
+	public static function Create($userCfg) {
+		$id = static::eav_create($userCfg['subject'], $userCfg['id']);
+		if(!$id || $id < 1) {
+			Error::generate('debug', '!$id || $id < 1 in Comment::Create');
+			return;
 		}
 		foreach($userCfg as $attrib => $val) {
 			switch(strtoupper($attrib)) {
+			case 'ID':
+				continue;
 			default:
 				$storeval = $val;
 			}
@@ -43,13 +37,8 @@ class File extends EAV {
 		return $id;
 	}
 	public static function ListAll() {
-		$res = db_query("SELECT * FROM files ORDER BY creation_timestamp");
-		$ret = array();
-		if(!$res) {
-			Error::generate('debug', 'Could not query database in file::ListAll');
-			return array();
-		}
-		return db_get_list_result($res, array('id', 'name', 'creation_timestamp'));
+		$ret = static::eav_list(1);
+		return $ret;
 	}
 	public static function GetAttrib($id, $attrib) {
 		if(is_int($attrib)) {
@@ -97,6 +86,14 @@ class File extends EAV {
 			}
 		}
 		return $ret;
+	}
+	public static function GetSubject($id) {
+		$ret = static::get_with_id($id);
+		return $ret['subject'];
+	}
+	public static function GetTimestamp($id) {
+		$ret = static::get_with_id($id);
+		return $ret['creation_timestamp'];
 	}
 }
 ?>

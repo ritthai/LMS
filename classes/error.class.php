@@ -1,7 +1,12 @@
 <?php
 class Error {
-    static private $errors = array();
-    static public $PRIORITY = array('fatal'=>10, 'warn'=>5, 'notice'=>1, 'debug'=>0, 'suspicious'=>-1);
+    static private $errors	= array();
+    static public $PRIORITY	= array('fatal'=>10,
+									'warn'=>5,
+									'notice'=>1,
+									'success'=>1,
+									'debug'=>0,
+									'suspicious'=>-1);
     static public $FLAGS = array(	'none'=>0,
 									'single'=>1		// Only add if the error queue is empty
 								);
@@ -46,7 +51,9 @@ class Error {
             break;
         case self::$PRIORITY['warn']:
         case self::$PRIORITY['notice']:
-            array_push(self::$errors, array('priority'=>$priority, 'msg'=>$error));
+		case self::$PRIORITY['success']:
+            array_push(	self::$errors,
+						array('priority'=>$priority, 'msg'=>$error));
             break;
         case self::$PRIORITY['debug']:
         case self::$PRIORITY['suspicious']:
@@ -64,9 +71,9 @@ class Error {
 		if(count(self::$errors) == 0)
 			return null;
         $ret = array_filter(self::$errors,
-                            function ($a) { return $a[priority] >= $priority; });
+                        function ($a) { return $a[priority] >= $priority; });
         self::$errors = array_filter(self::$errors,
-                                function ($a) { return $a[priority] < $priority; });
+                        function ($a) { return $a[priority] < $priority; });
 		
 		if(session_id() != "")
 			$_SESSION['errors'] = self::$errors;
