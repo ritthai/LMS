@@ -23,7 +23,7 @@ class Comment extends EavNestedSet {
 		$id = static::eav_create($userCfg['subject'], $userCfg['id']);
 		if(!$id || $id < 1) {
 			Error::generate('debug', '!$id || $id < 1 in Comment::Create');
-			return;
+			return false;
 		}
 		foreach($userCfg as $attrib => $val) {
 			switch(strtoupper($attrib)) {
@@ -36,8 +36,9 @@ class Comment extends EavNestedSet {
 		}
 		return $id;
 	}
-	public static function ListAll() {
-		$ret = static::eav_list(1);
+	public static function ListAll($id=1) {
+		$ret = static::eav_list($id);
+		if(!$ret) $ret = array();
 		return $ret;
 	}
 	public static function GetAttrib($id, $attrib) {

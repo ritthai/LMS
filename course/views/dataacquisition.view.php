@@ -70,8 +70,8 @@
 	</ul></li>
 <?php	} ?>
 
-</ul>
-</div>
+</ul><?php // subject list ?>
 
+</div>
 <?php } // for each subject ?>
 

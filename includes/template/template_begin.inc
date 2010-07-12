@@ -3,6 +3,8 @@ Error::generate('debug', "Loading $CONTROLLER/$action");
 if(!session_id()) @session_start();
 if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 $_SESSION['last_rendered_page'] = $_SERVER['REQUEST_URI'];
+$_SESSION['last_rendered_controller'] = $CONTROLLER;
+$_SESSION['last_rendered_action'] = $action;
 
 /**
 	Given:	pagetitle

@@ -16,13 +16,15 @@ $CONTROLLER = 'course';
 $PAGE_REL_URL = "$HTMLROOT/course";
 
 $ACTIONS = array(	'search'	=> new HttpAction("$PAGE_REL_URL/search", 'get',
-													array('terms', 'tags')),
+									array('terms')),
 					'list'		=> new HttpAction("$PAGE_REL_URL/list", 'get',
-													array()),
+									array()),
 					'show'		=> new HttpAction("$PAGE_REL_URL/show", 'get',
-													array('id')),
+									array('id')),
 					'list2'		=> new HttpAction("$PAGE_REL_URL/show", 'get',
-													array())
+									array()),
+					'post'		=> new HttpAction("$PAGE_REL_URL/post", 'post',
+									array('subject', 'body', 'course')),
 				);
 
 $search_results = array();
@@ -38,11 +40,40 @@ foreach($ACTIONS as $key => $val) {
 }
 if($action == 'list2') $action = $list;
 
-/**	
-	Identify course, populate fields
-*/
-if($action == 'show') {
-	$crs = new CourseDefn((int)$params['id']);
+if($action == 'post') { // post a comment
+	$crs = new CourseDefn($params['course']);
+	$crs->load();
+	$params['owner'] = User::GetAuthenticatedID();
+    if(!$crs) {
+        Error::generate('warn', 'Course not found.', Error::$FLAGS['single']);
+		if($_SESSION['last_rendered_page']) {
+			redirect_raw($_SESSION['last_rendered_page']);
+		} else {
+			redirect($CONTROLLER);
+		}
+	} else if(!$params['owner']) {
+        check_perms(false);
+	} else if(!Comment::Create(
+			array(	'subject'	=> $params['subject'],
+					'body'		=> $params['body'],
+					'owner'		=> $params['owner'],
+					'id'		=> $crs->cid ) ) ) {
+        Error::generate('warn', 'Could not create comment.', Error::$FLAGS['single']);
+		if($_SESSION['last_rendered_page']) {
+			redirect_raw($_SESSION['last_rendered_page']);
+		} else {
+			redirect($CONTROLLER);
+		}
+    } else {
+        Error::generate('success', 'Comment created.', Error::$FLAGS['single']);
+		if($_SESSION['last_rendered_page']) {
+			redirect_raw($_SESSION['last_rendered_page']);
+		} else {
+			redirect($CONTROLLER);
+		}
+    }
+} else if($action == 'show' || $action == 'search') {
+	$crs = new CourseDefn( $action == 'show' ? (int)$params['id'] : $params['terms']);
 	if(!$crs->load()) {
 		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
 		redirect('search');
@@ -54,63 +85,40 @@ if($action == 'show') {
 			if($descr == ' ') continue;
 			$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
 			array_push(	$search_results,
-					array(	'subject' => $descr,
+					array(	'subject' => ucfirst($descr),
 							'google' => google_search($descr),
 							'youtube' => youtube_search($descr, $tags, $crs),
 							'itunesu' => itunesu_search($descr),
 							'khanacad' => khanacad_search($descr)));
 		}
 
-		$args = array(	'pagetitle'		=> 'Show',
+		$args = array(	'pagetitle'		=> 'Viewing course: '.$crs->code,
 						'pageurl'		=> $_SERVER['REQUEST_URI'],
 						'course'		=> array(	'id'	=> $crs->id,
 													'title'	=> $crs->title,
 													'code'	=> $crs->code,
 													'descr' => $crs->descr),
 						'searchresults'	=> $search_results,
+						'comments'		=>
+							array_map(	function($a) { return $a['id']; },
+										Comment::ListAll($crs->cid)),
 						'actions'		=> $ACTIONS);
-		include("views/show.view.php");
+		$_SESSION['lastargs'] = $args;
+		include("views/search.view.php");
 	}
-} else if($action == 'search') {
-	$crs = new CourseDefn($params['terms']);
-	if(!$crs->load())
-		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
-	
-	//$tags = split('[,]', $params['tags']);
-	$tags = split('[,]', get_tags($crs->code));
-	$procd_descr = process_description($crs->descr);
-	
-	foreach($procd_descr as $descr) {
-		if($descr == ' ') continue;
-		$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
-		array_push(	$search_results,
-					array(	'subject' => $descr,
-							'google' => google_search($descr),
-							'youtube' => youtube_search($descr, $tags, $crs),
-							'itunesu' => itunesu_search($descr),
-							'khanacad' => khanacad_search($descr)));
-	}
-
-	$args = array(	'pagetitle'		=> 'Search',
-					'pageurl'		=> $_SERVER['REQUEST_URI'],
-					'course'		=> array(	'id'	=> $crs->id,
-												'title'	=> $crs->title,
-												'code'	=> $crs->code,
-												'descr' => $crs->descr),
-					'searchresults'	=> $search_results,
-					'actions'		=> $ACTIONS);
-	include("views/search.view.php");
 } else if($action == 'list') {
 	$args = array(	'pagetitle'		=> 'List',
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
 					'courses'		=> CourseDefn::ListAll(),
 					'actions'		=> $ACTIONS);
+	$_SESSION['lastargs'] = $args;
 	include("views/list.view.php");
 } else if(isset($_GET['action']) && $_GET['action'] != '') { // Action with no params
 	$action = $_GET['action'];
 	$args = array(	'pagetitle'		=> ucfirst($action),
 					'pageurl'		=> $_SERVER['REQUEST_URI'],
 					'actions'		=> $ACTIONS);
+	$_SESSION['lastargs'] = $args;
 	switch($action) {
 		case 'search':
 		case 'list':
@@ -128,16 +136,6 @@ if($action == 'show') {
 					'actions'		=> $ACTIONS);
 	include("views/index.view.php");
 }
-/* else if(isset($_POST['save_name'])) {
-	$crs = new Course(	urlencode($_POST['save_name']), urlencode($_POST['course_prof']),
-						$_SESSION['google'], $_SESSION['youtube']);
-	$crs->save();
-} else if(isset($_GET['course'])) {
-	$crs = new Course($_GET['course'], $_GET['prof'], null, null);
-	$crs->load();
-	$_SESSION['google'] = $crs->goog_res;
-	$_SESSION['youtube'] = $crs->youtube_res;
-*/
 
 db_close();
 ?>

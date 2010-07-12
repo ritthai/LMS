@@ -50,7 +50,10 @@ if($action && $ACTIONS[$action]) {
 }
 
 if($action == 'create') {
-	if(!Comment::Create($params)) {
+	$params['owner'] = User::GetAuthenticatedID();
+	if(!$params['owner']) {
+		check_perms(false);
+	} else if(!Comment::Create($params)) {
 		Error::generate('warn', 'Could not create comment.', Error::$FLAGS['single']);
 		include('views/create.view.php');
 	} else {

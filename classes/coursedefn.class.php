@@ -28,6 +28,7 @@ class CourseDefn {
 
 		} else {
 			Error::generate('debug', 'Not enough information to find course in CourseDefn::load().');
+			return false;
 		}
 		if(!$res) {
 			Error::generate('debug', 'CourseDefn->load: $res is null');

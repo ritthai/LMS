@@ -21,6 +21,7 @@ function check_perms($action) {
 		if(User::IsAuthenticated()) {
 			Error::generate('warn', 'Insufficient privileges to access page.');
 			Error::generate('suspicious', 'Insufficient privileges to access page.');
+			
 			if($_SESSION['last_rendered_page']) {
 				redirect_raw($_SESSION['last_rendered_page']);
 			} else {
