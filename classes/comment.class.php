@@ -29,6 +29,9 @@ class Comment extends EavAdjList {
 			switch(strtoupper($attrib)) {
 			case 'ID':
 				continue;
+			case 'BODY':
+				$storeval = nl2br($val);
+				break;
 			default:
 				$storeval = $val;
 			}

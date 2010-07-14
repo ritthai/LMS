@@ -156,7 +156,7 @@ abstract class EavAdjList {
 							comments AS parent
 				WHERE		node.parent = parent.id
 				AND			parent.id = \'%d\'
-				ORDER BY	node.creation_timestamp
+				ORDER BY	node.creation_timestamp DESC
 			', $id );
 		if(!$ret) {
 			Error::generate('debug', 'Could not query db in hierarchical eav list');
