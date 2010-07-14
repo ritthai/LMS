@@ -1,5 +1,5 @@
 <?php
-include("../includes/mysql.inc");
+include_once("../includes/mysql.inc");
 
 function syscall($command) {
 	if ($proc = popen("($command)2>&1","r")) {

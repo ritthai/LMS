@@ -1,5 +1,5 @@
 <?php
-class Comment extends EavNestedSet {
+class Comment extends EavAdjList {
 	protected static function subGetClass() {
 		return 'comment';
 	}

@@ -83,7 +83,7 @@ class Error {
 	// Same formatting as in log
 	function format_error($error) {
 		date_default_timezone_set('America/New_York');
-		return sprintf("%s [%d] %s", date(DATE_RFC822), $error[priority], $error[msg]);
+		return sprintf("%s [%d] %s\r\n", date(DATE_RFC822), $error[priority], $error[msg]);
 	}
 }
 ?>

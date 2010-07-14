@@ -19,16 +19,24 @@ CREATE TABLE file_data (	id INT NOT NULL,
 							options INT NOT NULL,
 							intdata INT,
 							stringdata TEXT	);
+#CREATE TABLE comments (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+#							subject TEXT,
+#							lft INT NOT NULL,
+#							rgt INT NOT NULL,
+#							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE comments (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 							subject TEXT,
-							lft INT NOT NULL,
-							rgt INT NOT NULL,
+							parent INT NOT NULL,
 							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE comment_data (	id INT NOT NULL,
 							attrib INT NOT NULL,
 							options INT NOT NULL,
 							intdata INT,
 							stringdata TEXT	);
+CREATE TABLE IF NOT EXISTS migrations (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+
 INSERT
 	INTO users (name)
 	VALUES ('jkoff');
@@ -39,7 +47,13 @@ INSERT
 			('1','3','1',NULL),
 			('1','4',NULL,'5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d');
 
+#INSERT
+#	INTO comments (id, subject, lft, rgt)
+#	VALUES	('1', 'root', '1', '2'); # root
 INSERT
-	INTO comments (id, subject, lft, rgt)
-	VALUES	('1', 'root', '1', '2') # root
+	INTO comments (id, subject, parent)
+	VALUES	('1', 'root', '1'); # root
+INSERT
+	INTO migrations ()
+	VALUES ();
 

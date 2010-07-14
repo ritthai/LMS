@@ -12,13 +12,13 @@ $dbpass = $CONFIG['dbpass'];
 $dbhost = $CONFIG['dbhost'];
 $dbname = $CONFIG['dbname'];
 
-exec("mysql -u$dbuser -p$dbpass -D$dbname < migrations/create_users.sql");
+include("exec_migration.php");
 
 $h = mysql_connect($dbhost, $dbuser, $dbpass) or die("mysql_connect error: ".mysql_error());
 mysql_select_db($dbname, $h) or die("mysql_select_db error: ".mysql_error());
 
-mysql_query("CREATE DATABASE LMS_development;");
-echo mysql_error();
+//mysql_query("CREATE DATABASE LMS_development;");
+//echo mysql_error();
 
 mysql_query("DROP TABLE courses;");
 mysql_query("CREATE TABLE courses (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(40), prof VARCHAR(30), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
@@ -51,8 +51,6 @@ $descr = "";
 foreach($xml as $a) {
 	if($a['tag'] == "CODE") {
 		$code = $a['value'];
-		$cid = Comment::Create(array(	'subject'	=> $code,
-										'id'		=> 1 ));
 	} else if($a['tag'] == "TITLE") {
 		$title = $a['value'];
 	} else if($a['tag'] == "DESCRIPTION") {
@@ -65,6 +63,8 @@ foreach($xml as $a) {
 		$cd->descr = mysql_real_escape_string(htmlspecialchars($descr));
 		$cd->cid = $cid;
 		$cd->save();
+		$cid = Comment::Create(array(	'subject'	=> $code,
+										'id'		=> 1 ));
 	}
 }
 

@@ -22,8 +22,8 @@
 		</style>
 	</head>
 	<body>
-		<?php echo file_get_contents("admin/debug.html"); ?>
-		<?php exec('tail -n 200 admin/debug.html > admin/debug2.html;
+		<?php exec('tail -n 250 admin/debug.html > admin/debug2.html;
 					mv admin/debug2.html admin/debug.html'); ?>
+		<?php echo file_get_contents("admin/debug.html"); ?>
 	</body>
 </html>
