@@ -1,5 +1,7 @@
 <?php
 function redirect_raw($url) {
+	if(!$url) return false;
+	if($url[0] == '/') $url = "$HTMLROOT$url";
 	//header("Status: 200");
 	header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
@@ -29,5 +31,13 @@ function redirect(/*$controller='user', $action=''*/) {
 	Error::generate('debug', "Redirecting to $loc");
 	die('Redirecting to '.$loc);
     // watch out, execution continues after a call to header("Location: ...")
+}
+
+function syscall($command) {
+    if ($proc = popen("($command)2>&1","r")) {
+        while (!feof($proc)) $result .= fgets($proc, 1000);
+        pclose($proc);
+        return $result;
+    }
 }
 ?>

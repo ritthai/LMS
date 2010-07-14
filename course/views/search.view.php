@@ -27,7 +27,7 @@
 
 <?php	/*****	SEARCH RESULTS	*****/	?>
 <?php	if($args['actions']['search']->wasCalled()) { // are there params?
-			include('views/dataacquisition.view.php');
+			include('views/dataacquisition.pview.php');
 		}
 ?>
 

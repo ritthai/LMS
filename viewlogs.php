@@ -22,8 +22,7 @@
 		</style>
 	</head>
 	<body>
-		<?php exec('tail -n 250 admin/debug.html > admin/debug2.html;
-					mv admin/debug2.html admin/debug.html'); ?>
-		<?php echo file_get_contents("admin/debug.html"); ?>
+		<?php echo syscall("tail -n 100 $ROOT/admin/debug.html > $ROOT/admin/debug2.html"); ?>
+		<?php echo file_get_contents("admin/debug2.html"); ?>
 	</body>
 </html>

@@ -28,7 +28,6 @@ function check_perms($action) {
 				redirect_raw($HTMLROOT);
 			}
 		} else {
-			$_SESSION['last_page'] = $HTMLROOT.$_SERVER['REQUEST_URI'];
 			redirect('user', 'login');
 		}
 		return false;

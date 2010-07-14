@@ -129,8 +129,8 @@ if($action == 'create') {
 	$res = User::Authenticate($params['name'], $params['password']);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');
-		if(isset($_SESSION['last_page']) && $_SESSION['last_page']) {
-			redirect_raw($_SESSION['last_page']);
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+			redirect_raw($_SESSION['last_rendered_page']);
 		} else {
 			redirect();
 		}
@@ -239,11 +239,16 @@ if($action == 'create') {
 		break;
 	case 'logout':
 		$res = User::Deauthenticate();
-		if($res)
+		if($res) {
 			Error::generate('notice', 'Logged out successfully');
-		else
+		} else {
 			Error::generate('notice', 'Not logged in');
-		redirect();
+		}
+		if(isset($_SESSION['last_rendered_page']) && $_SESSION['last_rendered_page']) {
+			redirect_raw($_SESSION['last_rendered_page']);
+		} else {
+			redirect();
+		}
 		break;
 	case 'list':
 		$args['userlist'] = User::ListAll();
