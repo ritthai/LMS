@@ -34,10 +34,39 @@ function redirect(/*$controller='user', $action=''*/) {
 }
 
 function syscall($command) {
+	$result = '';
     if ($proc = popen("($command)2>&1","r")) {
         while (!feof($proc)) $result .= fgets($proc, 1000);
         pclose($proc);
         return $result;
     }
+}
+function recursive_merge_reduce($arr) {
+	if(!$arr) return false;
+	while($arr[0] && is_array($arr[0])) {
+		$arr = array_reduce($arr, 'array_merge', array());
+	}
+	return $arr;
+}
+function showYouTubeVid($content) {
+	//this.href.replace(new RegExp(\"watch\\?v=\", \"i\"), 'v/'),
+	echo <<<EOT
+		jQuery.fancybox({
+			'padding'		: 0,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'title'			: this.title,
+			'width'			: 680,
+			'height'		: 495,
+			'href'			: '$content',
+			'type'			: 'swf',
+			'swf'			: {
+				'wmode'				: 'transparent',
+				'allowfullscreen'	: 'false'
+			}
+		});
+		return false;
+EOT;
 }
 ?>

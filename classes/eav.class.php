@@ -6,6 +6,7 @@ abstract class EAV {
 	const ATTRIB_PROP_NODISPLAY	= 1; // for passwords and whatnot.
 	const ATTRIB_PROP_READONLY	= 2; // cannot be provided to User::SetAttrib
 	const ATTRIB_PROP_UNIQUE	= 4;
+	const ATTRIB_PROP_NOSHOW	= 8; // don't show on status page
 	protected static $__inited		= false;
 	protected static $ATTRIBUTES	= null; // modify User::Init function
 	protected static function get_attrib_id($attribstr) {
@@ -81,6 +82,41 @@ abstract class EAV {
 			return true;
 		}
 	}
+	protected static function delete_attrib($id, $attrib, $val=false) {
+		Error::generate('debug', "delete_attrib($id, $attrib, $val)");
+		if(is_int($attrib)) {
+			$attribid = $attrib;
+		} else {
+			$attribid = static::get_attrib_id($attrib);
+		}
+		$attribtype = static::get_attrib_type($attribid);
+		$attribprops = static::get_attrib_props($attribid);
+		switch($attribtype) {
+		case static::ATTRIB_TYPE_STRING:
+			$datacol = 'stringdata';
+			break;
+		case static::ATTRIB_TYPE_INT:
+			$datacol = 'intdata';
+			break;
+		default:
+			Error::generate('debug', "Bad attribute type in store_attrib($id, $attribstr, $val)");
+			return false;
+		}
+		if($val) {
+			$val = mysql_real_escape_string($val);
+			$valconstraint = "AND $datacol='$val'";
+		} else {
+			$valconstraint = '';
+		}
+		db_query("DELETE FROM %s_data WHERE attrib='%d' AND id='%d' $valconstraint",
+						static::subGetClass(), $attribid, $id);
+		if(mysql_affected_rows() >= 1) {
+			return true;
+		} else {
+			Error::generate('debug', 'could not delete attribute');
+			return false;
+		}
+	}
 	protected static function get_attrib($id, $attribid) {
 		if(!is_int($attribid)) $attribid = static::get_attrib_id($attribid);
 		$attribtype = static::get_attrib_type($attribid);
@@ -119,12 +155,12 @@ abstract class EAV {
 	protected static function get_attribs($id) {
 		$res = db_query("SELECT attrib FROM %s_data WHERE id='%d'",
 						static::subGetClass(), $id);
-		if( !$res || !($ret = db_get_list_result($res, array('attr'))) ) {
+		if( !$res || !($ret = db_get_list_result($res)) ) {
 			Error::generate('debug', 'Could not query database in get_attribs');
 			return array();
 		}
 		foreach($ret as $key=>$val)
-			$ret[$key] = intval($val['attrib']);
+			$ret[$key] = intval($val[0]);
 		$ret = array_unique($ret, SORT_NUMERIC);
 		return $ret;
 	}

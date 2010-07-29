@@ -1,5 +1,7 @@
 <?php
 function google_search($procd_descr) {
+	profiling_start('google_search');
+
 	$TERMS = urlencode($procd_descr." Lecture Notes");
 	$USERIP = $_SERVER['REMOTE_ADDR'];
 	
@@ -13,6 +15,8 @@ function google_search($procd_descr) {
 		$title = $elem['titleNoFormatting'];
 		array_push($store, array($title, $link));
 	}
+
+	profiling_end('google_search');
 	return $store;
 }
 ?>

@@ -1,32 +1,38 @@
 <?php
 class User extends EAV {
-	private static $ROLES	= null; // modify static::Init function
-	private static $SALT	= 'g39gqks9023';
+	private static $ROLES		= null; // modify static::Init function
+	private static $SALT		= 'g39gqks9023';
+	private static $MODE		= '';
 	protected static function subGetClass() {
 		return 'user';
 	}
 	protected static function subGetAttribs() {
-		return array(	1=>	array( 'NAME',	static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_UNIQUE ),
-							array( 'EMAIL', static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_UNIQUE ),
-							array( 'ROLE',	static::ATTRIB_TYPE_INT ,
-											static::ATTRIB_PROP_UNIQUE ),
-							array( 'PASSWORD',
-											static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
+		return array(	1=>	array( 'NAME',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'REALNAME',	static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'UNIVERSITY',static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'GRADYEAR',	static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'EMAIL',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'ROLE',		static::ATTRIB_TYPE_INT ,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'PASSWORD', static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
 							array( 'FORGOTN_PASS_RST_KEY',
-											static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
+												static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
 							array( 'FORGOTN_PASS_TIMESTAMP',
-											static::ATTRIB_TYPE_STRING,
-											static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
-							array( 'FILE',	static::ATTRIB_TYPE_INT,
-											static::ATTRIB_PROP_NONE ) );/*,
-							array( 'PUBLIC_ATTRIB',		static::ATTRIB_TYPE_INT,
-														static::ATTRIB_PROP_NONE ),
-							array( 'PRIVATE_ATTRIB',	static::ATTRIB_TYPE_INT,
-														static::ATTRIB_PROP_NONE ) );*/
+												static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
+							array( 'FILE',		static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_NOSHOW ),
+							array( 'TOPICFAV',	static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_NOSHOW ),
+							array( 'COURSEFAV',	static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_NOSHOW ) );
 	}
 	protected static function subGetRoles() {
 		// Note: Not all of these apply to a User.
@@ -61,6 +67,12 @@ class User extends EAV {
 	/**
 		Public Functions
 	*/
+	public static function enterStatusMode() {
+		static::$MODE = 'status';
+	}
+	public static function leaveStatusMode() {
+		static::$MODE = '';
+	}
 	public static function Init() {
 		if($__inited) return;
 		else $__inited = true;
@@ -87,6 +99,20 @@ class User extends EAV {
 			static::store_attrib($id, $attrib, $storeval);
 		}
 		return $id;
+	}
+	public static function DeleteAttrib($uid, $attrib, $val=false) {
+		if(is_int($attrib)) {
+			$attribid = $attrib;
+		} else {
+			$attribid = static::get_attrib_id($attrib);
+		}
+		$id = static::delete_attrib($uid, $attribid, $val);
+		if(!$id) {
+			Error::generate('debug', 'Could not delete.');
+			return false;
+		} else {
+			return true;
+		}
 	}
 	public static function ListAll() {
 		$res = db_query("SELECT * FROM users ORDER BY creation_timestamp");
@@ -127,6 +153,11 @@ class User extends EAV {
 			$attribid = static::get_attrib_id($attrib);
 		}
 		if($attribid && !(static::get_attrib_props($attribid) & static::ATTRIB_PROP_NODISPLAY)) {
+			if(static::get_attrib_props($attribid) & static::ATTRIB_PROP_NOSHOW
+				&& static::$MODE == 'status')
+			{
+				return false;
+			}
 			$ret = static::get_attrib($id, $attribid);
 			switch(strtoupper(static::get_attrib_str($attribid))) {
 			case 'ROLE':
@@ -158,6 +189,13 @@ class User extends EAV {
 	public static function GetUserID($name) {
 		return static::get_id($name);
 	}
+	public static function GetAuthenticatedAttrib($attr) {
+		if(!static::IsAuthenticated()) {
+			return 'not logged in';
+		} else {
+			return static::GetAttrib(static::GetAuthenticatedID(), $attr);
+		}
+	}
 	// Returns true on success, false on failure
 	public static function Authenticate($name, $password) {
 		$id = static::get_id($name);
@@ -182,6 +220,9 @@ class User extends EAV {
 			Error::generate('debug', 'Invalid username/password combination in static::Authenticate (bad pass)');
 			return false;
 		}
+	}
+	public static function ForceAuthenticate() {
+		$_SESSION['userid'] = 1;
 	}
 	public static function Deauthenticate() {
 		if(session_id() != "" && isset($_SESSION) && $_SESSION['userid']) {
@@ -244,5 +285,20 @@ class User extends EAV {
 		}
 		return $id;
 	}
+	public static function AuthenticatedUserHasMatchingAttrib($attr, $val) {
+		$attribs = static::GetAttribs(static::GetAuthenticatedID());
+		foreach($attribs as $attrib) {
+			if(!strcasecmp($attrib[0], $attr) && $attrib[1] == $val) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static function GetAvatar($id) {
+		$defaultAvatar = "/images/navigation/bulbasaur.png";
+		$avatar = File::ListAll($id, 2);
+		if($avatar) return '/file/get?id='.$avatar[0][0];
+		else return $defaultAvatar;
+	}
 }
-?>
+

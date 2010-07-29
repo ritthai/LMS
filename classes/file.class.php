@@ -1,5 +1,10 @@
 <?php
-class File extends EAV {
+class File extends EavAdjList {
+	/*
+		Known parents:
+			1: Course notes
+			2: Avatar
+	*/
 	protected static function subGetClass() {
 		return 'file';
 	}
@@ -27,7 +32,9 @@ class File extends EAV {
 	}
 	public static function Create($userCfg, $uploadPath) {
 		global $ROOT;
-		$id = static::eav_create($userCfg['name']);
+		($owner = $userCfg['owner']) or $owner = 0;
+		($context = $userCfg['context']) or $context = 1;
+		$id = static::eav_create($userCfg['name'], $owner, $context);
 		if($id < 1) { // pretty sure this shouldn't happen with current schema
 			Error::generate('notice', 'Filename already taken.');
 			return false;
@@ -46,14 +53,9 @@ class File extends EAV {
 		}
 		return $id;
 	}
-	public static function ListAll() {
-		$res = db_query("SELECT * FROM files ORDER BY creation_timestamp");
-		$ret = array();
-		if(!$res) {
-			Error::generate('debug', 'Could not query database in file::ListAll');
-			return array();
-		}
-		return db_get_list_result($res, array('id', 'name', 'creation_timestamp'));
+	public static function ListAll($id=1, $type=1) {
+		$ret = static::eav_list($id, $type) or array();
+		return array_reverse($ret, true);
 	}
 	public static function GetAttrib($id, $attrib) {
 		if(is_int($attrib)) {

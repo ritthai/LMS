@@ -120,6 +120,7 @@ function cached_file_update($url) {
 	return $text;
 }
 function cached_file_get_contents($url) {
+	Error::disableLogging();
 	Error::generate('debug', "cached_file_get_contents $url");
 	$res = db_query("SELECT * FROM primitive_cache WHERE url='%s'",
 					$url );
@@ -129,7 +130,16 @@ function cached_file_get_contents($url) {
 	if(!$ret)
 		return cached_file_update($url);
 	mysql_free_result($res);
+	Error::enableLogging();
 	return $ret[1];
 }
-
+function utime() {
+	$time = explode(' ', microtime());
+	$usec = (double)$time[0];
+	$sec  = (double)$time[1];
+	return $sec+$usec;
+}
+function get_ms_delta($end, $start) {
+	return (int)(($end - $start) * 1000);
+}
 ?>

@@ -1,9 +1,12 @@
 <?php
+profiling_end('action');
+profiling_start('view');
+
 Error::generate('debug', "Loading $CONTROLLER/$action");
 if(!session_id()) @session_start();
 if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 // JKOFF: Watch this code, it could cause problems in the future.
-if(isset($_SESSION)
+if(isset($_SESSION[$action])
 		&& $_SERVER['REQUEST_URI'] != '/user/login'
 		&& $_SESSION[$action] != 'login' )
 {
@@ -17,12 +20,34 @@ if(isset($_SESSION)
 								. $_SESSION['last_rendered_page']);
 }
 
+Error::showSeparator();
+Error::setBgColour("#000");
+@include("$ROOT/includes/html_utils.inc");
+
 /**
 	Given:	pagetitle
 */
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-		<title><?php echo $args['pagetitle']; ?></title>
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
+		<link rel="stylesheet" href="/css/default.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="/css/autosuggest_inquisitor.css" text="text/css" media="screen,projection" />
+		<link rel="stylesheet" href="/fancybox/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
+		<meta charset="utf-8" />
+		<title><?php echo $args['pagetitle'].' // ClassMate'; ?></title>
+		<script type="text/javascript" src="/js/global.js"> </script>
+        <script type="text/javascript" src="/js/prototype-1.6.0.3.js"> </script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script type="text/javascript" src="/js/bsn.AutoSuggest_2.1.3.js"> </script>
+        <script type="text/javascript"><!--
+            jQuery.noConflict();
+			var RegisteredGlobals = new Array();
+<?php		jsRegisterGlobal('AuthenticatedUserAvatar', User::GetAvatar(User::GetAuthenticatedID()));	?>
+        //--></script>
+        <script type="text/javascript" src="/fancybox/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+        <script type="text/javascript" src="/js/jquery.qtip-1.0.0-rc3.min.js"> </script>
+        <script type="text/javascript" src="/js/vidpanel.js"> </script>
+<?php   if($args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>

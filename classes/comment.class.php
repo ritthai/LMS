@@ -1,5 +1,10 @@
 <?php
 class Comment extends EavAdjList {
+	/*
+		Known types:
+			1: Comment
+			2: Topic
+	*/
 	protected static function subGetClass() {
 		return 'comment';
 	}
@@ -9,7 +14,11 @@ class Comment extends EavAdjList {
 							array( 'SUBJECT',	static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),
 							array( 'BODY',		static::ATTRIB_TYPE_STRING,
-												static::ATTRIB_PROP_UNIQUE )
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'TYPE',		static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'ID',		static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_UNIQUE ),
 					);
 	}
 	/**
@@ -20,7 +29,8 @@ class Comment extends EavAdjList {
 		else $__inited = true;
 	}
 	public static function Create($userCfg) {
-		$id = static::eav_create($userCfg['subject'], $userCfg['id']);
+		($type = $userCfg['type']) or $type = 1;
+		$id = static::eav_create($userCfg['subject'], $userCfg['id'], $type);
 		if(!$id || $id < 1) {
 			Error::generate('debug', '!$id || $id < 1 in Comment::Create');
 			return false;
@@ -28,6 +38,7 @@ class Comment extends EavAdjList {
 		foreach($userCfg as $attrib => $val) {
 			switch(strtoupper($attrib)) {
 			case 'ID':
+			case 'TYPE':
 				continue;
 			case 'BODY':
 				$storeval = nl2br($val);
@@ -39,10 +50,10 @@ class Comment extends EavAdjList {
 		}
 		return $id;
 	}
-	public static function ListAll($id=1) {
-		$ret = static::eav_list($id);
+	public static function ListAll($id=1, $type=1) {
+		$ret = static::eav_list($id, $type);
 		if(!$ret) $ret = array();
-		return $ret;
+		return array_reverse($ret, true);
 	}
 	public static function GetAttrib($id, $attrib) {
 		if(is_int($attrib)) {

@@ -64,5 +64,11 @@ class HttpAction {
 	function FORM_END() {
 		echo "</form>";
 	}
+	function AJAX_FORM_BEGIN($extraAttribs="") {
+		echo "<form action=\"javascript:;\" $extraAttribs>";
+	}
+	function AJAX_FORM_END() {
+		echo "</form>";
+	}
 }
 ?>

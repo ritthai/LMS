@@ -1,12 +1,9 @@
 <?php
 @require_once("$ROOT/includes/recaptchalib.php");
-@require_once("$ROOT/includes/mysql.inc");
 @require_once("$ROOT/includes/prefix.inc");
 
 @session_start();
 @db_connect();
-@User::init();
-@File::init();
 
 controller_prefix();
 
@@ -14,36 +11,43 @@ $CONTROLLER = 'user';
 $PAGE_REL_URL = "$HTMLROOT/$CONTROLLER";
 $UPLOAD_ROOT = "$CONTROLLER/uploads";
 $ACTIONS = array(
-	'create' => new HttpAction("$PAGE_REL_URL/create", 'post',
-				array(	'name', 'email', 'password',
-						'recaptcha_challenge_field', 'recaptcha_response_field')),
-	'list' => new HttpAction("$PAGE_REL_URL/list", 'get',
-				array()),
-	'show' => new HttpAction("$PAGE_REL_URL/show", 'get',
-				array('id')),
-	'login' => new HttpAction("$PAGE_REL_URL/login", 'post',
-				array('name', 'password')),
-	'logout' => new HttpAction("$PAGE_REL_URL/logout", 'get',
-				array()),
-	'status' => new HttpAction("$PAGE_REL_URL/status", 'get',
-				array()),
-	'forgot_password' => new HttpAction("$PAGE_REL_URL/forgot_password", 'get',
-				array('name', 'email')),
-	'reset_password' => new HttpAction("$PAGE_REL_URL/reset_password", 'get',
-				array('key')),
-	'finish_reset_password' => new HttpAction("$PAGE_REL_URL/reset_password", 'post',
-				array('key', 'id', 'password')),
-	'upload' => new HttpAction("$PAGE_REL_URL/upload", 'post',
-				array('MAX_FILE_SIZE', 'name', 'comment'))
+	'create'				=> new HttpAction("$PAGE_REL_URL/create", 'post',
+								array(	'name', 'realname', 'email', 'password',
+										'recaptcha_challenge_field', 'recaptcha_response_field')),
+	'list'					=> new HttpAction("$PAGE_REL_URL/list", 'get',
+								array()),
+	'show'					=> new HttpAction("$PAGE_REL_URL/show", 'get',
+								array('id')),
+	'login'					=> new HttpAction("$PAGE_REL_URL/login", 'post',
+								array('name', 'password')),
+	'ajaxlogin'				=> new HttpAction("$PAGE_REL_URL/ajaxlogin", 'post',
+								array('name', 'password')),
+	'logout'				=> new HttpAction("$PAGE_REL_URL/logout", 'get',
+								array()),
+	'status'				=> new HttpAction("$PAGE_REL_URL/status", 'get',
+								array()),
+	'forgot_password'		=> new HttpAction("$PAGE_REL_URL/forgot_password", 'get',
+								array('name', 'email')),
+	'reset_password'		=> new HttpAction("$PAGE_REL_URL/reset_password", 'get',
+								array('key')),
+	'finish_reset_password'	=> new HttpAction("$PAGE_REL_URL/reset_password", 'post',
+								array('key', 'id', 'password')),
+	'upload'				=> new HttpAction("$PAGE_REL_URL/upload", 'post',
+								array('MAX_FILE_SIZE', 'name', 'comment', 'type')),
+	'uploadavatar'			=> new HttpAction("$PAGE_REL_URL/uploadavatar", 'get',
+								array()),
+	'usercp'				=> new HttpAction("$PAGE_REL_URL/", 'get',
+								array()),
 	);
 
 $PAGE_TITLE = "User management";
 $args = array(	'pagetitle'	=> $PAGE_TITLE,
 				'actions'	=> $ACTIONS	);
 
-$allowed_upload_extensions = array(	"txt", "csv", "htm", "html", "xml",
-									"css", "doc", "xls", "rtf", "ppt", "pdf", "swf", "flv", "avi",
-									"wmv", "mov", "jpg", "jpeg", "gif", "png");
+$allowed_upload_extensions =
+	array(	"txt", "csv", "htm", "html", "xml",
+			"css", "doc", "xls", "rtf", "ppt", "pdf", "swf", "flv", "avi",
+			"wmv", "mov", "jpg", "jpeg", "gif", "png");
 
 $action = false;
 $params = array();
@@ -55,7 +59,37 @@ foreach($ACTIONS as $key => $val) {
     }
 }
 
-if($action == 'create') {
+$args['uploadtype'] = 1; // normal
+if($action == 'uploadavatar') {
+	$args['uploadtype'] = 2; // avatar
+}
+
+if($action == 'ajaxlogin') {
+	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-cache, must-revalidate");
+    header("Pragma: no-cache");
+    header("Content-Type: text/html");
+	
+	$status = User::Authenticate($params['name'], $params['password']);
+	if($status) {
+		echo 'You have successfully logged in!';
+	} else {
+		echo 'Invalid username/password combination.';
+	}
+	die('');
+} else if($action == 'usercp') {
+	$args['userinfo']['id'] = User::GetAuthenticatedID();
+	if(!$args['userinfo']['id']) {
+		Error::generate('warn', 'Must be logged in to see this page.');
+		if(isset($_SESSION) && $_SESSION['last_rendered_page'] && $_SESSION['last_rendered_page'] != $_SERVER['REQUEST_URI']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
+	}
+	include("$ROOT/user/views/usercp.view.php");
+} else if($action == 'create') {
 	$filtered_params = array();
 	$authorized = true;
 	$recaptcha_resp = recaptcha_check_answer(	$CONFIG['recaptcha_prikey'], $_SERVER['REMOTE_ADDR'],
@@ -64,6 +98,12 @@ if($action == 'create') {
 		$args['recaptcha_error'] = $recaptcha_resp->error;
 		Error::generate('notice', 'Incorrect captcha answer.');
 		$authorized = false;
+		$args['name']		= $params['name'];
+		$args['realname']	= $params['realname'];
+		$args['university']	= $params['university'];
+		$args['gradyear']	= $params['gradyear'];
+		$args['email']		= $params['email'];
+		$args['password']	= $params['password'];
 	}
 	foreach($params as $k=>$v) {
 		switch($k) {
@@ -75,6 +115,7 @@ if($action == 'create') {
 				break;
 			}
 		case 'name':
+		case 'realname':
 		case 'email':
 		case 'password':
 			$filtered_params[$k] = $v;
@@ -87,19 +128,35 @@ if($action == 'create') {
 	else $id = 0;
 	if($id > 0) {
 		Error::generate('notice', 'Account created!');
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	} else {
 		Error::generate('notice', 'Account creation failed', Error::$FLAGS['single']);
-		redirect('create');
+		//redirect('create');
+		include("$ROOT/user/views/create.view.php");
 	}
 } else if($action == 'show' || ($status_called = ($action == 'status'))) {
+	User::enterStatusMode();
 	$id = $status_called ? User::GetAuthenticatedID() : $params['id'];
 	if(!$id) {
 		Error::generate('notice', 'Must be logged in.');
-		redirect();
+		User::leaveStatusMode();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	} else if(!($args['userinfo'] = User::GetAttribs($id))) {
 		Error::generate('notice', 'Invalid user ID.');
-		redirect();
+		User::leaveStatusMode();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	} else {
 		foreach($args['userinfo'] as $key=>$param) {
 			switch(strtolower($param[0])) {
@@ -122,6 +179,7 @@ if($action == 'create') {
 				default:
 			}
 		}
+		User::leaveStatusMode();
 		include("views/show.view.php");
 	}
 } else if($action == 'login') {
@@ -143,7 +201,11 @@ if($action == 'create') {
 	$email = User::GetAttrib(User::GetUserID($name), 'email');
 	if($email != $params['email']) {
 		Error::generate('notice', 'Invalid email address and/or username');
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	} else {
 		$key = User::GenerateForgottenPasswordKey($name);
 		$hdr = "From: jkoff@129-97-224-169.uwaterloo.ca";
@@ -156,12 +218,20 @@ if($action == 'create') {
 			Error::generate('notice', 'Password reset instructions were sent to the email address associated with your account.');
 		else
 			Error::generate('notice', 'Could not send password reset email.');
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	}
 } else if($action == 'reset_password') {
 	if(!$id = User::ValidateForgottenPasswordKey($params['key'])) {
 		Error::generate('notice', 'Invalid URL');
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	} else if(!isset($params['id'])) { // stage 1 - ask for new password
 		$args['id'] = $id;
 		$args['key'] = $params['key'];
@@ -172,7 +242,11 @@ if($action == 'create') {
 			Error::generate('notice', 'Your password was set successfully. You may now log in.');
 		else
 			Error::generate('notice', 'Your password could not be reset.', Error::$FLAGS['single']);
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	}
 } else if($action == 'upload') {
 	$ext = end(explode('.', $_FILES['file']['name']));
@@ -210,8 +284,27 @@ if($action == 'create') {
 		include("views/upload.view.php");
 	} else {
 		$id = User::GetAuthenticatedID();
+		$tmpname = $_FILES['file']['tmp_name'];
 		$upload_dir = $UPLOAD_ROOT.'/'.$id.'/';
 		$upload_path = $upload_dir.hash('sha256', $_FILES['file']['name']);
+		if($params['type'] == 2) { //avatar
+			$dstw = 39;
+			$dsth = 39;
+			list($srcw, $srch) = getimagesize($tmpname);
+			$imgsrc	= imagecreatefromstring(file_get_contents($tmpname));
+			$imgdst	= imagecreatetruecolor(39, 39);
+
+			$ratio	= min($srcw/$dstw, $srch/$dsth);
+			$smside	= min($srcw, $srch);
+			$srcx	= ($srcw - $smside)/2;
+			$srcy	= ($srch - $smside)/2;
+
+			imagecopyresampled($imgdst, $imgsrc, 0, 0, $srcx, $srcy, $dstw, $dsth, $smside, $smside);
+			imagepng($imgdst, $tmpname);
+
+			imagedestroy($imgsrc);
+			imagedestroy($imgdst);
+		}
 		if(!file_exists("$ROOT/$upload_dir")) {
 			mkdir("$ROOT/$upload_dir");
 		}
@@ -220,22 +313,38 @@ if($action == 'create') {
 							'owner'		=> $id,
 							'roles'		=> 'admin',
 							'type'		=> $ext,
+							'context'	=> $params['type'],
 							'comment'	=> $params['comment'] );
-		$res = File::Create($fileCfg, $_FILES['file']['tmp_name']);
+		$res = File::Create($fileCfg, $tmpname);
 		if($res && User::SetAttrib($id, 'file', $res)) {
-			Error::generate('notice', 'File was successfully uploaded, and is pending approval by an administrator.');
+			if($params['type'] == 1) {
+				Error::generate('notice', 'File was successfully uploaded, and is pending approval by an administrator.');
+			} else {
+				Error::generate('notice', 'Your avatar has been updated.');
+			}
 		} else {
 			Error::generate('notice', 'Could not upload file.', Error::$FLAGS['single']);
 		}
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	}
 } else if(isset($_GET['action']) && $_GET['action'] != "") { // Action with no params
 	$action = $_GET['action'];
 	switch($action) {
+	case 'uploadavatar':
+		include("views/upload.view.php");
+		break;
 	case 'status':
 		// This should never happen.
 		Error::generate('debug', 'In case \'status\': in action with no params in user controller');
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 		break;
 	case 'logout':
 		$res = User::Deauthenticate();
@@ -262,11 +371,19 @@ if($action == 'create') {
 		break;
 	case 'show':
 		Error::generate('notice', 'Invalid user ID', Error::$FLAGS['single']);
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 		break;
 	default:
 		Error::generate('suspicious', "Invalid action $action in /user/");
-		redirect();
+		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
+            redirect_raw($_SESSION['last_rendered_page']);
+        } else {
+            redirect();
+        }
 	}
 } else {
 	include("views/index.view.php");

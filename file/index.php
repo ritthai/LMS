@@ -1,10 +1,8 @@
 <?php
-@include("$ROOT/includes/mysql.inc");
 @include("$ROOT/includes/prefix.inc");
 
 @session_start();
 @db_connect();
-@File::init();
 
 controller_prefix();
 

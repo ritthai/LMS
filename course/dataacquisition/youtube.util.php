@@ -1,6 +1,9 @@
 <?php
 function youtube_query($TERMS, $srch, $crs) {
 	global $CONFIG;
+
+	profiling_start('youtube_query');
+
 	$TAGS = $srch;
 	$rtags = get_full_tags($crs);
 	$str = urlencode($TERMS);//."+".implode("+", $srch);
@@ -99,6 +102,9 @@ function youtube_query($TERMS, $srch, $crs) {
 		default:
 		}
     }
+
+	profiling_end('youtube_query');
+
     return $store;
 }
 function youtube_search($procd_descr, $tags, $crs) {

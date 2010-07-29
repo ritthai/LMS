@@ -7,7 +7,7 @@
 
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
 
-		<script src="<?php echo "$HTMLROOT/js/prototype-1.6.0.3.js"; ?>" type="text/javascript"></script>
+		<script type="text/javascript" src="/js/prototype-1.6.0.3.js"> </script>
 		<script type="text/javascript">
 		/* From http://forums.macrumors.com/showthread.php?t=672301 :
 		 * A pretty little hack to make uploads not hang in Safari. Just call this
@@ -26,9 +26,15 @@
 
 <?php	$args['actions']['upload']->FORM_BEGIN('enctype="multipart/form-data" onsubmit="closeKeepAlive();"');	?>
 									<input type="hidden" name="MAX_FILE_SIZE" value="16777216" /> <!-- 16 MB -->
+									<input type="hidden" name="type" value="<?php echo $args['uploadtype']; ?>" />
+<?php	if($args['uploadtype'] == 1) {	?>
 		Filename:					<input type="text" name="name" /><br/>
-		<!--File to upload:-->		<input type="file" name="file" /><br/>
 		Comment:					<textarea name="comment" rows="3" cols="40"></textarea><br/>
+<?php	} else {	?>
+									<input type="hidden" name="name" /><br/>
+									<textarea style="display:none" name="comment" rows="3" cols="40"></textarea><br/>
+<?php	}	?>
+		<!--File to upload:-->		<input type="file" name="file" /><br/>
 									<input type="submit" value="Upload" />
 <?php	$args['actions']['upload']->FORM_END();	?>
 

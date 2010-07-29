@@ -1,5 +1,10 @@
 <?php
+function global_error_handler($error_level, $error_message, $error_file, $error_line) {
+	Error::generate($error_level, "$error_message in $error_file on line $error_line");
+}
+set_error_handler("global_error_handler");
 function controller_prefix() {
+	Error::generate('debug', 'Request URI: '.$_SERVER['REQUEST_URI']);
 	if(isset($_SESSION['HTTP_USER_AGENT'])) {
 		if($_SESSION['HTTP_USER_AGENT'] != md5($_SERVER['HTTP_USER_AGENT'])) {
 			User::Deauthenticate();

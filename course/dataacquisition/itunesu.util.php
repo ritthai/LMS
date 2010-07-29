@@ -4,6 +4,8 @@ function itunesu_search($procd_descr) {
 	$USERIP = $_SERVER['REMOTE_ADDR'];
 	$NRESULTS = 4;
 	
+	profiling_start('itunesu_search');
+
 	ini_set('user_agent', 'iTunes/8.1');
 	$url = "http://ax.search.itunes.apple.com/WebObjects/MZSearch.woa/wa/advancedSearch?descriptionTerm=$TERMS&media=iTunesU";
 	$data = cached_file_get_contents($url);
@@ -20,6 +22,9 @@ function itunesu_search($procd_descr) {
 						'art'=>$xml[$key+2]['attributes']['URL']));
 		}
 	}
+
+	profiling_end('itunesu_search');
+
 	return $store;
 }
 ?>

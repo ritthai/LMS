@@ -138,10 +138,10 @@ abstract class EavAdjList {
 			return $ret;
 		}
 	}
-	protected static function eav_create($subject, $parent) {
-		$res = db_query( 'INSERT INTO comments (subject, parent)
-							VALUES (\'%s\', \'%d\')',
-							$subject, $parent);
+	protected static function eav_create($subject, $parent, $type=1) {
+		$res = db_query( 'INSERT INTO %ss (subject, parent, type)
+							VALUES (\'%s\', \'%d\', \'%d\')',
+							static::subGetClass(), $subject, $parent, $type);
 		if($res) {
 			return mysql_insert_id();
 		} else {
@@ -149,15 +149,16 @@ abstract class EavAdjList {
 			return false;
 		}
 	}
-	protected static function eav_list($id) {
+	protected static function eav_list($id, $type=1) {
 		$ret = db_query( '
 			SELECT node.id, node.subject, node.creation_timestamp
-				FROM		comments AS node,
-							comments AS parent
+				FROM		%ss AS node,
+							%ss AS parent
 				WHERE		node.parent = parent.id
-				AND			parent.id = \'%d\'
+					AND		parent.id	= \'%d\'
+					AND		node.type	= \'%d\'
 				ORDER BY	node.creation_timestamp DESC
-			', $id );
+			', static::subGetClass(), static::subGetClass(), $id, $type );
 		if(!$ret) {
 			Error::generate('debug', 'Could not query db in hierarchical eav list');
 			return array();

@@ -1,5 +1,4 @@
 <?php
-@include("$ROOT/includes/mysql.inc");
 @include("$ROOT/includes/prefix.inc");
 
 @session_start();

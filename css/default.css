@@ -1,0 +1,316 @@
+body {
+	font: 13px/1.7em "Gotham Rounded Book", Verdana, sans-serif;
+	margin: 0px;
+	background: #004371 url("../images/navigation/clouds.jpg") no-repeat
+}
+
+#logo {
+	width: 419px;
+	height: 88px;
+	z-index: 0;
+	position: relative;
+	float: left
+}
+
+#search {
+	float: right; 
+	text-align: right; 
+	background: url("../images/navigation/search.png") no-repeat;
+	width: 260px;
+	height: 32px;
+	margin: 40px 40px 0 0;
+	color: #fff;
+	font-size: 16px
+}
+
+#login_form {
+	width: 200px;
+}
+
+#boxtop {
+	background: url("../images/navigation/header.png") no-repeat;
+	width: 822px;
+	height: 100px;
+	z-index: -3;
+	position: relative
+}
+
+section {
+	padding: 3px 0 0 30px;
+	background: url("../images/navigation/bg.png") repeat-y;
+	position: relative;
+	width: 822px;
+}
+
+footer {
+	background: url("../images/navigation/footer.png") no-repeat;
+	width: 822px;
+	height: 62px
+}
+
+.holder {
+	width: 822px;
+	margin: 0 auto	
+}
+
+#login {text-align: right; height: 26px; color: #fff; margin-bottom: 20px; background: url("../images/navigation/shadow.png") repeat-x}
+
+article {margin: -60px 10px 0; position: relative; width: 755px}
+img {border: 0}
+
+header, footer, nav, article, section {display:block}
+@font-face {font-family: Gotham Rounded Bold; src: url("../fonts/gothamrndbold.eot")}
+@font-face {font-family: Gotham Rounded Bold; src: url("../fonts/gothamrndbold.otf")}
+@font-face {font-family: Gotham Rounded Book; src: url("../fonts/gothamrndbook.eot")}
+@font-face {font-family: Gotham Rounded Book; src: url("../fonts/gothamrndbook.otf")}
+@font-face {font-family: Gotham Rounded Light; src: url("../fonts/gothamrndlight.eot")}
+@font-face {font-family: Gotham Rounded Light; src: url("../fonts/gothamrndlight.otf")}
+
+#footertext {padding-bottom: 100px; color: #fff}
+p {font: 14px/1.3em "Gotham Rounded Light"; color: #000; }
+p.subjects:first-letter {font-size: 1.5em; font-weight: bold}
+
+h1 {font: 42px/1.5em "Gotham Rounded Bold"; color: #FFF; margin-top: -30px}
+h5 {font: 16px/1.5em "Gotham Rounded Bold"; color: #FFF}
+nav {width: 792px; margin-left: 30px; color: #000; text-align: left}
+
+a:link, a:visited { color: #000000; text-decoration: none }
+a.breadcrumblink:link, a.breadcrumblink:visited { color: #d4fba0; text-decoration: underline }
+a.headerlink:link, a.headerlink:visited { color: #d4fba0; text-decoration: underline }
+a.footerlink:link, a.footerlink:visited { color: #FFFFFF; text-decoration: underline }
+a.nicebodylink:link, a.nicebodylink:visited { color: #638C0F; text-decoration: underline }
+
+.search_form {
+	background-color: transparent;
+	border: 0px solid #000;
+	margin-left: 5px;
+}
+#search_terms {
+	width: 235px;
+	height: 25px;
+	margin-right: 20px;
+	color: #fff;
+}
+#uni {
+	width: 160px;
+	height: 20px;
+	color: #fff;
+}
+.comment {
+	border: 1px solid #000;
+	background-color: #ddf
+}
+.search_result {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	margin: 10px auto 0px auto;
+	min-height: 10px;
+}
+.all_result_content {
+	margin-left: 20px;
+}
+.result_content {
+	position: relative;
+	margin-left: 250px;
+}
+.novid_result_content {
+	position: relative;
+}
+.vid_panel {
+	float: left;
+	width: 245px;
+	margin-left: -250px;
+	border-right: solid 1px #ddd;
+}
+.vid_panel_horiz {
+}
+.youtube_frame {
+	width: 140px;
+	height: 110px;
+	float: left;
+	background: transparent url("../images/navigation/videoborder.png") no-repeat;
+}
+.youtube_thumb {
+	width: 118px;
+	height: 88px;
+	padding-left: 11px;
+	padding-top: 11px;
+}
+.addToFavs {
+	display: inline;
+	width: 16px;
+	height: 16px;
+	margin-left: 16px;
+	background: transparent url("../images/woofunction-icons/star_16.png") no-repeat;
+}
+.rmFromFavs {
+	display: inline;
+	width: 16px;
+	height: 16px;
+	margin-left: 16px;
+	background: transparent url("../images/woofunction-icons/close_16.png") no-repeat;
+}
+.expand {
+	display: inline;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-top: 2px;
+	background: transparent url("../images/navigation/plus.png") no-repeat;
+}
+.collapse {
+	display: inline;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-top: 2px;
+	background: transparent url("../images/navigation/minus.png") no-repeat;
+}
+.privateMessages {
+	display: inline;
+	float: right;
+	width: 16px;
+	height: 16px;
+	background: transparent url("../images/famfamfam_silk_icons_v013/icons/email.png") no-repeat;
+}
+ul.result_list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+ul.result_list li {
+	/*list-style-image: url("../images/famfamfam_silk_icons_v013/bullet_go.png");*/
+	background-image: url("../images/famfamfam_silk_icons_v013/icons/bullet_go.png");
+	background-repeat: no-repeat;
+	background-position: 0 .1em;
+	padding-left: 24px;
+}
+div#article_left {
+	width: 510px;
+	float: left;
+}
+div#article_right {
+	width: 210px;
+	float: right;
+}
+div#sidebar_realname {
+	text-align: right;
+	font: 23px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #549fe0;
+}
+div#sidebar_university {
+	text-align: right;
+	font: 11px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #b9b9b9;
+}
+div#sidebar_your_courses {
+	display:none;
+	text-align: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div#sidebar_private_messages {
+	text-align: right;
+	float: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div#sidebar_message_totals {
+	text-align: right;
+	font: 12px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div.sidebar_add_to_favs {
+	text-align: right;
+	float: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div.sidebar_rm_from_favs {
+	text-align: right;
+	float: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div#sidebar_fav_courses {
+	text-align: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div.sidebar_fav_course {
+	text-align: right;
+	float: right;
+	font: 13px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #638c0f;
+	text-decoration: underline;
+}
+div#sidebar_options_and_profile_text {
+	margin: 10px 0 0 30px;
+}
+div#sidebar_options_and_profile {
+	width: 170px;
+	float: right;
+}
+div#sidebar_options, div#sidebar_profile {
+	text-align: right;
+	font: 12px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #638c0f;
+	float: left;
+	display: block;
+	text-decoration: underline;
+}
+div#sidebar_avatar {
+	float: right;
+	width: 61px;
+	height: 61px;
+	background: transparent url("../images/navigation/avatarbg.png") no-repeat;
+}
+div.avatar {
+	display: inline;
+	width: 61px;
+	height: 61px;
+	background: transparent url("../images/navigation/avatarbg.png") no-repeat;
+}
+div#sidebar_user_image {
+	width: 39px;
+	height: 39px;
+	padding-left: 11px;
+	padding-top: 11px;
+}
+div.user_image {
+	width: 39px;
+	height: 39px;
+	padding-left: 11px;
+	padding-top: 11px;
+}
+div#sidebar_private_messages_box {
+	display: inline;
+}
+div#description_word {
+	color: #43515E;
+	font: 32px/1em "Gotham Rounded Bold", Verdana, sans-serif;
+}
+p#description {
+	margin-left: 20px;
+}
+div.topic_name {
+	color: #43515E;
+	font: 13px "Gotham Rounded Bold", Verdana, sans-serif;
+	text-decoration: underline;
+	margin-left: 20px;
+}
+div.youtube_caption {
+	color: #43515E;
+	font: 13px "Gotham Rounded Bold", Verdana, sans-serif;
+}
+div.comment_box {
+	background-color: #edf8ff;
+	margin-top: 30px;
+	padding: 20px 20px 20px 20px;
+	border-top: 2px solid #b1e1ff;
+	border-bottom: 2px solid #b1e1ff;
+}
+input.submit_comment, input.submit_university {
+	margin-bottom: -6px;
+}

@@ -12,7 +12,9 @@ CREATE TABLE user_data (	id INT NOT NULL,
 							intdata INT,
 							stringdata TEXT	);
 CREATE TABLE files (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-							name VARCHAR(64),
+							subject VARCHAR(64),
+							parent INT NOT NULL, # owner
+							type INT NOT NULL, # normal, avatar, etc.
 							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE file_data (	id INT NOT NULL,
 							attrib INT NOT NULL,
@@ -27,6 +29,7 @@ CREATE TABLE file_data (	id INT NOT NULL,
 CREATE TABLE comments (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 							subject TEXT,
 							parent INT NOT NULL,
+							type INT NOT NULL,
 							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE TABLE comment_data (	id INT NOT NULL,
 							attrib INT NOT NULL,
@@ -43,9 +46,21 @@ INSERT
 INSERT
 	INTO user_data (id, attrib, intdata, stringdata)
 	VALUES	('1','1',NULL,'jkoff'),
-			('1','2',NULL,'jonathankoff@gmail.com'),
-			('1','3','1',NULL),
-			('1','4',NULL,'5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d');
+			('1','2',NULL,'Jonathan Koff'),
+			('1','3',NULL,'University of Waterloo'),
+			('1','4',NULL,'2013'),
+			('1','5',NULL,'jonathankoff@gmail.com'),
+			('1','6','1',NULL),
+			('1','7',NULL,'5f5bf79f826c28089749b8f49d82360b27e9710918b4a6b4a763f95c4d20bf4d');
+INSERT
+	INTO user_data (id, attrib, intdata, stringdata)
+	VALUES	('2','1',NULL,'tyler'),
+			('2','2',NULL,'Tyler Freedman'),
+			('2','3',NULL,'Ryerson University'),
+			('2','4',NULL,'2014?'),
+			('2','5',NULL,'t.freedman@gmail.com'),
+			('2','6','1',NULL),
+			('2','7',NULL,'7cc579d40474f703aa6c86c5790f3d79c14ed6be48b639840f64fe7b1335313c');
 
 #INSERT
 #	INTO comments (id, subject, lft, rgt)

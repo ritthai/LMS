@@ -1,6 +1,4 @@
 <?php
-include_once("../includes/mysql.inc");
-
 $passarg = "";
 if($CONFIG['dbpass'] != "") $passarg = ' -p'.$CONFIG['dbpass'];
 
