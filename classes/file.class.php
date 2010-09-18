@@ -36,7 +36,7 @@ class File extends EavAdjList {
 		($context = $userCfg['context']) or $context = 1;
 		$id = static::eav_create($userCfg['name'], $owner, $context);
 		if($id < 1) { // pretty sure this shouldn't happen with current schema
-			Error::generate('notice', 'Filename already taken.');
+			Error::generate('notice', 'Filename already taken.', Error::$FLAGS['override']);
 			return false;
 		}
 		// Copy the file from the uploadPath to the given userCfg['path']

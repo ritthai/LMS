@@ -76,7 +76,7 @@ if($action == 'show') {
 	$ext = File::GetAttrib($id, 'type');
 	Error::generate('debug', "id=$id, name=$name, path=$path, ext=$ext");
 	if(!$path) {
-		Error::generate('notice', 'File not found.', Error::$FLAGS['single']);
+		//Error::generate('notice', 'File not found.', Error::$FLAGS['single']);
 		//header('Location: '.getLastVisited());
 	} else {
 		$content_type = "";

@@ -594,6 +594,18 @@ if($action == 'countries') {
 	include("views/index.view.php");
 }
 end:
+if($c = $args['country']) {
+	$_SESSION['country'] = $c;
+}
+if($a = $args['area']) {
+	$_SESSION['area'] = $a;
+}
+if($u = $args['university']) {
+	$_SESSION['university'] = $u;
+}
+if($o = $args['code']) {
+	$_SESSION['code'] = $o;
+}
 profiling_end('view');
 db_close();
 

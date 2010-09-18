@@ -192,17 +192,22 @@ abstract class EavAdjList {
 		}
 	}
 	protected static function eav_create($subject, $parent, $type=1) {
-		$good = db_query( 'INSERT INTO %ss (subject, parent, type)
+		$ret = false;
+		$good = db_query( 'REPLACE INTO %ss (subject, parent, type)
 							VALUES (\'%s\', \'%d\', \'%d\')',
 							static::subGetClass(), $subject, $parent, $type);
-		$lock = (static::subGetClass() == 'comments' ||
-				db_query("INSERT INTO %ss_lock (locked) VALUES ('0')", static::subGetClass()));
+		//$lock = (static::subGetClass() == 'comments' ||
+				//db_query("INSERT INTO %ss_lock (locked) VALUES ('0')", static::subGetClass()));
+		//$lock = (static::subGetClass() == 'comments');
+		$lock = true; // TODO: Investigate and see if this could cause any problems
 		if($good && $lock) {
-			return db_insert_id();
+			$ret = db_insert_id();
+			db_query("INSERT INTO %ss_lock (locked) VALUES ('0')", static::subGetClass());
 		} else {
 			Error::generate('notice', static::subGetClass().'name already taken.');
-			return false;
+			$ret = false;
 		}
+		return $ret;
 	}
 	protected static function eav_list($id, $type=1) {
 		if(!$id||$id==0) { Error::generate('debug', 'id is 0'); return array(); }

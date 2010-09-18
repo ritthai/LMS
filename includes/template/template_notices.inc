@@ -46,19 +46,19 @@
 	<nav>
 		<h5>
 				<!--<a class="breadcrumblink" href="/">ClassMate</a>-->
-<?php	if($c = $args['country']) { ?>
+<?php	if(($c = $args['country']) || (isset($_SESSION['country']) && $c = $_SESSION['country'])) { ?>
 			>	<a class="breadcrumblink" href="/areas?<?php echo "country=$c[id]"; ?>">
 					<?php echo $c['name']; ?></a>
 <?php	} ?>
-<?php	if($a = $args['area']) { ?>
+<?php	if(($a = $args['area']) || (isset($_SESSION['area']) && $a = $_SESSION['area'])) { ?>
 			>	<a class="breadcrumblink" href="/universities?<?php echo "area=$a[id]"; ?>">
 					<?php echo $a['name']; ?></a>
 <?php	} ?>
-<?php	if($u = $args['university']) { ?>
+<?php	if(($u = $args['university']) || (isset($_SESSION['university']) && $u = $_SESSION['university'])) { ?>
 			>	<a class="breadcrumblink" href="/subjects?<?php echo "university=$u[id]"; ?>">
 					<?php echo $u['name']; ?></a>
 <?php	} ?>
-<?php	if($o = $args['code']) { ?>
+<?php	if(($o = $args['code']) || (isset($_SESSION['code']) && $o = $_SESSION['code'])) { ?>
 			>	<a class="breadcrumblink" href="/subject?<?php echo "code=$o&university=$u[id]"; ?>">
 					<?php echo $o; ?></a>
 <?php	} ?>
