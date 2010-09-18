@@ -16,8 +16,7 @@ if(isset($_SESSION[$action])
 	$_SESSION['last_rendered_controller'] = $CONTROLLER;
 	$_SESSION['last_rendered_action'] = $action;
 } else {
-	Error::generate('debug', 'Rendering login. Last rendered page: '
-								. $_SESSION['last_rendered_page']);
+	Error::generate('debug', 'Rendering login. Last rendered page: '.$_SESSION['last_rendered_page']);
 }
 
 Error::showSeparator();
@@ -46,8 +45,9 @@ Error::setBgColour("#000");
             jQuery.noConflict();
 			var RegisteredGlobals = new Array();
 <?php		jsRegisterGlobal('AuthenticatedUserAvatar', User::GetAvatar(User::GetAuthenticatedID()));	?>
+<?php		jsRegisterGlobal('CourseCID', $args['comment_id']);	?>
         //--></script>
         <script type="text/javascript" src="/fancybox/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-        <script type="text/javascript" src="/js/jquery.qtip-1.0.0-rc3.min.js"> </script>
-        <script type="text/javascript" src="/js/vidpanel.js"> </script>
+        <script type="text/javascript" src="/js/jquery.qtip.min.js"> </script>
 <?php   if($args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>
+        <script type="text/javascript" src="/js/vidpanel.js"> </script>

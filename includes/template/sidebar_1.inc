@@ -15,8 +15,13 @@
 						<div style="clear:both"> </div>
 						<br>
 <?php   /*****  ADD COURSE TO FAVOURITES    *****/  ?>
-<?php   if(!User::AuthenticatedUserHasMatchingAttrib('coursefav', $args['comment_id'])) { ?>
-<?php	if($args['comment_id']) { ?>
+<?php	$favs = User::GetAttrib(User::GetAuthenticatedID(), 'COURSEFAV');
+		$display_add_to_favs = $args['comment_id'];
+		foreach($favs as $fav) {
+			if($args['comment_id'] == $fav) $display_add_to_favs = false;
+		}
+		if($display_add_to_favs) {
+?>
                         <div class="sidebar_add_to_favs_container" id="favs_<?php echo $args['comment_id']; ?>">
                             <a  class="bodylink add_to_favs"
                                 id="add_to_favs_<?php echo $args['comment_id']; ?>"
@@ -25,7 +30,6 @@
                                 <div class="addToFavs" style="float:right">&nbsp;</div>
                             </a>
                         </div>
-<?php	} ?>
 <?php   } ?>
 						<div style="clear:both"> </div>
 						<br>
@@ -42,18 +46,19 @@
 <?php   /*****  TRACKED COURSES *****/  ?>
                         <div id="fav_courses">
                             <div id="sidebar_fav_courses">Favourite courses:</div>
-<?php   $favs = array_filter(   User::GetAttribs(User::GetAuthenticatedID()),
-                                function ($attr) { return $attr[0] == 'COURSEFAV'; }    );
-        foreach($favs as $fav) {
-            $id = $fav[1];
-            $subj = ucfirst(Comment::GetSubject($fav[1])); ?>
+<?php   foreach($favs as $fav) {
+            $id = intval($fav);
+            $subj = ucfirst(Comment::GetSubject($id));
+			$course = CourseDefn::ListAllStartingWithCode($subj);
+			$hrefid = $course[0]['id'];
+?>
 							<div class="sidebar_fav_course_container">
 								<a  class="bodylink rm_from_favs"
-								    id="rm_from_favs_<?php echo $fav[1]; ?>"
-								    href="javascript:rmFromFavs('<?php echo $fav[1]; ?>','<?php echo User::GetAuthenticatedID(); ?>','course','<?php echo $subj; ?>');">
+								    id="rm_from_favs_<?php echo $id; ?>"
+								    href="javascript:rmFromFavs('<?php echo $id; ?>','<?php echo User::GetAuthenticatedID(); ?>','course','<?php echo $subj; ?>');">
 									<div class="rmFromFavs sidebar_rm_from_favs">&nbsp;</div>
 								</a>
-								<a href="/search?id=<?php echo $id; ?>">
+								<a href="/search?id=<?php echo $hrefid; ?>">
 									<div class="sidebar_fav_course">
 										<?php echo $subj; ?>
 									</div>
