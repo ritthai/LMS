@@ -10,9 +10,18 @@ function jsRegisterGlobal($key, $val) {
 function jsSetupAutocompleteWithId($form_id, $textfield_id, $idtextfield_id, $word_list, $minchars=0) {
 	global $args;
 	$qstr = "/autocomplete?list=$word_list&";
-	if(isset($args['country'])) $qstr .= "country=$args[country]&";
-	if(isset($args['area'])) $qstr .= "area=$args[area]&";
-	if(isset($args['university'])) $qstr .= "university=$args[university]&";
+	if(isset($args['country'])) {
+		$c = $args['country']['id'];
+		$qstr .= "country=$c&";
+	}
+	if(isset($args['area'])) {
+		$c = $args['area']['id'];
+		$qstr .= "area=$c&";
+	}
+	if(isset($args['university'])) {
+		$c = $args['university']['id'];
+		$qstr .= "university=$c&";
+	}
 	echo "<script type=\"text/javascript\"> <!--\r\n";
 		echo "Event.observe(window, 'load', function(evt) {\r\n";
 			echo "var options = {\r\n";
