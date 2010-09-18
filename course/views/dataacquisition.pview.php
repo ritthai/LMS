@@ -78,11 +78,11 @@
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
-				<li>
-					<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
+				<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
+					<li>
 						<?php echo $title; ?>
-					</a>
-				</li>
+					</li>
+				</a>
 <?php		} ?>
 <?php	} ?>
 
@@ -94,11 +94,11 @@
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
-		<li>
-			<a class="bodylink itunesu_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
+		<a class="bodylink itunesu_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
+			<li>
 				<?php echo $title; ?>
-			</a>
-		</li>
+			</li>
+		</a>
 <?php		} ?>
 <?php	} ?>
 
@@ -110,23 +110,23 @@
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
-		<li id="<?php echo "li_$id"; ?>">
-			<a class="bodylink khanacad_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
+		<a class="bodylink khanacad_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
+			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-			</a>
-			<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
-				href="javascript:voteDown(	'<?php echo $res['id']; ?>',
-											'<?php echo User::GetAuthenticatedID(); ?>',
-											'result');">
-				<div class="voteDown">&nbsp;</div>
-			</a>
-			<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
-				href="javascript:voteUp(	'<?php echo $res['id']; ?>',
-											'<?php echo User::GetAuthenticatedID(); ?>',
-											'result');">
-				<div class="voteUp">&nbsp;</div>
-			</a>
-		</li>
+				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
+					href="javascript:voteDown(	'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteDown">&nbsp;</div>
+				</a>
+				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
+					href="javascript:voteUp(	'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteUp">&nbsp;</div>
+				</a>
+			</li>
+		</a>
 <?php		} ?>
 <?php	} ?>
 
