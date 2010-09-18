@@ -19,7 +19,7 @@ class User extends EAV {
 												static::ATTRIB_PROP_UNIQUE ),
 							array( 'ROLE',		static::ATTRIB_TYPE_INT ,
 												static::ATTRIB_PROP_UNIQUE ),
-							array( 'PASSWORD', static::ATTRIB_TYPE_STRING,
+							array( 'PASSWORD',	static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_NODISPLAY | static::ATTRIB_PROP_UNIQUE ),
 							array( 'FORGOTN_PASS_RST_KEY',
 												static::ATTRIB_TYPE_STRING,
@@ -30,9 +30,9 @@ class User extends EAV {
 							array( 'FILE',		static::ATTRIB_TYPE_INT,
 												static::ATTRIB_PROP_NOSHOW ),
 							array( 'TOPICFAV',	static::ATTRIB_TYPE_INT,
-												static::ATTRIB_PROP_NOSHOW ),
+												static::ATTRIB_PROP_NONE ),
 							array( 'COURSEFAV',	static::ATTRIB_TYPE_INT,
-												static::ATTRIB_PROP_NOSHOW ) );
+												static::ATTRIB_PROP_NONE ) );
 	}
 	protected static function subGetRoles() {
 		// Note: Not all of these apply to a User.
@@ -135,7 +135,7 @@ class User extends EAV {
 				$storeval = static::get_role_id($val);
 				break;
 			case 'PASSWORD':
-				$storeval = hash('sha256', $SALT.$val);
+				$storeval = static::_hash($val);
 				break;
 			default:
 				$storeval = $val;
@@ -170,54 +170,51 @@ class User extends EAV {
 		return $ret;
 	}
 	public static function GetAttribs($id) {
-		$attribs = static::get_attribs($id);
-		$ret = array();
-		foreach($attribs as $attrib) {
-			$attrval = static::GetAttrib($id, $attrib);
-			if($attrval) {
-				if(is_array($attrval)) {
-					foreach($attrval as $v) {
-						array_push($ret, array(static::get_attrib_str($attrib), $v));
-					}
-				} else {
-					array_push($ret, array(static::get_attrib_str($attrib), $attrval));
-				}
-			}
-		}
-		return $ret;
+		return static::get_all_attribs($id);
 	}
 	public static function GetUserID($name) {
 		return static::get_id($name);
 	}
 	public static function GetAuthenticatedAttrib($attr) {
 		if(!static::IsAuthenticated()) {
-			return 'not logged in';
+			return false;
 		} else {
 			return static::GetAttrib(static::GetAuthenticatedID(), $attr);
 		}
 	}
 	// Returns true on success, false on failure
-	public static function Authenticate($name, $password) {
+	public static function Authenticate($name, $password, &$error) {
 		$id = static::get_id($name);
 		if(!$id) {
 			Error::generate('debug', 'Invalid username/password combination in static::Authenticate (bad id)');
+			$error = 'Invalid username/password combination.';
 			return false;
 		}
 		$correctpasshash = static::get_attrib($id, 'password');
 		$role = static::get_attrib($id, static::get_attrib_id('role'));
-		if($correctpasshash == hash('sha256', $password)) {
+		if($correctpasshash == static::_hash($password)) {
 			if(session_id() == "" || !isset($_SESSION)) {
 				Error::generate('debug', 'Authentication passed, but session did not exist in static::Authenticate');
+				$error = 'A problem occured. Please contact an administrator.';
 				return false;
 			} else if($role && $role & static::get_role_id('banned')) {
-				Error::generate('notice', 'This account has been banned.');
+				if($error === null) {
+					Error::generate('notice', 'This account has been banned.');
+				} else {
+					$error = 'This account has been banned.';
+				}
 				return false;
 			} else {
 				$_SESSION['userid'] = $id;
 				return true;
 			}
 		} else {
-			Error::generate('debug', 'Invalid username/password combination in static::Authenticate (bad pass)');
+			if($error === null) {
+				Error::generate('debug', 'Invalid username/password combination in static::Authenticate (bad pass)');
+			} else {
+				$error = 'Invalid username/password combination.';
+			}
+			
 			return false;
 		}
 	}
@@ -233,10 +230,11 @@ class User extends EAV {
 		}
 	}
 	public static function IsAuthenticated() {
-		if(session_id() != "" && isset($_SESSION) && $_SESSION['userid'])
+		if(session_id() != "" && isset($_SESSION) && isset($_SESSION['userid'])) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 	public static function HasPermissions($role) {
 		$fail = false;
@@ -259,6 +257,9 @@ class User extends EAV {
 			return false;
 		}
 		return $_SESSION['userid'];
+	}
+	private static function _hash($pass) {
+		return hash('sha256', $SALT.$pass);
 	}
 	public static function GenerateForgottenPasswordKey($name) {
 		$id = static::get_id($name);
@@ -297,7 +298,7 @@ class User extends EAV {
 	public static function GetAvatar($id) {
 		$defaultAvatar = "/images/navigation/bulbasaur.png";
 		$avatar = File::ListAll($id, 2);
-		if($avatar) return '/file/get?id='.$avatar[0][0];
+		if($avatar) return '/file/get?id='.$avatar[0]['id'];
 		else return $defaultAvatar;
 	}
 }

@@ -9,6 +9,7 @@ abstract class EAV {
 	const ATTRIB_PROP_NOSHOW	= 8; // don't show on status page
 	protected static $__inited		= false;
 	protected static $ATTRIBUTES	= null; // modify User::Init function
+	protected static $cache			= array();
 	protected static function get_attrib_id($attribstr) {
 		$attribs = static::subGetAttribs();
 		for($i=1; $i < count(static::subGetAttribs())+1; $i++) {
@@ -43,7 +44,7 @@ abstract class EAV {
 		$res = db_query("INSERT INTO %ss (name) VALUES ('%s')",
 						static::subGetClass(), $name);
 		if($res) {
-			return mysql_insert_id();
+			return db_insert_id();
 		} else {
 			Error::generate('notice', static::subGetClass().'name already taken.');
 			return false;
@@ -75,10 +76,11 @@ abstract class EAV {
 		}
 		db_query(	"REPLACE INTO %s_data (id, attrib, %s) VALUES ('%d', '%d', '%s')",
 					static::subGetClass(), $datacol, $id, $attribid, $val);
-		if(mysql_affected_rows() < 1) {
+		if(db_affected_rows() < 1) {
 			Error::generate('debug', "Could not store attribute");
 			return false;
 		} else {
+			static::$cache[$id][$attribid] = $val;
 			return true;
 		}
 	}
@@ -103,14 +105,15 @@ abstract class EAV {
 			return false;
 		}
 		if($val) {
-			$val = mysql_real_escape_string($val);
+			$val = db_real_escape_string($val);
 			$valconstraint = "AND $datacol='$val'";
 		} else {
 			$valconstraint = '';
 		}
 		db_query("DELETE FROM %s_data WHERE attrib='%d' AND id='%d' $valconstraint",
 						static::subGetClass(), $attribid, $id);
-		if(mysql_affected_rows() >= 1) {
+		if(db_affected_rows() >= 1) {
+			static::$cache[$id][$attribid] = false;
 			return true;
 		} else {
 			Error::generate('debug', 'could not delete attribute');
@@ -118,9 +121,11 @@ abstract class EAV {
 		}
 	}
 	protected static function get_attrib($id, $attribid) {
+		if(!$id || $id==0) { Error::generate('debug', 'id is 0'); return false; }
 		if(!is_int($attribid)) $attribid = static::get_attrib_id($attribid);
 		$attribtype = static::get_attrib_type($attribid);
 		$attribprops = static::get_attrib_props($attribid);
+		if(isset(static::$cache[$id][$attribid]) && $attribprops & static::ATTRIB_PROP_UNIQUE) return static::$cache[$id][$attribid];
 		switch($attribtype) {
 		case static::ATTRIB_TYPE_STRING:
 			$datacol = 'stringdata';
@@ -133,17 +138,28 @@ abstract class EAV {
 			return false;
 		}
 
-		$res = db_query("SELECT %s FROM %s_data WHERE id='%d' AND attrib='%d'",
-						$datacol, static::subGetClass(), $id, $attribid);
+		if($attribprops & static::ATTRIB_PROP_UNIQUE) {
+			$res = db_query("SELECT attrib,stringdata,intdata FROM %s_data WHERE id='%d'",
+							static::subGetClass(), $id);
+		} else {
+			$res = db_query("SELECT %s FROM %s_data WHERE id='%d' AND attrib='%d'",
+							$datacol, static::subGetClass(), $id, $attribid);
+		}
 		if( !$res ) {
 			Error::generate('debug', 'No result, or could not query database in get_attrib');
 			return false;
 		}
 
 		if($attribprops & static::ATTRIB_PROP_UNIQUE) {
-			$ret = db_get_result($res);
+			$ret = db_get_list_of_list_results($res);
+			foreach($ret as $k=>$v) {
+				static::$cache[$id][$v[0]] =
+					static::get_attrib_type($v[0])=='stringdata' ? $v[1] : intval($v[2]);
+			}
+			$ret = static::$cache[$id][$attribid];
 		} else {
 			$ret = db_get_list_of_results($res);
+			static::$cache[$id][$attribid] = $ret;
 		}
 
 		if($attribtype == static::ATTRIB_TYPE_INT && !is_array($ret)) {
@@ -152,7 +168,18 @@ abstract class EAV {
 			return $ret;
 		}
 	}
+	protected static function get_all_attribs($id) {
+		$attribs = static::get_attribs($id);
+		$ret = array();
+		foreach($attribs as $attrib) {
+			$add = array(static::get_attrib_str($attrib), static::get_attrib($id, $attrib));
+			if(is_array($add[1])) $ret = array_merge($ret, $add);
+			else array_push($ret, $add);
+		}
+		return $ret;
+	}
 	protected static function get_attribs($id) {
+		if(!$id || $id==0) { Error::generate('debug', 'id is 0'); return array(); }
 		$res = db_query("SELECT attrib FROM %s_data WHERE id='%d'",
 						static::subGetClass(), $id);
 		if( !$res || !($ret = db_get_list_result($res)) ) {

@@ -11,7 +11,7 @@ class CourseDefn {
 		if(is_int($code)) {
 			$this->id = $code;
 		} else {
-			$this->code = $code;
+			$this->title = $this->code = $code;
 		}
 	}
 	function save() {
@@ -63,7 +63,7 @@ class CourseDefn {
 							FROM coursedefns
 							$constraint
 							ORDER BY title");
-		$ret = db_get_list_result($res);
+		$ret = db_get_list_of_assoc($res);
 		return $ret;
 	}
 	static function ListAllWithCode($code, $uni=false) {
@@ -76,11 +76,11 @@ class CourseDefn {
 		$res = db_query("
 			SELECT id,code,title,descr,university
 				FROM		coursedefns
-				WHERE		code REGEXP '^%s*'
+				WHERE		code REGEXP '^%s[0-9]+'
 							$constraint
 				ORDER BY	code",
 			$code);
-		$ret = db_get_list_result($res);
+		$ret = db_get_list_of_assoc($res);
 		return $ret;
 	}
 	static function ListAllStartingWithTitle($title, $orderby='title', $uni=false) {
@@ -97,7 +97,7 @@ class CourseDefn {
 							$constraint
 				ORDER BY	$orderby",
 			$title);
-		$ret = db_get_list_result($res);
+		$ret = db_get_list_of_assoc($res);
 		return $ret;
 	}
 	static function ListAllStartingWithCode($code, $orderby='code', $uni=false) {
@@ -114,7 +114,7 @@ class CourseDefn {
 							$constraint
 				ORDER BY	$orderby",
 			$code);
-		$ret = db_get_list_result($res);
+		$ret = db_get_list_of_assoc($res);
 		return $ret;
 	}
 }

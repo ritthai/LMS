@@ -112,26 +112,102 @@ function process_description($descr) {
 	}
 	return $chunks2;
 }
-function cached_file_update($url) {
+$async_socks = array(); $async_sockids = array();
+function async_cache_connect($target) {
+	global $async_socks, $async_sockids;
+	$sockid = uniqid(mt_rand());
+	$sock = socket_create(AF_UNIX, SOCK_STREAM, 0);
+	$status = socket_bind($sock, "/private/tmp/classmate$sockid.sock");
+	if(!$status) {
+		Error::generate('debug', "Prefetching connect failed for target $target: ".socket_strerror(socket_last_error()));
+		return;
+	}
+	$async_socks[$target] = $sock;
+	$async_sockids[$target] = $sockid;
+	Error::generate('debug', "Attempting to connect /tmp/classmate$sockid.sock to /tmp/classmate$target.sock");
+	$status = socket_connect($sock, "/private/tmp/classmate$target.sock");
+	if(!$status) {
+		Error::generate('debug', "Prefetching connect failed for target $target: ".socket_strerror(socket_last_error()));
+		return;
+	}
+}
+function async_cache_disconnect($target) {
+	global $async_socks, $async_sockids;
+	$sockid = $async_sockids[$target];
+	socket_shutdown($async_socks[$target], 2);
+	socket_close($async_socks[$target]);
+	$old = getcwd();
+	chdir('/private/tmp/');
+	$status=unlink("classmate$sockid.sock");
+	Error::generate('debug', "unlink status: $status");
+    chdir($old); // Restore the old working directory   
+}
+function async_cache_file($url, $target=1) {
+	global $async_socks;
+
+	Error::generate('debug', "async_cache_file $url");
+	profiling_start('async_cache_file');
+
+	if(!isset($async_socks[$target])) async_cache_connect($target);
+	if(isset($async_socks[$target])) socket_write($async_socks[$target], "$url ");
+
+	profiling_end('async_cache_file');
+}
+function cached_file_update($url, $key) {
 	Error::generate('debug', "cached_file_update $url");
+	profiling_start('uncached_file_get_contents');
 	$text = file_get_contents($url);
+	/*$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$text = curl_exec($ch);
+	curl_close($ch);*/
+	profiling_end('uncached_file_get_contents');
+	profiling_start('caching file_get_contents');
+	Error::disableLogging();
 	db_query(	"REPLACE INTO primitive_cache (url, content) VALUES ('%s', '%s')",
-				$url, $text );
+				$key, $text );
+	Error::enableLogging();
+	profiling_end('caching file_get_contents');
+	Error::generate('debug', "Processed $url");
 	return $text;
 }
-function cached_file_get_contents($url) {
-	Error::disableLogging();
+function cached_file_get_contents($url, $keep_logging_enabled=false) {
 	Error::generate('debug', "cached_file_get_contents $url");
-	$res = db_query("SELECT * FROM primitive_cache WHERE url='%s'",
-					$url );
-	if(!$res)
-		return cached_file_update($url);
-	$ret = mysql_fetch_row($res);
-	if(!$ret)
-		return cached_file_update($url);
-	mysql_free_result($res);
-	Error::enableLogging();
-	return $ret[1];
+	//if(!$keep_logging_enabled) Error::disableLogging();
+	$md5url = md5($url);
+	$exists = db_query("SELECT * FROM primitive_cache WHERE url='%s'", $md5url);
+	Error::disableLogging();
+	$lcond = (!$exists || !($ret = db_get_list_result($exists)));
+	if($lcond) {
+		Error::enableLogging();
+		db_query("INSERT IGNORE INTO primitive_cache_lock (id,locked) VALUES ('%s','0')",$md5url);
+		$timeout = 100000;
+		while($lcond && db_check_transaction('primitive_cache', $md5url) && $timeout > 0) {
+			$stime = 100000;
+			usleep($stime);
+			$timeout -= $stime;
+			$exists = db_query("SELECT * FROM primitive_cache WHERE url='%s'", $md5url);
+			$lcond = (!$exists || !($ret = db_get_list_result($exists)));
+		}
+		$locked = $lcond && db_start_transaction('primitive_cache', $md5url);
+	} else {
+		Error::enableLogging();
+		$locked = false;
+	}
+	if($locked) {
+		$fret = cached_file_update($url, $md5url);
+	} else {
+		if(!$ret) {
+			$fret = cached_file_update($url, $md5url);
+		} else {
+			$fret = $ret[1];
+		}
+	}
+	if($lcond) {
+		db_end_transaction('primitive_cache', $md5url);
+	}
+	$exists = db_query("DELETE FROM primitive_cache WHERE url='%s'", $md5url);
+	return $fret;
 }
 function utime() {
 	$time = explode(' ', microtime());
@@ -142,4 +218,22 @@ function utime() {
 function get_ms_delta($end, $start) {
 	return (int)(($end - $start) * 1000);
 }
-?>
+function get_us_delta($end, $start) {
+	return (int)(($end - $start) * 1000000);
+}
+function filter_result($result, $constraints) {
+	foreach($constraints as $k=>$v) {
+		$pass = isset($result[$k]);
+		if($pass) {
+			switch($k) {
+			case 'rating':
+				$pass = ($result[$k] >= $v);
+				break;
+			default:
+				$pass = ($result[$k] == $v);
+			}
+		}
+		if(!$pass) return false;
+	}
+	return true;
+}

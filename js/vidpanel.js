@@ -1,10 +1,13 @@
+function reload() {
+	window.location.reload(true);
+}
 jQuery(document).ready(function() {
 	jQuery(".all_result_content").each(function(idx) {
 		jQuery(this).hide();
 	});
 	jQuery("a.youtube_link").each(function(idx) {
 		//jQuery(this).attr('href', '#');
-		jQuery(this).fancybox();
+		jQuery(this).fancybox({ 'onStart' : function() { setTimeout('jQuery.fancybox.hideActivity()', 1000); } });
 	});
 	if($("logged_in").innerHTML == "n") {
 		jQuery("#fav_block").hide();
@@ -50,7 +53,7 @@ jQuery(document).ready(function() {
 			success: function(data) {
 				jQuery.fancybox(data);
 				if(data[0] == 'Y') {
-					window.location.reload(true);
+					setTimeout('reload()', 1000);
 				}
 			}
 		});

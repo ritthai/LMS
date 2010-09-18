@@ -88,21 +88,6 @@ class File extends EavAdjList {
 		return $ret;
 	}
 	public static function GetAttribs($id) {
-		$attribs = static::get_attribs($id);
-		$ret = array();
-		foreach($attribs as $attrib) {
-			$attrval = static::GetAttrib($id, $attrib);
-			if($attrval) {
-				if(is_array($attrval)) {
-					foreach($attrval as $v) {
-						array_push($ret, array(static::get_attrib_str($attrib), $v[0]));
-					}
-				} else {
-					array_push($ret, array(static::get_attrib_str($attrib), $attrval));
-				}
-			}
-		}
-		return $ret;
+		return static::get_all_attribs($id);
 	}
 }
-?>

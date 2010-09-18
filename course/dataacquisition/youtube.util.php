@@ -1,4 +1,17 @@
 <?php
+function prefetch_youtube_query($TERMS, $srch, $crs) {
+	global $CONFIG;
+
+	profiling_start('prefetch_youtube_query');
+
+	$TAGS = $srch;
+	$rtags = get_full_tags($crs);
+	$str = urlencode($TERMS);//."+".implode("+", $srch);
+	$url = "http://gdata.youtube.com/feeds/api/videos?q=$str&orderby=relevance&start-index=1&max-results=2&v=2&format=5";
+	async_cache_file($url, 2);
+
+	profiling_end('prefetch_youtube_query');
+}
 function youtube_query($TERMS, $srch, $crs) {
 	global $CONFIG;
 
@@ -16,9 +29,9 @@ function youtube_query($TERMS, $srch, $crs) {
     foreach($xml as $elem) {
 		switch($elem['tag']) {
 		case 'MEDIA:THUMBNAIL':
-			$content[strtolower($elem['tag'])] = array( 'url'	=> $elem['attributes']['URL'],
-														'width'	=> $elem['attributes']['WIDTH'],
-														'height'=> $elem['attributes']['HEIGHT'] );
+			$content['thumbnail_url'] = $elem['attributes']['URL'];
+			$content['thumbnail_width'] = $elem['attributes']['WIDTH'];
+			$content['thumbnail_height'] = $elem['attributes']['HEIGHT'];
 			break;
 		case 'MEDIA:PLAYER':
 			$content['link'] = $elem['attributes']['URL'];
@@ -27,13 +40,13 @@ function youtube_query($TERMS, $srch, $crs) {
 			if($elem['attributes']['TYPE'] == 'application/x-shockwave-flash') {
 				$val = $elem['attributes']['SRC'];
 			} else {
-				continue;
+				continue 2;
 			}
 			$content['src'] = $val;
 			break;
 		case 'MEDIA:CATEGORY':
 			if($val != 'Howto' && $val != 'Education' && $val != 'News' && $val != 'Tech') {
-				continue;
+				continue 2;
 			} else if($val == 'Education') {
 				$content['rating'] += 5;
 			}
@@ -42,11 +55,11 @@ function youtube_query($TERMS, $srch, $crs) {
 			break;
 		case 'CATEGORY':
 			if($elem['attributes']['SCHEME'] != 'http://gdata.youtube.com/schemas/2007/categories.cat') {
-				continue;
+				continue 2;
 			} else {
 				$val = $elem['attributes']['TERM'];
 				if($val != 'Howto' && $val != 'Education' && $val != 'News' && $val != 'Tech') {
-					continue;
+					continue 2;
 				} else if($val == 'Education') {
 					$content['rating'] += 5;
 				}
@@ -55,7 +68,7 @@ function youtube_query($TERMS, $srch, $crs) {
 			break;
 		case 'MEDIA:KEYWORDS':
 			$val = $elem['value'];
-			if(!$val) continue;
+			if(!$val) continue 2;
 			if($rtags) {
 				$matches = count_matches(explode(', ',$val), explode(',',$rtags));
 			} else {
@@ -66,7 +79,7 @@ function youtube_query($TERMS, $srch, $crs) {
 				$content['rating'] += 5;
 			} else {
 				$content['rating'] -= 5;
-				continue;
+				continue 2;
 			}
 			break;
 		case 'MEDIA:DESCRIPTION':
@@ -81,7 +94,7 @@ function youtube_query($TERMS, $srch, $crs) {
 				$content[strtolower($elem['tag'])] = $val;
 				$content['rating'] += 2;
 			} else {
-				$content['rating'] -= 2; continue;
+				$content['rating'] -= 2; continue 2;
 			}
 			break;
 		case 'TITLE':
@@ -92,7 +105,8 @@ function youtube_query($TERMS, $srch, $crs) {
 			if($elem['type'] == 'open') {
 				$content = array(	'src'=>false, 'title'=>false, 'media:keywords'=>false,
 									'media:description'=>false, 'category'=>false, 'rating'=>10,
-									'media:thumbnail'=>false, 'link'=>false );
+									'thumbnail_url'=>false, 'thumbnail_width'=>false,
+									'thumbnail_height'=>false, 'link'=>false, 'source'=>'youtube' );
 			} else if($elem['type'] == 'close') {
 				if($content['rating'] > 8) {
 					if($CONFIG['debug']) $content['title'] .= ' - rating='.$content['rating'];
@@ -111,5 +125,9 @@ function youtube_search($procd_descr, $tags, $crs) {
 	$terms = $procd_descr;//urlencode($procd_descr);
 	return youtube_query($terms, $tags, $crs);
 	//return search_with_tags($terms, $tags, 'youtube_query', $crs);
+}
+function prefetch_youtube_search($procd_descr, $tags, $crs) {
+	$terms = $procd_descr;//urlencode($procd_descr);
+	return prefetch_youtube_query($terms, $tags, $crs);
 }
 ?>

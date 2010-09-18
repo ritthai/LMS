@@ -7,7 +7,8 @@ function khanacad_query($terms, $tags, $xml) {
 	$MATCH_LIMIT_TYPE = 'number'; // number | percent
 	$NMATCHES = 4;
 	$MATCHPCT = 10; // 10% of matches
-	$QLIMIT = 1.1;
+	//$QLIMIT = 1.1;
+	$QLIMIT = 0;
 	$terms = array_merge($terms, $tags);
 	$TERMS = implode(' ', $terms);
 	$store = array();
@@ -34,8 +35,10 @@ function khanacad_query($terms, $tags, $xml) {
 			&& $s['matches'] >= $QLIMIT)
 		{
 			$title = $s['title'];
-			if($CONFIG['debug']) $title .= "<b> -- quality: ".$s['matches']." terms: ".$TERMS."</b>";
-			array_push($ret, array('title'=>$title, 'url'=>$s['url']));
+			//if($CONFIG['debug']) $title .= "<b> -- quality: ".$s['matches']." terms: ".$TERMS."</b>";
+			array_push($ret, array(	'source'=>'khanacad',
+									'title'=>$title,
+									'url'=>"http://www.khanacademy.org$s[url]"));
 		}
 	usort($ret, function ($a,$b) { return strnatcasecmp($a['title'],$b['title']); } );
 
@@ -67,4 +70,5 @@ function khanacad_search($procd_descr, $tags=array()) {
 
 	return $ret;
 }
-?>
+function prefetch_khanacad_search($procd_descr, $tags=array()) {
+}

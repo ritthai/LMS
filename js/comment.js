@@ -36,7 +36,7 @@ function alertContentsComment() {
 		if(http_request.status == 200) {
 			//jQuery("#comment_"+(new_comment_id-1)).slideDown('slow');
 			result = http_request.responseText;
-			cur_post_form.body.innerHTML = result;
+			cur_post_form.body.innerHTML = "Result: "+result;
 			var t=setTimeout("clearReceivedComment()", 0);
 		} else {
 			alert('Could not post message.\n\r' + 'Error code: ' + http_request.status);
@@ -65,7 +65,8 @@ function submit_comment(obj, boxid) {
 	}
 	if(obj.owner.value == 'not logged in') {
 		//window.location = '/user/login';
-		jQuery.fancybox.showActivity();
+		jQuery("#top_login_link").trigger('click');
+		/*jQuery.fancybox.showActivity();
 		jQuery.ajax({   
             type        : "POST",
             cache       : false,
@@ -74,7 +75,7 @@ function submit_comment(obj, boxid) {
             success     : function(data) {
                 jQuery.fancybox(data);
             }
-        });
+        });*/
 		return false;
 	}
 

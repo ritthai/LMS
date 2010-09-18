@@ -67,6 +67,10 @@ function clean($str) {
 	$str = str_replace("\"", "&quot;", $str);
 	return $str;
 }
+function escape_js($str) {
+	$str = str_replace("&apos;", "\'", $str);
+	return $str;
+}
 function limit($str, $postfix, $n) {
 	if(strlen($str) + strlen($postfix) > $n) {
 		return substr($str, 0, $n - strlen($postfix)).'...'.$postfix;

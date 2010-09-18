@@ -1,26 +1,18 @@
 <?php
 profiling_start('all');
 
+@session_start();
+@db_connect();
+$memcached = new Memcached();
+$memcached->addServer('localhost', 11211);
+
 @include("$ROOT/includes/tags.inc");
-@include("dataacquisition/google.util.php");
-@include("dataacquisition/youtube.util.php");
-@include("dataacquisition/itunesu.util.php");
-@include("dataacquisition/khanacad.util.php");
+@include("dataacquisition/search.util.php");
 @include("$ROOT/includes/subjects.inc");
 @include("$ROOT/includes/universities.inc");
 @include("$ROOT/includes/geography.inc");
 
-@session_start();
-@db_connect();
-
 controller_prefix();
-
-Error::showSeparator();
-Error::setBgColour('#B66');
-Error::generate('debug', "Loading $_SERVER[REQUEST_URI]");
-if($tmp1 = User::GetAuthenticatedID()) Error::generate('debug', "Logged in as ".User::GetAttrib($tmp1, 'name'));
-Error::setBgColour('#555');
-Error::showSeparator();
 
 $CONTROLLER = 'course';
 $PAGE_REL_URL = "$HTMLROOT";
@@ -72,6 +64,12 @@ $ACTIONS = array(	'search'				=> new HttpAction("$PAGE_REL_URL/search", 'get',
 												array('cid', 'owner', 'type')),
 					'favsrm'				=> new HttpAction("$PAGE_REL_URL/favsrm", 'post',
 												array('cid', 'owner', 'type')),
+					'voteup'				=> new HttpAction("$PAGE_REL_URL/voteup", 'post',
+												array('cid', 'owner', 'type')),
+					'votedown'				=> new HttpAction("$PAGE_REL_URL/votedown", 'post',
+												array('cid', 'owner', 'type')),
+					'check_lock'			=> new HttpAction("$PAGE_REL_URL/check_lock", 'post',
+												array('cid')),
 				);
 
 $search_results = array();
@@ -94,29 +92,23 @@ $args['favs'] = User::GetAttribs('fav');
 
 profiling_start('action');
 if($action == 'countries') {
-	$args['countries']		= Country::ListAll();
-	$args['pagetitle']		= 'Choose a Country';
-	foreach($args['countries'] as $k=>$v) {
-		$args['countries'][$k] = array(	'name'	=> $v[1],
-										'id'	=> $v[0]
-										);
-	}
+	$args['countries'] = Country::ListAll();
+	$args['pagetitle'] = 'Choose a Country';
+	$args['countries'] = array_map(	function($country) { $country['id'] = intval($country['id']); return $country; },
+									$args['countries']);
 	include("$ROOT/course/views/countries.view.php");
 } else if($action == 'areas') {
-	$args['pagetitle']		= 'Choose a Region';
+	$args['pagetitle'] = 'Choose a Region';
 	if(!is_numeric($params['country'])) {
-		$args['country']	= array('id'	=> Country::GetID($params['country']),
-									'name'	=> $params['country']);
+		$args['country'] = array('id'	=> Country::GetID($params['country']),
+								 'name'	=> $params['country']);
 	} else {
-		$args['country']	= array('id'	=> $params['country'],
-									'name'	=> Country::GetName($params['country']));
+		$args['country'] = array('id'	=> $params['country'],
+								 'name'	=> Country::GetName($params['country']));
 	}
-	$args['areas']		= Area::ListAll($args['country']['id']);
-	foreach($args['areas'] as $k=>$v) {
-		$args['areas'][$k] = array(	'name'	=> $v[1],
-									'id'	=> $v[0]
-										);
-	}
+	$args['areas'] = Area::ListAll($args['country']['id']);
+	$args['areas'] = array_map(	function($area) { $area['id'] = intval($area['id']); return $area; },
+								$args['areas']);
 	include("$ROOT/course/views/areas.view.php");
 } else if($action == 'universities') {
 	$args['pagetitle']		= 'Choose a University';
@@ -126,30 +118,30 @@ if($action == 'countries') {
 	$args['country']		= array(	'name'	=> Country::GetName($country),
 										'id'	=> $country );
 	$args['universities']	= University::ListAll($args['area']['id']);
-	foreach($args['universities'] as $k=>$v) {
-		$args['universities'][$k] = array(	'name'	=> $v[1],
-											'id'	=> $v[0]
-											);
-	}
+	$args['universities']	= array_map(function($uni) { $uni['id'] = intval($uni['id']); return $uni; },
+										$args['universities']);
 	include("$ROOT/course/views/universities.view.php");
 } else if($action == 'autocomplete') {
 	switch($params['list']) {
 	case 'countries':
 		$arr = Country::ListAllMatching($params['val']);
 		foreach($arr as $k=>$v) {
-			$arr[$k] = array($v[0], $v[1]);
+			$arr[$k] = array($v['id'], $v['name']);
 		}
 		break;
 	case 'areas':
-		$arr = Area::ListAllMatching($params['country'], $params['val']);
+		$arr = Area::ListAllMatching(	isset($params['country'])?$params['country']:false,
+										$params['val']);
 		foreach($arr as $k=>$v) {
-			$arr[$k] = array($v[0], $v[1], "$v[2]");
+			$arr[$k] = array($v['id'], $v['name'], "$v[country_name]");
 		}
 		break;
 	case 'universities':
-		$arr = University::ListAllMatching($params['area'], $params['country'], $params['val']);
+		$arr = University::ListAllMatching(	isset($params['area'])?$params['area']:false,
+											isset($params['country'])?$params['country']:false,
+											$params['val']);
 		foreach($arr as $k=>$v) {
-			$arr[$k] = array($v[0], $v[1], "$v[2], $v[3]");
+			$arr[$k] = array($v['id'], $v['name'], "$v[area_name], $v[country_name]");
 		}
 		break;
 	case 'courses':
@@ -157,12 +149,12 @@ if($action == 'countries') {
 		$lst = CourseDefn::ListAllStartingWithTitle($params['val']);
 		foreach($lst as $elem) {
 			// id, code, title, descr, university
-			$arr[] = array($elem[0], $elem[2], $elem[1]);
+			$arr[] = array($elem['id'], $elem['title'], $elem['code']);
 		}
 		$lst = CourseDefn::ListAllStartingWithCode($params['val']);
 		foreach($lst as $elem) {
 			// id, code, title, descr, university
-			$arr[] = array($elem[0], $elem[1], $elem[2]);
+			$arr[] = array($elem['id'], $elem['code'], $elem['title']);
 		}
 		break;
 	default:
@@ -237,14 +229,14 @@ if($action == 'countries') {
 							);
 	$args['pagetitle']		= $args['subject']['title'].' Courses';
 	$args['courses'] = CourseDefn::ListAllWithCode($code);
-	foreach($args['courses'] as $k=>$v) {
+	/*foreach($args['courses'] as $k=>$v) {
 		// id,code,title,descr,university
 		$args['courses'][$k] = array(	'id'			=> $v[0],
 										'code'			=> $v[1],
 										'title'			=> $v[2],
 										'descr'			=> $v[3],
 										'university'	=> $v[4] );
-	}
+	}*/
 	include("views/subject.view.php");
 } else if($action == 'favsrm') { // remove a favourite
 	switch($params['type']) {
@@ -304,9 +296,43 @@ if($action == 'countries') {
 		header("Content-length:");
 		echo "Added to favs.";
 	}
-} else if($action == 'post') { // post a comment
+} else if($action == 'voteup' || $action == 'votedown') {
+	switch($params['type']) {
+		default:
+			Error::generate('suspicious', 'Bad vote type in voteup');
+			$params['owner'] = false;
+			break;
+		case 'result':
+	}
+	$val = $action == 'voteup' ? 1 : -1;
 	if(!$params['owner'] || !User::IsAuthenticated()) {
         check_perms(false);
+	} else if(!Comment::Vote(User::GetAuthenticatedID(), $params['cid'], $val)) {
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+		header("Cache-Control: no-cache, must-revalidate");
+		header("Pragma: no-cache");
+		header("Content-Type: text/html");
+		header("Connection:");
+		header("Content-length:");
+		echo "Could not vote.";
+	} else {
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+		header("Cache-Control: no-cache, must-revalidate");
+		header("Pragma: no-cache");
+		header("Content-Type: text/html");
+		header("Connection:");
+		header("Content-length:");
+		echo "Vote successful.";
+		Error::generate('debug', 'memcached delete '.$params['cid']);
+		$memcached->delete($params['cid']);
+	}
+} else if($action == 'post') { // post a comment
+	if(!$params['owner'] || !User::IsAuthenticated()) {
+        //check_perms(false);
+        Error::generate('warn', 'Must be logged in to post a comment.', Error::$FLAGS['single']);
+        die('Must be logged in to post a comment.');
 	} else if(!($cid = Comment::Create(
 			array(	'subject'	=> $params['subject'],
 					'body'		=> $params['body'],
@@ -314,18 +340,31 @@ if($action == 'countries') {
 					'id'		=> $params['cid'] ) ) ) ) {
         Error::generate('warn', 'Could not create comment.', Error::$FLAGS['single']);
 	}
+} else if($action == 'check_lock') { // check the status of a comment lock
+	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+	header("Cache-Control: no-cache, must-revalidate");
+	header("Pragma: no-cache");
+	header("Content-Type: text/html");
+	die(db_check_transaction('comments', $params['cid']));
 } else if($action == 'show' || $action == 'search') {
-	if($params['id']) $p = (int)$params['id'];
-	else if($params['university']) $p = $params['terms'];
-	$crs = new CourseDefn( $p );
-	$succeeded = false;
-	if(!$crs->load() && $action == 'search') {
-		$crs->code = false;
-		$crs->title = $params['terms'];
-	} else {
-		$succeeded = true;
+	$success = false;
+	if(isset($params['id']) && $params['id']) {
+		$p = (int)$params['id'];
+		$crs = new CourseDefn( $p );
+		$success = $crs->load();
+	} else if(isset($params['terms'])) {
+		$p = $params['terms'];
+		$uni = 1;
+		if(isset($params['university']) && $params['university']) $uni = $params['university'];
+		else if(isset($_SESSION['university']) && $_SESSION['university']) $uni = $_SESSION['university'];
+		$res = CourseDefn::ListAllStartingWithCode($p, 'code', $uni);
+		if($res && count($res) > 0) {
+			$crs = new CourseDefn( intval($res[0]['id']) );
+			$success = $crs->load();
+		}
 	}
-	if(!$succeeded && !$crs->load()) {
+	if(!$success) {
 		Error::generate(Error::$PRIORITY['warn'], 'Course not found.');
 		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
             redirect_raw($_SESSION['last_rendered_page']);
@@ -334,41 +373,164 @@ if($action == 'countries') {
         }
 	} else { 
 		profiling_start('process description and/or get topics from db');
-		if(!($procd_descr = Comment::ListAll($crs->cid, 2))) {
-			profiling_start('process description');
-			$procd_descr = process_description($crs->descr);
-			foreach($procd_descr as $key => $topic) {
-				$id = Comment::Create(array('subject'	=> $topic,
-											'type'		=> 2,
-											'id'		=> $crs->cid));
-				$procd_descr[$key] = array($id, $topic);
+		$exists = ($procd_descr = Comment::ListAll($crs->cid, 2));
+		$locked = db_check_transaction("comments", $crs->cid);
+		if(!$exists || $locked) {
+			// display loading page
+			$page = "$ROOT/includes/template/loading.php";
+			$args['pagetitle']		= "$crs->title ($crs->code)";
+			$args['pageurl']		= $_SERVER['REQUEST_URI'];
+			$args['course']			= array('id'	=> $crs->id,
+											'title'	=> $crs->title,
+											'code'	=> $crs->code,
+											'descr' => $crs->descr);
+			$args['searchresults']	= $search_results;
+			$args['comment_id']		= $crs->cid;
+			$args['comments']		= array_map(function($a) { return $a['id']; },
+												Comment::ListAll($crs->cid) );
+			$args['actions']		= $ACTIONS;
+
+			$_SESSION['lastargs'] = $args;
+			preg_match('/^[a-zA-Z]+/', $crs->code, $matches);
+			$args['code']		= $matches[0];
+			$args['university']	= array('id'	=> $crs->university,
+										'name'	=> University::GetName($crs->university));
+			$args['area']		= array('id'	=> ($areaid = University::GetAreaID($args['university']['id'])),
+										'name'	=> Area::GetName($areaid));
+			$args['country']	= array('id'	=> ($countryid = Area::GetCountryID($args['area'])),
+										'name'	=> Country::GetName($countryid));
+			if(!isset($_SESSION['loading_screen_count'])) {
+				$_SESSION['loading_screen_count'] = 1;
+			} else if($_SESSION['loading_screen_count']++ > 2) {
+				// we're stuck in a loading screen loop. uh oh.
+				$page = "$ROOT/includes/template/error.php";
+				Error::generate('prod_debug', 'Stuck in a loading loop!');
+				Error::generate('prod_debug', $procd_descr);
+				Error::generate('prod_debug', $args);
+			} else {
+				$_SESSION['loading_screen_count']++;
 			}
-			profiling_end('process description');
+			ob_start();
+			include($page);
+			$contents = ob_get_contents();
+			ob_end_clean();
+			header("Connection: close");
+			header("Content-Length: ".strlen($contents));
+			echo $contents;
+			flush();
+			session_write_close();
+			// this will spinlock if the course is locked
+			$job_taken = db_start_transaction("comments", $crs->cid);
+			$lock_acquired = true;
+		} else {
+			$lock_acquired = false;
+		}
+		if(!$exists && $job_taken) { // course not cached
+			async_cache_connect(1);
+			async_cache_connect(2);
+			async_cache_connect(3);
+			//Comment::enableInitMode();
+			$procd_descr = process_description($crs->descr);
+			if(count($procd_descr) == 0) $procd_descr[] = 'N/A';
+			$ids = $descrs = $tagss = array();
+			foreach($procd_descr as $key => $topic) {
+				// Cache topic
+				$id = Comment::Create(array('subject'	=> $topic,
+											'type'		=> 2, // topic
+											'id'		=> $crs->cid));
+				if($topic == 'N/A') { // placeholder to indicate that there are no topics
+					continue;
+				}
+				$procd_descr[$key] = array($id, $topic);
+
+				// Cache topic result
+				$tags = split('[,]', get_tags($crs));
+				$descr = $topic;
+				if($descr === '') continue;
+				if($descr === ' ') continue;
+				$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
+
+				$ids[$key] = $id;
+				$descrs[$key] = $descr;
+				$tagss[$key] = $tags;
+
+				prefetch_search('youtube', $descr, $tags, $crs);
+				prefetch_search('google', $descr, $tags, $crs);
+				prefetch_search('khanacad', $descr, $tags, $crs);
+				prefetch_search('itunesu', $descr, $tags, $crs);
+			}
+			foreach($procd_descr as $key => $topic) {
+				$id = $ids[$key];
+				$descr = $descrs[$key];
+				$tags = $tagss[$key];
+				$results = array_merge(
+						perform_search('khanacad', $descr, $tags, $crs),
+						perform_search('youtube', $descr, $tags, $crs),
+						perform_search('google', $descr, $tags, $crs),
+						perform_search('itunesu', $descr, $tags, $crs));
+				Error::generate('debug', $results);
+				foreach($results as $res) {
+					$res['subject'] = $res['title'];
+					$res['type'] = 2;
+					$res['id'] = $id;
+					$res['rating'] = isset($res['rating']) ? $res['rating'] : 0 ;
+					Comment::Create($res);
+				}
+				//Comment::disableInitMode();
+			}
+			async_cache_disconnect(1);
+			async_cache_disconnect(2);
+			async_cache_disconnect(3);
+			$memcached->delete(''.$crs->cid);
 		} else {
 			foreach($procd_descr as $key => $topic) {
 				// cid, subject, timestamp
-				$procd_descr[$key] = array($topic[0], $topic[1]);
+				$procd_descr[$key] = array($topic['id'], $topic['subject']);
 			}
+		}
+		if($lock_acquired) {
+			db_end_transaction('comments', $crs->cid);
+			goto end;
 		}
 		profiling_end('process description and/or get topics from db');
 
 		profiling_start('deal with tags and procd_descr');
-		$tags = split('[,]', get_tags($crs));
-
-		foreach($procd_descr as $arr) {
-			$descr = $arr[1];
-			if($descr == ' ') continue;
-			$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
-			array_push(	$search_results,
-					array(	'subject'	=> ucfirst($descr),
-							'google'	=> google_search($descr),
-							'youtube'	=> youtube_search($descr, $tags, $crs),
-							'itunesu'	=> itunesu_search($descr),
-							'khanacad'	=> khanacad_search($descr),
-							'comment_id'=> $arr[0],
-							'comments'	=> array_map(	function($a) { return $a[0]; },
-														Comment::ListAll($arr[0]) )
-						));
+		$_SESSION['loading_screen_count'] = 0;
+		Error::generate('debug', 'starting deal with tags and procd_descr');
+		$search_results = $memcached->get(''.$crs->cid);
+		if(!$search_results) {
+			$search_results = array();
+			$topics = Comment::ListAll($crs->cid, 2); // topic
+			Error::generate('debug', $topics);
+			foreach($topics as $topic) {
+				$topicid = $topic['id']; $topicsubject = $topic['subject'];
+				if($topicsubject == 'N/A') { // placeholder to indicate that there are no topics
+					continue;
+				}
+				Error::generate('debug', "starting deal with tags and procd_descr, topic $topicid/$topicsubject");
+				$results = Comment::ListAll($topicid, 2);
+				Error::generate('debug',$results);
+				foreach($results as $k=>$v) {
+					$attr = Comment::GetAttribs($v['id']);
+					$results[$k] = $v;
+					foreach($attr as $vi) {
+						$results[$k][strtolower($vi[0])] = $vi[1];
+					}
+				}
+				Error::generate('debug',$results);
+				array_push(	$search_results, array(
+							'subject'	=> ucfirst($topicsubject),
+							'youtube'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'youtube', 'rating'=>0)); } ),
+							'google'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'google', 'rating'=>0)); } ),
+							'khanacad'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'khanacad', 'rating'=>0)); } ),
+							'itunesu'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'itunesu', 'rating'=>0)); } ),
+							'comment_id'=> $topicid,
+							'comments'	=> array_map( function($a) { return $a['id']; }, Comment::ListAll($topicid) )
+							));
+				Error::generate('debug', "finishing deal with tags and procd_descr, topic $topicid/$topicsubject, result:");
+				Error::generate('debug', $search_results);
+			}
+			$memcached->set(''.$crs->cid, $search_results);
 		}
 		profiling_end('deal with tags and procd_descr');
 
@@ -381,8 +543,8 @@ if($action == 'countries') {
 										'descr' => $crs->descr);
 		$args['searchresults']	= $search_results;
 		$args['comment_id']		= $crs->cid;
-		$args['comments']		= array_map(	function($a) { return $a[0]; },
-										Comment::ListAll($crs->cid) );
+		$args['comments']		= array_map(	function($a) { return $a['id']; },
+												Comment::ListAll($crs->cid) );
 		$args['actions']		= $ACTIONS;
 
 		$_SESSION['lastargs'] = $args;
@@ -431,6 +593,7 @@ if($action == 'countries') {
 					'actions'		=> $ACTIONS);
 	include("views/index.view.php");
 }
+end:
 profiling_end('view');
 db_close();
 

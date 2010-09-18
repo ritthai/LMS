@@ -39,7 +39,7 @@
 <?php   if($action == 'search') {  ?>
 	<div id="description_word">Description:</div>
 	<p id="description"><?php echo clean($args['course']['descr']); ?></p>
-<?		}	?>
+<?php	}	?>
 
 <?php	/*****	SEARCH RESULTS	*****/	?>
 <?php	if(($action == 'search' || $action == 'show') && $args['searchresults']) { // are there params?

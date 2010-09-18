@@ -1,1086 +1,491 @@
-<xml><subject title="Variable Expressions" link="http://khanexercises.appspot.com/video?v=aoXUWSwiDzE" />
-<subject title="Order of Operations" link="http://khanexercises.appspot.com/video?v=3Po3nfITsok" />
-<subject title="Patterns and Equations" link="http://khanexercises.appspot.com/video?v=rUT0pa87m7E" />
-<subject title="Equations and Inequalities" link="http://khanexercises.appspot.com/video?v=hJ-_OoCHTks" />
-<subject title="Domain and Range of a Function" link="http://khanexercises.appspot.com/video?v=O0uUVH8dRiU" />
-<subject title="Functions as Graphs" link="http://khanexercises.appspot.com/video?v=jQ-fS2lsslU" />
-<subject title="Word Problem Solving Plan 1" link="http://khanexercises.appspot.com/video?v=Xz6rT9k8ftg" />
-<subject title="Word Problem Solving Strategies" link="http://khanexercises.appspot.com/video?v=SpDIXJ2I2D4" />
-<subject title="Integers and Rational Numbers" link="http://khanexercises.appspot.com/video?v=kyu-IQ-gBIg" />
-<subject title="Addition of Rational  Numbers" link="http://khanexercises.appspot.com/video?v=BKEtsv9MbyY" />
-<subject title="Subraction of Rational Numbers" link="http://khanexercises.appspot.com/video?v=lLIo4kGRBEw" />
-<subject title="Multiplication of Rational Numbers" link="http://khanexercises.appspot.com/video?v=lBi9bwz08EY" />
-<subject title="Distributive Property" link="http://khanexercises.appspot.com/video?v=ewEorPD4kdA" />
-<subject title="Division of Rational Numbers" link="http://khanexercises.appspot.com/video?v=I0b5-7UuwQ8" />
-<subject title="Square Roots and Real Numbers" link="http://khanexercises.appspot.com/video?v=BpBh8gvMifs" />
-<subject title="Problem Solving Word Problems 2" link="http://khanexercises.appspot.com/video?v=s1QN7sSfBM8" />
-<subject title="One Step Equations" link="http://khanexercises.appspot.com/video?v=9DxrF6Ttws4" />
-<subject title="Two-Step Equations" link="http://khanexercises.appspot.com/video?v=tuVd355R-OQ" />
-<subject title="Multi-Step Equations" link="http://khanexercises.appspot.com/video?v=a5uNoOnEy_A" />
-<subject title="Equations with Variables on Both Sides" link="http://khanexercises.appspot.com/video?v=xMsG9hvqzbY" />
-<subject title="Ratio and Proportion" link="http://khanexercises.appspot.com/video?v=WfqgFBGet7s" />
-<subject title="Scale and Indirect Measurement" link="http://khanexercises.appspot.com/video?v=GfNB14D55gQ" />
-<subject title="Percent Problems" link="http://khanexercises.appspot.com/video?v=1LtBcfk1uHg" />
-<subject title="Word Problem Solving 3" link="http://khanexercises.appspot.com/video?v=LRKMoqrMbGw" />
-<subject title="The Coordinate Plane" link="http://khanexercises.appspot.com/video?v=VhNkWdLGpmA" />
-<subject title="Graphing Using Intercepts" link="http://khanexercises.appspot.com/video?v=6zixwWZ88tk" />
-<subject title="Graphs of Linear Equations" link="http://khanexercises.appspot.com/video?v=rgvysb9emcQ" />
-<subject title="Slope and Rate of Change" link="http://khanexercises.appspot.com/video?v=Iqws-qzyZwc" />
-<subject title="Graphs Using Slope-Intercept Form" link="http://khanexercises.appspot.com/video?v=9wOalujeZf4" />
-<subject title="Direct Variation Models" link="http://khanexercises.appspot.com/video?v=9M-B5qU7ezY" />
-<subject title="Linear Function Graphs" link="http://khanexercises.appspot.com/video?v=EmTvdKkAUtE" />
-<subject title="Word Problem Solving 4" link="http://khanexercises.appspot.com/video?v=5EdbPz1ZVn0" />
-<subject title="Linear Equations in Slope Intercept Form" link="http://khanexercises.appspot.com/video?v=5fkh01mClLU" />
-<subject title="Linear Equations in Point Slope Form" link="http://khanexercises.appspot.com/video?v=zqCokP2vDGo" />
-<subject title="Linear Equations in Standard Form" link="http://khanexercises.appspot.com/video?v=BaQXFstxCMo" />
-<subject title="Equations of Parallel and Perpendicular Lines" link="http://khanexercises.appspot.com/video?v=9hryH94KFJA" />
-<subject title="Fitting a Line to Data" link="http://khanexercises.appspot.com/video?v=OhUkMQtBGmE" />
-<subject title="Predicting with Linear Models" link="http://khanexercises.appspot.com/video?v=aVDiAGZmcPo" />
-<subject title="Using a Linear Model" link="http://khanexercises.appspot.com/video?v=Gjv25aOuD00" />
-<subject title="Inequalities Using Addition and Subtraction" link="http://khanexercises.appspot.com/video?v=UTs4uZhu5t8" />
-<subject title="Inequalities Using Multiplication and Division" link="http://khanexercises.appspot.com/video?v=PNXozoJWsWc" />
-<subject title="Multi-Step Inequalities" link="http://khanexercises.appspot.com/video?v=xOxvyeSl0uA" />
-<subject title="Compound Inequalities" link="http://khanexercises.appspot.com/video?v=A3xPhzs-KBI" />
-<subject title="Absolute Value Equations" link="http://khanexercises.appspot.com/video?v=u6zDpUL5RkU" />
-<subject title="Absolute Value Inequalities" link="http://khanexercises.appspot.com/video?v=iI_2Piwn_og" />
-<subject title="Graphing Inequalities" link="http://khanexercises.appspot.com/video?v=unSBFwK881s" />
-<subject title="Solving Linear Systems by Graphing" link="http://khanexercises.appspot.com/video?v=5a6zpfl50go" />
-<subject title="Solving Linear Systems by Substitution" link="http://khanexercises.appspot.com/video?v=V7H1oUHXPkg" />
-<subject title="Solving Systems of Equations by Elimination" link="http://khanexercises.appspot.com/video?v=vA-55wZtLeE" />
-<subject title="Solving Systems of Equations by Multiplication" link="http://khanexercises.appspot.com/video?v=wYrxKGt_bLg" />
-<subject title="Special Types of Linear Systems" link="http://khanexercises.appspot.com/video?v=5qkyuHIE2GM" />
-<subject title="Systems of Linear Inequalities" link="http://khanexercises.appspot.com/video?v=5xQqwgS3O4U" />
-<subject title="Exponent Properties Involving Products" link="http://khanexercises.appspot.com/video?v=zM_p7tfWvLU" />
-<subject title="Exponent Properties Involving Quotients" link="http://khanexercises.appspot.com/video?v=AR1uqNbjM5s" />
-<subject title="Zero, Negative, and Fractional Exponents" link="http://khanexercises.appspot.com/video?v=tOuCdKqO6-s" />
-<subject title="Scientific Notation" link="http://khanexercises.appspot.com/video?v=i6lfVUp5RW8" />
-<subject title="Exponential Growth Functions" link="http://khanexercises.appspot.com/video?v=6WMZ7J0wwMI" />
-<subject title="Exponential Decay Functions" link="http://khanexercises.appspot.com/video?v=AXAMVxaxjDg" />
-<subject title="Geometric Sequences (Introduction)" link="http://khanexercises.appspot.com/video?v=pXo0bG4iAyg" />
-<subject title="Word Problem Solving- Exponential Growth and Decay" link="http://khanexercises.appspot.com/video?v=m5Tf6vgoJtQ" />
-<subject title="Addition and Subtraction of Polynomials" link="http://khanexercises.appspot.com/video?v=ZgFXL6SEUiI" />
-<subject title="Multiplication of Polynomials" link="http://khanexercises.appspot.com/video?v=fGThIRpWEE4" />
-<subject title="Special Products of Binomials" link="http://khanexercises.appspot.com/video?v=bFtjG45-Udk" />
-<subject title="Polynomial Equations in Factored Form" link="http://khanexercises.appspot.com/video?v=zxz0WNVnF38" />
-<subject title="Factoring Quadratic Expressions" link="http://khanexercises.appspot.com/video?v=eF6zYNzlZKQ" />
-<subject title="Factoring Special Products" link="http://khanexercises.appspot.com/video?v=BI_jmI4xRus" />
-<subject title="Factor by Grouping and Factoring Completely" link="http://khanexercises.appspot.com/video?v=X7B_tH4O-_s" />
-<subject title="Graphs of Quadratic Functions" link="http://khanexercises.appspot.com/video?v=RjkTEyO5Zso" />
-<subject title="Solving Quadratic Equations by Graphing" link="http://khanexercises.appspot.com/video?v=JHUju_Qkqbg" />
-<subject title="Solving Quadratic Equations by Square Roots" link="http://khanexercises.appspot.com/video?v=55G8037gsKY" />
-<subject title="Using the Quadratic Formula" link="http://khanexercises.appspot.com/video?v=i7idZfS8t8w" />
-<subject title="Proof of Quadratic Formula" link="http://khanexercises.appspot.com/video?v=r3SEkdtpobo" />
-<subject title="Discriminant of Quadratic Equations" link="http://khanexercises.appspot.com/video?v=JBSDQLZtjFo" />
-<subject title="Khan Academy Vision and Social Return" link="http://khanexercises.appspot.com/video?v=wRf6XiEZ_Y8" />
-<subject title="Linear, Quadratic, and Exponential Models" link="http://khanexercises.appspot.com/video?v=CxEFOozrMSE" />
-<subject title="Identifying Quadratic Models" link="http://khanexercises.appspot.com/video?v=o1npPDCq-4M" />
-<subject title="Identifying Exponential Models" link="http://khanexercises.appspot.com/video?v=s8PKFcrrbNQ" />
-<subject title="Quadratic Regression" link="http://khanexercises.appspot.com/video?v=z_hEVWSkQHo" />
-<subject title="Graphs of Square Root Functions" link="http://khanexercises.appspot.com/video?v=outcfkh69U0" />
-<subject title="Radical Expressions with Higher Roots" link="http://khanexercises.appspot.com/video?v=iX7ivCww2ws" />
-<subject title="More Simplifying Radical Expressions" link="http://khanexercises.appspot.com/video?v=VWlFMfPVmkU" />
-<subject title="How to Rationalize a Denominator" link="http://khanexercises.appspot.com/video?v=gY5TvlHg4Vk" />
-<subject title="Extraneous Solutions to Radical Equations" link="http://khanexercises.appspot.com/video?v=711pdW8TbbY" />
-<subject title="Radical Equation Examples" link="http://khanexercises.appspot.com/video?v=dKuk8PybYs4" />
-<subject title="More Involved Radical Equation Example" link="http://khanexercises.appspot.com/video?v=5pqzmUxOw_E" />
-<subject title="Pythagorean Theorem" link="http://khanexercises.appspot.com/video?v=AEIzy1kNRqo" />
-<subject title="Distance Formula" link="http://khanexercises.appspot.com/video?v=nyZuite17Pc" />
-<subject title="Midpoint Formula" link="http://khanexercises.appspot.com/video?v=Ez_-RwV9WVo" />
-<subject title="Visual Pythagorean Theorem Proof" link="http://khanexercises.appspot.com/video?v=r382kfkqAF4" />
-<subject title="Stem and Leaf Plots" link="http://khanexercises.appspot.com/video?v=OaJXJduRiIE" />
-<subject title="Histograms" link="http://khanexercises.appspot.com/video?v=4eLJGG2Ad30" />
-<subject title="Box-and-whisker Plot" link="http://khanexercises.appspot.com/video?v=BXq5TFLvsVw" />
-<subject title="Proportionality" link="http://khanexercises.appspot.com/video?v=AQFZuih2odo" />
-<subject title="Asymptotes of Rational Functions" link="http://khanexercises.appspot.com/video?v=2N62v_63SBo" />
-<subject title="Another Rational Function Graph Example" link="http://khanexercises.appspot.com/video?v=ReEMqdZEEX0" />
-<subject title="A Third Example of Graphing a Rational Function" link="http://khanexercises.appspot.com/video?v=p7ycTWq6BFk" />
-<subject title="Polynomial Division" link="http://khanexercises.appspot.com/video?v=FXgV9ySNusc" />
-<subject title="Simplifying Rational Expressions" link="http://khanexercises.appspot.com/video?v=7Uos1ED3KHI" />
-<subject title="Multiplying and Dividing Rational Expressions" link="http://khanexercises.appspot.com/video?v=x_5hDLe8UL0" />
-<subject title="Adding Rational Expressions Example 1" link="http://khanexercises.appspot.com/video?v=nWEso_M7By4" />
-<subject title="Adding Rational Expressions Example 2" link="http://khanexercises.appspot.com/video?v=euyg3SwS2lU" />
-<subject title="Adding Rational Expressions Example 3" link="http://khanexercises.appspot.com/video?v=4VO-BgDgAHE" />
-<subject title="Solving Rational Equations" link="http://khanexercises.appspot.com/video?v=6eqgIZyXgK8" />
-<subject title="Two more examples of solving rational equations" link="http://khanexercises.appspot.com/video?v=u28w46QrE0Q" />
-<subject title="Surveys and Samples" link="http://khanexercises.appspot.com/video?v=nabw6v93Xns" />
-<subject title="Algebra: Linear Equations 1" link="http://khanexercises.appspot.com/video?v=bAerID24QJ0" />
-<subject title="Algebra: Linear Equations 2" link="http://khanexercises.appspot.com/video?v=DopnmxeMt-s" />
-<subject title="Algebra: Linear Equations 3" link="http://khanexercises.appspot.com/video?v=Zn-GbH2S0Dk" />
-<subject title="Algebra: Linear Equations 4" link="http://khanexercises.appspot.com/video?v=9IUEk9fn2Vs" />
-<subject title="Algebra: Solving Inequalities" link="http://khanexercises.appspot.com/video?v=VgDe_D8ojxw" />
-<subject title="Algebra: graphing lines 1" link="http://khanexercises.appspot.com/video?v=2UrcUfBizyw" />
-<subject title="Algebra: Slope and Y-intercept intuition" link="http://khanexercises.appspot.com/video?v=Nhn-anmubYU" />
-<subject title="Algebra: Slope" link="http://khanexercises.appspot.com/video?v=hXP1Gv9IMBo" />
-<subject title="Algebra: Slope 2" link="http://khanexercises.appspot.com/video?v=Kk9IDameJXk" />
-<subject title="Algebra: Slope 3" link="http://khanexercises.appspot.com/video?v=8XffLj2zvf4" />
-<subject title="Algebra: Equation of a line" link="http://khanexercises.appspot.com/video?v=gvwKv6F69F0" />
-<subject title="Slope and Y-intercept Intuition" link="http://khanexercises.appspot.com/video?v=8sz1IPjBRS8" />
-<subject title="Averages" link="http://khanexercises.appspot.com/video?v=9VZsMY15xeU" />
-<subject title="Integer sums" link="http://khanexercises.appspot.com/video?v=W254ewkkMck" />
-<subject title="Taking percentages" link="http://khanexercises.appspot.com/video?v=_SpE4hQ8D_o" />
-<subject title="Growing by a percentage" link="http://khanexercises.appspot.com/video?v=X2jVap1YgwI" />
-<subject title="Another Percent Word Problem" link="http://khanexercises.appspot.com/video?v=d1oNF88SAgg" />
-<subject title="More percent problems" link="http://khanexercises.appspot.com/video?v=4oeoIOan_h4" />
-<subject title="systems of equations" link="http://khanexercises.appspot.com/video?v=nok99JOhcjo" />
-<subject title="Introduction to Ratios (new HD version)" link="http://khanexercises.appspot.com/video?v=HpdMJaKaXXc" />
-<subject title="Ratio problem with basic algebra (new HD)" link="http://khanexercises.appspot.com/video?v=ITVQrzDSekU" />
-<subject title="Alternate Solution to Ratio Problem (HD Version)" link="http://khanexercises.appspot.com/video?v=-xyTz0WZ1W4" />
-<subject title="Introduction to Ratios" link="http://khanexercises.appspot.com/video?v=UsPmg_Ne1po" />
-<subject title="Advanced ratio problems" link="http://khanexercises.appspot.com/video?v=PASSD2OcU0c" />
-<subject title="Age word problems 1" link="http://khanexercises.appspot.com/video?v=bAUT_Pux73w" />
-<subject title="Age word problems 2" link="http://khanexercises.appspot.com/video?v=pPqPj8CAPvI" />
-<subject title="Age word problems 3" link="http://khanexercises.appspot.com/video?v=DplUpe3oyWo" />
-<subject title="Level 1 multiplying expressions" link="http://khanexercises.appspot.com/video?v=Sc0e6xrRJYY" />
-<subject title="Solving a quadratic by factoring" link="http://khanexercises.appspot.com/video?v=N30tN9158Kc" />
-<subject title="i and Imaginary numbers" link="http://khanexercises.appspot.com/video?v=rDLDGQMKT3M" />
-<subject title="Complex Numbers (part 1)" link="http://khanexercises.appspot.com/video?v=kpywdu1afas" />
-<subject title="Complex Numbers (part 2)" link="http://khanexercises.appspot.com/video?v=bPqB9a1uk_8" />
-<subject title="Introduction to the quadratic equation" link="http://khanexercises.appspot.com/video?v=IWigvJcCAJ0" />
-<subject title="Quadratic Equation part 2" link="http://khanexercises.appspot.com/video?v=y19jYxzY8Y8" />
-<subject title="Completing the square" link="http://khanexercises.appspot.com/video?v=gzm-uhj06q8" />
-<subject title="Quadratic Formula (proof)" link="http://khanexercises.appspot.com/video?v=mDmRYfma9C0" />
-<subject title="Quadratic Inequalities" link="http://khanexercises.appspot.com/video?v=ZNtzWpU80-0" />
-<subject title="Quadratic Inequalities (Visual Explanation)" link="http://khanexercises.appspot.com/video?v=xdiBjypYFRQ" />
-<subject title="Introduction to functions" link="http://khanexercises.appspot.com/video?v=VhokQhjl5t0" />
-<subject title="Functions Part 2" link="http://khanexercises.appspot.com/video?v=XEblO51pF5I" />
-<subject title="Functions (Part III)" link="http://khanexercises.appspot.com/video?v=5fcRSie63Hs" />
-<subject title="Functions (part 4)" link="http://khanexercises.appspot.com/video?v=rbt51hXmzig" />
-<subject title="Domain of a function" link="http://khanexercises.appspot.com/video?v=U-k5N1WPk4g" />
-<subject title="Proof: log a + log b = log ab" link="http://khanexercises.appspot.com/video?v=FP2arCfAfBY" />
-<subject title="Proof: log_a (B) = (log_x (B))/(log_x (A))" link="http://khanexercises.appspot.com/video?v=cKOtT4WnZb4" />
-<subject title="Algebraic Long Division" link="http://khanexercises.appspot.com/video?v=4u8_AMacu-Y" />
-<subject title="Introduction to Conic Sections" link="http://khanexercises.appspot.com/video?v=0A7RR0oy2ho" />
-<subject title="Conic Sections: Intro to Circles" link="http://khanexercises.appspot.com/video?v=6r1GQCxyMKI" />
-<subject title="Conic Sections: Intro to Ellipses" link="http://khanexercises.appspot.com/video?v=lvAYFUIEpFI" />
-<subject title="Conic Sections: Intro to Hyperbolas" link="http://khanexercises.appspot.com/video?v=pzSyOTkAsY4" />
-<subject title="Conic Sections: Hyperbolas 2" link="http://khanexercises.appspot.com/video?v=hl58vTCqVIY" />
-<subject title="Conic Sections: Hyperbolas 3" link="http://khanexercises.appspot.com/video?v=lGQw-W1PxBE" />
-<subject title="Identifying Conics 1" link="http://khanexercises.appspot.com/video?v=LSJuu4Qm2qQ" />
-<subject title="Identifying Conics 2" link="http://khanexercises.appspot.com/video?v=cvA4VN1dpuY" />
-<subject title="Conic Identification 3" link="http://khanexercises.appspot.com/video?v=Dru0RHgfp2g" />
-<subject title="Foci of an Ellipse" link="http://khanexercises.appspot.com/video?v=QR2vxfwiHAU" />
-<subject title="Foci of a Hyperbola" link="http://khanexercises.appspot.com/video?v=S0Fd2Tg2v7M" />
-<subject title="Proof: Hyperbola Foci" link="http://khanexercises.appspot.com/video?v=HPRFmu7JsKU" />
-<subject title="Partial Fraction Expansion 1" link="http://khanexercises.appspot.com/video?v=S-XKGBesRzk" />
-<subject title="Partial Fraction Expansion 2" link="http://khanexercises.appspot.com/video?v=6FrPLJY0rqM" />
-<subject title="Partial Fraction Expansion 3" link="http://khanexercises.appspot.com/video?v=A52fEdPn9lg" />
-<subject title="Parabola Focus and Directrix 1" link="http://khanexercises.appspot.com/video?v=ZJf9shWlMz0" />
-<subject title="Focus and Directrix of a Parabola 2" link="http://khanexercises.appspot.com/video?v=1Jm9rREA-uA" />
-<subject title="Two Passing Bicycles Word Problem" link="http://khanexercises.appspot.com/video?v=Nx4Xk5S4HQA" />
-<subject title="Passed Bike Word Problem" link="http://khanexercises.appspot.com/video?v=P03ljxjy8Nw" />
-<subject title="Passing Trains" link="http://khanexercises.appspot.com/video?v=qLLjD-g_9ms" />
-<subject title="Overtaking Word Problem" link="http://khanexercises.appspot.com/video?v=LYWUHaWwY0c" />
-<subject title="Early Train Word Problem" link="http://khanexercises.appspot.com/video?v=uA3m8vbd2wc" />
-<subject title="Officer on Horseback" link="http://khanexercises.appspot.com/video?v=IPJAi5zWu9U" />
-<subject title="Rational Inequalities" link="http://khanexercises.appspot.com/video?v=ZjeMdXV0QMg" />
-<subject title="Rational Inequalities 2" link="http://khanexercises.appspot.com/video?v=2RnS3fSHVV8" />
-<subject title="Interesting Polynomial Coefficient Problem" link="http://khanexercises.appspot.com/video?v=hypi8QPsFEk" />
-<subject title="CA Algebra I: Number Properties and Absolute Value" link="http://khanexercises.appspot.com/video?v=ZouQdHSyelg" />
-<subject title="CA Algebra I: Simplifying Expressions" link="http://khanexercises.appspot.com/video?v=Hfihqi82M4A" />
-<subject title="CA Algebra I: Simple Logical Arguments" link="http://khanexercises.appspot.com/video?v=yIzF_XGX4qk" />
-<subject title="CA Algebra I: Graphing Inequalities" link="http://khanexercises.appspot.com/video?v=KZ8Vw_Nim8U" />
-<subject title="CA Algebra I: Slope and Y-intercept" link="http://khanexercises.appspot.com/video?v=31v-n2ND2VE" />
-<subject title="CA Algebra I: Systems of Inequalities" link="http://khanexercises.appspot.com/video?v=1piZ8oYWh3E" />
-<subject title="CA Algebra I: Simplying Expressions" link="http://khanexercises.appspot.com/video?v=ri-0v6vqcKM" />
-<subject title="CA Algebra I: Factoring Quadratics" link="http://khanexercises.appspot.com/video?v=K5ggNnKTmNM" />
-<subject title="CA Algebra I: Completing the Square" link="http://khanexercises.appspot.com/video?v=8M4c8TB3Cdc" />
-<subject title="CA Algebra I: Quadratic Equation" link="http://khanexercises.appspot.com/video?v=tSNtCg7o7bA" />
-<subject title="CA Algebra I: Quadratic Roots" link="http://khanexercises.appspot.com/video?v=uA6mcx4FMN8" />
-<subject title="CA Algebra I: Rational Expressions" link="http://khanexercises.appspot.com/video?v=K4VyHxglUts" />
-<subject title="CA Algebra I: Rational Expressions" link="http://khanexercises.appspot.com/video?v=C5xQP8RmHxE" />
-<subject title="CA Algebra I: Word Problems" link="http://khanexercises.appspot.com/video?v=PP23clmV9Hw" />
-<subject title="CA Algebra I: More Word Problems" link="http://khanexercises.appspot.com/video?v=ch5tDNaeuxc" />
-<subject title="CA Algebra I: Functions" link="http://khanexercises.appspot.com/video?v=NRB6s77nx2g" />
-<subject title="California Standards Test: Algebra II" link="http://khanexercises.appspot.com/video?v=wzEVAd6ezZU" />
-<subject title="CA Standards:  Algebra II" link="http://khanexercises.appspot.com/video?v=q9m5VZMYEyw" />
-<subject title="Algebra II: Simplifying Polynomials" link="http://khanexercises.appspot.com/video?v=WB7gPfsv6rQ" />
-<subject title="Algebra II: Imaginary and Complex Numbers" link="http://khanexercises.appspot.com/video?v=C-2Ln0pK3kY" />
-<subject title="Algebra II: Complex numbers and conjugates" link="http://khanexercises.appspot.com/video?v=e3W8o6M-7gg" />
-<subject title="Algebra II: Quadratics and Shifts" link="http://khanexercises.appspot.com/video?v=GHDrDdu6vrU" />
-<subject title="Algebra II: Shifting Quadratic Graphs" link="http://khanexercises.appspot.com/video?v=X9rTIwc1wRU" />
-<subject title="Algebra ||: Conic Sections" link="http://khanexercises.appspot.com/video?v=74oju-0NExU" />
-<subject title="Algebra II: Circles and Logarithms" link="http://khanexercises.appspot.com/video?v=QwOcCoHsZfM" />
-<subject title="Algebra II: Logarithms Exponential Growth" link="http://khanexercises.appspot.com/video?v=BcjutHIUjxQ" />
-<subject title="Algebra II: Logarithms and more" link="http://khanexercises.appspot.com/video?v=9Z1WpYN-tBE" />
-<subject title="Algebra II: Functions, Combinatorics" link="http://khanexercises.appspot.com/video?v=Y5BukhTmSHE" />
-<subject title="Algebra II: binomial Expansion and Combinatorics" link="http://khanexercises.appspot.com/video?v=xTxv9Wukjiw" />
-<subject title="Algebra II: Functions and Probability" link="http://khanexercises.appspot.com/video?v=ZGJU7aqE3mY" />
-<subject title="Algebra II: Probability and Statistics" link="http://khanexercises.appspot.com/video?v=UXO9kJ3jlhk" />
-<subject title="Algebra II: Mean and Standard Deviation" link="http://khanexercises.appspot.com/video?v=i0W4KcxE-mI" />
-<subject title="Basic Addition" link="http://khanexercises.appspot.com/video?v=AuX7nPBqDts" />
-<subject title="Addition 2" link="http://khanexercises.appspot.com/video?v=t2L3JFOqTEk" />
-<subject title="Level 2 Addition" link="http://khanexercises.appspot.com/video?v=27Kp7HJYj2c" />
-<subject title="Addition 3" link="http://khanexercises.appspot.com/video?v=e_SpXIw_Qts" />
-<subject title="Addition 4" link="http://khanexercises.appspot.com/video?v=fOXo4p4WDKM" />
-<subject title="Basic Subtraction" link="http://khanexercises.appspot.com/video?v=aNqG4ChKShI" />
-<subject title="Subtraction 2" link="http://khanexercises.appspot.com/video?v=incKJchBCLo" />
-<subject title="Alternate mental subtraction method" link="http://khanexercises.appspot.com/video?v=GBtcGO44e-A" />
-<subject title="Level 4 Subtraction" link="http://khanexercises.appspot.com/video?v=omUfrXtHtN0" />
-<subject title="Why borrowing works" link="http://khanexercises.appspot.com/video?v=fWan_T0enj4" />
-<subject title="Adding Decimals" link="http://khanexercises.appspot.com/video?v=SxZUFA2SGX8" />
-<subject title="Subtracting decimals" link="http://khanexercises.appspot.com/video?v=0mOH-qNGM7M" />
-<subject title="Basic Multiplication" link="http://khanexercises.appspot.com/video?v=mvOkMYCygps" />
-<subject title="Multiplication 2: The Multiplication Tables" link="http://khanexercises.appspot.com/video?v=xO_1bYgoQvA" />
-<subject title="Multiplication 3: 10,11,12 times tables" link="http://khanexercises.appspot.com/video?v=qihoczo1Ujk" />
-<subject title="Multiplication 4: 2-digit times 1-digit number" link="http://khanexercises.appspot.com/video?v=OYYYc7ygd38" />
-<subject title="Multiplication 5:  2-digit times a 2-digit number" link="http://khanexercises.appspot.com/video?v=t8m0NalQtEk" />
-<subject title="Multiplication 6: Multiple Digit Numbers" link="http://khanexercises.appspot.com/video?v=-h3Oqhl8fPg" />
-<subject title="Multiplication 7: Old video giving more examples" link="http://khanexercises.appspot.com/video?v=_k3aWF6_b4w" />
-<subject title="Mulitplication 8: Multiplying decimals (Old video)" link="http://khanexercises.appspot.com/video?v=m5z6pOsxF_8" />
-<subject title="Lattice Multiplication" link="http://khanexercises.appspot.com/video?v=gS6TfWUv97I" />
-<subject title="Why Lattice Multiplication Works" link="http://khanexercises.appspot.com/video?v=S3z4XqC_YSc" />
-<subject title="Division 1" link="http://khanexercises.appspot.com/video?v=MTzTqvzWzm8" />
-<subject title="Division 2" link="http://khanexercises.appspot.com/video?v=8Ft5iHhauJ0" />
-<subject title="Level 4 division" link="http://khanexercises.appspot.com/video?v=gHTH6PKfpMc" />
-<subject title="Converting fractions to decimals" link="http://khanexercises.appspot.com/video?v=Gn2pdkvdbGQ" />
-<subject title="Percent and decimals" link="http://khanexercises.appspot.com/video?v=RvtdJnYFNhc" />
-<subject title="Dividing decimal" link="http://khanexercises.appspot.com/video?v=S0uuK7SQcA8" />
-<subject title="Ordering numeric expressions" link="http://khanexercises.appspot.com/video?v=Llt-KkHugRQ" />
-<subject title="Greatest Common Divisor" link="http://khanexercises.appspot.com/video?v=jFd-6EPfnec" />
-<subject title="Least Common Multiple" link="http://khanexercises.appspot.com/video?v=cH-jaMCzIRk" />
-<subject title="Equivalent fractions" link="http://khanexercises.appspot.com/video?v=U2ovEuEUxXQ" />
-<subject title="Mixed numbers and improper fractions" link="http://khanexercises.appspot.com/video?v=1xuf6ZKF1_I" />
-<subject title="Order of operations" link="http://khanexercises.appspot.com/video?v=pEz_Wn35098" />
-<subject title="Order of operations II" link="http://khanexercises.appspot.com/video?v=_ZD3OCliBuY" />
-<subject title="Adding/Subtracting negative numbers" link="http://khanexercises.appspot.com/video?v=C38B33ZywWs" />
-<subject title="Multiplying and dividing negative numbers" link="http://khanexercises.appspot.com/video?v=d8lP5tR2R3Q" />
-<subject title="Adding and subtracting fractions" link="http://khanexercises.appspot.com/video?v=52ZlXsFJULI" />
-<subject title="Multiplying fractions" link="http://khanexercises.appspot.com/video?v=Mnu16kCRW4U" />
-<subject title="Dividing fractions" link="http://khanexercises.appspot.com/video?v=zQMU-lsMb3U" />
-<subject title="Level 1 Exponents" link="http://khanexercises.appspot.com/video?v=8htcZca0JIA" />
-<subject title="Level 2 Exponents" link="http://khanexercises.appspot.com/video?v=1Nt-t9YJM8k" />
-<subject title="Level 3 exponents" link="http://khanexercises.appspot.com/video?v=aYE26a5E1iU" />
-<subject title="Negative Exponent Intuition" link="http://khanexercises.appspot.com/video?v=Tqpcku0hrPU" />
-<subject title="Exponent Rules Part 1" link="http://khanexercises.appspot.com/video?v=kITJ6qH7jS0" />
-<subject title="Exponent Rules Part 2" link="http://khanexercises.appspot.com/video?v=rEtuPhl6930" />
-<subject title="Simplifying radicals" link="http://khanexercises.appspot.com/video?v=6QJtWfIiyZo" />
-<subject title="Introduction to Logarithms" link="http://khanexercises.appspot.com/video?v=mQTWzLpCcW0" />
-<subject title="Unit conversion" link="http://khanexercises.appspot.com/video?v=w0nqd_HXHPQ" />
-<subject title="Speed translation" link="http://khanexercises.appspot.com/video?v=aTjNDKlz8G4" />
-<subject title="Introduction to logarithm properties" link="http://khanexercises.appspot.com/video?v=PupNgv49_WY" />
-<subject title="Introduction to logarithm properties (part 2)" link="http://khanexercises.appspot.com/video?v=TMmxKZaCqe0" />
-<subject title="Scientific Notation" link="http://khanexercises.appspot.com/video?v=trdbaV4TaAo" />
-<subject title="Scientific Notation Examples" link="http://khanexercises.appspot.com/video?v=0Dd-y_apbRw" />
-<subject title="Introduction to Ratios (new HD version)" link="http://khanexercises.appspot.com/video?v=HpdMJaKaXXc" />
-<subject title="Unit Conversion Example: Drug Dosage" link="http://khanexercises.appspot.com/video?v=ScvuRb6vsz4" />
-<subject title="Introduction to angles" link="http://khanexercises.appspot.com/video?v=2439OIVBgPg" />
-<subject title="Angles (part 2)" link="http://khanexercises.appspot.com/video?v=zrqzG6xKa1A" />
-<subject title="Angles (part 3)" link="http://khanexercises.appspot.com/video?v=NLg6hfoKKlE" />
-<subject title="Angles of parallel lines" link="http://khanexercises.appspot.com/video?v=Ij8AotZHfzU" />
-<subject title="The Angle Game" link="http://khanexercises.appspot.com/video?v=kqU_ymV581c" />
-<subject title="Similar triangles" link="http://khanexercises.appspot.com/video?v=BI-rtfZVXy0" />
-<subject title="Similar triangles (part 2)" link="http://khanexercises.appspot.com/video?v=qO2cTx6DwCA" />
-<subject title="Angle Game (part 2)" link="http://khanexercises.appspot.com/video?v=ko-cYG3d6ec" />
-<subject title="Area and Perimeter" link="http://khanexercises.appspot.com/video?v=kqqmJiJez6o" />
-<subject title="Circles: Radius, Diameter and Circumference" link="http://khanexercises.appspot.com/video?v=jyLRpr2P0MQ" />
-<subject title="Area of a circle" link="http://khanexercises.appspot.com/video?v=tCrDyJsSFok" />
-<subject title="Introduction to the Pythagorean Theorem" link="http://khanexercises.appspot.com/video?v=s9t7rNhaBp8" />
-<subject title="Pythagorean Theorem II" link="http://khanexercises.appspot.com/video?v=nMhJLn5ives" />
-<subject title="45-45-90 Triangles" link="http://khanexercises.appspot.com/video?v=tSHitjFIjd8" />
-<subject title="Intro to 30-60-90 Triangles" link="http://khanexercises.appspot.com/video?v=Qwet4cIpnCM" />
-<subject title="30-60-90 Triangles II" link="http://khanexercises.appspot.com/video?v=3mLUJSoh6i0" />
-<subject title="Heron's Formula" link="http://khanexercises.appspot.com/video?v=-YI6UC4qVEY" />
-<subject title="Part 1 of Proof of Heron's Formula" link="http://khanexercises.appspot.com/video?v=AreOMvPCxv8" />
-<subject title="Part 2 of the Proof of Heron's Formula" link="http://khanexercises.appspot.com/video?v=nZu7IZLhJRI" />
-<subject title="Right Triangles Inscribed in Circles (Proof)" link="http://khanexercises.appspot.com/video?v=b0U1NxbRU4w" />
-<subject title="CA Geometry: deductive reasoning" link="http://khanexercises.appspot.com/video?v=GluohfOedQE" />
-<subject title="CA Geometry: Proof by Contradiction" link="http://khanexercises.appspot.com/video?v=u6O0YHyarlI" />
-<subject title="CA Geometry: More Proofs" link="http://khanexercises.appspot.com/video?v=4PPMnI8-Zsc" />
-<subject title="CA Geometry: Similar Triangles" link="http://khanexercises.appspot.com/video?v=bWTtHKSEcdI" />
-<subject title="CA Geometry: Similar Triangles" link="http://khanexercises.appspot.com/video?v=iOLN43V1Lmw" />
-<subject title="CA Geometry: Triangles and Parallelograms" link="http://khanexercises.appspot.com/video?v=h0FFEBHBufo" />
-<subject title="CA Geometry: Area, Pythagorean Theorem" link="http://khanexercises.appspot.com/video?v=jRrRqMJbHKc" />
-<subject title="CA Geometry: Area, Circumference, Volume" link="http://khanexercises.appspot.com/video?v=BJSk1joCQsM" />
-<subject title="CA Geometry: Pythagorean Theorem, Area" link="http://khanexercises.appspot.com/video?v=vaOXkt7uuac" />
-<subject title="CA Geometry: Exterior Angles" link="http://khanexercises.appspot.com/video?v=Ncg1HB5uVLc" />
-<subject title="CA Geometry: Deducing Angle Measures" link="http://khanexercises.appspot.com/video?v=_HJljJuVHLw" />
-<subject title="CA Geometry: Compass Construction" link="http://khanexercises.appspot.com/video?v=79lagkER9qY" />
-<subject title="CA Geometry: Basic Trigonometry" link="http://khanexercises.appspot.com/video?v=MyvRxKM0xns" />
-<subject title="CA Geometry: More Trig" link="http://khanexercises.appspot.com/video?v=8YBQQ0GeusM" />
-<subject title="CA Geometry: Circle Area Chords Tangent" link="http://khanexercises.appspot.com/video?v=FJIZPvE3O1A" />
-<subject title="CA Geometry: Secants and Translations" link="http://khanexercises.appspot.com/video?v=Mp838qprwyY" />
-<subject title="Introduction to the atom" link="http://khanexercises.appspot.com/video?v=1xSQlwWGT8M" />
-<subject title="Orbitals" link="http://khanexercises.appspot.com/video?v=yBrp8uvNAhI" />
-<subject title="More on orbitals and electron configuration" link="http://khanexercises.appspot.com/video?v=FmQoSenbtnU" />
-<subject title="Electron Configurations" link="http://khanexercises.appspot.com/video?v=RJlEH5Jz80w" />
-<subject title="Electron Configurations 2" link="http://khanexercises.appspot.com/video?v=YURReI6OJsg" />
-<subject title="Valence Electrons" link="http://khanexercises.appspot.com/video?v=1TZA171yxY4" />
-<subject title="Groups of the Periodic Table" link="http://khanexercises.appspot.com/video?v=LDHg7Vgzses" />
-<subject title="Periodic Table Trends: Ionization Energy" link="http://khanexercises.appspot.com/video?v=ywqg9PorTAw" />
-<subject title="Other Periodic Table Trends" link="http://khanexercises.appspot.com/video?v=XMLd-O6PgVs" />
-<subject title="Ionic, Covalent, and Metallic Bonds" link="http://khanexercises.appspot.com/video?v=CGA8sRwqIFg" />
-<subject title="Molecular and Empirical Formulas" link="http://khanexercises.appspot.com/video?v=gfBcM3uvWfs" />
-<subject title="The Mole and Avogadro's Number" link="http://khanexercises.appspot.com/video?v=AsqEkF7hcII" />
-<subject title="Formula from Mass Composition" link="http://khanexercises.appspot.com/video?v=xatVrAh2U0E" />
-<subject title="Another mass composition problem" link="http://khanexercises.appspot.com/video?v=sXOIIEZh6qg" />
-<subject title="Balancing Chemical Equations" link="http://khanexercises.appspot.com/video?v=RnGu3xO2h74" />
-<subject title="Stoichiometry" link="http://khanexercises.appspot.com/video?v=SjQG3rKSZUQ" />
-<subject title="Stoichiometry: Limiting Reagent" link="http://khanexercises.appspot.com/video?v=rESzyhPOJ7I" />
-<subject title="Ideal Gas Equation: PV=nRT" link="http://khanexercises.appspot.com/video?v=WScwPIPqZa0" />
-<subject title="Ideal Gas Equation Example 1" link="http://khanexercises.appspot.com/video?v=erjMiErRgSQ" />
-<subject title="Ideal Gas Equation Example 2" link="http://khanexercises.appspot.com/video?v=GwoX_BemwHs" />
-<subject title="Ideal Gas Equation Example 3" link="http://khanexercises.appspot.com/video?v=69V-60sga3M" />
-<subject title="Ideal Gas Example 4" link="http://khanexercises.appspot.com/video?v=Osl6HEDZZ-E" />
-<subject title="Partial Pressure" link="http://khanexercises.appspot.com/video?v=d4bqNf37mBY" />
-<subject title="States of Matter" link="http://khanexercises.appspot.com/video?v=pKvo0XWZtjo" />
-<subject title="States of Matter Follow-Up" link="http://khanexercises.appspot.com/video?v=WenwtcuqOj8" />
-<subject title="Specific Heat, Heat of Fusion and Vaporization" link="http://khanexercises.appspot.com/video?v=zz4KbvF_X-0" />
-<subject title="Chilling Water Problem" link="http://khanexercises.appspot.com/video?v=lsXcKgjg8Hs" />
-<subject title="Phase Diagrams" link="http://khanexercises.appspot.com/video?v=Qp87Z4m8R-w" />
-<subject title="Van Der Waals Forces" link="http://khanexercises.appspot.com/video?v=8qfzpJvsp04" />
-<subject title="Covalent Networks, Metallic, and Ionic Crystals" link="http://khanexercises.appspot.com/video?v=Rw_pDVbnfQk" />
-<subject title="Vapor Pressure" link="http://khanexercises.appspot.com/video?v=hA5jddDYcyg" />
-<subject title="Suspensions, Colloids and Solutions" link="http://khanexercises.appspot.com/video?v=3ROWXs3jtQU" />
-<subject title="Solubility" link="http://khanexercises.appspot.com/video?v=zjIVJh4JLNo" />
-<subject title="Introduction to Kinetics" link="http://khanexercises.appspot.com/video?v=__zy-oOLPug" />
-<subject title="Reactions in Equilibrium" link="http://khanexercises.appspot.com/video?v=CGJjjm7-DJ4" />
-<subject title="Mini-Video on Ion Size" link="http://khanexercises.appspot.com/video?v=HBi8xjMchZc" />
-<subject title="Keq derivation intuition (can skip; bit mathy)" link="http://khanexercises.appspot.com/video?v=psLX080RQR8" />
-<subject title="Heterogenous Equilibrium" link="http://khanexercises.appspot.com/video?v=TsXlTWgyItw" />
-<subject title="Le Chatelier's Principle" link="http://khanexercises.appspot.com/video?v=4-fEvpVNTlE" />
-<subject title="Introduction to pH, pOH, and pKw" link="http://khanexercises.appspot.com/video?v=2q4vSKwaBtw" />
-<subject title="Acid Base Introduction" link="http://khanexercises.appspot.com/video?v=vShCnTY1-T0" />
-<subject title="pH, pOH of Strong Acids and Bases" link="http://khanexercises.appspot.com/video?v=tS2YJPmKOFQ" />
-<subject title="pH of a Weak Acid" link="http://khanexercises.appspot.com/video?v=dencuBNp_Ck" />
-<subject title="pH of a Weak Base" link="http://khanexercises.appspot.com/video?v=gDJtOIxDu78" />
-<subject title="Conjugate Acids and Bases" link="http://khanexercises.appspot.com/video?v=0LM6wPpypxM" />
-<subject title="pKa and pKb Relationship" link="http://khanexercises.appspot.com/video?v=3Gm4nAAc3zc" />
-<subject title="Buffers" link="http://khanexercises.appspot.com/video?v=HzmI7A578ss" />
-<subject title="Strong Acid Titration" link="http://khanexercises.appspot.com/video?v=299o6c-Fkz4" />
-<subject title="Weak Acid Titration" link="http://khanexercises.appspot.com/video?v=gbpc_JBG1F0" />
-<subject title="Half Equivalence Point" link="http://khanexercises.appspot.com/video?v=1u0PU2BcxKg" />
-<subject title="Titration Roundup" link="http://khanexercises.appspot.com/video?v=BBIGR0RAMtY" />
-<subject title="Introduction to Oxidation States" link="http://khanexercises.appspot.com/video?v=_fNNQfGGYr4" />
-<subject title="More on Oxidation States" link="http://khanexercises.appspot.com/video?v=GA88JI4AymY" />
-<subject title="Hydrogen Peroxide Correction" link="http://khanexercises.appspot.com/video?v=YPjtG5PA-iY" />
-<subject title="Redox Reactions" link="http://khanexercises.appspot.com/video?v=yp60-oVxrT4" />
-<subject title="Galvanic Cells" link="http://khanexercises.appspot.com/video?v=N4L3dDIixSU" />
-<subject title="Types of Decay" link="http://khanexercises.appspot.com/video?v=3koOwozY4oc" />
-<subject title="Half-Life" link="http://khanexercises.appspot.com/video?v=9REPnibO4IQ" />
-<subject title="Introduction to Exponential Decay" link="http://khanexercises.appspot.com/video?v=HTDop6eEsaA" />
-<subject title="More Exponential Decay Examples" link="http://khanexercises.appspot.com/video?v=Hqzakjo_dYg" />
-<subject title="Macrostates and Microstates" link="http://khanexercises.appspot.com/video?v=5EU-y1VF7g4" />
-<subject title="Quasistatic and Reversible Processes" link="http://khanexercises.appspot.com/video?v=lKq-10ysDb4" />
-<subject title="First Law of Thermodynamics/ Internal Energy" link="http://khanexercises.appspot.com/video?v=Xb05CaG7TsQ" />
-<subject title="More on Internal Energy" link="http://khanexercises.appspot.com/video?v=aOSlXuDO4UU" />
-<subject title="Work from Expansion" link="http://khanexercises.appspot.com/video?v=obeGVTOZyfE" />
-<subject title="PV-diagrams and Expansion Work" link="http://khanexercises.appspot.com/video?v=M5uOIy-JTmo" />
-<subject title="Proof: U=(3/2)PV or U=(3/2)nRT" link="http://khanexercises.appspot.com/video?v=qSFY7GKhSRs" />
-<subject title="Work Done by Isothermic Process" link="http://khanexercises.appspot.com/video?v=iiFWoXQPOJc" />
-<subject title="Carnot Cycle and Carnot Engine" link="http://khanexercises.appspot.com/video?v=aAfBSJObd6Y" />
-<subject title="Proof: Volume Ratios in a Carnot Cycle" link="http://khanexercises.appspot.com/video?v=ixRtSV3CXPA" />
-<subject title="Proof: S (or Entropy) is a valid state variable" link="http://khanexercises.appspot.com/video?v=sPz5RrFus1Q" />
-<subject title="Thermodynamic Entropy Definition Clarification" link="http://khanexercises.appspot.com/video?v=PFcGiMLwjeY" />
-<subject title="Entropy Intuition" link="http://khanexercises.appspot.com/video?v=xJf6pHqLzs0" />
-<subject title="Maxwell's Demon" link="http://khanexercises.appspot.com/video?v=aKRDvSZ-igA" />
-<subject title="More on Entropy" link="http://khanexercises.appspot.com/video?v=dFFzAP2OZ3E" />
-<subject title="Efficiency of a Carnot Engine" link="http://khanexercises.appspot.com/video?v=M_5KYncYNyc" />
-<subject title="Carnot Efficiency 2:  Reversing the Cycle" link="http://khanexercises.appspot.com/video?v=pQWwP7YYH6o" />
-<subject title="Enthalpy" link="http://khanexercises.appspot.com/video?v=fucyI7Ouj2c" />
-<subject title="Heat of Formation" link="http://khanexercises.appspot.com/video?v=PK_JXzYcme0" />
-<subject title="Hess's Law and Reaction Enthalpy Change" link="http://khanexercises.appspot.com/video?v=chXMpDwjBDk" />
-<subject title="Gibbs Free Energy and Spontaneity" link="http://khanexercises.appspot.com/video?v=ViAmQivKif0" />
-<subject title="Gibbs Free Energy Example" link="http://khanexercises.appspot.com/video?v=sG1ZAdYi13A" />
-<subject title="Liar Truthteller Brain Teaser" link="http://khanexercises.appspot.com/video?v=69rDtSpshAw" />
-<subject title="Toggler Brain Teaser" link="http://khanexercises.appspot.com/video?v=l3OkPYhDi9w" />
-<subject title="Alien Abduction Brain Teaser" link="http://khanexercises.appspot.com/video?v=K4pocYXOmTQ" />
-<subject title="Brain Teaser: Blue Forehead Room" link="http://khanexercises.appspot.com/video?v=rBaCDC52NOY" />
-<subject title="Blue Forehead Room Solution" link="http://khanexercises.appspot.com/video?v=-xYkTJFbuM0" />
-<subject title="Forehead Numbers Brain Teaser" link="http://khanexercises.appspot.com/video?v=jqpQPxWj8gE" />
-<subject title="Light Bulb Switching Brain Teaser" link="http://khanexercises.appspot.com/video?v=WNhxkpmVQYw" />
-<subject title="Path Counting Brain Teaser" link="http://khanexercises.appspot.com/video?v=9QduzzW10uA" />
-<subject title="3-D Path Counting Brain Teaser" link="http://khanexercises.appspot.com/video?v=wRxzDOloS3o" />
-<subject title="Economics of a Cupcake Factory" link="http://khanexercises.appspot.com/video?v=XDIBJyNnLOU" />
-<subject title="Cupcake Economics 2" link="http://khanexercises.appspot.com/video?v=-LTXzYXaAuk" />
-<subject title="Cupcake Economics 3" link="http://khanexercises.appspot.com/video?v=8x1-TeDxblU" />
-<subject title="Inflation, Deflation &amp; Capacity Utilization" link="http://khanexercises.appspot.com/video?v=LXrPdFn7Gn4" />
-<subject title="Inflation, Deflation &amp; Capacity Utilization 2" link="http://khanexercises.appspot.com/video?v=cugQ4z4cJF8" />
-<subject title="Inflation &amp; Deflation 3: Obama Stimulus Plan" link="http://khanexercises.appspot.com/video?v=sZRkERfzzn4" />
-<subject title="Unemployment" link="http://khanexercises.appspot.com/video?v=vUOiOi-XaoQ" />
-<subject title="CPI Index" link="http://khanexercises.appspot.com/video?v=pRIELoITIHI" />
-<subject title="Unemployment Rate Primer" link="http://khanexercises.appspot.com/video?v=9DGbDx5xQNo" />
-<subject title="Banking 1" link="http://khanexercises.appspot.com/video?v=E-HOz8T6tAo" />
-<subject title="Banking 2: A bank's income statement" link="http://khanexercises.appspot.com/video?v=h3lMANILkw0" />
-<subject title="Banking 3: Fractional Reserve Banking" link="http://khanexercises.appspot.com/video?v=nH2-37rTA8U" />
-<subject title="Banking 4: Multiplier effect and the money supply" link="http://khanexercises.appspot.com/video?v=F7r7l1VG-Tw" />
-<subject title="Banking 5: Introduction to Bank Notes" link="http://khanexercises.appspot.com/video?v=cNFLqhU4MN0" />
-<subject title="Banking 6: Bank Notes and Checks" link="http://khanexercises.appspot.com/video?v=IOzZVmgK3IM" />
-<subject title="Banking 8: Reserve Ratios" link="http://khanexercises.appspot.com/video?v=VP3nKDUw1jA" />
-<subject title="Banking 9: More on Reserve Ratios (Bad sound)" link="http://khanexercises.appspot.com/video?v=DFPBdbx0vFc" />
-<subject title="Banking 10:  Introduction to leverage (bad sound)" link="http://khanexercises.appspot.com/video?v=8fxilNdEQTo" />
-<subject title="Banking 11: A reserve bank" link="http://khanexercises.appspot.com/video?v=M-4GWomLbpc" />
-<subject title="Banking 12:  Treasuries (government debt)" link="http://khanexercises.appspot.com/video?v=JBWdbzzYbtU" />
-<subject title="Banking 13: Open Market Operations" link="http://khanexercises.appspot.com/video?v=BTNarhvGX88" />
-<subject title="Banking 14: Fed Funds Rate" link="http://khanexercises.appspot.com/video?v=IniG1KkPS2c" />
-<subject title="Banking 15: More on the Fed Funds Rate" link="http://khanexercises.appspot.com/video?v=rgqFXkLAc-4" />
-<subject title="Banking 16: Why target rates vs. money supply" link="http://khanexercises.appspot.com/video?v=yOgGhPIHnlA" />
-<subject title="Banking 17: What happened to the gold?" link="http://khanexercises.appspot.com/video?v=NFDMXwwzyIM" />
-<subject title="Banking 18: Big Picture Discussion" link="http://khanexercises.appspot.com/video?v=T9byZBGtGuw" />
-<subject title="The Discount Rate" link="http://khanexercises.appspot.com/video?v=FxkTSjctXdk" />
-<subject title="Repurchase Agreements (Repo transactions)" link="http://khanexercises.appspot.com/video?v=QWninXOAMXE" />
-<subject title="Federal Reserve Balance Sheet" link="http://khanexercises.appspot.com/video?v=MILF-9GeMDQ" />
-<subject title="Fractional Reserve Banking Commentary 1" link="http://khanexercises.appspot.com/video?v=ZyyaE3DIxhc" />
-<subject title="FRB Commentary 2: Deposit Insurance" link="http://khanexercises.appspot.com/video?v=otstXFxMkl4" />
-<subject title="FRB Commentary 3: Big Picture" link="http://khanexercises.appspot.com/video?v=8SAMey9Gl5I" />
-<subject title="Raising money for a startup" link="http://khanexercises.appspot.com/video?v=8OCjwBkMJ_E" />
-<subject title="Getting a seed round from a VC" link="http://khanexercises.appspot.com/video?v=-hJj5NpWUXQ" />
-<subject title="Going back to the till: Series B" link="http://khanexercises.appspot.com/video?v=m28RAgUySGQ" />
-<subject title="An IPO" link="http://khanexercises.appspot.com/video?v=ywOr4OYqXOs" />
-<subject title="More on IPOs" link="http://khanexercises.appspot.com/video?v=opEy6iN9kqc" />
-<subject title="Equity vs. Debt" link="http://khanexercises.appspot.com/video?v=yQtUyBrRBx4" />
-<subject title="Bonds vs. Stocks" link="http://khanexercises.appspot.com/video?v=rs1md3e4aYU" />
-<subject title="Chapter 7:Bankruptcy Liquidation" link="http://khanexercises.appspot.com/video?v=-oW4M3vpuRM" />
-<subject title="Chapter 11: Bankruptcy Restructuring" link="http://khanexercises.appspot.com/video?v=mxVWyzzMOXM" />
-<subject title="Introduction to interest" link="http://khanexercises.appspot.com/video?v=GtaoP0skPWc" />
-<subject title="Interest (part 2)" link="http://khanexercises.appspot.com/video?v=t4zfiBw0hwM" />
-<subject title="Introduction to Present Value" link="http://khanexercises.appspot.com/video?v=ks33lMoxst0" />
-<subject title="Present Value 2" link="http://khanexercises.appspot.com/video?v=4LSktB7Pk_c" />
-<subject title="Present Value 3" link="http://khanexercises.appspot.com/video?v=3SgVUlEcOBU" />
-<subject title="Present Value 4 (and discounted cash flow)" link="http://khanexercises.appspot.com/video?v=6WCfVjUTTEY" />
-<subject title="Introduction to Balance Sheets" link="http://khanexercises.appspot.com/video?v=mxsYHiDVNlk" />
-<subject title="More on balance sheets and equity" link="http://khanexercises.appspot.com/video?v=U2Nw5T44zvY" />
-<subject title="Home equity loans" link="http://khanexercises.appspot.com/video?v=7rrSuhFC7I0" />
-<subject title="Renting vs. Buying a home" link="http://khanexercises.appspot.com/video?v=YL10H_EcB-E" />
-<subject title="Renting vs. buying a home (part 2)" link="http://khanexercises.appspot.com/video?v=QA2TBiIsdT0" />
-<subject title="Renting vs. Buying (detailed analysis)" link="http://khanexercises.appspot.com/video?v=mtL_plJXv3c" />
-<subject title="The housing price conundrum" link="http://khanexercises.appspot.com/video?v=8IR5LefXVPY" />
-<subject title="Housing price conundrum (part 2)" link="http://khanexercises.appspot.com/video?v=wYAhlTHIBT4" />
-<subject title="Housing Price Conundrum (part 3)" link="http://khanexercises.appspot.com/video?v=aAfMps_VyOY" />
-<subject title="Housing Conundrum (part 4)" link="http://khanexercises.appspot.com/video?v=s6UYa2nwaDw" />
-<subject title="Raising money for a startup" link="http://khanexercises.appspot.com/video?v=8OCjwBkMJ_E" />
-<subject title="Getting a seed round from a VC" link="http://khanexercises.appspot.com/video?v=-hJj5NpWUXQ" />
-<subject title="Going back to the till: Series B" link="http://khanexercises.appspot.com/video?v=m28RAgUySGQ" />
-<subject title="An IPO" link="http://khanexercises.appspot.com/video?v=ywOr4OYqXOs" />
-<subject title="More on IPOs" link="http://khanexercises.appspot.com/video?v=opEy6iN9kqc" />
-<subject title="Bonds vs. Stocks" link="http://khanexercises.appspot.com/video?v=rs1md3e4aYU" />
-<subject title="Chapter 7:Bankruptcy Liquidation" link="http://khanexercises.appspot.com/video?v=-oW4M3vpuRM" />
-<subject title="Chapter 11: Bankruptcy Restructuring" link="http://khanexercises.appspot.com/video?v=mxVWyzzMOXM" />
-<subject title="Return on capital" link="http://khanexercises.appspot.com/video?v=9T6ZPYYu_Dk" />
-<subject title="Mortgage-Backed Securities I" link="http://khanexercises.appspot.com/video?v=oosYQHq2hwE" />
-<subject title="Mortgage-backed securities II" link="http://khanexercises.appspot.com/video?v=eYBlfxGIk28" />
-<subject title="Mortgage-backed securities III" link="http://khanexercises.appspot.com/video?v=q0oSKmC3Mfc" />
-<subject title="Collateralized Debt Obligation (CDO)" link="http://khanexercises.appspot.com/video?v=XjoJ9UF2hqg" />
-<subject title="Introduction to the yield curve" link="http://khanexercises.appspot.com/video?v=b_cAxh44aNQ" />
-<subject title="Introduction to compound interest and e" link="http://khanexercises.appspot.com/video?v=qEB6y4DklNY" />
-<subject title="Compound Interest and e (part 2)" link="http://khanexercises.appspot.com/video?v=dzMvqJMLy9c" />
-<subject title="Compound Interest and e (part  3)" link="http://khanexercises.appspot.com/video?v=sQYpUJV8foY" />
-<subject title="Compound Interest and e (part 4)" link="http://khanexercises.appspot.com/video?v=VAxHMTJRhmY" />
-<subject title="Bailout 1: Liquidity vs. Solvency" link="http://khanexercises.appspot.com/video?v=ZUEjRYe7MRk" />
-<subject title="Bailout 2: Book Value" link="http://khanexercises.appspot.com/video?v=YJBqGM29_64" />
-<subject title="Bailout 3: Book value vs. market value" link="http://khanexercises.appspot.com/video?v=TUOQZjotyAQ" />
-<subject title="Bailout 4: Mark-to-model vs. mark-to-market" link="http://khanexercises.appspot.com/video?v=w_GZqhAR0I4" />
-<subject title="Bailout 5: Paying off the debt" link="http://khanexercises.appspot.com/video?v=I8BLj7cRM7c" />
-<subject title="Bailout 6: Getting an equity infusion" link="http://khanexercises.appspot.com/video?v=jDNalKBb3aA" />
-<subject title="Bailout 7: Bank goes into bankruptcy" link="http://khanexercises.appspot.com/video?v=MdIfefLcdoU" />
-<subject title="Bailout 8: Systemic Risk" link="http://khanexercises.appspot.com/video?v=gX9aKDeAOz4" />
-<subject title="Bailout 9: Paulson's Plan" link="http://khanexercises.appspot.com/video?v=eBYbnYNl0rw" />
-<subject title="Bailout 10: Moral Hazard" link="http://khanexercises.appspot.com/video?v=roap32sTgPk" />
-<subject title="Credit Default Swaps" link="http://khanexercises.appspot.com/video?v=a1lVOO9Y080" />
-<subject title="Credit Default Swaps 2" link="http://khanexercises.appspot.com/video?v=neAFEvNsiqw" />
-<subject title="Investment vs. Consumption 1" link="http://khanexercises.appspot.com/video?v=rEiLOB4FulY" />
-<subject title="Investment vs. Comsumption 2" link="http://khanexercises.appspot.com/video?v=xRjfRVXXFxU" />
-<subject title="Bailout 11: Why these CDOs could be worth nothing" link="http://khanexercises.appspot.com/video?v=RkIM0Mbc8YQ" />
-<subject title="Bailout 12: Lone Star Transaction" link="http://khanexercises.appspot.com/video?v=eZZkhSl8lMA" />
-<subject title="Wealth Destruction 1" link="http://khanexercises.appspot.com/video?v=Q7HbtnOyKMg" />
-<subject title="Wealth Destruction 2" link="http://khanexercises.appspot.com/video?v=eRImmzuExyg" />
-<subject title="Bailout 14: Possible Solution" link="http://khanexercises.appspot.com/video?v=BdmI14oSe4g" />
-<subject title="Bailout 15: More on the solution" link="http://khanexercises.appspot.com/video?v=-KrSxA9NCf0" />
-<subject title="Banking 1" link="http://khanexercises.appspot.com/video?v=E-HOz8T6tAo" />
-<subject title="Banking 2: A bank's income statement" link="http://khanexercises.appspot.com/video?v=h3lMANILkw0" />
-<subject title="Banking 3: Fractional Reserve Banking" link="http://khanexercises.appspot.com/video?v=nH2-37rTA8U" />
-<subject title="Banking 4: Multiplier effect and the money supply" link="http://khanexercises.appspot.com/video?v=F7r7l1VG-Tw" />
-<subject title="Personal Bankruptcy:  Chapters 7 and 13" link="http://khanexercises.appspot.com/video?v=9jGufOGo88A" />
-<subject title="Introduction to Compound Interest" link="http://khanexercises.appspot.com/video?v=-qgdMTbTJlA" />
-<subject title="The Rule of 72 for Compound Interest" link="http://khanexercises.appspot.com/video?v=pLG5j6isgRs" />
-<subject title="Annual Percentage Rate (APR) and Effective APR" link="http://khanexercises.appspot.com/video?v=P4h4QenI-uU" />
-<subject title="What it means to buy a company's stock" link="http://khanexercises.appspot.com/video?v=WvITkPn83gc" />
-<subject title="Introduction to Bonds" link="http://khanexercises.appspot.com/video?v=44cYyG0LSzQ" />
-<subject title="Introduction to Mortgage Loans" link="http://khanexercises.appspot.com/video?v=mhRL99LqxMc" />
-<subject title="Traditional IRAs" link="http://khanexercises.appspot.com/video?v=2K0ubOpyZt8" />
-<subject title="Roth IRAs" link="http://khanexercises.appspot.com/video?v=HbQ2kmhIlHo" />
-<subject title="401(k)s" link="http://khanexercises.appspot.com/video?v=T649KqOJ3N8" />
-<subject title="Payday Loans" link="http://khanexercises.appspot.com/video?v=BHTMuHvmarU" />
-<subject title="Price and Market Capitalization" link="http://khanexercises.appspot.com/video?v=fa-VZ-SDxgY" />
-<subject title="Introduction to the Income Statement" link="http://khanexercises.appspot.com/video?v=Z7C4cz2HkeY" />
-<subject title="Earnings and EPS" link="http://khanexercises.appspot.com/video?v=RouNXdkC0do" />
-<subject title="Introduction to the Price-to-Earnings Ratio" link="http://khanexercises.appspot.com/video?v=cppxO67e6eo" />
-<subject title="P/E Discussion" link="http://khanexercises.appspot.com/video?v=V-rko8jgJ9o" />
-<subject title="ROA Discussion 1" link="http://khanexercises.appspot.com/video?v=Oh4H3BJX1ZI" />
-<subject title="ROA Discussion 2" link="http://khanexercises.appspot.com/video?v=R_5slDeVCQk" />
-<subject title="Depreciation" link="http://khanexercises.appspot.com/video?v=a5sFUXkxyGc" />
-<subject title="Amortization" link="http://khanexercises.appspot.com/video?v=XfR3JSkSkJM" />
-<subject title="P/E Conundrum" link="http://khanexercises.appspot.com/video?v=VrFbXxkl9JU" />
-<subject title="Enterprise Value" link="http://khanexercises.appspot.com/video?v=pa92UdJCaos" />
-<subject title="EBITDA" link="http://khanexercises.appspot.com/video?v=v4Fq9LEspzw" />
-<subject title="The housing price conundrum" link="http://khanexercises.appspot.com/video?v=8IR5LefXVPY" />
-<subject title="Housing price conundrum (part 2)" link="http://khanexercises.appspot.com/video?v=wYAhlTHIBT4" />
-<subject title="Housing Price Conundrum (part 3)" link="http://khanexercises.appspot.com/video?v=aAfMps_VyOY" />
-<subject title="Housing Conundrum (part 4)" link="http://khanexercises.appspot.com/video?v=s6UYa2nwaDw" />
-<subject title="Mortgage-Backed Securities I" link="http://khanexercises.appspot.com/video?v=oosYQHq2hwE" />
-<subject title="Mortgage-backed securities II" link="http://khanexercises.appspot.com/video?v=eYBlfxGIk28" />
-<subject title="Mortgage-backed securities III" link="http://khanexercises.appspot.com/video?v=q0oSKmC3Mfc" />
-<subject title="Collateralized Debt Obligation (CDO)" link="http://khanexercises.appspot.com/video?v=XjoJ9UF2hqg" />
-<subject title="Credit Default Swaps" link="http://khanexercises.appspot.com/video?v=a1lVOO9Y080" />
-<subject title="Credit Default Swaps 2" link="http://khanexercises.appspot.com/video?v=neAFEvNsiqw" />
-<subject title="Wealth Destruction 1" link="http://khanexercises.appspot.com/video?v=Q7HbtnOyKMg" />
-<subject title="Wealth Destruction 2" link="http://khanexercises.appspot.com/video?v=eRImmzuExyg" />
-<subject title="Geithner Plan I" link="http://khanexercises.appspot.com/video?v=ervHbKa7R5g" />
-<subject title="Geithner Plan II" link="http://khanexercises.appspot.com/video?v=n-arbfLTCtI" />
-<subject title="Geithner Plan 2.5" link="http://khanexercises.appspot.com/video?v=0FxRYePmogU" />
-<subject title="Geithner Plan III" link="http://khanexercises.appspot.com/video?v=_ka1HZS-Egc" />
-<subject title="Geithner Plan IV" link="http://khanexercises.appspot.com/video?v=ajl1UdtYUCA" />
-<subject title="Geithner 5: A better solution" link="http://khanexercises.appspot.com/video?v=kpqSeXpiM6k" />
-<subject title="Bailout 1: Liquidity vs. Solvency" link="http://khanexercises.appspot.com/video?v=ZUEjRYe7MRk" />
-<subject title="Bailout 2: Book Value" link="http://khanexercises.appspot.com/video?v=YJBqGM29_64" />
-<subject title="Bailout 3: Book value vs. market value" link="http://khanexercises.appspot.com/video?v=TUOQZjotyAQ" />
-<subject title="Bailout 4: Mark-to-model vs. mark-to-market" link="http://khanexercises.appspot.com/video?v=w_GZqhAR0I4" />
-<subject title="Bailout 5: Paying off the debt" link="http://khanexercises.appspot.com/video?v=I8BLj7cRM7c" />
-<subject title="Bailout 6: Getting an equity infusion" link="http://khanexercises.appspot.com/video?v=jDNalKBb3aA" />
-<subject title="Bailout 7: Bank goes into bankruptcy" link="http://khanexercises.appspot.com/video?v=MdIfefLcdoU" />
-<subject title="Bailout 8: Systemic Risk" link="http://khanexercises.appspot.com/video?v=gX9aKDeAOz4" />
-<subject title="Bailout 9: Paulson's Plan" link="http://khanexercises.appspot.com/video?v=eBYbnYNl0rw" />
-<subject title="Bailout 10: Moral Hazard" link="http://khanexercises.appspot.com/video?v=roap32sTgPk" />
-<subject title="Bailout 11: Why these CDOs could be worth nothing" link="http://khanexercises.appspot.com/video?v=RkIM0Mbc8YQ" />
-<subject title="Bailout 12: Lone Star Transaction" link="http://khanexercises.appspot.com/video?v=eZZkhSl8lMA" />
-<subject title="Bailout 14: Possible Solution" link="http://khanexercises.appspot.com/video?v=BdmI14oSe4g" />
-<subject title="Bailout 15: More on the solution" link="http://khanexercises.appspot.com/video?v=-KrSxA9NCf0" />
-<subject title="Introduction to Evolution and Natural Selection" link="http://khanexercises.appspot.com/video?v=GcjgWov7mTM" />
-<subject title="Intelligent Design and Evolution" link="http://khanexercises.appspot.com/video?v=qxOEz9aPZNY" />
-<subject title="Evolution Clarification" link="http://khanexercises.appspot.com/video?v=nh1R-gyY7es" />
-<subject title="Natural Selection and the Owl Butterfly" link="http://khanexercises.appspot.com/video?v=dR_BFmDMRaI" />
-<subject title="DNA" link="http://khanexercises.appspot.com/video?v=_-vZ_g7K6P0" />
-<subject title="Variation in a Species" link="http://khanexercises.appspot.com/video?v=DuArVnT1i-E" />
-<subject title="Chromosomes, Chromatids, Chromatin, etc." link="http://khanexercises.appspot.com/video?v=s9HPNwXd9fk" />
-<subject title="Mitosis, Meiosis and Sexual Reproduction" link="http://khanexercises.appspot.com/video?v=kaSIjIzAtYA" />
-<subject title="Phases of Mitosis" link="http://khanexercises.appspot.com/video?v=LLKX_4DHE3I" />
-<subject title="Phases of Meiosis" link="http://khanexercises.appspot.com/video?v=ijLc52LmFQg" />
-<subject title="Embryonic Stem Cells" link="http://khanexercises.appspot.com/video?v=-yCIMk1x0Pk" />
-<subject title="Cancer" link="http://khanexercises.appspot.com/video?v=RZhL7LDPk8w" />
-<subject title="Introduction to Heredity" link="http://khanexercises.appspot.com/video?v=eEUvRrhmcxM" />
-<subject title="Punnett Square Fun" link="http://khanexercises.appspot.com/video?v=D5ymMYcLtv0" />
-<subject title="Hardy-Weinberg Principle" link="http://khanexercises.appspot.com/video?v=4Kbruik_LOo" />
-<subject title="Sex-Linked Traits" link="http://khanexercises.appspot.com/video?v=-ROhfKyxgCo" />
-<subject title="Bacteria" link="http://khanexercises.appspot.com/video?v=TDoGrbpJJ14" />
-<subject title="Viruses" link="http://khanexercises.appspot.com/video?v=0h5Jd7sgQWY" />
-<subject title="ATP: Adenosine Triphosphate" link="http://khanexercises.appspot.com/video?v=YQfWiDlFEcA" />
-<subject title="Introduction to Cellular Respiration" link="http://khanexercises.appspot.com/video?v=2f7YwCtHcgk" />
-<subject title="Oxidation and Reduction in Cellular Respiration" link="http://khanexercises.appspot.com/video?v=_KyyVhlUDNU" />
-<subject title="Glycolysis" link="http://khanexercises.appspot.com/video?v=FE2jfTXAJHg" />
-<subject title="Krebs / Citric Acid Cycle" link="http://khanexercises.appspot.com/video?v=juM2ROSLWfw" />
-<subject title="Electron Transport Chain" link="http://khanexercises.appspot.com/video?v=mfgCcFXUZRk" />
-<subject title="Oxidative Phosphorylation and Chemiosmosis" link="http://khanexercises.appspot.com/video?v=W_Q17tqw_7A" />
-<subject title="Photosynthesis" link="http://khanexercises.appspot.com/video?v=-rsYk4eCKnA" />
-<subject title="Photosynthesis: Light Reactions 1" link="http://khanexercises.appspot.com/video?v=GR2GA7chA_c" />
-<subject title="Photosynthesis:  Calvin Cycle" link="http://khanexercises.appspot.com/video?v=slm6D2VEXYs" />
-<subject title="Photorespiration" link="http://khanexercises.appspot.com/video?v=EQvTEFCANTM" />
-<subject title="C-4 Photosynthesis" link="http://khanexercises.appspot.com/video?v=7ynX_F-SwNY" />
-<subject title="CAM Plants" link="http://khanexercises.appspot.com/video?v=xp6Zj24h8uA" />
-<subject title="Parts of a cell" link="http://khanexercises.appspot.com/video?v=Hmwvj9X4GNY" />
-<subject title="Diffusion and Osmosis" link="http://khanexercises.appspot.com/video?v=aubZU0iWtgI" />
-<subject title="The Lungs and Pulmonary System" link="http://khanexercises.appspot.com/video?v=SPGRkexI_cs" />
-<subject title="Red blood cells" link="http://khanexercises.appspot.com/video?v=fLKOBQ6cZHA" />
-<subject title="Circulatory System and the Heart" link="http://khanexercises.appspot.com/video?v=QhiVnFvshZg" />
-<subject title="Hemoglobin" link="http://khanexercises.appspot.com/video?v=LWtXthfG9_M" />
-<subject title="Anatomy of a Neuron" link="http://khanexercises.appspot.com/video?v=ob5U8zPbAX4" />
-<subject title="Sodium Potassium Pump" link="http://khanexercises.appspot.com/video?v=C_H-ONQFjpQ" />
-<subject title="Electrotonic and Action Potentials" link="http://khanexercises.appspot.com/video?v=gkQtRec2464" />
-<subject title="Saltatory Conduction in Neurons" link="http://khanexercises.appspot.com/video?v=7wgb7ggzFNs" />
-<subject title="Neuronal Synapses (Chemical)" link="http://khanexercises.appspot.com/video?v=Tbq-KZaXiL4" />
-<subject title="Myosin and Actin" link="http://khanexercises.appspot.com/video?v=zopoN2i7ALQ" />
-<subject title="Role of the Sarcoplasmic Reticulum in Muscle Cells" link="http://khanexercises.appspot.com/video?v=SauhB2fYQkM" />
-<subject title="Anatomy of a muscle cell" link="http://khanexercises.appspot.com/video?v=uY2ZOsCnXIA" />
-<subject title="B Lymphocytes (B cells)" link="http://khanexercises.appspot.com/video?v=Z36dUduOk1Y" />
-<subject title="Helper T Cells" link="http://khanexercises.appspot.com/video?v=uwMYpTYsNZM" />
-<subject title="Cytotoxic T Cells" link="http://khanexercises.appspot.com/video?v=oqI4skjr6lQ" />
-<subject title="Review of B cells,  CD4+ T cells and CD8+ T cells" link="http://khanexercises.appspot.com/video?v=xaz5ftvZCyI" />
-<subject title="Inflammatory Response" link="http://khanexercises.appspot.com/video?v=FXSuEIMrPQk" />
-<subject title="The Kidney and Nephron" link="http://khanexercises.appspot.com/video?v=cc8sUv2SuaY" />
-<subject title="Secondary Active Transport in the Nephron" link="http://khanexercises.appspot.com/video?v=czY5nyvZ7cU" />
-<subject title="Basic Trigonometry" link="http://khanexercises.appspot.com/video?v=F21S9Wpi0y8" />
-<subject title="Basic Trigonometry II" link="http://khanexercises.appspot.com/video?v=QS4r_mqs-rY" />
-<subject title="Radians and degrees" link="http://khanexercises.appspot.com/video?v=9zspW8u6kQM" />
-<subject title="Using Trig Functions" link="http://khanexercises.appspot.com/video?v=znR9tW4AiZI" />
-<subject title="Using Trig Functions Part II" link="http://khanexercises.appspot.com/video?v=RoXmKYjpLGk" />
-<subject title="Unit Circle Definition of Trig Functions" link="http://khanexercises.appspot.com/video?v=ZffZvSH285c" />
-<subject title="Graph of the sine function" link="http://khanexercises.appspot.com/video?v=2zoiW4PdVKo" />
-<subject title="Graphs of trig functions" link="http://khanexercises.appspot.com/video?v=QmxMPPkZpME" />
-<subject title="Graphing trig functions" link="http://khanexercises.appspot.com/video?v=vHYI93UV5Kg" />
-<subject title="More trig graphs" link="http://khanexercises.appspot.com/video?v=NIG3l8oWKYE" />
-<subject title="Trigonometric Identities" link="http://khanexercises.appspot.com/video?v=OLzXqIqZZz0" />
-<subject title="Proof: sin(a+b)  = (cos a)(sin b) + (sin a)(cos b)" link="http://khanexercises.appspot.com/video?v=zw0waJCEc-w" />
-<subject title="Proof: cos(a+b) = (cos a)(cos b)-(sin a)(sin b)" link="http://khanexercises.appspot.com/video?v=V3-xCPDzQ1Q" />
-<subject title="Trigonometry word problems (part 1)" link="http://khanexercises.appspot.com/video?v=1vamogV81Y8" />
-<subject title="Trigonometry word problems (part 2)" link="http://khanexercises.appspot.com/video?v=4CNnPgabrLE" />
-<subject title="Law of cosines" link="http://khanexercises.appspot.com/video?v=pGaDcOMdw48" />
-<subject title="Navigation Word Problem" link="http://khanexercises.appspot.com/video?v=XTWZ_M8d-4g" />
-<subject title="Proof: Law of Sines" link="http://khanexercises.appspot.com/video?v=APNkWrD-U1k" />
-<subject title="Ferris Wheel Trig Problem" link="http://khanexercises.appspot.com/video?v=clXSqjs1wgQ" />
-<subject title="Ferris Wheel Trig Problem (part 2)" link="http://khanexercises.appspot.com/video?v=_Kw4hLGMkm4" />
-<subject title="Fun Trig Problem" link="http://khanexercises.appspot.com/video?v=itpI12TeNIg" />
-<subject title="Polar Coordinates 1" link="http://khanexercises.appspot.com/video?v=jexMSlSDubM" />
-<subject title="Polar Coordinates 2" link="http://khanexercises.appspot.com/video?v=zGpbSGj_vfE" />
-<subject title="Polar Coordinates 3" link="http://khanexercises.appspot.com/video?v=9iqN12hCn10" />
-<subject title="Inverse Trig Functions: Arcsin" link="http://khanexercises.appspot.com/video?v=JGU74wbZMLg" />
-<subject title="Inverse Trig Functions: Arctan" link="http://khanexercises.appspot.com/video?v=Idxeo49szW0" />
-<subject title="Inverse Trig Functions: Arccos" link="http://khanexercises.appspot.com/video?v=eTDaJ4ebK28" />
-<subject title="Trigonometry Identity Review/Fun" link="http://khanexercises.appspot.com/video?v=a70-dYvDJZY" />
-<subject title="Introduction to Limits" link="http://khanexercises.appspot.com/video?v=W0VWO4asgmk" />
-<subject title="Limit Examples (part 1)" link="http://khanexercises.appspot.com/video?v=GGQngIp0YGI" />
-<subject title="Limit Examples (part 2)" link="http://khanexercises.appspot.com/video?v=YRw8udexH4o" />
-<subject title="Limit Examples (part3)" link="http://khanexercises.appspot.com/video?v=gWSDDopD9sk" />
-<subject title="Squeeze Theorem" link="http://khanexercises.appspot.com/video?v=igJdDN-DPgA" />
-<subject title="Proof: lim (sin x)/x" link="http://khanexercises.appspot.com/video?v=Ve99biD1KtA" />
-<subject title="More Limits" link="http://khanexercises.appspot.com/video?v=rkeU8_4nzKo" />
-<subject title="Sequences and Series (part 1)" link="http://khanexercises.appspot.com/video?v=VgVJrSJxkDk" />
-<subject title="Sequences and series (part 2)" link="http://khanexercises.appspot.com/video?v=U_8GRLJplZg" />
-<subject title="Permutations" link="http://khanexercises.appspot.com/video?v=XqQTXW7XfYA" />
-<subject title="Combinations" link="http://khanexercises.appspot.com/video?v=bCxMhncR7PU" />
-<subject title="Binomial Theorem (part 1)" link="http://khanexercises.appspot.com/video?v=Cv4YhIMfbeM" />
-<subject title="Binomial Theorem (part 2)" link="http://khanexercises.appspot.com/video?v=-fFWWt1m9k0" />
-<subject title="Binomial Theorem (part 3)" link="http://khanexercises.appspot.com/video?v=xF_hJaXUNfE" />
-<subject title="Introduction to interest" link="http://khanexercises.appspot.com/video?v=GtaoP0skPWc" />
-<subject title="Interest (part 2)" link="http://khanexercises.appspot.com/video?v=t4zfiBw0hwM" />
-<subject title="Introduction to compound interest and e" link="http://khanexercises.appspot.com/video?v=qEB6y4DklNY" />
-<subject title="Compound Interest and e (part 2)" link="http://khanexercises.appspot.com/video?v=dzMvqJMLy9c" />
-<subject title="Compound Interest and e (part  3)" link="http://khanexercises.appspot.com/video?v=sQYpUJV8foY" />
-<subject title="Compound Interest and e (part 4)" link="http://khanexercises.appspot.com/video?v=VAxHMTJRhmY" />
-<subject title="Exponential Growth" link="http://khanexercises.appspot.com/video?v=JWfTckls59k" />
-<subject title="Polar Coordinates 1" link="http://khanexercises.appspot.com/video?v=jexMSlSDubM" />
-<subject title="Polar Coordinates 2" link="http://khanexercises.appspot.com/video?v=zGpbSGj_vfE" />
-<subject title="Polar Coordinates 3" link="http://khanexercises.appspot.com/video?v=9iqN12hCn10" />
-<subject title="Parametric Equations 1" link="http://khanexercises.appspot.com/video?v=m6c6dlmUT1c" />
-<subject title="Parametric Equations 2" link="http://khanexercises.appspot.com/video?v=wToSIQJ2o_8" />
-<subject title="Parametric Equations 3" link="http://khanexercises.appspot.com/video?v=57BiI_iD3-U" />
-<subject title="Parametric Equations 4" link="http://khanexercises.appspot.com/video?v=IReD6c_njOY" />
-<subject title="Statistics: The Average" link="http://khanexercises.appspot.com/video?v=uhxtUt_-GyM" />
-<subject title="Statistics: Sample vs. Population Mean" link="http://khanexercises.appspot.com/video?v=hsPCte_PcVA" />
-<subject title="Statistics: Variance of a Population" link="http://khanexercises.appspot.com/video?v=6JFzI1DDyyk" />
-<subject title="Statistics: Sample Variance" link="http://khanexercises.appspot.com/video?v=Qf3RMGXR-h8" />
-<subject title="Statistics: Standard Deviation" link="http://khanexercises.appspot.com/video?v=HvDqbzu0i0E" />
-<subject title="Statistics: Alternate Variance Formulas" link="http://khanexercises.appspot.com/video?v=sRVGcYGjUk8" />
-<subject title="Introduction to Random Variables" link="http://khanexercises.appspot.com/video?v=IYdiKeQ9xEI" />
-<subject title="Probability Density Functions" link="http://khanexercises.appspot.com/video?v=Fvi9A_tEmXQ" />
-<subject title="Binomial Distribution 1" link="http://khanexercises.appspot.com/video?v=O12yTz_8EOw" />
-<subject title="Binomial Distribution 2" link="http://khanexercises.appspot.com/video?v=FI8xtVaI068" />
-<subject title="Binomial Distribution 3" link="http://khanexercises.appspot.com/video?v=vKNpQ_KTXvE" />
-<subject title="Binomial Distribution 4" link="http://khanexercises.appspot.com/video?v=H0ZgOGWUcJw" />
-<subject title="Expected Value: E(X)" link="http://khanexercises.appspot.com/video?v=j__Kredt7vY" />
-<subject title="Expected Value of Binomial Distribution" link="http://khanexercises.appspot.com/video?v=SqcxYnNlI3Y" />
-<subject title="Poisson Process 1" link="http://khanexercises.appspot.com/video?v=3z-M6sbGIZ0" />
-<subject title="Poisson Process 2" link="http://khanexercises.appspot.com/video?v=Jkr4FSrNEVY" />
-<subject title="Law of Large Numbers" link="http://khanexercises.appspot.com/video?v=VpuN8vCQ--M" />
-<subject title="Normal Distribution Excel Exercise" link="http://khanexercises.appspot.com/video?v=yTGEMoaWDCQ" />
-<subject title="Introduction to the Normal Distribution" link="http://khanexercises.appspot.com/video?v=hgtMWR3TFnY" />
-<subject title="ck12.org Normal Distribution Problems: z-score" link="http://khanexercises.appspot.com/video?v=Wp2nVIzBsE8" />
-<subject title="ck12.org: More Empirical Rule and Z-score practice" link="http://khanexercises.appspot.com/video?v=itQEwESWDKg" />
-<subject title="Central Limit Theorem" link="http://khanexercises.appspot.com/video?v=JNm3M9cqWyc" />
-<subject title="Sampling Distribution of the Sample Mean" link="http://khanexercises.appspot.com/video?v=FXZ2O1Lv-KE" />
-<subject title="Sampling Distribution of the Sample Mean 2" link="http://khanexercises.appspot.com/video?v=NYd6wzYkQIM" />
-<subject title="Standard Error of the Mean" link="http://khanexercises.appspot.com/video?v=J1twbrHel3o" />
-<subject title="Probability (part 1)" link="http://khanexercises.appspot.com/video?v=3ER8OkqBdpE" />
-<subject title="Probability (part 2)" link="http://khanexercises.appspot.com/video?v=6E_NVnboMB8" />
-<subject title="Probability (part 3)" link="http://khanexercises.appspot.com/video?v=wBDOCvHYckE" />
-<subject title="Probability (part 4)" link="http://khanexercises.appspot.com/video?v=W581OBM9rAY" />
-<subject title="Probability (part 5)" link="http://khanexercises.appspot.com/video?v=2XToWi9j0Tk" />
-<subject title="Probability (part 6)" link="http://khanexercises.appspot.com/video?v=xf3vfczoCho" />
-<subject title="Probability (part 7)" link="http://khanexercises.appspot.com/video?v=BLcgeLALLnc" />
-<subject title="Probability (part 8)" link="http://khanexercises.appspot.com/video?v=VVr8snbaxZg" />
-<subject title="Permutations" link="http://khanexercises.appspot.com/video?v=XqQTXW7XfYA" />
-<subject title="Combinations" link="http://khanexercises.appspot.com/video?v=bCxMhncR7PU" />
-<subject title="Probability using Combinations" link="http://khanexercises.appspot.com/video?v=Xqfcy1rqMbI" />
-<subject title="Probability and Combinations (part 2)" link="http://khanexercises.appspot.com/video?v=W7DmsJKLoxc" />
-<subject title="Conditional Probability and Combinations" link="http://khanexercises.appspot.com/video?v=xw6utjoyMi4" />
-<subject title="Birthday Probability Problem" link="http://khanexercises.appspot.com/video?v=9G0w61pZPig" />
-<subject title="Introduction to Random Variables" link="http://khanexercises.appspot.com/video?v=IYdiKeQ9xEI" />
-<subject title="Probability Density Functions" link="http://khanexercises.appspot.com/video?v=Fvi9A_tEmXQ" />
-<subject title="Binomial Distribution 1" link="http://khanexercises.appspot.com/video?v=O12yTz_8EOw" />
-<subject title="Binomial Distribution 2" link="http://khanexercises.appspot.com/video?v=FI8xtVaI068" />
-<subject title="Binomial Distribution 3" link="http://khanexercises.appspot.com/video?v=vKNpQ_KTXvE" />
-<subject title="Binomial Distribution 4" link="http://khanexercises.appspot.com/video?v=H0ZgOGWUcJw" />
-<subject title="Expected Value: E(X)" link="http://khanexercises.appspot.com/video?v=j__Kredt7vY" />
-<subject title="Expected Value of Binomial Distribution" link="http://khanexercises.appspot.com/video?v=SqcxYnNlI3Y" />
-<subject title="Poisson Process 1" link="http://khanexercises.appspot.com/video?v=3z-M6sbGIZ0" />
-<subject title="Poisson Process 2" link="http://khanexercises.appspot.com/video?v=Jkr4FSrNEVY" />
-<subject title="Law of Large Numbers" link="http://khanexercises.appspot.com/video?v=VpuN8vCQ--M" />
-<subject title="Introduction to Limits" link="http://khanexercises.appspot.com/video?v=W0VWO4asgmk" />
-<subject title="Limit Examples (part 1)" link="http://khanexercises.appspot.com/video?v=GGQngIp0YGI" />
-<subject title="Limit Examples (part 2)" link="http://khanexercises.appspot.com/video?v=YRw8udexH4o" />
-<subject title="Limit Examples (part3)" link="http://khanexercises.appspot.com/video?v=gWSDDopD9sk" />
-<subject title="Squeeze Theorem" link="http://khanexercises.appspot.com/video?v=igJdDN-DPgA" />
-<subject title="Proof: lim (sin x)/x" link="http://khanexercises.appspot.com/video?v=Ve99biD1KtA" />
-<subject title="More Limits" link="http://khanexercises.appspot.com/video?v=rkeU8_4nzKo" />
-<subject title="Epsilon Delta Limit Definition 1" link="http://khanexercises.appspot.com/video?v=-ejyeII0i5c" />
-<subject title="Epsilon Delta Limit Definition 2" link="http://khanexercises.appspot.com/video?v=Fdu5-aNJTzU" />
-<subject title="Calculus: Derivatives 1 (new HD version)" link="http://khanexercises.appspot.com/video?v=ANyVpMS3HL4" />
-<subject title="Calculus: Derivatives 2 (new HD version)" link="http://khanexercises.appspot.com/video?v=IePCHjMeFkE" />
-<subject title="Calculus: Derivatives 2.5 (new HD version)" link="http://khanexercises.appspot.com/video?v=HEH_oKNLgUU" />
-<subject title="Calculus: Derivatives 1" link="http://khanexercises.appspot.com/video?v=rAof9Ld5sOg" />
-<subject title="Calculus: Derivatives 2" link="http://khanexercises.appspot.com/video?v=ay8838UZ4nM" />
-<subject title="Calculus: Derivatives 3" link="http://khanexercises.appspot.com/video?v=z1lwai-lIzY" />
-<subject title="Calculus: Derivatives 4: The Chain Rule" link="http://khanexercises.appspot.com/video?v=XIQ-KnsAsbg" />
-<subject title="Calculus: Derivatives 5" link="http://khanexercises.appspot.com/video?v=6_lmiPDedsY" />
-<subject title="Calculus: Derivatives 6" link="http://khanexercises.appspot.com/video?v=DYb-AN-lK94" />
-<subject title="Derivatives (part 7)" link="http://khanexercises.appspot.com/video?v=h78GdGiRmpM" />
-<subject title="Derivatives (part 8)" link="http://khanexercises.appspot.com/video?v=E_1gEtiGPNI" />
-<subject title="Derivatives (part 9)" link="http://khanexercises.appspot.com/video?v=aEP4C_kvcO4" />
-<subject title="Proof: d/dx(x^n)" link="http://khanexercises.appspot.com/video?v=dZnc3PtNaN4" />
-<subject title="Proof: d/dx(sqrt(x))" link="http://khanexercises.appspot.com/video?v=789aMeepbxI" />
-<subject title="Proof: d/dx(ln x) = 1/x" link="http://khanexercises.appspot.com/video?v=yUpDRpkUhf4" />
-<subject title="Proof: d/dx(e^x) = e^x" link="http://khanexercises.appspot.com/video?v=sSE6_fK3mu0" />
-<subject title="Proofs of Derivatives of Ln(x) and e^x" link="http://khanexercises.appspot.com/video?v=3nQejB-XPoY" />
-<subject title="Calculus: Derivative of x^(x^x)" link="http://khanexercises.appspot.com/video?v=N5kkwVoAtkc" />
-<subject title="Extreme Derivative Word Problem (advanced)" link="http://khanexercises.appspot.com/video?v=viaPc8zDcRI" />
-<subject title="Implicit Differentiation" link="http://khanexercises.appspot.com/video?v=sL6MC-lKOrw" />
-<subject title="Implicit Differentiation (part 2)" link="http://khanexercises.appspot.com/video?v=PUsMyhds5S4" />
-<subject title="More implicit differentiation" link="http://khanexercises.appspot.com/video?v=hrg1hCzg3W0" />
-<subject title="Trig Implicit Differentiation Example" link="http://khanexercises.appspot.com/video?v=6xvwyE67CeM" />
-<subject title="Maxima Minima Slope Intuition" link="http://khanexercises.appspot.com/video?v=tpHz0gZfVss" />
-<subject title="Inflection point intuition" link="http://khanexercises.appspot.com/video?v=FH8TpU9xqQg" />
-<subject title="Inflection Points and Concavity Intuition" link="http://khanexercises.appspot.com/video?v=dIE22eL6q90" />
-<subject title="Monotonicity Theorem" link="http://khanexercises.appspot.com/video?v=WrEcQsa-1ME" />
-<subject title="Calculus: Graphing using derivatives" link="http://khanexercises.appspot.com/video?v=XHgmx9xT2dE" />
-<subject title="Calculus: Graphing Using Derivatives" link="http://khanexercises.appspot.com/video?v=hIgnece9ins" />
-<subject title="Calculus Graphing with Derivatives Example" link="http://khanexercises.appspot.com/video?v=zC_dTaEY2AY" />
-<subject title="Graphing with Calculus" link="http://khanexercises.appspot.com/video?v=ojcp0GJKluM" />
-<subject title="Hairy inflection point problem" link="http://khanexercises.appspot.com/video?v=8G9rSqFsM3Y" />
-<subject title="Optimization with Calculus 1" link="http://khanexercises.appspot.com/video?v=Ef22yTJDUZI" />
-<subject title="Optimization with Calculus 2" link="http://khanexercises.appspot.com/video?v=3GYv-BZYYdg" />
-<subject title="Optimization with Calculus 3" link="http://khanexercises.appspot.com/video?v=i8Wtu-kdDC4" />
-<subject title="Optimization  Example 4" link="http://khanexercises.appspot.com/video?v=T8sG4Sb3g7Y" />
-<subject title="Introduction to rate-of-change problems" link="http://khanexercises.appspot.com/video?v=Zyq6TmQVBxk" />
-<subject title="Equation of a tangent line" link="http://khanexercises.appspot.com/video?v=1KwW1v__T_0" />
-<subject title="Rates-of-change (part 2)" link="http://khanexercises.appspot.com/video?v=xmgk8_l3lig" />
-<subject title="Ladder rate-of-change problem" link="http://khanexercises.appspot.com/video?v=hD3U65CcZ0Q" />
-<subject title="Mean Value Theorem" link="http://khanexercises.appspot.com/video?v=bGNMXfaNR5Q" />
-<subject title="The Indefinite Integral or Anti-derivative" link="http://khanexercises.appspot.com/video?v=xRspb-iev-g" />
-<subject title="Indefinite integrals (part II)" link="http://khanexercises.appspot.com/video?v=mHvSYRUEWnE" />
-<subject title="Indefinite Integration (part III)" link="http://khanexercises.appspot.com/video?v=77-najNh4iY" />
-<subject title="Indefinite Integration (part IV)" link="http://khanexercises.appspot.com/video?v=VJ9VRUDQyK8" />
-<subject title="Indefinite Integration (part V)" link="http://khanexercises.appspot.com/video?v=Pra6r20geXU" />
-<subject title="Indefinite Integration (part 7)" link="http://khanexercises.appspot.com/video?v=F-OsMq7QKEQ" />
-<subject title="Another u-subsitution example" link="http://khanexercises.appspot.com/video?v=IAbSeAk5RJU" />
-<subject title="Introduction to definite integrals" link="http://khanexercises.appspot.com/video?v=0RdI3-8G4Fs" />
-<subject title="Definite integrals (part II)" link="http://khanexercises.appspot.com/video?v=6PaFm_Je5A0" />
-<subject title="Definite Integrals (area under a curve) (part III)" link="http://khanexercises.appspot.com/video?v=7wUHJ7JQ-gs" />
-<subject title="Definite Integrals (part 4)" link="http://khanexercises.appspot.com/video?v=11Bt6OhIeqA" />
-<subject title="Definite Integrals (part 5)" link="http://khanexercises.appspot.com/video?v=CmXmRNFrtFw" />
-<subject title="Definite integral with substitution" link="http://khanexercises.appspot.com/video?v=CbUx0S8BCtA" />
-<subject title="Integrals: Trig Substitution 1" link="http://khanexercises.appspot.com/video?v=n4EK92CSuBE" />
-<subject title="Integrals: Trig Substitution 2" link="http://khanexercises.appspot.com/video?v=fD7MbnXbTls" />
-<subject title="Integrals: Trig Substitution 3 (long problem)" link="http://khanexercises.appspot.com/video?v=sw2p2tUIFpc" />
-<subject title="Introduction to differential equations" link="http://khanexercises.appspot.com/video?v=C8mudsCSmcU" />
-<subject title="Solid of Revolution (part 1)" link="http://khanexercises.appspot.com/video?v=R_aqSL-q6_8" />
-<subject title="Solid of Revolution  (part 2)" link="http://khanexercises.appspot.com/video?v=iUzfsUOl3-A" />
-<subject title="Solid of Revolution (part 3)" link="http://khanexercises.appspot.com/video?v=tqfU9mC2yFU" />
-<subject title="Solid of Revolution (part 4)" link="http://khanexercises.appspot.com/video?v=OtmjNuiTHp0" />
-<subject title="Solid of Revolution (part 5)" link="http://khanexercises.appspot.com/video?v=NIdqkwocNuE" />
-<subject title="Solid of Revolution (part 6)" link="http://khanexercises.appspot.com/video?v=F2psxMnGdUw" />
-<subject title="Solid of Revolution (part 7)" link="http://khanexercises.appspot.com/video?v=IZ8W-h764Cc" />
-<subject title="Solid of Revolution (part 8)" link="http://khanexercises.appspot.com/video?v=4Flj9plmKGQ" />
-<subject title="Sequences and Series (part 1)" link="http://khanexercises.appspot.com/video?v=VgVJrSJxkDk" />
-<subject title="Sequences and series (part 2)" link="http://khanexercises.appspot.com/video?v=U_8GRLJplZg" />
-<subject title="Polynomial approximation of functions (part 1)" link="http://khanexercises.appspot.com/video?v=sy132cgqaiU" />
-<subject title="Polynomial approximation of functions (part 2)" link="http://khanexercises.appspot.com/video?v=3JG3qn7-Sac" />
-<subject title="Approximating functions with polynomials (part 3)" link="http://khanexercises.appspot.com/video?v=XZDGrbyz0v0" />
-<subject title="Polynomial approximation of functions (part 4)" link="http://khanexercises.appspot.com/video?v=gcJeg4SdIpU" />
-<subject title="Polynomial approximations of functions (part 5)" link="http://khanexercises.appspot.com/video?v=9AoDucUmO20" />
-<subject title="Polynomial approximation of functions (part 6)" link="http://khanexercises.appspot.com/video?v=-gRNRBCG3Ow" />
-<subject title="Polynomial approximation of functions (part 7)" link="http://khanexercises.appspot.com/video?v=bC5Lahh4Aus" />
-<subject title="Taylor Polynomials" link="http://khanexercises.appspot.com/video?v=8SsC5st4LnI" />
-<subject title="Exponential Growth" link="http://khanexercises.appspot.com/video?v=JWfTckls59k" />
-<subject title="AP Calculus BC Exams: 2008 1 a" link="http://khanexercises.appspot.com/video?v=upO6Mh862PI" />
-<subject title="AP Calculus BC Exams: 2008 1 b&amp;c" link="http://khanexercises.appspot.com/video?v=xPb6HLM3xEQ" />
-<subject title="AP Calculus BC Exams: 2008 1 c&amp;d" link="http://khanexercises.appspot.com/video?v=_l0Mfsu__gU" />
-<subject title="AP Calculus BC Exams: 2008 1 d" link="http://khanexercises.appspot.com/video?v=sPTuCE5zd3s" />
-<subject title="Calculus BC 2008 2 a" link="http://khanexercises.appspot.com/video?v=xvvI_QRYxBY" />
-<subject title="Calculus BC 2008 2 b &amp;c" link="http://khanexercises.appspot.com/video?v=S4oOSgTj9C8" />
-<subject title="Calculus BC 2008 2d" link="http://khanexercises.appspot.com/video?v=o_vMb655dFk" />
-<subject title="Partial Derivatives" link="http://khanexercises.appspot.com/video?v=1CMDS4-PKKQ" />
-<subject title="Partial Derivatives 2" link="http://khanexercises.appspot.com/video?v=-u0mqFqpMNY" />
-<subject title="Gradient 1" link="http://khanexercises.appspot.com/video?v=U7HQ_G_N6vo" />
-<subject title="Gradient of a scalar field" link="http://khanexercises.appspot.com/video?v=OB8b8aDGLgE" />
-<subject title="Divergence 1" link="http://khanexercises.appspot.com/video?v=JAXyLhvZ-Vg" />
-<subject title="Divergence 2" link="http://khanexercises.appspot.com/video?v=tOX3RkH2guE" />
-<subject title="Divergence 3" link="http://khanexercises.appspot.com/video?v=U6Re4xT0o4w" />
-<subject title="Curl 1" link="http://khanexercises.appspot.com/video?v=Mt4dpGFVsYc" />
-<subject title="Curl 2" link="http://khanexercises.appspot.com/video?v=hTSyVgBa1T0" />
-<subject title="Curl 3" link="http://khanexercises.appspot.com/video?v=fYzoiWIBjP8" />
-<subject title="Double Integral 1" link="http://khanexercises.appspot.com/video?v=85zGYB-34jQ" />
-<subject title="Double Integrals 2" link="http://khanexercises.appspot.com/video?v=TdLD2Zh-nUQ" />
-<subject title="Double Integrals 3" link="http://khanexercises.appspot.com/video?v=z8BM6cHifPA" />
-<subject title="Double Integrals 4" link="http://khanexercises.appspot.com/video?v=twT-WZChfZ8" />
-<subject title="Double Integrals 5" link="http://khanexercises.appspot.com/video?v=hrIPO8mQqtw" />
-<subject title="Double Integrals 6" link="http://khanexercises.appspot.com/video?v=0pv0QtOi5l8" />
-<subject title="Triple Integrals 1" link="http://khanexercises.appspot.com/video?v=vr0sTKbV7lI" />
-<subject title="Triple Integrals 2" link="http://khanexercises.appspot.com/video?v=vxQvL_WhBGU" />
-<subject title="Triple Integrals 3" link="http://khanexercises.appspot.com/video?v=ZN2PfqZ4ihM" />
-<subject title="∫(2^ln x)/x dx Antiderivative Example" link="http://khanexercises.appspot.com/video?v=C5Lbjbyr1t4" />
-<subject title="Introduction to the Line Integral" link="http://khanexercises.appspot.com/video?v=_60sKaoRmhU" />
-<subject title="Line Integral Example 1" link="http://khanexercises.appspot.com/video?v=uXjQ8yc9Pdg" />
-<subject title="Line Integral Example 2 (part 1)" link="http://khanexercises.appspot.com/video?v=wyTjyQMVvc4" />
-<subject title="Line Integral Example 2 (part 2)" link="http://khanexercises.appspot.com/video?v=Qqanbd3gLhw" />
-<subject title="Position Vector Valued Functions" link="http://khanexercises.appspot.com/video?v=sBldw95xMD4" />
-<subject title="Derivative of a position vector valued function" link="http://khanexercises.appspot.com/video?v=E9Q_Lc0g1xE" />
-<subject title="Differential of a vector valued function" link="http://khanexercises.appspot.com/video?v=FYMn61HLw1k" />
-<subject title="Vector valued function derivative example" link="http://khanexercises.appspot.com/video?v=vcwvzUVLPw0" />
-<subject title="Line Integrals and Vector Fields" link="http://khanexercises.appspot.com/video?v=t3cJYNdQLYg" />
-<subject title="Parametrization of a Reverse Path" link="http://khanexercises.appspot.com/video?v=eGRZKkmI_fo" />
-<subject title="Path Independence for Line Integrals" link="http://khanexercises.appspot.com/video?v=K_fgnCJOI8I" />
-<subject title="Green's Theorem Proof Part 1" link="http://khanexercises.appspot.com/video?v=l5zJvZKfMYE" />
-<subject title="Green's Theorem Proof (part 2)" link="http://khanexercises.appspot.com/video?v=qdFD-0OWBRo" />
-<subject title="Green's Theorem Example 1" link="http://khanexercises.appspot.com/video?v=gGXnILbrhsM" />
-<subject title="Green's Theorem Example 2" link="http://khanexercises.appspot.com/video?v=sSyPAAyL8nQ" />
-<subject title="Introduction to differential equations" link="http://khanexercises.appspot.com/video?v=-_POEWfygmU" />
-<subject title="Separable Differential Equations" link="http://khanexercises.appspot.com/video?v=C5-lz0hcqsE" />
-<subject title="Separable differential equations 2" link="http://khanexercises.appspot.com/video?v=xVWCfMe97ws" />
-<subject title="Exact Equations Intuition 1 (proofy)" link="http://khanexercises.appspot.com/video?v=iEpqcdaJNTQ" />
-<subject title="Exact Equations Intuition 2 (proofy)" link="http://khanexercises.appspot.com/video?v=a7wYAtMjORQ" />
-<subject title="Exact Equations Example 1" link="http://khanexercises.appspot.com/video?v=Pb04ntcDJcQ" />
-<subject title="Exact Equations Example 2" link="http://khanexercises.appspot.com/video?v=utQi1ZhF__Q" />
-<subject title="Exact Equations Example 3" link="http://khanexercises.appspot.com/video?v=eu_GFuU7tLI" />
-<subject title="Integrating factors 1" link="http://khanexercises.appspot.com/video?v=j511hg7Hlbg" />
-<subject title="Integrating factors 2" link="http://khanexercises.appspot.com/video?v=0NyeDUhKwBE" />
-<subject title="First order homegenous equations" link="http://khanexercises.appspot.com/video?v=9Wfn-WWV1aY" />
-<subject title="First order homogenous equations 2" link="http://khanexercises.appspot.com/video?v=6YRGEsQWZzY" />
-<subject title="Complex roots of the characteristic equations 1" link="http://khanexercises.appspot.com/video?v=6xEO4BeawzA" />
-<subject title="Complex roots of the characteristic equations 2" link="http://khanexercises.appspot.com/video?v=jJyRrIZ595c" />
-<subject title="Complex roots of the characteristic equations 3" link="http://khanexercises.appspot.com/video?v=rGaM6pwqhB0" />
-<subject title="Repeated roots of the characteristic equation" link="http://khanexercises.appspot.com/video?v=NW9JfMvIsxw" />
-<subject title="Undetermined Coefficients 1" link="http://khanexercises.appspot.com/video?v=znE4Nq9NJCQ" />
-<subject title="Undetermined Coefficients 2" link="http://khanexercises.appspot.com/video?v=hbJ2o9EUmJ0" />
-<subject title="Undetermined Coefficients 3" link="http://khanexercises.appspot.com/video?v=I3vIAzMcm4Y" />
-<subject title="Undetermined Coefficients 4" link="http://khanexercises.appspot.com/video?v=vAepSNDLZRM" />
-<subject title="Laplace Transform 1" link="http://khanexercises.appspot.com/video?v=OiNh2DswFt4" />
-<subject title="Laplace Transform 2" link="http://khanexercises.appspot.com/video?v=33TYoybjqPg" />
-<subject title="Laplace Transform 3 (L{sin(at)})" link="http://khanexercises.appspot.com/video?v=gMcs6RF_LrQ" />
-<subject title="Laplace Transform 4" link="http://khanexercises.appspot.com/video?v=-cApVwKR1Ps" />
-<subject title="Laplace Transform 5" link="http://khanexercises.appspot.com/video?v=E2VxbufzuWQ" />
-<subject title="Laplace Transform 6" link="http://khanexercises.appspot.com/video?v=fyJkXBvcA2Q" />
-<subject title="Laplace Transform to solve an equation" link="http://khanexercises.appspot.com/video?v=3uYb-RhM7lU" />
-<subject title="Laplace Transform solves an equation 2" link="http://khanexercises.appspot.com/video?v=EdQ7Q9VoF44" />
-<subject title="More Laplace Transform tools" link="http://khanexercises.appspot.com/video?v=_X_QwpXsdOs" />
-<subject title="Laplace Transform of : L{t}" link="http://khanexercises.appspot.com/video?v=qhKJ1DG9kYY" />
-<subject title="Laplace Transform of  t^n: L{t^n}" link="http://khanexercises.appspot.com/video?v=pZIaUx3UQoA" />
-<subject title="Laplace Transform of the Unit Step Function" link="http://khanexercises.appspot.com/video?v=4Mr7aEHQr8E" />
-<subject title="Inverse Laplace Examples" link="http://khanexercises.appspot.com/video?v=BbqbvSig6Mc" />
-<subject title="Laplace/Step Function Differential Equation" link="http://khanexercises.appspot.com/video?v=R0JY8oWsuOY" />
-<subject title="Dirac Delta Function" link="http://khanexercises.appspot.com/video?v=4qfdCwys2ew" />
-<subject title="Laplace Transform of the Dirac Delta Function" link="http://khanexercises.appspot.com/video?v=vhfjEpQWWeE" />
-<subject title="Introduction to the Convolution" link="http://khanexercises.appspot.com/video?v=IW4Reburjpc" />
-<subject title="The Convolution and the Laplace Transform" link="http://khanexercises.appspot.com/video?v=TJgBEI3drUc" />
-<subject title="French Revolution (Part 1)" link="http://khanexercises.appspot.com/video?v=BDWqwcTtZa0" />
-<subject title="French Revolution (Part 2)" link="http://khanexercises.appspot.com/video?v=0t4MF9ZoppM" />
-<subject title="French Revolution (Part 3) - Reign of Terror" link="http://khanexercises.appspot.com/video?v=BZmtnCqTWik" />
-<subject title="Haitian Revolution (Part 1)" link="http://khanexercises.appspot.com/video?v=Qz5zFzvbib4" />
-<subject title="Haitian Revolution (Part 2)" link="http://khanexercises.appspot.com/video?v=gU-5bjpAPmA" />
-<subject title="Napoleon and the War of the Third Coalition" link="http://khanexercises.appspot.com/video?v=yogD_-Op4Wc" />
-<subject title="Napoleon and the War of the Fourth Coalition" link="http://khanexercises.appspot.com/video?v=O3HxPDH-s7w" />
-<subject title="Introduction to matrices" link="http://khanexercises.appspot.com/video?v=xyAuNHPsq-g" />
-<subject title="Matrix multiplication (part 1)" link="http://khanexercises.appspot.com/video?v=aKhhYguY0DQ" />
-<subject title="Matrix multiplication (part 2)" link="http://khanexercises.appspot.com/video?v=OAh573i_qn8" />
-<subject title="Inverse Matrix (part 1)" link="http://khanexercises.appspot.com/video?v=iUQR0enP7RQ" />
-<subject title="Inverting matrices (part 2)" link="http://khanexercises.appspot.com/video?v=S4n-tQZnU6o" />
-<subject title="Inverting Matrices (part 3)" link="http://khanexercises.appspot.com/video?v=obts_JDS6_Q" />
-<subject title="Matrices to solve a system of equations" link="http://khanexercises.appspot.com/video?v=AUqeb9Z3y3k" />
-<subject title="Matrices to solve a vector combination problem" link="http://khanexercises.appspot.com/video?v=gsNgdVdAT1o" />
-<subject title="Singular Matrices" link="http://khanexercises.appspot.com/video?v=UqyN7-tRS00" />
-<subject title="3-variable linear equations (part 1)" link="http://khanexercises.appspot.com/video?v=5tB7y_piK6o" />
-<subject title="Solving 3 Equations with 3 Unknowns" link="http://khanexercises.appspot.com/video?v=woqq3Sls1d8" />
-<subject title="Linear Algebra: Introduction to Vectors" link="http://khanexercises.appspot.com/video?v=5cWB52I-SF0" />
-<subject title="Linear Algebra: Vector Examples" link="http://khanexercises.appspot.com/video?v=r4bH66vYjss" />
-<subject title="Linear Combinations and Span" link="http://khanexercises.appspot.com/video?v=Qm_OS-8COwU" />
-<subject title="More on linear independence" link="http://khanexercises.appspot.com/video?v=Alhcv5d_XOs" />
-<subject title="Span and Linear Independence Example" link="http://khanexercises.appspot.com/video?v=9kW6zFK5E5c" />
-<subject title="Linear Subspaces" link="http://khanexercises.appspot.com/video?v=pMFv6liWK4M" />
-<subject title="Linear Algebra: Basis of a Subspace" link="http://khanexercises.appspot.com/video?v=zntNi3-ybfQ" />
-<subject title="Vector Dot Product and Vector Length" link="http://khanexercises.appspot.com/video?v=WNuIhXo39_k" />
-<subject title="Proving Vector Dot Product Properties" link="http://khanexercises.appspot.com/video?v=rVQ3G9epCjw" />
-<subject title="Proof of the Cauchy-Schwarz Inequality" link="http://khanexercises.appspot.com/video?v=r2PogGDl8_U" />
-<subject title="Linear Algebra: Vector Triangle Inequality" link="http://khanexercises.appspot.com/video?v=PsNidCBr5II" />
-<subject title="Defining the angle between vectors" link="http://khanexercises.appspot.com/video?v=5AWob_z74Ks" />
-<subject title="Linear Algebra: Cross Product Introduction" link="http://khanexercises.appspot.com/video?v=pJzmiywagfY" />
-<subject title="Dot and Cross Product Comparison/Intuition" link="http://khanexercises.appspot.com/video?v=tdwFdzVqito" />
-<subject title="Matrices: Reduced Row Echelon Form 1" link="http://khanexercises.appspot.com/video?v=L0CmbneYETs" />
-<subject title="Matrices: Reduced Row Echelon Form 2" link="http://khanexercises.appspot.com/video?v=lP1DGtZ8Wys" />
-<subject title="Matrices: Reduced Row Echelon Form 3" link="http://khanexercises.appspot.com/video?v=JVDrlTdzxiI" />
-<subject title="Matrix Vector Products" link="http://khanexercises.appspot.com/video?v=7Mo4S2wyMg4" />
-<subject title="Introduction to the Null Space of a Matrix" link="http://khanexercises.appspot.com/video?v=jCwRV1QL_Xs" />
-<subject title="Null Space 3: Relation to Linear Independence" link="http://khanexercises.appspot.com/video?v=vFctYRhK2M0" />
-<subject title="Column Space of a Matrix" link="http://khanexercises.appspot.com/video?v=st6D5OdFV9M" />
-<subject title="Null Space and Column Space Basis" link="http://khanexercises.appspot.com/video?v=_uTAdf_AsfQ" />
-<subject title="Visualizing a Column Space as a Plane in R3" link="http://khanexercises.appspot.com/video?v=EGNlXtjYABw" />
-<subject title="Dimension of the Null Space or Nullity" link="http://khanexercises.appspot.com/video?v=abYAUqs_n6I" />
-<subject title="Dimension of the Column Space or Rank" link="http://khanexercises.appspot.com/video?v=JUgrBkPteTg" />
-<subject title="Showing relation between basis cols and pivot cols" link="http://khanexercises.appspot.com/video?v=BfVjTOjvI30" />
-<subject title="Showing that the candidate basis does span C(A)" link="http://khanexercises.appspot.com/video?v=CkQOCnLWPUA" />
-<subject title="A more formal understanding of functions" link="http://khanexercises.appspot.com/video?v=BQMyeQOLvpg" />
-<subject title="Vector Transformations" link="http://khanexercises.appspot.com/video?v=gAbadNuQEjI" />
-<subject title="Linear Transformations" link="http://khanexercises.appspot.com/video?v=4PCktDZJH8E" />
-<subject title="Matrix Vector Products as Linear Transformations" link="http://khanexercises.appspot.com/video?v=ondmopWLiEg" />
-<subject title="Linear Transformations as Matrix Vector Products" link="http://khanexercises.appspot.com/video?v=PErhLkQcpZ8" />
-<subject title="Image of a subset under a transformation" link="http://khanexercises.appspot.com/video?v=MIAmN5kgp3k" />
-<subject title="im(T):  Image of a Transformation" link="http://khanexercises.appspot.com/video?v=hZ827mfh1Jo" />
-<subject title="Preimage of a set" link="http://khanexercises.appspot.com/video?v=zVsGtU8lIWs" />
-<subject title="Preimage and Kernel Example" link="http://khanexercises.appspot.com/video?v=6yrPU8rYOhs" />
-<subject title="More on Matrix Addition and Scalar Multiplication" link="http://khanexercises.appspot.com/video?v=Z19-ObbmHJE" />
-<subject title="Linear Transformation Examples: Rotations in R2" link="http://khanexercises.appspot.com/video?v=lPWfIq5DzqI" />
-<subject title="Rotation in R3 around the X-axis" link="http://khanexercises.appspot.com/video?v=gkyuLPzfDV0" />
-<subject title="Unit Vectors" link="http://khanexercises.appspot.com/video?v=lQn7fksaDq0" />
-<subject title="Introduction to Projections" link="http://khanexercises.appspot.com/video?v=27vT-NWuw0M" />
-<subject title="Compositions of Linear Transformations 1" link="http://khanexercises.appspot.com/video?v=f_DTiXZpb8M" />
-<subject title="Compositions of Linear Transformations 2" link="http://khanexercises.appspot.com/video?v=BuqcKpe5ZQs" />
-<subject title="Linear Algebra: Matrix Product Examples" link="http://khanexercises.appspot.com/video?v=x1z0hOyjapU" />
-<subject title="Matrix Product Associativity" link="http://khanexercises.appspot.com/video?v=Hhc96U_HvQE" />
-<subject title="Distributive Property of Matrix Products" link="http://khanexercises.appspot.com/video?v=oMWTMj78cwc" />
-<subject title="Determining whether a transformation is onto" link="http://khanexercises.appspot.com/video?v=eR8vEdJTvd0" />
-<subject title="Linear Algebra: Exploring the solution set of Ax=b" link="http://khanexercises.appspot.com/video?v=1PsNIzUJPkc" />
-<subject title="Linear Algebra: Showing that Inverses are Linear" link="http://khanexercises.appspot.com/video?v=mr9Tow8hpCg" />
-<subject title="Linear Algebra: Example of Finding Matrix Inverse" link="http://khanexercises.appspot.com/video?v=r9aTLTN16V4" />
-<subject title="Linear Algebra: Formula for 2x2 inverse" link="http://khanexercises.appspot.com/video?v=eEUK_ThrHuQ" />
-<subject title="Linear Algebra: 3x3 Determinant" link="http://khanexercises.appspot.com/video?v=0c7dt2SQfLw" />
-<subject title="Linear Algebra: nxn Determinant" link="http://khanexercises.appspot.com/video?v=H9BWRYJNIv4" />
-<subject title="Linear Algebra: Determinants along other rows/cols" link="http://khanexercises.appspot.com/video?v=nu87kfmwNfU" />
-<subject title="Linear Algebra: Rule of Sarrus of Determinants" link="http://khanexercises.appspot.com/video?v=4xFIi0JF2AM" />
-<subject title="Linear Algebra: Determinant when row is added" link="http://khanexercises.appspot.com/video?v=VrB3LaSD_uo" />
-<subject title="Linear Algebra: Duplicate Row Determinant" link="http://khanexercises.appspot.com/video?v=gYv8sttBIqs" />
-<subject title="Linear Algebra: Determinant after row operations" link="http://khanexercises.appspot.com/video?v=kpG7xySkivg" />
-<subject title="Linear Algebra: Upper Triangular Determinant" link="http://khanexercises.appspot.com/video?v=VX7K8iqoiRc" />
-<subject title="Linear Algebra: Simpler 4x4 determinant" link="http://khanexercises.appspot.com/video?v=QV0jsTiobU4" />
-<subject title="Linear Algebra: Determinant as Scaling Factor" link="http://khanexercises.appspot.com/video?v=g3MqSdO5Ubc" />
-<subject title="Linear Algebra: Transpose of a Matrix" link="http://khanexercises.appspot.com/video?v=2t0003_sxtU" />
-<subject title="Linear Algebra:  Determinant of Transpose" link="http://khanexercises.appspot.com/video?v=x-GV2v0dRNE" />
-<subject title="Linear Algebra:  Transposes of sums and inverses" link="http://khanexercises.appspot.com/video?v=Br_8t58mdeI" />
-<subject title="Linear Algebra: Transpose of a Vector" link="http://khanexercises.appspot.com/video?v=lSoaMCNKfAg" />
-<subject title="Linear Algebra: Rowspace and Left Nullspace" link="http://khanexercises.appspot.com/video?v=qBfc57x_RSg" />
-<subject title="Linear Algebra: Orthogonal Complements" link="http://khanexercises.appspot.com/video?v=QOTjdgmNqlg" />
-<subject title="Linear Algebra: Rank(A) = Rank(transpose of A)" link="http://khanexercises.appspot.com/video?v=tqqVOWm9YsU" />
-<subject title="Lin Alg: Orthogonal Complement of the Nullspace" link="http://khanexercises.appspot.com/video?v=LE_aQAur7nI" />
-<subject title="Lin Alg: Unique rowspace solution to Ax=b" link="http://khanexercises.appspot.com/video?v=czIYvs9zj2g" />
-<subject title="Linear Alg: Rowspace Solution to Ax=b example" link="http://khanexercises.appspot.com/video?v=qdf2CuMGdKs" />
-<subject title="Linear Algebra: Projections onto Subspaces" link="http://khanexercises.appspot.com/video?v=5B8XluiqdHM" />
-<subject title="Linear Alg: Visualizing a projection onto a plane" link="http://khanexercises.appspot.com/video?v=uWbZlJURkfA" />
-<subject title="Linear Algebra: Subspace Projection Matrix Example" link="http://khanexercises.appspot.com/video?v=QTcSBB3uVP0" />
-<subject title="Lin Alg: Another Example of a Projection Matrix" link="http://khanexercises.appspot.com/video?v=XhCSHu6dHb8" />
-<subject title="Linear Algebra: Least Squares Approximation" link="http://khanexercises.appspot.com/video?v=MC7l96tW8V8" />
-<subject title="Linear Algebra: Least Squares Examples" link="http://khanexercises.appspot.com/video?v=8mAZYv5wIcE" />
-<subject title="Linear Algebra: Another Least Squares Example" link="http://khanexercises.appspot.com/video?v=QkepM8Vv3kw" />
-<subject title="Linear Algebra: Change of Basis Matrix" link="http://khanexercises.appspot.com/video?v=1j5WnqwMdCk" />
-<subject title="Lin Alg: Invertible Change of Basis Matrix" link="http://khanexercises.appspot.com/video?v=meibWcbGqt4" />
-<subject title="Linear Algebra: Introduction to Orthonormal Bases" link="http://khanexercises.appspot.com/video?v=7BFx8pt2aTQ" />
-<subject title="Linear Algebra: The Gram-Schmidt Process" link="http://khanexercises.appspot.com/video?v=rHonltF77zI" />
-<subject title="Linear Algebra: Gram-Schmidt Process Example" link="http://khanexercises.appspot.com/video?v=tu1GPtfsQ7M" />
-<subject title="Linear Algebra: Eigenvalues of a 3x3 matrix" link="http://khanexercises.appspot.com/video?v=11dNghWC4HI" />
-<subject title="Introduction to motion" link="http://khanexercises.appspot.com/video?v=8wZugqi_uCg" />
-<subject title="Introduction to motion (part 2)" link="http://khanexercises.appspot.com/video?v=OKXyKt40WFE" />
-<subject title="Introduction to motion (part 3)" link="http://khanexercises.appspot.com/video?v=enmHaVxLfAE" />
-<subject title="Projectile motion (part 1)" link="http://khanexercises.appspot.com/video?v=15zliAL4llE" />
-<subject title="Projectile motion (part 2)" link="http://khanexercises.appspot.com/video?v=emdHj6WodLw" />
-<subject title="Projectile motion (part 3)" link="http://khanexercises.appspot.com/video?v=Y5cSGxdDHz4" />
-<subject title="Projectile motion (part 4)" link="http://khanexercises.appspot.com/video?v=-W3RkgvLrGI" />
-<subject title="Projectile motion (part 5)" link="http://khanexercises.appspot.com/video?v=dlpmllTx5MY" />
-<subject title="Projectile motion (part 6)" link="http://khanexercises.appspot.com/video?v=bl2DvFn8LjM" />
-<subject title="Projectile motion (part 7)" link="http://khanexercises.appspot.com/video?v=-uAfg0t6NmM" />
-<subject title="Projectile motion (part 8)" link="http://khanexercises.appspot.com/video?v=oDcPHWX2Nv0" />
-<subject title="Projectile motion (part 9)" link="http://khanexercises.appspot.com/video?v=uHwKV2NzDno" />
-<subject title="Projectile motion (part 10)" link="http://khanexercises.appspot.com/video?v=zbZyiyzMUQ8" />
-<subject title="2 dimensional projectile motion (part 1)" link="http://khanexercises.appspot.com/video?v=RcSadoSQhdA" />
-<subject title="2 dimensional projectile motion (part 2)" link="http://khanexercises.appspot.com/video?v=cEOxZWGp-8E" />
-<subject title="2-dimensional projectile motion (part 3)" link="http://khanexercises.appspot.com/video?v=o2ZrX9MbIwU" />
-<subject title="2 dimensional projectile motion part 4" link="http://khanexercises.appspot.com/video?v=5GRlLD7M430" />
-<subject title="2-dimensional projectile motion part 5" link="http://khanexercises.appspot.com/video?v=8PXJ3hHPxlo" />
-<subject title="Newton's First Law of Motion" link="http://khanexercises.appspot.com/video?v=D9y0RlF_DqA" />
-<subject title="Newton's Second Law of Motion" link="http://khanexercises.appspot.com/video?v=3FQ58lVtbCg" />
-<subject title="Newton's Third Law of Motion" link="http://khanexercises.appspot.com/video?v=NfuKfbpkIrQ" />
-<subject title="Newton's Laws Problems (part 1)" link="http://khanexercises.appspot.com/video?v=wGKXIq-gdok" />
-<subject title="Newton's Laws Examples (part 2)" link="http://khanexercises.appspot.com/video?v=x5Bz0ManOuc" />
-<subject title="Newton's Laws" link="http://khanexercises.appspot.com/video?v=16StQAx83kA" />
-<subject title="Newton's Laws and vectors" link="http://khanexercises.appspot.com/video?v=eMVzfoA9dnA" />
-<subject title="Force with Vectors" link="http://khanexercises.appspot.com/video?v=rDodorjgiy8" />
-<subject title="Introduction to Tension" link="http://khanexercises.appspot.com/video?v=_UrfHFEBIpU" />
-<subject title="Tension (part 2)" link="http://khanexercises.appspot.com/video?v=zwDJ1wVr7Is" />
-<subject title="Mass on Inclined Plane" link="http://khanexercises.appspot.com/video?v=VU0lr5KQ79s" />
-<subject title="Introduction to friction" link="http://khanexercises.appspot.com/video?v=KvQ3YDALMeg" />
-<subject title="Friction on an inclined plane" link="http://khanexercises.appspot.com/video?v=1g6eQqZgc50" />
-<subject title="A more complicated friction/inclined plane problem" link="http://khanexercises.appspot.com/video?v=kM6D8FDlYPU" />
-<subject title="Moving pulley problem (part 1)" link="http://khanexercises.appspot.com/video?v=J5GJgtZN6GE" />
-<subject title="Moving pulley problem (part 2)" link="http://khanexercises.appspot.com/video?v=aHro1hCjukQ" />
-<subject title="Introduction to Momentum" link="http://khanexercises.appspot.com/video?v=XFhntPxow0U" />
-<subject title="Momentum: Ice skater throws a ball" link="http://khanexercises.appspot.com/video?v=vPkkCOlGND4" />
-<subject title="2-dimensional momentum problem" link="http://khanexercises.appspot.com/video?v=CFygKiTB-4A" />
-<subject title="2-dimensional momentum problem (part 2)" link="http://khanexercises.appspot.com/video?v=leudxqivIJI" />
-<subject title="Introduction to work and energy" link="http://khanexercises.appspot.com/video?v=2WS1sG9fhOk" />
-<subject title="Work and Energy (part 2)" link="http://khanexercises.appspot.com/video?v=3mier94pbnU" />
-<subject title="Conservation of Energy" link="http://khanexercises.appspot.com/video?v=kw_4Loo1HR4" />
-<subject title="Work/Energy problem with Friction" link="http://khanexercises.appspot.com/video?v=YvacYWgygaA" />
-<subject title="Introduction to mechanical advantage" link="http://khanexercises.appspot.com/video?v=pfzJ-z5Ij48" />
-<subject title="Mechanical Advantage (part 2)" link="http://khanexercises.appspot.com/video?v=DiBXxWBrV24" />
-<subject title="Mechanical Advantage (part 3)" link="http://khanexercises.appspot.com/video?v=vSsK7Rfa3yA" />
-<subject title="Center of Mass" link="http://khanexercises.appspot.com/video?v=VrflZifKIuw" />
-<subject title="Introduction to Torque" link="http://khanexercises.appspot.com/video?v=QhuJn8YBtmg" />
-<subject title="Moments" link="http://khanexercises.appspot.com/video?v=ESusD8HRLBI" />
-<subject title="Moments (part 2)" link="http://khanexercises.appspot.com/video?v=peXbz0frV74" />
-<subject title="Unit Vector Notation" link="http://khanexercises.appspot.com/video?v=FaF3v-ezbSk" />
-<subject title="Unit Vector Notation (part 2)" link="http://khanexercises.appspot.com/video?v=595Tiga1gIg" />
-<subject title="Projectile Motion with Unit Vectors" link="http://khanexercises.appspot.com/video?v=oYpEaB9_am8" />
-<subject title="Projectile Motion with Unit Vectors (part 2)" link="http://khanexercises.appspot.com/video?v=9VBa4o8rz0Y" />
-<subject title="Projectile Motion with Ordered Set Notation" link="http://khanexercises.appspot.com/video?v=jl_gQ-eL3xo" />
-<subject title="Introduction to centripetal acceleration (part 1)" link="http://khanexercises.appspot.com/video?v=GBGGh2Ie4d0" />
-<subject title="Centripetal Acceleration (part 2)" link="http://khanexercises.appspot.com/video?v=UmiotSKSRvw" />
-<subject title="Centripetal Acceleration (part 3)" link="http://khanexercises.appspot.com/video?v=p3AGlD6g8X8" />
-<subject title="Visual Proof: a= v^2/r" link="http://khanexercises.appspot.com/video?v=TNX-Z6XR3gA" />
-<subject title="Calculus Proof that a=v^2/r" link="http://khanexercises.appspot.com/video?v=YRBRarbMCyE" />
-<subject title="Introduction to angular velocity" link="http://khanexercises.appspot.com/video?v=X4UTe1fZUzI" />
-<subject title="Conservation of angular momemtum" link="http://khanexercises.appspot.com/video?v=s_R8d3isJDA" />
-<subject title="Introduction to Newton's Law of Gravitation" link="http://khanexercises.appspot.com/video?v=391txUI76gM" />
-<subject title="Gravitation (part 2)" link="http://khanexercises.appspot.com/video?v=8i0j3j16yFk" />
-<subject title="Intro to springs and Hooke's Law" link="http://khanexercises.appspot.com/video?v=ZzwuHS9ldbY" />
-<subject title="Potential energy stored in a spring" link="http://khanexercises.appspot.com/video?v=eVl5zs6Lqy0" />
-<subject title="Spring potential energy example (mistake in math)" link="http://khanexercises.appspot.com/video?v=P3QV9ktuYlQ" />
-<subject title="Introduction to Harmonic Motion" link="http://khanexercises.appspot.com/video?v=Nk2q-_jkJVs" />
-<subject title="Harmonic Motion Part 2 (calculus)" link="http://khanexercises.appspot.com/video?v=xoUppFlif04" />
-<subject title="Harmonic Motion Part 3 (no calculus)" link="http://khanexercises.appspot.com/video?v=oqBHBO8cqLI" />
-<subject title="Fluids (part 1)" link="http://khanexercises.appspot.com/video?v=Pn5YEMwQb4Y" />
-<subject title="Fluids (part 2)" link="http://khanexercises.appspot.com/video?v=lWDtFHDVqqk" />
-<subject title="Fluids (part 3)" link="http://khanexercises.appspot.com/video?v=5EWjlpc0S00" />
-<subject title="Fluids (part 4)" link="http://khanexercises.appspot.com/video?v=i6gz9VFyYks" />
-<subject title="Fluids (part 5)" link="http://khanexercises.appspot.com/video?v=vzID7ds600c" />
-<subject title="Fluids (part 6)" link="http://khanexercises.appspot.com/video?v=wwjtuZ5vTvc" />
-<subject title="Fluids (part 7)" link="http://khanexercises.appspot.com/video?v=G4CgOF4ccXk" />
-<subject title="Fluids (part 8)" link="http://khanexercises.appspot.com/video?v=uqyLOuAzbvo" />
-<subject title="Fluids (part 9)" link="http://khanexercises.appspot.com/video?v=QX2YLR09Q78" />
-<subject title="Fluids (part 10)" link="http://khanexercises.appspot.com/video?v=NGpJPz44JYc" />
-<subject title="Fluids (part 11)" link="http://khanexercises.appspot.com/video?v=HnfBFeLunk4" />
-<subject title="Fluids (part 12)" link="http://khanexercises.appspot.com/video?v=xlJYYM5TWoA" />
-<subject title="Thermodynamics (part 1)" link="http://khanexercises.appspot.com/video?v=tQcB9BLUoVI" />
-<subject title="Thermodynamics (part 2)" link="http://khanexercises.appspot.com/video?v=x34OTtDE5q8" />
-<subject title="Thermodynamics (part 3)" link="http://khanexercises.appspot.com/video?v=HvYUKRMT0VI" />
-<subject title="Thermodynamics (part 4)" link="http://khanexercises.appspot.com/video?v=5B1i26dUwME" />
-<subject title="Thermodynamics (part 5)" link="http://khanexercises.appspot.com/video?v=UekR9J31a2o" />
-<subject title="Electrostatics (part 1)" link="http://khanexercises.appspot.com/video?v=Pu_u-bwfaeI" />
-<subject title="Electrostatics (part 2)" link="http://khanexercises.appspot.com/video?v=0YOGrTNgGhE" />
-<subject title="Electric Potential Energy" link="http://khanexercises.appspot.com/video?v=elJUghWSVh4" />
-<subject title="Voltage" link="http://khanexercises.appspot.com/video?v=zqGvUbvVQXg" />
-<subject title="Capacitance" link="http://khanexercises.appspot.com/video?v=ngOC4eUQl8Y" />
-<subject title="Circuits (part 1)" link="http://khanexercises.appspot.com/video?v=3o8_EARoMtg" />
-<subject title="Circuits (part 2)" link="http://khanexercises.appspot.com/video?v=7vHh1sfZ5KE" />
-<subject title="Circuits (part 3)" link="http://khanexercises.appspot.com/video?v=ZrMw7P6P2Gw" />
-<subject title="Circuits (part 4)" link="http://khanexercises.appspot.com/video?v=3NcIK0s3IwU" />
-<subject title="Cross product 1" link="http://khanexercises.appspot.com/video?v=zA0fvwtvgvA" />
-<subject title="Cross Product 2" link="http://khanexercises.appspot.com/video?v=o_puKe_lTKk" />
-<subject title="Cross Product and Torque" link="http://khanexercises.appspot.com/video?v=s38l6nmTrvM" />
-<subject title="Introduction to Magnetism" link="http://khanexercises.appspot.com/video?v=8Y4JSp5U82I" />
-<subject title="Magnetism 2" link="http://khanexercises.appspot.com/video?v=NnlAI4ZiUrQ" />
-<subject title="Magnetism 3" link="http://khanexercises.appspot.com/video?v=LTuGQy4rmmo" />
-<subject title="Magnetism 4" link="http://khanexercises.appspot.com/video?v=b1QFKLZC11U" />
-<subject title="Magnetism 5" link="http://khanexercises.appspot.com/video?v=jQ2nD8ZGeEw" />
-<subject title="Magnetism 6: Magnetic field due to current" link="http://khanexercises.appspot.com/video?v=Ri557hvwhcM" />
-<subject title="Magnetism 7" link="http://khanexercises.appspot.com/video?v=l3hw0twZSCc" />
-<subject title="Magnetism 8" link="http://khanexercises.appspot.com/video?v=4tctB1wZNiI" />
-<subject title="Magnetism 9: Electric Motors" link="http://khanexercises.appspot.com/video?v=pAgPfr7MkkU" />
-<subject title="Magnetism 10: Electric Motors" link="http://khanexercises.appspot.com/video?v=cePkWyXRvIQ" />
-<subject title="Magnetism 11: Electric Motors" link="http://khanexercises.appspot.com/video?v=XMkUDyl1ZRo" />
-<subject title="Magnetism 12: Induced Current in a Wire" link="http://khanexercises.appspot.com/video?v=KuUMUvwvML8" />
-<subject title="The dot product" link="http://khanexercises.appspot.com/video?v=KDHuWxy53uM" />
-<subject title="Dot vs. Cross Product" link="http://khanexercises.appspot.com/video?v=E34CftP455k" />
-<subject title="Introduction to Waves" link="http://khanexercises.appspot.com/video?v=c38H6UKt3_I" />
+<xml><subject title="More on orbitals and electron configuration" link="/video/more-on-orbitals-and-electron-configuration" />
+<subject title="Periodic Table Trends: Ionization Energy" link="/video/periodic-table-trends--ionization-energy" />
+<subject title="Ionic, Covalent, and Metallic Bonds" link="/video/ionic--covalent--and-metallic-bonds" />
+<subject title="Specific Heat, Heat of Fusion and Vaporization" link="/video/specific-heat--heat-of-fusion-and-vaporization" />
+<subject title="Covalent Networks, Metallic, and Ionic Crystals" link="/video/covalent-networks--metallic--and-ionic-crystals" />
+<subject title="Suspensions, Colloids and Solutions" link="/video/suspensions--colloids-and-solutions" />
+<subject title="Keq derivation intuition (can skip; bit mathy)" link="/video/keq-derivation-intuition--can-skip--bit-mathy" />
+<subject title="pH, pOH of Strong Acids and Bases" link="/video/ph--poh-of-strong-acids-and-bases" />
+<subject title="Introduction to Exponential Decay" link="/video/introduction-to-exponential-decay" />
+<subject title="Quasistatic and Reversible Processes" link="/video/quasistatic-and-reversible-processes" />
+<subject title="First Law of Thermodynamics/ Internal Energy" link="/video/first-law-of-thermodynamics--internal-energy" />
+<subject title="Proof: Volume Ratios in a Carnot Cycle" link="/video/proof--volume-ratios-in-a-carnot-cycle" />
+<subject title="Proof: S (or Entropy) is a valid state variable" link="/video/proof--s--or-entropy--is-a-valid-state-variable" />
+<subject title="Thermodynamic Entropy Definition Clarification" link="/video/thermodynamic-entropy-definition-clarification" />
+<subject title="Carnot Efficiency 2:  Reversing the Cycle" link="/video/carnot-efficiency-2---reversing-the-cycle" />
+<subject title="Hess's Law and Reaction Enthalpy Change" link="/video/hess-s-law-and-reaction-enthalpy-change" />
+<subject title="Gibbs Free Energy and Spontaneity" link="/video/gibbs-free-energy-and-spontaneity" />
+<subject title="Limiting Reactant Example Problem 1" link="/video/limiting-reactant-example-problem-1" />
+<subject title="Example of Finding Reactant Empirical Formula" link="/video/example-of-finding-reactant-empirical-formula" />
+<subject title="Stoichiometry of a Reaction in Solution" link="/video/stoichiometry-of-a-reaction-in-solution" />
+<subject title="Another Stoichiometry Example in a Solution" link="/video/another-stoichiometry-example-in-a-solution" />
+<subject title="Alternate mental subtraction method" link="/video/alternate-mental-subtraction-method" />
+<subject title="Multiplication 2: The Multiplication Tables" link="/video/multiplication-2--the-multiplication-tables" />
+<subject title="Multiplication 3: 10,11,12 times tables" link="/video/multiplication-3--10-11-12-times-tables" />
+<subject title="Multiplication 4: 2-digit times 1-digit number" link="/video/multiplication-4--2-digit-times-1-digit-number" />
+<subject title="Multiplication 5:  2-digit times a 2-digit number" link="/video/multiplication-5---2-digit-times-a-2-digit-number" />
+<subject title="Multiplication 6: Multiple Digit Numbers" link="/video/multiplication-6--multiple-digit-numbers" />
+<subject title="Multiplication 7: Old video giving more examples" link="/video/multiplication-7--old-video-giving-more-examples" />
+<subject title="Mulitplication 8: Multiplying decimals (Old video)" link="/video/mulitplication-8--multiplying-decimals--old-video" />
+<subject title="Mixed numbers and improper fractions" link="/video/mixed-numbers-and-improper-fractions" />
+<subject title="Adding Whole Numbers and Applications 1" link="/video/adding-whole-numbers-and-applications-1" />
+<subject title="Adding Whole Numbers and Applications 2" link="/video/adding-whole-numbers-and-applications-2" />
+<subject title="Adding Whole Numbers and Applications 3" link="/video/adding-whole-numbers-and-applications-3" />
+<subject title="Adding Whole Numbers and Applications 3" link="/video/adding-whole-numbers-and-applications-3" />
+<subject title="Multiplying Whole Numbers and Applications 1" link="/video/multiplying-whole-numbers-and-applications-1" />
+<subject title="Multiplying Whole Numbers and Applications 2" link="/video/multiplying-whole-numbers-and-applications-2" />
+<subject title="Multiplying Whole Numbers and Applications 3" link="/video/multiplying-whole-numbers-and-applications-3" />
+<subject title="Multiplying Whole Numbers and Applications 4" link="/video/multiplying-whole-numbers-and-applications-4" />
+<subject title="Multiplying Whole Numbers and Applications 5" link="/video/multiplying-whole-numbers-and-applications-5" />
+<subject title="Dividing Whole Numbers and Applications 1" link="/video/dividing-whole-numbers-and-applications-1" />
+<subject title="Dividing Whole Numbers and Applications 2" link="/video/dividing-whole-numbers-and-applications-2" />
+<subject title="Dividing Whole Numbers and Applications 3" link="/video/dividing-whole-numbers-and-applications-3" />
+<subject title="Dividing Whole Numbers and Applications 4" link="/video/dividing-whole-numbers-and-applications-4" />
+<subject title="Dividing Whole Numbers and Applications 5" link="/video/dividing-whole-numbers-and-applications-5" />
+<subject title="Dividing Whole Numbers and Applications 6" link="/video/dividing-whole-numbers-and-applications-6" />
+<subject title="Commutative Law of Multiplication" link="/video/commutative-law-of-multiplication" />
+<subject title="Associative Law of Multiplication" link="/video/associative-law-of-multiplication" />
+<subject title="Numerator and Denominator of a Fraction" link="/video/numerator-and-denominator-of-a-fraction" />
+<subject title="Changing a Mixed Number to an Improper Fraction" link="/video/changing-a-mixed-number-to-an-improper-fraction" />
+<subject title="Changing an Improper Fraction to a Mixed Number" link="/video/changing-an-improper-fraction-to-a-mixed-number" />
+<subject title="Multiplying Fractions and Mixed Numbers" link="/video/multiplying-fractions-and-mixed-numbers" />
+<subject title="Multiplying Fractions Word Problem" link="/video/multiplying-fractions-word-problem" />
+<subject title="Dividing Mixed Numbers and Fractions" link="/video/dividing-mixed-numbers-and-fractions" />
+<subject title="Adding Fractions with Like Denominators" link="/video/adding-fractions-with-like-denominators" />
+<subject title="Adding Fractions with Unlike Denominators" link="/video/adding-fractions-with-unlike-denominators" />
+<subject title="Adding Mixed Numbers with Unlike Denominators" link="/video/adding-mixed-numbers-with-unlike-denominators" />
+<subject title="Adding Mixed Numbers Word Problem" link="/video/adding-mixed-numbers-word-problem" />
+<subject title="Subtracting Mixed Numbers Word Problem" link="/video/subtracting-mixed-numbers-word-problem" />
+<subject title="Subtracting Decimals Word Problem" link="/video/subtracting-decimals-word-problem" />
+<subject title="Ratios as Fractions in Simplest Form" link="/video/ratios-as-fractions-in-simplest-form" />
+<subject title="Find an Unknown in a Proportion 2" link="/video/find-an-unknown-in-a-proportion-2" />
+<subject title="Describing the Meaning of Percent" link="/video/describing-the-meaning-of-percent" />
+<subject title="Describing the Meaning of Percent 2" link="/video/describing-the-meaning-of-percent-2" />
+<subject title="Adding/Subtracting negative numbers" link="/video/adding-subtracting-negative-numbers" />
+<subject title="Multiplying and dividing negative numbers" link="/video/multiplying-and-dividing-negative-numbers" />
+<subject title="Introduction to Order of Operations" link="/video/introduction-to-order-of-operations" />
+<subject title="More Complicated Order of Operations Example" link="/video/more-complicated-order-of-operations-example" />
+<subject title="Introduction to logarithm properties" link="/video/introduction-to-logarithm-properties" />
+<subject title="Introduction to logarithm properties (part 2)" link="/video/introduction-to-logarithm-properties--part-2" />
+<subject title="Introduction to Ratios (new HD version)" link="/video/introduction-to-ratios--new-hd-version" />
+<subject title="Unit Conversion Example: Drug Dosage" link="/video/unit-conversion-example--drug-dosage" />
+<subject title="Circles: Radius, Diameter and Circumference" link="/video/circles--radius--diameter-and-circumference" />
+<subject title="Part 1 of Proof of Heron's Formula" link="/video/part-1-of-proof-of-heron-s-formula" />
+<subject title="Part 2 of the Proof of Heron's Formula" link="/video/part-2-of-the-proof-of-heron-s-formula" />
+<subject title="Right Triangles Inscribed in Circles (Proof)" link="/video/right-triangles-inscribed-in-circles--proof" />
+<subject title="CA Geometry: Proof by Contradiction" link="/video/ca-geometry--proof-by-contradiction" />
+<subject title="CA Geometry: Triangles and Parallelograms" link="/video/ca-geometry--triangles-and-parallelograms" />
+<subject title="CA Geometry: Area, Pythagorean Theorem" link="/video/ca-geometry--area--pythagorean-theorem" />
+<subject title="CA Geometry: Area, Circumference, Volume" link="/video/ca-geometry--area--circumference--volume" />
+<subject title="CA Geometry: Pythagorean Theorem, Area" link="/video/ca-geometry--pythagorean-theorem--area" />
+<subject title="CA Geometry: Deducing Angle Measures" link="/video/ca-geometry--deducing-angle-measures" />
+<subject title="CA Geometry: Compass Construction" link="/video/ca-geometry--compass-construction" />
+<subject title="CA Geometry: Circle Area Chords Tangent" link="/video/ca-geometry--circle-area-chords-tangent" />
+<subject title="CA Geometry: Secants and Translations" link="/video/ca-geometry--secants-and-translations" />
+<subject title="Light Bulb Switching Brain Teaser" link="/video/light-bulb-switching-brain-teaser" />
+<subject title="Inflation, Deflation &amp; Capacity Utilization" link="/video/inflation--deflation---capacity-utilization" />
+<subject title="Inflation, Deflation &amp; Capacity Utilization 2" link="/video/inflation--deflation---capacity-utilization-2" />
+<subject title="Inflation &amp; Deflation 3: Obama Stimulus Plan" link="/video/inflation---deflation-3--obama-stimulus-plan" />
+<subject title="Banking 2: A bank's income statement" link="/video/banking-2--a-bank-s-income-statement" />
+<subject title="Banking 3: Fractional Reserve Banking" link="/video/banking-3--fractional-reserve-banking" />
+<subject title="Banking 4: Multiplier effect and the money supply" link="/video/banking-4--multiplier-effect-and-the-money-supply" />
+<subject title="Banking 5: Introduction to Bank Notes" link="/video/banking-5--introduction-to-bank-notes" />
+<subject title="Banking 9: More on Reserve Ratios (Bad sound)" link="/video/banking-9--more-on-reserve-ratios--bad-sound" />
+<subject title="Banking 10:  Introduction to leverage (bad sound)" link="/video/banking-10---introduction-to-leverage--bad-sound" />
+<subject title="Banking 12:  Treasuries (government debt)" link="/video/banking-12---treasuries--government-debt" />
+<subject title="Banking 13: Open Market Operations" link="/video/banking-13--open-market-operations" />
+<subject title="Banking 15: More on the Fed Funds Rate" link="/video/banking-15--more-on-the-fed-funds-rate" />
+<subject title="Banking 16: Why target rates vs. money supply" link="/video/banking-16--why-target-rates-vs--money-supply" />
+<subject title="Banking 17: What happened to the gold?" link="/video/banking-17--what-happened-to-the-gold" />
+<subject title="Banking 18: Big Picture Discussion" link="/video/banking-18--big-picture-discussion" />
+<subject title="Repurchase Agreements (Repo transactions)" link="/video/repurchase-agreements--repo-transactions" />
+<subject title="Fractional Reserve Banking Commentary 1" link="/video/fractional-reserve-banking-commentary-1" />
+<subject title="FRB Commentary 2: Deposit Insurance" link="/video/frb-commentary-2--deposit-insurance" />
+<subject title="Chapter 11: Bankruptcy Restructuring" link="/video/chapter-11--bankruptcy-restructuring" />
+<subject title="Present Value 4 (and discounted cash flow)" link="/video/present-value-4--and-discounted-cash-flow" />
+<subject title="More on balance sheets and equity" link="/video/more-on-balance-sheets-and-equity" />
+<subject title="Renting vs. buying a home (part 2)" link="/video/renting-vs--buying-a-home--part-2" />
+<subject title="Renting vs. Buying (detailed analysis)" link="/video/renting-vs--buying--detailed-analysis" />
+<subject title="What it means to buy a company's stock" link="/video/what-it-means-to-buy-a-company-s-stock" />
+<subject title="Chapter 11: Bankruptcy Restructuring" link="/video/chapter-11--bankruptcy-restructuring" />
+<subject title="Collateralized Debt Obligation (CDO)" link="/video/collateralized-debt-obligation--cdo" />
+<subject title="Introduction to compound interest and e" link="/video/introduction-to-compound-interest-and-e" />
+<subject title="Bailout 1: Liquidity vs. Solvency" link="/video/bailout-1--liquidity-vs--solvency" />
+<subject title="Bailout 3: Book value vs. market value" link="/video/bailout-3--book-value-vs--market-value" />
+<subject title="Bailout 4: Mark-to-model vs. mark-to-market" link="/video/bailout-4--mark-to-model-vs--mark-to-market" />
+<subject title="Bailout 6: Getting an equity infusion" link="/video/bailout-6--getting-an-equity-infusion" />
+<subject title="Bailout 7: Bank goes into bankruptcy" link="/video/bailout-7--bank-goes-into-bankruptcy" />
+<subject title="Bailout 11: Why these CDOs could be worth nothing" link="/video/bailout-11--why-these-cdos-could-be-worth-nothing" />
+<subject title="Bailout 12: Lone Star Transaction" link="/video/bailout-12--lone-star-transaction" />
+<subject title="Banking 2: A bank's income statement" link="/video/banking-2--a-bank-s-income-statement" />
+<subject title="Banking 3: Fractional Reserve Banking" link="/video/banking-3--fractional-reserve-banking" />
+<subject title="Banking 4: Multiplier effect and the money supply" link="/video/banking-4--multiplier-effect-and-the-money-supply" />
+<subject title="Personal Bankruptcy:  Chapters 7 and 13" link="/video/personal-bankruptcy---chapters-7-and-13" />
+<subject title="Introduction to Compound Interest" link="/video/introduction-to-compound-interest" />
+<subject title="The Rule of 72 for Compound Interest" link="/video/the-rule-of-72-for-compound-interest" />
+<subject title="Annual Percentage Rate (APR) and Effective APR" link="/video/annual-percentage-rate--apr--and-effective-apr" />
+<subject title="Collateralized Debt Obligation (CDO)" link="/video/collateralized-debt-obligation--cdo" />
+<subject title="Introduction to the Income Statement" link="/video/introduction-to-the-income-statement" />
+<subject title="Introduction to the Price-to-Earnings Ratio" link="/video/introduction-to-the-price-to-earnings-ratio" />
+<subject title="Solving Equations with the Distributive Property" link="/video/solving-equations-with-the-distributive-property" />
+<subject title="Solving equations with the distributive property 2" link="/video/solving-equations-with-the-distributive-property-2" />
+<subject title="Example of Solving for a Variable" link="/video/example-of-solving-for-a-variable" />
+<subject title="Absolute Value Equation Example 2" link="/video/absolute-value-equation-example-2" />
+<subject title="Finding the 100th Term in a Sequence" link="/video/finding-the-100th-term-in-a-sequence" />
+<subject title="Testing if a relationship is a function" link="/video/testing-if-a-relationship-is-a-function" />
+<subject title="Exploring nonlinear relationships" link="/video/exploring-nonlinear-relationships" />
+<subject title="Graphing a line in slope intercept form" link="/video/graphing-a-line-in-slope-intercept-form" />
+<subject title="Converting to slope-intercept form" link="/video/converting-to-slope-intercept-form" />
+<subject title="Graphing linear inequalities in two variables" link="/video/graphing-linear-inequalities-in-two-variables" />
+<subject title="Graphing linear inequalities in two variables" link="/video/graphing-linear-inequalities-in-two-variables" />
+<subject title="Solving systems by substitution 1" link="/video/solving-systems-by-substitution-1" />
+<subject title="Solving systems by substitution 2" link="/video/solving-systems-by-substitution-2" />
+<subject title="Solving systems by substitution 3" link="/video/solving-systems-by-substitution-3" />
+<subject title="Graphing systems of inequalities 2" link="/video/graphing-systems-of-inequalities-2" />
+<subject title="Graphing systems of inequalities 3" link="/video/graphing-systems-of-inequalities-3" />
+<subject title="Simplifying Expressions with Exponents" link="/video/simplifying-expressions-with-exponents" />
+<subject title="Simplifying Expressions with Exponents 2" link="/video/simplifying-expressions-with-exponents-2" />
+<subject title="Simplifying Expressions with Exponents 3" link="/video/simplifying-expressions-with-exponents-3" />
+<subject title="Simplifying Radical Expressions 1" link="/video/simplifying-radical-expressions-1" />
+<subject title="Simplifying Radical Expressions 2" link="/video/simplifying-radical-expressions-2" />
+<subject title="Simplifying Radical Expressions 3" link="/video/simplifying-radical-expressions-3" />
+<subject title="Fractional Exponent Expressions 1" link="/video/fractional-exponent-expressions-1" />
+<subject title="Fractional Exponent Expressions 2" link="/video/fractional-exponent-expressions-2" />
+<subject title="Multiplying and Dividing  Monomials 1" link="/video/multiplying-and-dividing--monomials-1" />
+<subject title="Multiplying and Dividing Monomials 2" link="/video/multiplying-and-dividing-monomials-2" />
+<subject title="Multiplying and Dividing Monomials 3" link="/video/multiplying-and-dividing-monomials-3" />
+<subject title="Adding and Subtracting Polynomials 1" link="/video/adding-and-subtracting-polynomials-1" />
+<subject title="Adding and Subtracting Polynomials 2" link="/video/adding-and-subtracting-polynomials-2" />
+<subject title="Adding and Subtracting Polynomials 3" link="/video/adding-and-subtracting-polynomials-3" />
+<subject title="Special Products of Polynomials 1" link="/video/special-products-of-polynomials-1" />
+<subject title="Special Products of Polynomials 2" link="/video/special-products-of-polynomials-2" />
+<subject title="U08_L2_T4_we3 Special Products of Polynomials 3" link="/video/u08-l2-t4-we3-special-products-of-polynomials-3" />
+<subject title="Bay Area CBS Station with Salman Khan" link="/video/bay-area-cbs-station-with-salman-khan" />
+<subject title="Factoring and the Distributive Property" link="/video/factoring-and-the-distributive-property" />
+<subject title="Factoring and the Distributive Property 2" link="/video/factoring-and-the-distributive-property-2" />
+<subject title="Factoring and the Distributive Property 3" link="/video/factoring-and-the-distributive-property-3" />
+<subject title="Factoring Trinomials by Grouping 1" link="/video/factoring-trinomials-by-grouping-1" />
+<subject title="Factoring Trinomials by Grouping 2" link="/video/factoring-trinomials-by-grouping-2" />
+<subject title="U09_L1_T2_we3 Factoring Trinomials by Grouping 3" link="/video/u09-l1-t2-we3-factoring-trinomials-by-grouping-3" />
+<subject title="Factoring Trinomials by Grouping 4" link="/video/factoring-trinomials-by-grouping-4" />
+<subject title="Factoring Trinomials by Grouping 5" link="/video/factoring-trinomials-by-grouping-5" />
+<subject title="Factoring Trinomials by Grouping 6" link="/video/factoring-trinomials-by-grouping-6" />
+<subject title="U09_L2_T1_we1 Factoring Special Products 1" link="/video/u09-l2-t1-we1-factoring-special-products-1" />
+<subject title="U09_L2_T1_we3 Factoring Special Products 3" link="/video/u09-l2-t1-we3-factoring-special-products-3" />
+<subject title="Solving Quadratic Equations by Factoring.avi" link="/video/solving-quadratic-equations-by-factoring-avi" />
+<subject title="Solving Quadratic Equations by Factoring 2.avi" link="/video/solving-quadratic-equations-by-factoring-2-avi" />
+<subject title="Solving Quadratic Equations by Factoring 3.avi" link="/video/solving-quadratic-equations-by-factoring-3-avi" />
+<subject title="Non-Linear Systems of Equations 1" link="/video/non-linear-systems-of-equations-1" />
+<subject title="Non-Linear Systems of Equations 2" link="/video/non-linear-systems-of-equations-2" />
+<subject title="Non-Linear Systems of Equations 3" link="/video/non-linear-systems-of-equations-3" />
+<subject title="Simplifying Rational Expressions 1" link="/video/simplifying-rational-expressions-1" />
+<subject title="Simplifying Rational Expressions 2" link="/video/simplifying-rational-expressions-2" />
+<subject title="Simplifying Rational Expressions 3" link="/video/simplifying-rational-expressions-3" />
+<subject title="Multiplying and Dividing Rational Expressions 1" link="/video/multiplying-and-dividing-rational-expressions-1" />
+<subject title="Multiplying and Dividing Rational Expressions 2" link="/video/multiplying-and-dividing-rational-expressions-2" />
+<subject title="Multiplying and Dividing Rational Expressions 3" link="/video/multiplying-and-dividing-rational-expressions-3" />
+<subject title="Adding and Subtracting Rational Expressions 1" link="/video/adding-and-subtracting-rational-expressions-1" />
+<subject title="Adding and Subtracting Rational Expressions 2" link="/video/adding-and-subtracting-rational-expressions-2" />
+<subject title="Adding and Subtracting Rational Expressions 3" link="/video/adding-and-subtracting-rational-expressions-3" />
+<subject title="Applying Rational Equations 1 Extra Commentary" link="/video/applying-rational-equations-1-extra-commentary" />
+<subject title="Understanding Logical Statements 1" link="/video/understanding-logical-statements-1" />
+<subject title="Understanding Logical Statements 2" link="/video/understanding-logical-statements-2" />
+<subject title="Understanding Logical Statements 3" link="/video/understanding-logical-statements-3" />
+<subject title="Understanding Logical Statements 4" link="/video/understanding-logical-statements-4" />
+<subject title="Understanding Logical Statements Commentary" link="/video/understanding-logical-statements-commentary" />
+<subject title="U12_L1_T3_we1 Inductive Reasoning 1" link="/video/u12-l1-t3-we1-inductive-reasoning-1" />
+<subject title="U12_L2_T2_we1 Independent Events 1" link="/video/u12-l2-t2-we1-independent-events-1" />
+<subject title="Probability of Dependent Events 2" link="/video/probability-of-dependent-events-2" />
+<subject title="U02_L2_T2_we1 Absolute Value Equations.avi" link="/video/u02-l2-t2-we1-absolute-value-equations-avi" />
+<subject title="U06_L3_T1_we3 Graphing Systems of Inequalities" link="/video/u06-l3-t1-we3-graphing-systems-of-inequalities" />
+<subject title="U06_L1_T1_we1 Solving Systems by Graphing" link="/video/u06-l1-t1-we1-solving-systems-by-graphing" />
+<subject title="U03_L2_T1_we2 Representing Functions as Graphs" link="/video/u03-l2-t1-we2-representing-functions-as-graphs" />
+<subject title="Multiplication of Rational Numbers" link="/video/multiplication-of-rational-numbers" />
+<subject title="Equations with Variables on Both Sides" link="/video/equations-with-variables-on-both-sides" />
+<subject title="Graphs Using Slope-Intercept Form" link="/video/graphs-using-slope-intercept-form" />
+<subject title="Linear Equations in Slope Intercept Form" link="/video/linear-equations-in-slope-intercept-form" />
+<subject title="Linear Equations in Point Slope Form" link="/video/linear-equations-in-point-slope-form" />
+<subject title="Linear Equations in Standard Form" link="/video/linear-equations-in-standard-form" />
+<subject title="Equations of Parallel and Perpendicular Lines" link="/video/equations-of-parallel-and-perpendicular-lines" />
+<subject title="Inequalities Using Addition and Subtraction" link="/video/inequalities-using-addition-and-subtraction" />
+<subject title="Inequalities Using Multiplication and Division" link="/video/inequalities-using-multiplication-and-division" />
+<subject title="Solving Linear Systems by Graphing" link="/video/solving-linear-systems-by-graphing" />
+<subject title="Solving Linear Systems by Substitution" link="/video/solving-linear-systems-by-substitution" />
+<subject title="Solving Systems of Equations by Elimination" link="/video/solving-systems-of-equations-by-elimination" />
+<subject title="Solving Systems of Equations by Multiplication" link="/video/solving-systems-of-equations-by-multiplication" />
+<subject title="Exponent Properties Involving Products" link="/video/exponent-properties-involving-products" />
+<subject title="Exponent Properties Involving Quotients" link="/video/exponent-properties-involving-quotients" />
+<subject title="Zero, Negative, and Fractional Exponents" link="/video/zero--negative--and-fractional-exponents" />
+<subject title="Geometric Sequences (Introduction)" link="/video/geometric-sequences--introduction" />
+<subject title="Word Problem Solving- Exponential Growth and Decay" link="/video/word-problem-solving--exponential-growth-and-decay" />
+<subject title="Addition and Subtraction of Polynomials" link="/video/addition-and-subtraction-of-polynomials" />
+<subject title="Polynomial Equations in Factored Form" link="/video/polynomial-equations-in-factored-form" />
+<subject title="Factor by Grouping and Factoring Completely" link="/video/factor-by-grouping-and-factoring-completely" />
+<subject title="Solving Quadratic Equations by Graphing" link="/video/solving-quadratic-equations-by-graphing" />
+<subject title="Solving Quadratic Equations by Square Roots" link="/video/solving-quadratic-equations-by-square-roots" />
+<subject title="Discriminant of Quadratic Equations" link="/video/discriminant-of-quadratic-equations" />
+<subject title="Linear, Quadratic, and Exponential Models" link="/video/linear--quadratic--and-exponential-models" />
+<subject title="Radical Expressions with Higher Roots" link="/video/radical-expressions-with-higher-roots" />
+<subject title="More Simplifying Radical Expressions" link="/video/more-simplifying-radical-expressions" />
+<subject title="Extraneous Solutions to Radical Equations" link="/video/extraneous-solutions-to-radical-equations" />
+<subject title="More Involved Radical Equation Example" link="/video/more-involved-radical-equation-example" />
+<subject title="Another Rational Function Graph Example" link="/video/another-rational-function-graph-example" />
+<subject title="A Third Example of Graphing a Rational Function" link="/video/a-third-example-of-graphing-a-rational-function" />
+<subject title="Multiplying and Dividing Rational Expressions" link="/video/multiplying-and-dividing-rational-expressions" />
+<subject title="Adding Rational Expressions Example 1" link="/video/adding-rational-expressions-example-1" />
+<subject title="Adding Rational Expressions Example 2" link="/video/adding-rational-expressions-example-2" />
+<subject title="Adding Rational Expressions Example 3" link="/video/adding-rational-expressions-example-3" />
+<subject title="Two more examples of solving rational equations" link="/video/two-more-examples-of-solving-rational-equations" />
+<subject title="Algebra: Slope and Y-intercept intuition" link="/video/algebra--slope-and-y-intercept-intuition" />
+<subject title="Introduction to Ratios (new HD version)" link="/video/introduction-to-ratios--new-hd-version" />
+<subject title="Ratio problem with basic algebra (new HD)" link="/video/ratio-problem-with-basic-algebra--new-hd" />
+<subject title="Alternate Solution to Ratio Problem (HD Version)" link="/video/alternate-solution-to-ratio-problem--hd-version" />
+<subject title="Introduction to the quadratic equation" link="/video/introduction-to-the-quadratic-equation" />
+<subject title="Quadratic Inequalities (Visual Explanation)" link="/video/quadratic-inequalities--visual-explanation" />
+<subject title="Proof: log_a (B) = (log_x (B))/(log_x (A))" link="/video/proof--log-a--b-----log-x--b----log-x--a" />
+<subject title="Conic Sections: Intro to Ellipses" link="/video/conic-sections--intro-to-ellipses" />
+<subject title="Conic Sections: Intro to Hyperbolas" link="/video/conic-sections--intro-to-hyperbolas" />
+<subject title="Focus and Directrix of a Parabola 2" link="/video/focus-and-directrix-of-a-parabola-2" />
+<subject title="Two Passing Bicycles Word Problem" link="/video/two-passing-bicycles-word-problem" />
+<subject title="Interesting Polynomial Coefficient Problem" link="/video/interesting-polynomial-coefficient-problem" />
+<subject title="Introduction to Function Inverses" link="/video/introduction-to-function-inverses" />
+<subject title="CA Algebra I: Number Properties and Absolute Value" link="/video/ca-algebra-i--number-properties-and-absolute-value" />
+<subject title="CA Algebra I: Simplifying Expressions" link="/video/ca-algebra-i--simplifying-expressions" />
+<subject title="CA Algebra I: Simple Logical Arguments" link="/video/ca-algebra-i--simple-logical-arguments" />
+<subject title="CA Algebra I: Graphing Inequalities" link="/video/ca-algebra-i--graphing-inequalities" />
+<subject title="CA Algebra I: Slope and Y-intercept" link="/video/ca-algebra-i--slope-and-y-intercept" />
+<subject title="CA Algebra I: Systems of Inequalities" link="/video/ca-algebra-i--systems-of-inequalities" />
+<subject title="CA Algebra I: Simplying Expressions" link="/video/ca-algebra-i--simplying-expressions" />
+<subject title="CA Algebra I: Factoring Quadratics" link="/video/ca-algebra-i--factoring-quadratics" />
+<subject title="CA Algebra I: Completing the Square" link="/video/ca-algebra-i--completing-the-square" />
+<subject title="CA Algebra I: Rational Expressions" link="/video/ca-algebra-i--rational-expressions" />
+<subject title="CA Algebra I: Rational Expressions" link="/video/ca-algebra-i--rational-expressions" />
+<subject title="California Standards Test: Algebra II" link="/video/california-standards-test--algebra-ii" />
+<subject title="Algebra II: Simplifying Polynomials" link="/video/algebra-ii--simplifying-polynomials" />
+<subject title="Algebra II: Imaginary and Complex Numbers" link="/video/algebra-ii--imaginary-and-complex-numbers" />
+<subject title="Algebra II: Complex numbers and conjugates" link="/video/algebra-ii--complex-numbers-and-conjugates" />
+<subject title="Algebra II: Quadratics and Shifts" link="/video/algebra-ii--quadratics-and-shifts" />
+<subject title="Algebra II: Shifting Quadratic Graphs" link="/video/algebra-ii--shifting-quadratic-graphs" />
+<subject title="Algebra II: Circles and Logarithms" link="/video/algebra-ii--circles-and-logarithms" />
+<subject title="Algebra II: Logarithms Exponential Growth" link="/video/algebra-ii--logarithms-exponential-growth" />
+<subject title="Algebra II: Functions, Combinatorics" link="/video/algebra-ii--functions--combinatorics" />
+<subject title="Algebra II: binomial Expansion and Combinatorics" link="/video/algebra-ii--binomial-expansion-and-combinatorics" />
+<subject title="Algebra II: Functions and Probability" link="/video/algebra-ii--functions-and-probability" />
+<subject title="Algebra II: Probability and Statistics" link="/video/algebra-ii--probability-and-statistics" />
+<subject title="Algebra II: Mean and Standard Deviation" link="/video/algebra-ii--mean-and-standard-deviation" />
+<subject title="Introduction to Evolution and Natural Selection" link="/video/introduction-to-evolution-and-natural-selection" />
+<subject title="Natural Selection and the Owl Butterfly" link="/video/natural-selection-and-the-owl-butterfly" />
+<subject title="Chromosomes, Chromatids, Chromatin, etc." link="/video/chromosomes--chromatids--chromatin--etc" />
+<subject title="Mitosis, Meiosis and Sexual Reproduction" link="/video/mitosis--meiosis-and-sexual-reproduction" />
+<subject title="Introduction to Cellular Respiration" link="/video/introduction-to-cellular-respiration" />
+<subject title="Oxidation and Reduction in Cellular Respiration" link="/video/oxidation-and-reduction-in-cellular-respiration" />
+<subject title="Oxidative Phosphorylation and Chemiosmosis" link="/video/oxidative-phosphorylation-and-chemiosmosis" />
+<subject title="Photosynthesis: Light Reactions 1" link="/video/photosynthesis--light-reactions-1" />
+<subject title="Correction to Sodium and Potassium Pump Video" link="/video/correction-to-sodium-and-potassium-pump-video" />
+<subject title="Electrotonic and Action Potentials" link="/video/electrotonic-and-action-potentials" />
+<subject title="Role of the Sarcoplasmic Reticulum in Muscle Cells" link="/video/role-of-the-sarcoplasmic-reticulum-in-muscle-cells" />
+<subject title="Review of B cells,  CD4+ T cells and CD8+ T cells" link="/video/review-of-b-cells---cd4--t-cells-and-cd8--t-cells" />
+<subject title="Secondary Active Transport in the Nephron" link="/video/secondary-active-transport-in-the-nephron" />
+<subject title="Unit Circle Definition of Trig Functions" link="/video/unit-circle-definition-of-trig-functions" />
+<subject title="Proof: sin(a+b)  = (cos a)(sin b) + (sin a)(cos b)" link="/video/proof--sin-a-b------cos-a--sin-b-----sin-a--cos-b" />
+<subject title="Proof: cos(a+b) = (cos a)(cos b)-(sin a)(sin b)" link="/video/proof--cos-a-b-----cos-a--cos-b---sin-a--sin-b" />
+<subject title="Trigonometry word problems (part 1)" link="/video/trigonometry-word-problems--part-1" />
+<subject title="Trigonometry word problems (part 2)" link="/video/trigonometry-word-problems--part-2" />
+<subject title="Ferris Wheel Trig Problem (part 2)" link="/video/ferris-wheel-trig-problem--part-2" />
+<subject title="Introduction to compound interest and e" link="/video/introduction-to-compound-interest-and-e" />
+<subject title="Introduction to Function Inverses" link="/video/introduction-to-function-inverses" />
+<subject title="Statistics: Sample vs. Population Mean" link="/video/statistics--sample-vs--population-mean" />
+<subject title="Statistics: Variance of a Population" link="/video/statistics--variance-of-a-population" />
+<subject title="Statistics: Alternate Variance Formulas" link="/video/statistics--alternate-variance-formulas" />
+<subject title="Expected Value of Binomial Distribution" link="/video/expected-value-of-binomial-distribution" />
+<subject title="Normal Distribution Excel Exercise" link="/video/normal-distribution-excel-exercise" />
+<subject title="Introduction to the Normal Distribution" link="/video/introduction-to-the-normal-distribution" />
+<subject title="ck12.org Normal Distribution Problems: z-score" link="/video/ck12-org-normal-distribution-problems--z-score" />
+<subject title="ck12.org: More Empirical Rule and Z-score practice" link="/video/ck12-org--more-empirical-rule-and-z-score-practice" />
+<subject title="Sampling Distribution of the Sample Mean" link="/video/sampling-distribution-of-the-sample-mean" />
+<subject title="Sampling Distribution of the Sample Mean 2" link="/video/sampling-distribution-of-the-sample-mean-2" />
+<subject title="Probability and Combinations (part 2)" link="/video/probability-and-combinations--part-2" />
+<subject title="Conditional Probability and Combinations" link="/video/conditional-probability-and-combinations" />
+<subject title="Expected Value of Binomial Distribution" link="/video/expected-value-of-binomial-distribution" />
+<subject title="Calculus: Derivatives 1 (new HD version)" link="/video/calculus--derivatives-1--new-hd-version" />
+<subject title="Calculus: Derivatives 2 (new HD version)" link="/video/calculus--derivatives-2--new-hd-version" />
+<subject title="Calculus: Derivatives 2.5 (new HD version)" link="/video/calculus--derivatives-2-5--new-hd-version" />
+<subject title="Calculus: Derivatives 4: The Chain Rule" link="/video/calculus--derivatives-4--the-chain-rule" />
+<subject title="Proofs of Derivatives of Ln(x) and e^x" link="/video/proofs-of-derivatives-of-ln-x--and-e-x" />
+<subject title="Extreme Derivative Word Problem (advanced)" link="/video/extreme-derivative-word-problem--advanced" />
+<subject title="Trig Implicit Differentiation Example" link="/video/trig-implicit-differentiation-example" />
+<subject title="Inflection Points and Concavity Intuition" link="/video/inflection-points-and-concavity-intuition" />
+<subject title="Calculus: Graphing Using Derivatives" link="/video/calculus--graphing-using-derivatives" />
+<subject title="Calculus Graphing with Derivatives Example" link="/video/calculus-graphing-with-derivatives-example" />
+<subject title="Introduction to rate-of-change problems" link="/video/introduction-to-rate-of-change-problems" />
+<subject title="The Indefinite Integral or Anti-derivative" link="/video/the-indefinite-integral-or-anti-derivative" />
+<subject title="Introduction to definite integrals" link="/video/introduction-to-definite-integrals" />
+<subject title="Definite Integrals (area under a curve) (part III)" link="/video/definite-integrals--area-under-a-curve---part-iii" />
+<subject title="Definite integral with substitution" link="/video/definite-integral-with-substitution" />
+<subject title="Integrals: Trig Substitution 3 (long problem)" link="/video/integrals--trig-substitution-3--long-problem" />
+<subject title="Introduction to differential equations" link="/video/introduction-to-differential-equations" />
+<subject title="Polynomial approximation of functions (part 1)" link="/video/polynomial-approximation-of-functions--part-1" />
+<subject title="Polynomial approximation of functions (part 2)" link="/video/polynomial-approximation-of-functions--part-2" />
+<subject title="Approximating functions with polynomials (part 3)" link="/video/approximating-functions-with-polynomials--part-3" />
+<subject title="Polynomial approximation of functions (part 4)" link="/video/polynomial-approximation-of-functions--part-4" />
+<subject title="Polynomial approximations of functions (part 5)" link="/video/polynomial-approximations-of-functions--part-5" />
+<subject title="Polynomial approximation of functions (part 6)" link="/video/polynomial-approximation-of-functions--part-6" />
+<subject title="Polynomial approximation of functions (part 7)" link="/video/polynomial-approximation-of-functions--part-7" />
+<subject title="(2^ln x)/x  Antiderivative Example" link="/video/-2-ln-x--x--antiderivative-example" />
+<subject title="Introduction to the Line Integral" link="/video/introduction-to-the-line-integral" />
+<subject title="Derivative of a position vector valued function" link="/video/derivative-of-a-position-vector-valued-function" />
+<subject title="Differential of a vector valued function" link="/video/differential-of-a-vector-valued-function" />
+<subject title="Vector valued function derivative example" link="/video/vector-valued-function-derivative-example" />
+<subject title="Parametrization of a Reverse Path" link="/video/parametrization-of-a-reverse-path" />
+<subject title="Path Independence for Line Integrals" link="/video/path-independence-for-line-integrals" />
+<subject title="Partial Derivatives of Vector-Valued Functions" link="/video/partial-derivatives-of-vector-valued-functions" />
+<subject title="Introduction to the Surface Integral" link="/video/introduction-to-the-surface-integral" />
+<subject title="Example of calculating a surface integral part 1" link="/video/example-of-calculating-a-surface-integral-part-1" />
+<subject title="Example of calculating a surface integral part 2" link="/video/example-of-calculating-a-surface-integral-part-2" />
+<subject title="Example of calculating a surface integral part 3" link="/video/example-of-calculating-a-surface-integral-part-3" />
+<subject title="Introduction to differential equations" link="/video/introduction-to-differential-equations" />
+<subject title="Separable differential equations 2" link="/video/separable-differential-equations-2" />
+<subject title="Exact Equations Intuition 1 (proofy)" link="/video/exact-equations-intuition-1--proofy" />
+<subject title="Exact Equations Intuition 2 (proofy)" link="/video/exact-equations-intuition-2--proofy" />
+<subject title="First order homogenous equations 2" link="/video/first-order-homogenous-equations-2" />
+<subject title="Complex roots of the characteristic equations 1" link="/video/complex-roots-of-the-characteristic-equations-1" />
+<subject title="Complex roots of the characteristic equations 2" link="/video/complex-roots-of-the-characteristic-equations-2" />
+<subject title="Complex roots of the characteristic equations 3" link="/video/complex-roots-of-the-characteristic-equations-3" />
+<subject title="Repeated roots of the characteristic equation" link="/video/repeated-roots-of-the-characteristic-equation" />
+<subject title="Laplace Transform to solve an equation" link="/video/laplace-transform-to-solve-an-equation" />
+<subject title="Laplace Transform solves an equation 2" link="/video/laplace-transform-solves-an-equation-2" />
+<subject title="Laplace Transform of the Unit Step Function" link="/video/laplace-transform-of-the-unit-step-function" />
+<subject title="Laplace/Step Function Differential Equation" link="/video/laplace-step-function-differential-equation" />
+<subject title="Laplace Transform of the Dirac Delta Function" link="/video/laplace-transform-of-the-dirac-delta-function" />
+<subject title="The Convolution and the Laplace Transform" link="/video/the-convolution-and-the-laplace-transform" />
+<subject title="Khan Academy on PBS NewsHour (Edited)" link="/video/khan-academy-on-pbs-newshour--edited" />
+<subject title="Sal Khan (with a severe cold!) on Future Talk" link="/video/sal-khan--with-a-severe-cold---on-future-talk" />
+<subject title="Brian Lehrer Interview with Salman Khan" link="/video/brian-lehrer-interview-with-salman-khan" />
+<subject title="Salman Khan Interview with Mixergy.com" link="/video/salman-khan-interview-with-mixergy-com" />
+<subject title="Khan Academy Vision and Social Return" link="/video/khan-academy-vision-and-social-return" />
+<subject title="French Revolution (Part 3) - Reign of Terror" link="/video/french-revolution--part-3----reign-of-terror" />
+<subject title="Napoleon and the War of the Third Coalition" link="/video/napoleon-and-the-war-of-the-third-coalition" />
+<subject title="Napoleon and the War of the Fourth Coalition" link="/video/napoleon-and-the-war-of-the-fourth-coalition" />
+<subject title="Representing Structures of Organic Molecules" link="/video/representing-structures-of-organic-molecules" />
+<subject title="More Organic Chemistry Naming Examples 1" link="/video/more-organic-chemistry-naming-examples-1" />
+<subject title="Organic Chemistry Naming Examples 2" link="/video/organic-chemistry-naming-examples-2" />
+<subject title="Organic Chemistry Naming Examples 3" link="/video/organic-chemistry-naming-examples-3" />
+<subject title="Organic Chemistry Naming Examples  4" link="/video/organic-chemistry-naming-examples--4" />
+<subject title="Organic Chemistry Naming Examples 5" link="/video/organic-chemistry-naming-examples-5" />
+<subject title="sp3 Hybridized Orbitals and Sigma Bonds" link="/video/sp3-hybridized-orbitals-and-sigma-bonds" />
+<subject title="Pi bonds and sp2 Hybridized Orbitals" link="/video/pi-bonds-and-sp2-hybridized-orbitals" />
+<subject title="Chair and Boat Shapes for Cyclohexane" link="/video/chair-and-boat-shapes-for-cyclohexane" />
+<subject title="Double Newman Diagram for Methcyclohexane" link="/video/double-newman-diagram-for-methcyclohexane" />
+<subject title="Cahn-Ingold-Prelog System for Naming Enantiomers" link="/video/cahn-ingold-prelog-system-for-naming-enantiomers" />
+<subject title="R,S (Cahn-Ingold-Prelog) Naming System Example 2" link="/video/r-s--cahn-ingold-prelog--naming-system-example-2" />
+<subject title="Cis-Trans and E-Z Naming Scheme for Alkenes" link="/video/cis-trans-and-e-z-naming-scheme-for-alkenes" />
+<subject title="Introduction to Reaction Mechanisms" link="/video/introduction-to-reaction-mechanisms" />
+<subject title="Markovnikov's Rule and Carbocations" link="/video/markovnikov-s-rule-and-carbocations" />
+<subject title="Addition of Water (Acid-Catalyzed) Mechanism" link="/video/addition-of-water--acid-catalyzed--mechanism" />
+<subject title="Polymerization of Alkenes with Acid" link="/video/polymerization-of-alkenes-with-acid" />
+<subject title="Solvent Effects on Sn1 and Sn2 Reactions" link="/video/solvent-effects-on-sn1-and-sn2-reactions" />
+<subject title="Matrices to solve a system of equations" link="/video/matrices-to-solve-a-system-of-equations" />
+<subject title="Matrices to solve a vector combination problem" link="/video/matrices-to-solve-a-vector-combination-problem" />
+<subject title="3-variable linear equations (part 1)" link="/video/3-variable-linear-equations--part-1" />
+<subject title="Solving 3 Equations with 3 Unknowns" link="/video/solving-3-equations-with-3-unknowns" />
+<subject title="Linear Algebra: Introduction to Vectors" link="/video/linear-algebra--introduction-to-vectors" />
+<subject title="Span and Linear Independence Example" link="/video/span-and-linear-independence-example" />
+<subject title="Linear Algebra: Basis of a Subspace" link="/video/linear-algebra--basis-of-a-subspace" />
+<subject title="Vector Dot Product and Vector Length" link="/video/vector-dot-product-and-vector-length" />
+<subject title="Proving Vector Dot Product Properties" link="/video/proving-vector-dot-product-properties" />
+<subject title="Proof of the Cauchy-Schwarz Inequality" link="/video/proof-of-the-cauchy-schwarz-inequality" />
+<subject title="Linear Algebra: Vector Triangle Inequality" link="/video/linear-algebra--vector-triangle-inequality" />
+<subject title="Defining the angle between vectors" link="/video/defining-the-angle-between-vectors" />
+<subject title="Linear Algebra: Cross Product Introduction" link="/video/linear-algebra--cross-product-introduction" />
+<subject title="Dot and Cross Product Comparison/Intuition" link="/video/dot-and-cross-product-comparison-intuition" />
+<subject title="Matrices: Reduced Row Echelon Form 1" link="/video/matrices--reduced-row-echelon-form-1" />
+<subject title="Matrices: Reduced Row Echelon Form 2" link="/video/matrices--reduced-row-echelon-form-2" />
+<subject title="Matrices: Reduced Row Echelon Form 3" link="/video/matrices--reduced-row-echelon-form-3" />
+<subject title="Introduction to the Null Space of a Matrix" link="/video/introduction-to-the-null-space-of-a-matrix" />
+<subject title="Null Space 3: Relation to Linear Independence" link="/video/null-space-3--relation-to-linear-independence" />
+<subject title="Null Space and Column Space Basis" link="/video/null-space-and-column-space-basis" />
+<subject title="Visualizing a Column Space as a Plane in R3" link="/video/visualizing-a-column-space-as-a-plane-in-r3" />
+<subject title="Dimension of the Null Space or Nullity" link="/video/dimension-of-the-null-space-or-nullity" />
+<subject title="Dimension of the Column Space or Rank" link="/video/dimension-of-the-column-space-or-rank" />
+<subject title="Showing relation between basis cols and pivot cols" link="/video/showing-relation-between-basis-cols-and-pivot-cols" />
+<subject title="Showing that the candidate basis does span C(A)" link="/video/showing-that-the-candidate-basis-does-span-c-a" />
+<subject title="A more formal understanding of functions" link="/video/a-more-formal-understanding-of-functions" />
+<subject title="Matrix Vector Products as Linear Transformations" link="/video/matrix-vector-products-as-linear-transformations" />
+<subject title="Linear Transformations as Matrix Vector Products" link="/video/linear-transformations-as-matrix-vector-products" />
+<subject title="Image of a subset under a transformation" link="/video/image-of-a-subset-under-a-transformation" />
+<subject title="im(T):  Image of a Transformation" link="/video/im-t----image-of-a-transformation" />
+<subject title="More on Matrix Addition and Scalar Multiplication" link="/video/more-on-matrix-addition-and-scalar-multiplication" />
+<subject title="Linear Transformation Examples: Rotations in R2" link="/video/linear-transformation-examples--rotations-in-r2" />
+<subject title="Compositions of Linear Transformations 1" link="/video/compositions-of-linear-transformations-1" />
+<subject title="Compositions of Linear Transformations 2" link="/video/compositions-of-linear-transformations-2" />
+<subject title="Linear Algebra: Matrix Product Examples" link="/video/linear-algebra--matrix-product-examples" />
+<subject title="Distributive Property of Matrix Products" link="/video/distributive-property-of-matrix-products" />
+<subject title="Determining whether a transformation is onto" link="/video/determining-whether-a-transformation-is-onto" />
+<subject title="Linear Algebra: Exploring the solution set of Ax=b" link="/video/linear-algebra--exploring-the-solution-set-of-ax-b" />
+<subject title="Linear Algebra: Showing that Inverses are Linear" link="/video/linear-algebra--showing-that-inverses-are-linear" />
+<subject title="Linear Algebra: Example of Finding Matrix Inverse" link="/video/linear-algebra--example-of-finding-matrix-inverse" />
+<subject title="Linear Algebra: Formula for 2x2 inverse" link="/video/linear-algebra--formula-for-2x2-inverse" />
+<subject title="Linear Algebra: Determinants along other rows/cols" link="/video/linear-algebra--determinants-along-other-rows-cols" />
+<subject title="Linear Algebra: Rule of Sarrus of Determinants" link="/video/linear-algebra--rule-of-sarrus-of-determinants" />
+<subject title="Linear Algebra: Determinant when row is added" link="/video/linear-algebra--determinant-when-row-is-added" />
+<subject title="Linear Algebra: Duplicate Row Determinant" link="/video/linear-algebra--duplicate-row-determinant" />
+<subject title="Linear Algebra: Determinant after row operations" link="/video/linear-algebra--determinant-after-row-operations" />
+<subject title="Linear Algebra: Upper Triangular Determinant" link="/video/linear-algebra--upper-triangular-determinant" />
+<subject title="Linear Algebra: Simpler 4x4 determinant" link="/video/linear-algebra--simpler-4x4-determinant" />
+<subject title="Linear Algebra: Determinant as Scaling Factor" link="/video/linear-algebra--determinant-as-scaling-factor" />
+<subject title="Linear Algebra: Transpose of a Matrix" link="/video/linear-algebra--transpose-of-a-matrix" />
+<subject title="Linear Algebra:  Determinant of Transpose" link="/video/linear-algebra---determinant-of-transpose" />
+<subject title="Linear Algebra:  Transposes of sums and inverses" link="/video/linear-algebra---transposes-of-sums-and-inverses" />
+<subject title="Linear Algebra: Transpose of a Vector" link="/video/linear-algebra--transpose-of-a-vector" />
+<subject title="Linear Algebra: Rowspace and Left Nullspace" link="/video/linear-algebra--rowspace-and-left-nullspace" />
+<subject title="Linear Algebra: Orthogonal Complements" link="/video/linear-algebra--orthogonal-complements" />
+<subject title="Linear Algebra: Rank(A) = Rank(transpose of A)" link="/video/linear-algebra--rank-a----rank-transpose-of-a" />
+<subject title="Lin Alg: Orthogonal Complement of the Nullspace" link="/video/lin-alg--orthogonal-complement-of-the-nullspace" />
+<subject title="Lin Alg: Unique rowspace solution to Ax=b" link="/video/lin-alg--unique-rowspace-solution-to-ax-b" />
+<subject title="Linear Alg: Rowspace Solution to Ax=b example" link="/video/linear-alg--rowspace-solution-to-ax-b-example" />
+<subject title="Linear Algebra: Projections onto Subspaces" link="/video/linear-algebra--projections-onto-subspaces" />
+<subject title="Linear Alg: Visualizing a projection onto a plane" link="/video/linear-alg--visualizing-a-projection-onto-a-plane" />
+<subject title="Linear Algebra: Subspace Projection Matrix Example" link="/video/linear-algebra--subspace-projection-matrix-example" />
+<subject title="Lin Alg: Another Example of a Projection Matrix" link="/video/lin-alg--another-example-of-a-projection-matrix" />
+<subject title="Linear Algebra: Least Squares Approximation" link="/video/linear-algebra--least-squares-approximation" />
+<subject title="Linear Algebra: Least Squares Examples" link="/video/linear-algebra--least-squares-examples" />
+<subject title="Linear Algebra: Another Least Squares Example" link="/video/linear-algebra--another-least-squares-example" />
+<subject title="Linear Algebra: Change of Basis Matrix" link="/video/linear-algebra--change-of-basis-matrix" />
+<subject title="Lin Alg: Invertible Change of Basis Matrix" link="/video/lin-alg--invertible-change-of-basis-matrix" />
+<subject title="Linear Algebra: Introduction to Orthonormal Bases" link="/video/linear-algebra--introduction-to-orthonormal-bases" />
+<subject title="Linear Algebra: The Gram-Schmidt Process" link="/video/linear-algebra--the-gram-schmidt-process" />
+<subject title="Linear Algebra: Gram-Schmidt Process Example" link="/video/linear-algebra--gram-schmidt-process-example" />
+<subject title="Linear Algebra: Eigenvalues of a 3x3 matrix" link="/video/linear-algebra--eigenvalues-of-a-3x3-matrix" />
+<subject title="2 dimensional projectile motion (part 1)" link="/video/2-dimensional-projectile-motion--part-1" />
+<subject title="2 dimensional projectile motion (part 2)" link="/video/2-dimensional-projectile-motion--part-2" />
+<subject title="2-dimensional projectile motion (part 3)" link="/video/2-dimensional-projectile-motion--part-3" />
+<subject title="2 dimensional projectile motion part 4" link="/video/2-dimensional-projectile-motion-part-4" />
+<subject title="2-dimensional projectile motion part 5" link="/video/2-dimensional-projectile-motion-part-5" />
+<subject title="Optimal angle for a projectile part 1" link="/video/optimal-angle-for-a-projectile-part-1" />
+<subject title="Optimal angle for a projectile part 2 - Hangtime" link="/video/optimal-angle-for-a-projectile-part-2---hangtime" />
+<subject title="A more complicated friction/inclined plane problem" link="/video/a-more-complicated-friction-inclined-plane-problem" />
+<subject title="Momentum: Ice skater throws a ball" link="/video/momentum--ice-skater-throws-a-ball" />
+<subject title="2-dimensional momentum problem (part 2)" link="/video/2-dimensional-momentum-problem--part-2" />
+<subject title="Work/Energy problem with Friction" link="/video/work-energy-problem-with-friction" />
+<subject title="Introduction to mechanical advantage" link="/video/introduction-to-mechanical-advantage" />
+<subject title="Projectile Motion with Unit Vectors" link="/video/projectile-motion-with-unit-vectors" />
+<subject title="Projectile Motion with Unit Vectors (part 2)" link="/video/projectile-motion-with-unit-vectors--part-2" />
+<subject title="Projectile Motion with Ordered Set Notation" link="/video/projectile-motion-with-ordered-set-notation" />
+<subject title="Introduction to centripetal acceleration (part 1)" link="/video/introduction-to-centripetal-acceleration--part-1" />
+<subject title="Introduction to Newton's Law of Gravitation" link="/video/introduction-to-newton-s-law-of-gravitation" />
+<subject title="Potential energy stored in a spring" link="/video/potential-energy-stored-in-a-spring" />
+<subject title="Spring potential energy example (mistake in math)" link="/video/spring-potential-energy-example--mistake-in-math" />
+<subject title="Harmonic Motion Part 3 (no calculus)" link="/video/harmonic-motion-part-3--no-calculus" />
+<subject title="Magnetism 6: Magnetic field due to current" link="/video/magnetism-6--magnetic-field-due-to-current" />
+<subject title="Magnetism 12: Induced Current in a Wire" link="/video/magnetism-12--induced-current-in-a-wire" />
+<subject title="Introduction to the Doppler Effect" link="/video/introduction-to-the-doppler-effect" />
+<subject title="Doppler effect formula for observed frequency" link="/video/doppler-effect-formula-for-observed-frequency" />
+<subject title="Doppler effect formula when source is moving away" link="/video/doppler-effect-formula-when-source-is-moving-away" />
+<subject title="Bailout 1: Liquidity vs. Solvency" link="/video/bailout-1--liquidity-vs--solvency" />
+<subject title="Bailout 3: Book value vs. market value" link="/video/bailout-3--book-value-vs--market-value" />
+<subject title="Bailout 4: Mark-to-model vs. mark-to-market" link="/video/bailout-4--mark-to-model-vs--mark-to-market" />
+<subject title="Bailout 6: Getting an equity infusion" link="/video/bailout-6--getting-an-equity-infusion" />
+<subject title="Bailout 7: Bank goes into bankruptcy" link="/video/bailout-7--bank-goes-into-bankruptcy" />
+<subject title="Bailout 11: Why these CDOs could be worth nothing" link="/video/bailout-11--why-these-cdos-could-be-worth-nothing" />
+<subject title="Bailout 12: Lone Star Transaction" link="/video/bailout-12--lone-star-transaction" />
 </xml>

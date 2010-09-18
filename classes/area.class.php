@@ -66,7 +66,7 @@ class Area {
 		} else {
 			$country_constraint = '';
 		}
-		$ret = db_query("SELECT area.id, area.name, country.name
+		$ret = db_query("SELECT area.id, area.name, country.name AS country_name
 					FROM		areas			AS area,
 								countries		AS country
 					WHERE		area.country = country.id
@@ -76,7 +76,7 @@ class Area {
             Error::generate('debug', 'Could not query db in Area::ListAll');
             return array();
         }
-        $ret = db_get_list_result($ret);
+        $ret = db_get_list_assoc($ret);
         return $ret;
 	}
 	public static function ListAllMatching($country_id=false, $val) {
@@ -86,7 +86,7 @@ class Area {
 		} else {
 			$country_constraint = '';
 		}
-		$ret = db_query("SELECT area.id, area.name, country.name
+		$ret = db_query("SELECT area.id, area.name, country_name
 					FROM		areas			AS area,
 								countries		AS country
 					WHERE		area.name REGEXP '.*%s.*'
@@ -99,7 +99,7 @@ class Area {
             Error::generate('debug', 'Could not query db in Area::ListAll');
             return array();
         }
-        $ret = db_get_list_result($ret);
+        $ret = db_get_list_assoc($ret);
         return $ret;
 	}
 }

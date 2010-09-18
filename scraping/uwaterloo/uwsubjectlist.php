@@ -17,6 +17,7 @@
 'CIVE' => 'Civil Engineering ',
 'CLAS' => 'Classical Studies ',
 'COMM' => 'Commerce ',
+'CS' => 'Computer Science ',
 'COOP' => 'Co-operative Work Term ',
 'CROAT' => 'Croatian ',
 'DAC' => 'Digital Arts Communication ',

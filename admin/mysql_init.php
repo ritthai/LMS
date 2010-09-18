@@ -1,5 +1,10 @@
 <?php
+$GLOBALS['client'] = 'Database Init';
+
 profiling_start('all');
+
+$memcached = new Memcached();
+$memcached->addServer('localhost', 11211);
 
 include("../classes/coursedefn.class.php");
 include("../includes/universities.inc");
@@ -19,19 +24,14 @@ profiling_start('run migrations');
 include("exec_migration.php");
 profiling_end('run migrations');
 
-$h = mysql_connect($dbhost, $dbuser, $dbpass) or die("mysql_connect error: ".mysql_error());
-mysql_select_db($dbname, $h) or die("mysql_select_db error: ".mysql_error());
-
-//mysql_query("CREATE DATABASE LMS_development;");
-//echo mysql_error();
+db_connect();
 
 profiling_start('create mysql_init tables');
-mysql_query("DROP TABLE courses;");
-mysql_query("CREATE TABLE courses (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(40), prof VARCHAR(30), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
-echo mysql_error();
+db_query("DROP TABLE courses;");
+db_query("CREATE TABLE courses (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(40), prof VARCHAR(30), timestamp TIMESTAMP(8) DEFAULT NOW(), PRIMARY KEY(id));");
 
-mysql_query("DROP TABLE coursedefns;");
-mysql_query("CREATE TABLE coursedefns
+db_query("DROP TABLE coursedefns;");
+db_query("CREATE TABLE coursedefns
 				(	id			INT NOT NULL AUTO_INCREMENT,
 					code		VARCHAR(10),
 					title		VARCHAR(60),
@@ -40,36 +40,49 @@ mysql_query("CREATE TABLE coursedefns
 					university	INT,
 					timestamp	TIMESTAMP(8) DEFAULT NOW(),
 					PRIMARY KEY(id));");
-echo mysql_error();
+db_query("CREATE FULLTEXT INDEX course_titles ON coursedefns (title);");
+db_query("CREATE INDEX course_codes ON coursedefns (university, code);");
 
-mysql_query("DROP TABLE primitive_cache;");
-mysql_query("CREATE TABLE primitive_cache
-					(	url			VARCHAR(255),
+db_query("DROP TABLE primitive_cache_lock;");
+// Below, id is url. This was done for compatibility with db transaction funcs
+db_query("CREATE TABLE primitive_cache_lock
+					(	id			CHAR(32),
+						locked		BOOL,
+						PRIMARY KEY(id));");
+db_query("CREATE INDEX primitive_cache_lock_ids ON primitive_cache_lock (id);");
+db_query("DROP TABLE primitive_cache;");
+db_query("CREATE TABLE primitive_cache
+					(	url			CHAR(32),
 						content		TEXT,
 						timestamp	TIMESTAMP(8) DEFAULT NOW(),
 						PRIMARY KEY(url));");
-echo mysql_error();
+db_query("CREATE INDEX primitive_cache_urls ON primitive_cache (url);");
 
-mysql_query("DROP TABLE universities;");
-mysql_query("CREATE TABLE universities
+db_query("DROP TABLE universities;");
+db_query("CREATE TABLE universities
 					(	id			INT NOT NULL AUTO_INCREMENT,
 						name		TEXT,
 						area		INT NOT NULL,
 						PRIMARY KEY(id));");
-echo mysql_error();
-mysql_query("DROP TABLE areas;");
-mysql_query("CREATE TABLE areas
+db_query("CREATE FULLTEXT INDEX university_names ON universities (name);");
+db_query("CREATE INDEX university_areas ON universities (area);");
+
+db_query("DROP TABLE areas;");
+db_query("CREATE TABLE areas
 					(	id			INT NOT NULL AUTO_INCREMENT,
 						name		TEXT,
 						country		INT NOT NULL,
 						PRIMARY KEY(id));");
-mysql_query("DROP TABLE countries;");
-mysql_query("CREATE TABLE countries
+db_query("CREATE FULLTEXT INDEX area_names ON areas (name);");
+db_query("CREATE INDEX area_countries ON areas (country);");
+
+db_query("DROP TABLE countries;");
+db_query("CREATE TABLE countries
 					(	id			INT NOT NULL AUTO_INCREMENT,
 						name		TEXT,
 						PRIMARY KEY(id));");
-echo mysql_error();
-profiling_start('create mysql_init tables');
+db_query("CREATE FULLTEXT INDEX country_names ON countries (name);");
+profiling_end('create mysql_init tables');
 
 $courses		= file_get_contents("../scraping/courses2.xml");
 $countries		= file_get_contents("../scraping/countries.xml");
@@ -123,8 +136,8 @@ foreach($xml as $a) {
 		$cid = Comment::Create(array(	'subject'	=> $code,
 										'id'		=> 1 ));
 		$cd = new CourseDefn(mysql_real_escape_string(htmlspecialchars($code)));
-		$cd->title = mysql_real_escape_string(htmlspecialchars($title));
-		$cd->descr = mysql_real_escape_string(htmlspecialchars($descr));
+		$cd->title = db_real_escape_string(htmlspecialchars($title));
+		$cd->descr = db_real_escape_string(htmlspecialchars($descr));
 		$cd->cid = $cid;
 		$cd->university = $uni_id;
 		$cd->save();
@@ -132,7 +145,8 @@ foreach($xml as $a) {
 }
 profiling_end('create courses');
 
-mysql_close($h);
+db_close($h);
+$memcached->flush();
 
 profiling_end('all');
 profiling_print_summary();

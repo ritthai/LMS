@@ -28,6 +28,7 @@ class University {
             return array();
         }
         $ret = db_get_result($ret);
+		if(isset($_SESSION)) $_SESSION['university'] = $id;
         return $ret;
 	}
 	public static function GetID($name, $area_id=false, $country_id=false) {
@@ -58,6 +59,7 @@ class University {
             return array();
         }
         $ret = db_get_result($ret);
+		if(isset($_SESSION)) $_SESSION['university'] = $ret;
         return $ret;
 	}
 	public static function Create($name, $area_id) {
@@ -83,7 +85,9 @@ class University {
 		} else {
 			$country_constraint = '';
 		}
-		$ret = db_query("SELECT uni.id, uni.name, area.name, country.name
+		$ret = db_query("SELECT uni.id, uni.name,
+								area.name AS area_name,
+								country.name AS country_name
 					FROM		universities	AS uni,
 								areas			AS area,
 								countries		AS country
@@ -96,7 +100,7 @@ class University {
             Error::generate('debug', 'Could not query db in University::ListAll');
             return array();
         }
-        $ret = db_get_list_result($ret);
+        $ret = db_get_list_assoc($ret);
         return $ret;
 	}
 	public static function ListAllMatching($area_id=false, $country_id=false, $val) {
@@ -110,7 +114,9 @@ class University {
 		} else {
 			$country_constraint = '';
 		}
-		$ret = db_query("SELECT uni.id, uni.name, area.name, country.name
+		$ret = db_query("SELECT uni.id, uni.name,
+								area.name AS area_name,
+								country.name AS country_name
 					FROM		universities	AS uni,
 								areas			AS area,
 								countries		AS country
@@ -126,7 +132,7 @@ class University {
             Error::generate('debug', 'Could not query db in University::ListAll');
             return array();
         }
-        $ret = db_get_list_result($ret);
+        $ret = db_get_list_assoc($ret);
         return $ret;
 	}
 }

@@ -1,5 +1,6 @@
 var http_request = false;
 var last_id, last_type, last_cid, last_subj, last_owner;
+var vote_last_id, vote_last_type, vote_last_cid, vote_last_owner, vote_last_req;
 var last_req;
 function makePOSTRequest(url, parameters) {
 	http_request = false;
@@ -44,7 +45,7 @@ function getAddedFavStr() {
                                              '"+last_subj+"' );\">\
 				<div class=\"rmFromFavs sidebar_rm_from_favs\">&nbsp;</div>\
 			</a>\
-			<a href=\"/search?id="+last_cid+"\">\
+			<a href=\"/search?id="+last_id+"\">\
 				<div class=\"sidebar_fav_course\">\
 					"+last_subj+"\
 				</div>\
@@ -122,4 +123,62 @@ function rmFromFavs(cid, owner, type, subj) {
 					+ "&type=" + encodeURI( type );
 	makePOSTRequest('/favsrm', poststr);
 	window.location.reload(true);
+}
+function voteUp(cid, owner, type) {
+	id = "vote_up_"+cid;
+	if($("logged_in").innerHTML == "n") {
+		old_href = jQuery("#"+id).attr('href');
+		jQuery("#"+id).fancybox({
+			'scrolling'		: 'no',
+			'titleShow'		: false,
+			'onClosed'		: function() {
+				jQuery("#login_error").hide();
+			}
+		});
+		jQuery("#"+id).attr('href', '#login_form');
+		jQuery("#"+id).click();
+		jQuery("#"+id).attr('href', old_href);
+		return;
+	}
+
+	vote_last_id = id;
+	vote_last_cid = cid;
+	vote_last_owner = owner;
+	vote_last_type = type;
+	last_req = 3;
+	$(id).innerHTML = "Voting...";
+
+	var poststr = "cid=" + encodeURI( cid )
+					+ "&owner=" + encodeURI( owner )
+					+ "&type=" + encodeURI( type );
+	makePOSTRequest('/voteup', poststr);
+}
+function voteDown(cid, owner, type) {
+	id = "vote_up_"+cid;
+	if($("logged_in").innerHTML == "n") {
+		old_href = jQuery("#"+id).attr('href');
+		jQuery("#"+id).fancybox({
+			'scrolling'		: 'no',
+			'titleShow'		: false,
+			'onClosed'		: function() {
+				jQuery("#login_error").hide();
+			}
+		});
+		jQuery("#"+id).attr('href', '#login_form');
+		jQuery("#"+id).click();
+		jQuery("#"+id).attr('href', old_href);
+		return;
+	}
+
+	vote_last_id = id;
+	vote_last_cid = cid;
+	vote_last_owner = owner;
+	vote_last_type = type;
+	last_req = 3;
+	$(id).innerHTML = "Voting...";
+
+	var poststr = "cid=" + encodeURI( cid )
+					+ "&owner=" + encodeURI( owner )
+					+ "&type=" + encodeURI( type );
+	makePOSTRequest('/votedown', poststr);
 }

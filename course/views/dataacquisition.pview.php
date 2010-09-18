@@ -1,4 +1,6 @@
-<?php foreach($args['searchresults'] as $subject) { ?>
+<?php	$tooltipdata = array();
+		foreach($args['searchresults'] as $subject) {
+?>
 
 <div class="search_result">
 	<a href="javascript:toggleContentPanel(<?php echo $subject['comment_id']; ?>);">
@@ -35,16 +37,20 @@
 <?php		foreach($subject['youtube'] as $k=>$res) {
 				//$width = $res['media:thumbnail']['width']; $height = $res['media:thumbnail']['height'];
 				$width = 118; $height = 88;
-				$src = $res['media:thumbnail']['url']; $link = $res['link'];
+				$id = "youtube$k";
+				$src = $res['thumbnail_url'];
 				$content = $res['src'];
+				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
+				else $fulltitle = clean($res['title']);
+				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 				$title = clean(limit($res['title'], ' on YouTube', 65));
 				$caption = "$('youtube_caption_$subject[comment_id]')";
 ?>
 				<div class="youtube_frame">
 				<div	class="youtube_thumb"
-						onmouseover="<?php echo $caption; ?>.innerHTML = '<?php echo $title; ?>';"
+						onmouseover="<?php echo $caption; ?>.innerHTML = '<?php echo escape_js($title); ?>';"
 						onmouseout="<?php echo $caption; ?>.innerHTML = '<?php echo $default_caption; ?>';" >
-					<a class="bodylink youtube_link" href="<?php echo $link; ?>" onclick="<?php showYouTubeVid($content); ?>">
+					<a class="bodylink youtube_link" href="<?php echo $link; ?>" onclick="<?php showYouTubeVid($content); ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
 						<img	src="<?php echo $src; ?>"
 								width="<?php echo $width; ?>"
 								height="<?php echo $height; ?>"
@@ -54,7 +60,7 @@
 				</div>
 				</div>
 				<?php //echo $res['title'] ? $res['title'].' on YouTube' : '-'; ?>
-<?			} ?>
+<?php		} ?>
 				<div style="clear:both"></div>
 				<div class="youtube_caption" id="youtube_caption_<?php echo $subject['comment_id']; ?>">
 					<?php echo $default_caption; ?>
@@ -64,12 +70,16 @@
 
 			<ul class="result_list">
 <?php	if($subject['google'] && count($subject['google'])) { ?>
-<?php		foreach($subject['google'] as $res) {
-				$title = clean(limit($res[0],' from Google Search',65));
-				$link = $res[1];
+<?php		foreach($subject['google'] as $k=>$res) {
+				$title = clean(limit($res['title'],' from Google Search',65));
+				$link = $res['link'];
+				$id = "google$k";
+				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
+				else $fulltitle = clean($res['title']);
+				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
 				<li>
-					<a class="bodylink" href="<?php echo $link; ?>">
+					<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
 						<?php echo $title; ?>
 					</a>
 				</li>
@@ -77,11 +87,15 @@
 <?php	} ?>
 
 <?php	if($subject['itunesu'] && count($subject['itunesu'])) { ?>
-<?php		foreach($subject['itunesu'] as $res) {
+<?php		foreach($subject['itunesu'] as $k=>$res) {
 				$title = clean(limit($res['title'], ' on iTunes U', 65));
+				$id = "itunesu$k";
+				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
+				else $fulltitle = clean($res['title']);
+				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
 		<li>
-			<a class="bodylink" href="<?php echo $res['url']; ?>">
+			<a class="bodylink itunesu_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
 				<?php echo $title; ?>
 			</a>
 		</li>
@@ -89,15 +103,31 @@
 <?php	} ?>
 
 <?php	if($subject['khanacad'] && count($subject['khanacad'])) { ?>
-<?php		foreach($subject['khanacad'] as $res) {
+<?php		foreach($subject['khanacad'] as $k=>$res) {
 				$title = clean(limit($res['title'], ' on Khan Academy', 65));
+				$id = "khanacad$k";
+				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
+				else $fulltitle = clean($res['title']);
+				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
-		<li>
-			<a class="bodylink" href="<?php echo $res['url']; ?>">
+		<li id="<?php echo "li_$id"; ?>">
+			<a class="bodylink khanacad_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
 				<?php echo $title; ?>
 			</a>
+			<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
+				href="javascript:voteDown(	'<?php echo $res['id']; ?>',
+											'<?php echo User::GetAuthenticatedID(); ?>',
+											'result');">
+				<div class="voteDown">&nbsp;</div>
+			</a>
+			<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
+				href="javascript:voteUp(	'<?php echo $res['id']; ?>',
+											'<?php echo User::GetAuthenticatedID(); ?>',
+											'result');">
+				<div class="voteUp">&nbsp;</div>
+			</a>
 		</li>
-<?			} ?>
+<?php		} ?>
 <?php	} ?>
 
 			</ul>
@@ -122,4 +152,12 @@
 </div>
 
 <?php } // for each subject ?>
+
+<script type="text/javascript">
+	/*
+	jQuery('.youtube_link').qtip();
+	jQuery('.google_link').qtip();
+	jQuery('.itunesu_link').qtip();
+	jQuery('.khanacad_link').qtip();*/
+</script>
 

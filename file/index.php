@@ -1,5 +1,5 @@
 <?php
-@include("$ROOT/includes/prefix.inc");
+profiling_start('all');
 
 @session_start();
 @db_connect();
@@ -74,6 +74,7 @@ if($action == 'show') {
 	$name = File::GetAttrib($id, 'name');
 	$path = File::GetAttrib($id, 'path');
 	$ext = File::GetAttrib($id, 'type');
+	Error::generate('debug', "id=$id, name=$name, path=$path, ext=$ext");
 	if(!$path) {
 		Error::generate('notice', 'File not found.', Error::$FLAGS['single']);
 		//header('Location: '.getLastVisited());
@@ -148,4 +149,13 @@ if($action == 'show') {
 }
 
 db_close();
-?>
+
+profiling_end('all');
+
+profiling_print_summary();
+
+Error::showSeparator();
+Error::setBgColour('#B66');
+Error::generate('debug', "Finished rendering $_SERVER[REQUEST_URI] normally");
+Error::setBgColour('#555');
+Error::showSeparator();

@@ -1,9 +1,10 @@
 <?php
-@require_once("$ROOT/includes/recaptchalib.php");
-@require_once("$ROOT/includes/prefix.inc");
+profiling_start('all');
 
 @session_start();
 @db_connect();
+
+@require_once("$ROOT/includes/recaptchalib.php");
 
 controller_prefix();
 
@@ -71,18 +72,16 @@ if($action == 'ajaxlogin') {
     header("Pragma: no-cache");
     header("Content-Type: text/html");
 	
-	$status = User::Authenticate($params['name'], $params['password']);
-	if($status) {
-		echo 'You have successfully logged in!';
-	} else {
-		echo 'Invalid username/password combination.';
-	}
+	$error = 'You have successfully logged in!';
+	$status = User::Authenticate($params['name'], $params['password'], $error);
+	// Window will reload if message starts with 'Y'
+	echo $error;
 	die('');
 } else if($action == 'usercp') {
 	$args['userinfo']['id'] = User::GetAuthenticatedID();
 	if(!$args['userinfo']['id']) {
 		Error::generate('warn', 'Must be logged in to see this page.');
-		if(isset($_SESSION) && $_SESSION['last_rendered_page'] && $_SESSION['last_rendered_page'] != $_SERVER['REQUEST_URI']) {
+		if(isset($_SESSION['last_rendered_page']) && $_SESSION['last_rendered_page'] != $_SERVER['REQUEST_URI']) {
             redirect_raw($_SESSION['last_rendered_page']);
         } else {
             redirect();
@@ -184,7 +183,7 @@ if($action == 'ajaxlogin') {
 	}
 } else if($action == 'login') {
 	session_regenerate_id();
-	$res = User::Authenticate($params['name'], $params['password']);
+	$res = User::Authenticate($params['name'], $params['password'], $error);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');
 		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
@@ -193,7 +192,7 @@ if($action == 'ajaxlogin') {
 			redirect();
 		}
 	} else {
-		Error::generate('notice', 'Invalid username/password combination', Error::$FLAGS['single']);
+		Error::generate('notice', $error, Error::$FLAGS['single']);
 		include("views/login.view.php");
 	}
 } else if($action == 'forgot_password') {
@@ -249,7 +248,8 @@ if($action == 'ajaxlogin') {
         }
 	}
 } else if($action == 'upload') {
-	$ext = end(explode('.', $_FILES['file']['name']));
+	$fparts = explode('.', $_FILES['file']['name']);
+	$ext = end($fparts);
 	// TODO: Check file extension.
 	if(!isset($_FILES['file'])) {
 		Error::generate('notice', 'No file specified.');
@@ -288,6 +288,7 @@ if($action == 'ajaxlogin') {
 		$upload_dir = $UPLOAD_ROOT.'/'.$id.'/';
 		$upload_path = $upload_dir.hash('sha256', $_FILES['file']['name']);
 		if($params['type'] == 2) { //avatar
+			$upload_path = $upload_dir.'AVATAR';
 			$dstw = 39;
 			$dsth = 39;
 			list($srcw, $srch) = getimagesize($tmpname);
@@ -391,4 +392,13 @@ if($action == 'ajaxlogin') {
 
 
 db_close();
-?>
+
+profiling_end('all');
+
+profiling_print_summary();
+
+Error::showSeparator();
+Error::setBgColour('#B66');
+Error::generate('debug', "Finished rendering $_SERVER[REQUEST_URI] normally");
+Error::setBgColour('#555');
+Error::showSeparator();

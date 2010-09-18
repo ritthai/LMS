@@ -4,6 +4,15 @@ function global_error_handler($error_level, $error_message, $error_file, $error_
 }
 set_error_handler("global_error_handler");
 function controller_prefix() {
+	$GLOBALS['client'] = $_SERVER['REMOTE_ADDR'];
+	$GLOBALS['userid'] = User::GetAuthenticatedAttrib('name') or '-';
+	Error::showSeparator();
+	Error::setBgColour('#B66');
+	Error::generate('debug', "Loading $_SERVER[REQUEST_URI]");
+	if($tmp1 = User::GetAuthenticatedID()) Error::generate('debug', "Logged in as ".User::GetAttrib($tmp1, 'name'));
+	Error::setBgColour('#555');
+	Error::showSeparator();
+
 	Error::generate('debug', 'Request URI: '.$_SERVER['REQUEST_URI']);
 	if(isset($_SESSION['HTTP_USER_AGENT'])) {
 		if($_SESSION['HTTP_USER_AGENT'] != md5($_SERVER['HTTP_USER_AGENT'])) {
@@ -40,4 +49,3 @@ function check_perms($action) {
 		return true;
 	}
 }
-?>

@@ -47,7 +47,7 @@ class Country {
             Error::generate('debug', 'Could not query db in Country::ListAll');
             return array();
         }
-        $ret = db_get_list_result($ret);
+        $ret = db_get_list_assoc($ret);
         return $ret;
 	}
 	public static function ListAllMatching($val) {
@@ -61,7 +61,7 @@ class Country {
             Error::generate('debug', 'Could not query db in Country::ListAll');
             return array();
         }
-        $ret = db_get_list_result($ret);
+        $ret = db_get_list_assoc($ret);
         return $ret;
 	}
 }

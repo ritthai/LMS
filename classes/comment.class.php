@@ -19,6 +19,33 @@ class Comment extends EavAdjList {
 												static::ATTRIB_PROP_UNIQUE ),
 							array( 'ID',		static::ATTRIB_TYPE_INT,
 												static::ATTRIB_PROP_UNIQUE ),
+							array( 'RATING',	static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'SOURCE',	static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'LINK',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'TITLE',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'URL',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'CATEGORY',	static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'SRC',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'THUMBNAIL_URL',
+												static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'THUMBNAIL_WIDTH',
+												static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'THUMBNAIL_HEIGHT',
+												static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'ART',		static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'VOTE',		static::ATTRIB_TYPE_INT,
+												static::ATTRIB_PROP_NONE ),
 					);
 	}
 	/**
@@ -39,7 +66,8 @@ class Comment extends EavAdjList {
 			switch(strtoupper($attrib)) {
 			case 'ID':
 			case 'TYPE':
-				continue;
+			case 'SUBJECT':
+				continue 2; // switch is considered a looping structure for some reason
 			case 'BODY':
 				$storeval = nl2br($val);
 				break;
@@ -51,6 +79,7 @@ class Comment extends EavAdjList {
 		return $id;
 	}
 	public static function ListAll($id=1, $type=1) {
+		Error::generate('debug', "Comment::ListAll($id, $type)");
 		$ret = static::eav_list($id, $type);
 		if(!$ret) $ret = array();
 		return array_reverse($ret, true);
@@ -86,21 +115,7 @@ class Comment extends EavAdjList {
 		return $ret;
 	}
 	public static function GetAttribs($id) {
-		$attribs = static::get_attribs($id);
-		$ret = array();
-		foreach($attribs as $attrib) {
-			$attrval = static::GetAttrib($id, $attrib);
-			if($attrval) {
-				if(is_array($attrval)) {
-					foreach($attrval as $v) {
-						array_push($ret, array(static::get_attrib_str($attrib), $v[0]));
-					}
-				} else {
-					array_push($ret, array(static::get_attrib_str($attrib), $attrval));
-				}
-			}
-		}
-		return $ret;
+		return static::get_all_attribs($id);
 	}
 	public static function GetSubject($id) {
 		$ret = static::get_with_id($id);
@@ -110,5 +125,30 @@ class Comment extends EavAdjList {
 		$ret = static::get_with_id($id);
 		return $ret['creation_timestamp'];
 	}
+	public static function CanVote($uid, $cid) {
+		$res = db_query("
+			SELECT count(*) FROM comment_data
+				WHERE	attrib='%d'
+					AND	id='%d'
+					AND	intdata='%d'
+			", static::get_attrib_id('vote'), $cid, $uid);
+		if(!$res || ($ret = db_get_result($res)) === false) {
+			return false;
+		} else {
+			return ($ret === 0);
+		}
+	}
+	public static function Vote($uid, $cid, $val) {
+		$res1 = db_query("
+			INSERT IGNORE INTO comment_data (id, attrib, intdata)
+				VALUES ('%d', '%s', '%d')
+			", static::get_attrib_id('vote'), ''.$uid, $cid);
+		if(!$res1 || db_affected_rows() != 1) {
+			return false;
+		} else {
+			$res2 = db_query("UPDATE comment_data SET intdata = intdata + %d WHERE attrib='%d' AND id='%d'",
+							intval($val), static::get_attrib_id('rating'), $cid);
+			return ($res2 && db_affected_rows() == 1);
+		}
+	}
 }
-?>
