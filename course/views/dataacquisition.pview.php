@@ -1,5 +1,5 @@
 <?php	$tooltipdata = array();
-		foreach($args['searchresults'] as $subject) {
+		foreach($args['searchresults'] as $ok => $subject) {
 ?>
 
 <div class="search_result">
@@ -37,7 +37,7 @@
 <?php		foreach($subject['youtube'] as $k=>$res) {
 				//$width = $res['media:thumbnail']['width']; $height = $res['media:thumbnail']['height'];
 				$width = 118; $height = 88;
-				$id = "youtube$k";
+				$id = "youtube$ok_$k";
 				$src = $res['thumbnail_url'];
 				$content = $res['src'];
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
@@ -50,7 +50,7 @@
 				<div	class="youtube_thumb"
 						onmouseover="<?php echo $caption; ?>.innerHTML = '<?php echo escape_js($title); ?>';"
 						onmouseout="<?php echo $caption; ?>.innerHTML = '<?php echo $default_caption; ?>';" >
-					<a class="bodylink youtube_link" href="<?php echo $link; ?>" onclick="<?php showYouTubeVid($content); ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
+					<a class="bodylink youtube_link" href="<?php echo $content;//$link; ?>" onclick="<?php showYouTubeVid($content); ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>">
 						<img	src="<?php echo $src; ?>"
 								width="<?php echo $width; ?>"
 								height="<?php echo $height; ?>"
@@ -73,7 +73,7 @@
 <?php		foreach($subject['google'] as $k=>$res) {
 				$title = clean(limit($res['title'],' from Google Search',65));
 				$link = $res['link'];
-				$id = "google$k";
+				$id = "google$ok_$k";
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
@@ -89,7 +89,7 @@
 <?php	if($subject['itunesu'] && count($subject['itunesu'])) { ?>
 <?php		foreach($subject['itunesu'] as $k=>$res) {
 				$title = clean(limit($res['title'], ' on iTunes U', 65));
-				$id = "itunesu$k";
+				$id = "itunesu$ok_$k";
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
@@ -105,7 +105,7 @@
 <?php	if($subject['khanacad'] && count($subject['khanacad'])) { ?>
 <?php		foreach($subject['khanacad'] as $k=>$res) {
 				$title = clean(limit($res['title'], ' on Khan Academy', 65));
-				$id = "khanacad$k";
+				$id = "khanacad$ok_$k";
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);

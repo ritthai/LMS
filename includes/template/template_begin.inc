@@ -37,7 +37,7 @@ Error::setBgColour("#000");
 		<script type="text/javascript" src="/js/global.js"> </script>
         <script type="text/javascript" src="/js/prototype-1.6.0.3.js"> </script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
-        <script type="text/javascript" src="/js/bsn.AutoSuggest_2.1.3.js"> </script>
+        <!--<script type="text/javascript" src="/js/bsn.AutoSuggest_2.1.3.js"> </script>-->
         <script type="text/javascript"><!--
             jQuery.noConflict();
 			var RegisteredGlobals = new Array();
@@ -46,7 +46,7 @@ Error::setBgColour("#000");
         //--></script>
         <script type="text/javascript" src="/fancybox/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
         <script type="text/javascript" src="/js/jquery.qtip.min.js"> </script>
-<?php   if($args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>
+<?php   //if($args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>
         <script type="text/javascript" src="/js/vidpanel.js"> </script>
 		<script type="text/javascript" src="/js/comment.js"> </script>
 		<script type="text/javascript" src="/js/favs.js"> </script>
