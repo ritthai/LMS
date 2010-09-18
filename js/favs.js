@@ -66,6 +66,8 @@ function alertContents() {
 			if(last_req == 1) {
 				$(last_id).innerHTML = getAddToFavsStr(result);
 				$("fav_"+last_type+"s").innerHTML += getAddedFavStr();
+				jQuery("#fav_courses").toggleClass("hidden", false);
+				//sidebar_fav_course
 			} else {
 				window.location.reload(true);
 			}

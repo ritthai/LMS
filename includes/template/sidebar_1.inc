@@ -44,10 +44,10 @@
 						<div style="clear:both"> </div>
 						<br>
 <?php   /*****  TRACKED COURSES *****/  ?>
-<?php	if($favs && count($favs) > 0 || true) {	?>
+<?php	if($favs && count($favs) > 0) {	?>
                         <div id="fav_courses">
 <?php	} else {	?>
-                        <div id="fav_courses" style="display:none">
+                        <div id="fav_courses" class="hidden">
 <?php	}	?>
                             <div id="sidebar_fav_courses">Favourite courses:</div>
 <?php   foreach($favs as $fav) {

@@ -328,3 +328,6 @@ div.comment_box {
 input.submit_comment, input.submit_university {
 	margin-bottom: -6px;
 }
+.hidden {
+	display: none;
+}
