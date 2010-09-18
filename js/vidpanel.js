@@ -51,9 +51,12 @@ jQuery(document).ready(function() {
 			url			: "/user/ajaxlogin",
 			data		: jQuery(this).serializeArray(),
 			success: function(data) {
-				jQuery.fancybox(data);
+				//jQuery.fancybox(data);
 				if(data[0] == 'Y') {
 					setTimeout('reload()', 1000);
+				} else {
+					jQuery("#login_error").html(data);
+					jQuery(".loginlink").click();
 				}
 			}
 		});
