@@ -48,3 +48,5 @@ Error::setBgColour("#000");
         <script type="text/javascript" src="/js/jquery.qtip.min.js"> </script>
 <?php   if($args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>
         <script type="text/javascript" src="/js/vidpanel.js"> </script>
+		<script type="text/javascript" src="/js/comment.js"> </script>
+		<script type="text/javascript" src="/js/favs.js"> </script>

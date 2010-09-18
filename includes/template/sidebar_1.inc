@@ -44,7 +44,11 @@
 						<div style="clear:both"> </div>
 						<br>
 <?php   /*****  TRACKED COURSES *****/  ?>
+<?php	if($favs && count($favs) > 0 || true) {	?>
                         <div id="fav_courses">
+<?php	} else {	?>
+                        <div id="fav_courses" style="display:none">
+<?php	}	?>
                             <div id="sidebar_fav_courses">Favourite courses:</div>
 <?php   foreach($favs as $fav) {
             $id = intval($fav);

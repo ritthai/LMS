@@ -12,8 +12,6 @@
 ?>
 
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
-<script type="text/javascript" src="/js/comment.js"> </script>
-<script type="text/javascript" src="/js/favs.js"> </script>
 <?php include("$TEMPLATEROOT/template_notices.inc"); ?>
 
 <!--<?php	/*****	FAVOURITES	*****/	?>
