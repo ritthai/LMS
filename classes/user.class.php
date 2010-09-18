@@ -230,7 +230,7 @@ class User extends EAV {
 		}
 	}
 	public static function IsAuthenticated() {
-		if(session_id() != "" && isset($_SESSION) && isset($_SESSION['userid'])) {
+		if(session_id() != "" && isset($_SESSION) && isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
 			return true;
 		} else {
 			return false;
