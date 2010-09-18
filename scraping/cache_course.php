@@ -81,6 +81,7 @@ $n_reqs_recvd = 0;
 $n_reqs_procd = 0;
 $n_preempted_reqs = 0;
 $time_delta = 1000*1000*1000;
+$db_reconnect_delta = 0;
 while(true) {
 	$time_delta += profiling_end('all');
 	profiling_start('all');
@@ -99,7 +100,13 @@ while(true) {
 		"cURL actvconns: $active"."\r\n".
 		profiling_print_summary()
 		);
+		$db_reconnect_delta += $time_delta;
 		$time_delta = 0;
+	}
+	if($db_reconnect_delta > 3600*1000*1000) {
+		db_close();
+		db_connect();
+		$db_reconnect_delta = 0;
 	}
 	$timeout = (count($completed)>0||count($in_progress)>0) ? 10000 : 1000000;
 	if(count($completed)>0||count($in_progress)>0) $lasttime = microtime();
