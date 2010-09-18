@@ -6,10 +6,7 @@ Error::generate('debug', "Loading $CONTROLLER/$action");
 if(!session_id()) @session_start();
 if($CONFIG['debug']) $args['pagetitle'] .= ' - Debugging Mode';
 // JKOFF: Watch this code, it could cause problems in the future.
-if(isset($_SESSION[$action])
-		&& $_SERVER['REQUEST_URI'] != '/user/login'
-		&& $_SESSION[$action] != 'login' )
-{
+if($_SERVER['REQUEST_URI'] != '/user/login' && $_SERVER['REQUEST_URI'] != '/user/create') {
 	Error::generate('debug', 'Rendering normal. Last rendered page: '
 								. $_SESSION['last_rendered_page']);
 	$_SESSION['last_rendered_page'] = $_SERVER['REQUEST_URI'];

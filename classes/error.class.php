@@ -9,10 +9,11 @@ class Error {
 									'success'	=>	1,
 									'debug'		=>	0,
 									'prod_debug'=>	-2,
-									'suspicious'=>	-1
+									'suspicious'=>	-1,
 									);
     static public $FLAGS = array(	'none'		=>	0,
-									'single'	=>	1		// Only add if the error queue is empty
+									'single'	=>	1,		// Only add if the error queue is empty
+									'override'	=>	2,		// Replace the error queue
 								);
 	static private $prepend='', $memstats='';
 	static public function setMemStats($str) {
@@ -99,6 +100,9 @@ class Error {
 			self::$errors = $_SESSION['errors'];
 
 		if($flags & self::$FLAGS['single'] && count(self::$errors) > 0) goto end;
+		if($flags & self::$FLAGS['override'] && count(self::$errors) > 0) {
+			self::$errors = array();
+		}
 
 		// format string
 		$pname = 'notice';

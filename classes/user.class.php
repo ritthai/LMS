@@ -82,7 +82,7 @@ class User extends EAV {
 	public static function Create($userCfg) {
 		$id = static::eav_create($userCfg['name']);
 		if($id < 1) {
-			Error::generate('notice', 'Username already taken.');
+			Error::generate('notice', 'Username already taken.', Error::$FLAGS['override']);
 			return false;
 		}
 		foreach($userCfg as $attrib => $val) {

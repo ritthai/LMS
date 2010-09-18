@@ -127,6 +127,7 @@ if($action == 'ajaxlogin') {
 	else $id = 0;
 	if($id > 0) {
 		Error::generate('notice', 'Account created!');
+		User::Authenticate($params['name'], $params['password'], $error);
 		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
             redirect_raw($_SESSION['last_rendered_page']);
         } else {
