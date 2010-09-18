@@ -17,6 +17,8 @@ function __autoload($cname) {
 
 header('X-Powered-By: Pigeons');
 
+profiling_start('all');
+
 if($CONFIG['debug'] === true) {
 	declare(ticks=20);
 }

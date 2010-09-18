@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS users, user_data;
-DROP TABLE IF EXISTS files, file_data;
+DROP TABLE IF EXISTS files, file_data, files_lock;
 DROP TABLE IF EXISTS comments, comment_data, comments_lock;
 #DROP PROCEDURE IF EXISTS SetForgottenPassTimestamp, ValidateForgottenPassTimestamp;
 # EAV

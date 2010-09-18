@@ -1,6 +1,4 @@
 <?php
-profiling_start('all');
-
 @session_start();
 @db_connect();
 

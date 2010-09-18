@@ -1,18 +1,17 @@
 <?php
-profiling_start('all');
-
 @session_start();
 @db_connect();
 $memcached = new Memcached();
 $memcached->addServer('localhost', 11211);
+
+controller_prefix();
+Error::generate('debug', 'start controller');
 
 @include("$ROOT/includes/tags.inc");
 @include("dataacquisition/search.util.php");
 @include("$ROOT/includes/subjects.inc");
 @include("$ROOT/includes/universities.inc");
 @include("$ROOT/includes/geography.inc");
-
-controller_prefix();
 
 $CONTROLLER = 'course';
 $PAGE_REL_URL = "$HTMLROOT";
@@ -70,6 +69,8 @@ $ACTIONS = array(	'search'				=> new HttpAction("$PAGE_REL_URL/search", 'get',
 												array('cid', 'owner', 'type')),
 					'check_lock'			=> new HttpAction("$PAGE_REL_URL/check_lock", 'post',
 												array('cid')),
+					'invalidate'			=> new HttpAction("$PAGE_REL_URL/invalidate", 'get',
+												array('id'), 'admin'),
 				);
 
 $search_results = array();
@@ -91,7 +92,16 @@ $args['action'] = $action;
 $args['favs'] = User::GetAttribs('fav');
 
 profiling_start('action');
-if($action == 'countries') {
+if($action == 'invalidate') {
+	$p = (int)$params['id'];
+	$crs = new CourseDefn( $p );
+	$success = $crs->load();
+
+	$memcached->delete($crs->cid);
+	db_query("DELETE FROM comments WHERE id='%d' AND type='2'", $crs->cid);
+	db_query("DELETE FROM comments WHERE parent='%d' AND type='2'", $crs->cid);
+	db_query("UPDATE locked='0' WHERE id='%d'", $crs->cid);
+} else if($action == 'countries') {
 	$args['countries'] = Country::ListAll();
 	$args['pagetitle'] = 'Choose a Country';
 	$args['countries'] = array_map(	function($country) { $country['id'] = intval($country['id']); return $country; },
@@ -145,6 +155,7 @@ if($action == 'countries') {
 		}
 		break;
 	case 'courses':
+		// TODO: This is not safe for multiple universities.
 		$arr = array();
 		$lst = CourseDefn::ListAllStartingWithTitle($params['val']);
 		foreach($lst as $elem) {

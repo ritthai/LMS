@@ -63,7 +63,7 @@ function submit_comment(obj, boxid) {
 		alert("Can't make an empty post.");
 		return false;
 	}
-	if(obj.owner.value == 'not logged in') {
+	if(obj.owner.value == 'not logged in' || obj.owner.value == '') {
 		//window.location = '/user/login';
 		jQuery("#top_login_link").trigger('click');
 		/*jQuery.fancybox.showActivity();

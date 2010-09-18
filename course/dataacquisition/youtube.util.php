@@ -130,4 +130,3 @@ function prefetch_youtube_search($procd_descr, $tags, $crs) {
 	$terms = $procd_descr;//urlencode($procd_descr);
 	return prefetch_youtube_query($terms, $tags, $crs);
 }
-?>
