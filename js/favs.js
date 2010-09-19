@@ -126,7 +126,7 @@ function rmFromFavs(cid, owner, type, subj) {
 	makePOSTRequest('/favsrm', poststr);
 	window.location.reload(true);
 }
-function voteUp(cid, owner, type) {
+function voteUp(courseid, cid, owner, type) {
 	id = "vote_up_"+cid;
 	if($("logged_in").innerHTML == "n") {
 		old_href = jQuery("#"+id).attr('href');
@@ -150,12 +150,13 @@ function voteUp(cid, owner, type) {
 	last_req = 3;
 	$(id).innerHTML = "Voting...";
 
-	var poststr = "cid=" + encodeURI( cid )
+	var poststr = "id=" + encodeURI( courseid )
+					+ "&cid=" + encodeURI( cid )
 					+ "&owner=" + encodeURI( owner )
 					+ "&type=" + encodeURI( type );
 	makePOSTRequest('/voteup', poststr);
 }
-function voteDown(cid, owner, type) {
+function voteDown(courseid, cid, owner, type) {
 	id = "vote_up_"+cid;
 	if($("logged_in").innerHTML == "n") {
 		old_href = jQuery("#"+id).attr('href');
@@ -179,7 +180,8 @@ function voteDown(cid, owner, type) {
 	last_req = 3;
 	$(id).innerHTML = "Voting...";
 
-	var poststr = "cid=" + encodeURI( cid )
+	var poststr = "id=" + encodeURI( courseid )
+					+ "&cid=" + encodeURI( cid )
 					+ "&owner=" + encodeURI( owner )
 					+ "&type=" + encodeURI( type );
 	makePOSTRequest('/votedown', poststr);

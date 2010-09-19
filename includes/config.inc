@@ -8,6 +8,8 @@ $CONFIG = array('debug'				=> true,
 				'dbhost'			=> 'localhost',
 				'dbuser'			=> 'LMS_development',
 				'dbpass'			=> '',
-				'dbname'			=> 'LMS_development' );
+				'dbname'			=> 'LMS_development',
+				'user_agent'		=> 'ClassMate/0.1',
+			);
 //ini_set('upload_max_filesize', '16M') or die('ini_set failed for upload_max_filesize'); // change in .htaccess
 ?>

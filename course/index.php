@@ -64,9 +64,9 @@ $ACTIONS = array(	'search'				=> new HttpAction("$PAGE_REL_URL/search", 'get',
 					'favsrm'				=> new HttpAction("$PAGE_REL_URL/favsrm", 'post',
 												array('cid', 'owner', 'type')),
 					'voteup'				=> new HttpAction("$PAGE_REL_URL/voteup", 'post',
-												array('cid', 'owner', 'type')),
+												array('id', 'cid', 'owner', 'type')),
 					'votedown'				=> new HttpAction("$PAGE_REL_URL/votedown", 'post',
-												array('cid', 'owner', 'type')),
+												array('id', 'cid', 'owner', 'type')),
 					'check_lock'			=> new HttpAction("$PAGE_REL_URL/check_lock", 'post',
 												array('cid')),
 					'invalidate'			=> new HttpAction("$PAGE_REL_URL/invalidate", 'get',
@@ -337,7 +337,11 @@ if($action == 'invalidate') {
 		header("Content-length:");
 		echo "Vote successful.";
 		Error::generate('debug', 'memcached delete '.$params['cid']);
-		$memcached->delete($params['cid']);
+
+		$p = (int)$params['id'];
+		$crs = new CourseDefn( $p );
+		$success = $crs->load();
+		$memcached->delete($crs->cid);
 	}
 } else if($action == 'post') { // post a comment
 	if(!$params['owner'] || !User::IsAuthenticated()) {
@@ -468,6 +472,7 @@ if($action == 'invalidate') {
 				prefetch_search('youtube', $descr, $tags, $crs);
 				prefetch_search('google', $descr, $tags, $crs);
 				prefetch_search('khanacad', $descr, $tags, $crs);
+				prefetch_search('wikipedia', $descr, $tags, $crs);
 				prefetch_search('itunesu', $descr, $tags, $crs);
 			}
 			foreach($procd_descr as $key => $topic) {
@@ -478,6 +483,7 @@ if($action == 'invalidate') {
 						perform_search('khanacad', $descr, $tags, $crs),
 						perform_search('youtube', $descr, $tags, $crs),
 						perform_search('google', $descr, $tags, $crs),
+						perform_search('wikipedia', $descr, $tags, $crs),
 						perform_search('itunesu', $descr, $tags, $crs));
 				Error::generate('debug', $results);
 				foreach($results as $res) {
@@ -533,7 +539,8 @@ if($action == 'invalidate') {
 							'subject'	=> ucfirst($topicsubject),
 							'youtube'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'youtube', 'rating'=>0)); } ),
 							'google'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'google', 'rating'=>0)); } ),
-							'khanacad'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'khanacad', 'rating'=>0)); } ),
+							'wikipedia'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'wikipedia', 'rating'=>0)); } ),
+							'khanacad'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'khanacad', 'rating'=>1.1)); } ),
 							'itunesu'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'itunesu', 'rating'=>0)); } ),
 							'comment_id'=> $topicid,
 							'comments'	=> array_map( function($a) { return $a['id']; }, Comment::ListAll($topicid) )

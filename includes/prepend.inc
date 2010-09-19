@@ -16,6 +16,7 @@ function __autoload($cname) {
 @include_once("$ROOT/includes/mysql.inc");
 
 header('X-Powered-By: Pigeons');
+ini_set('user_agent', $CONFIG['user_agent']);
 
 profiling_start('all');
 

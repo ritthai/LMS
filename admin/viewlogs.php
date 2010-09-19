@@ -41,7 +41,7 @@
 	<body>
 <?php	$file = 'debug';
 		if(isset($_GET['file'])) $file = $_GET['file'];
-		echo syscall("tail -n 80000 $ROOT/admin/$file.html > $ROOT/admin/$file"."2.html");
+		echo syscall("tail -n 150000 $ROOT/admin/$file.html > $ROOT/admin/$file"."2.html");
 		echo file_get_contents("$ROOT/admin/$file"."2.html");
 ?>
 		<script type="text/javascript" src="../js/jquery.hotkeys-0.7.9.min.js"> </script>

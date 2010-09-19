@@ -1,6 +1,7 @@
 <?php
 // http://www.sequencepublishing.com/academic.html
-$FUNCTION_WORDS = array('a bit of','a couple of','a few','a good deal of','a good many','a great deal of','a great many','a lack of','a little','a little bit of','a majority of','a minority of','a number of','a plethora of','a quantity of','all','an amount of','another','any','both','certain','each','either','enough','few','fewer','heaps of','less','little','loads','lots','many','masses of','more','most','much','neither','no','none','numbers of','part','plenty of','quantities of','several','some','the lack of','the majority of','the minority of','the number of','the plethora of','the remainder of','the rest of','the whole','tons of','various','all','another','any','anybody','anyone','anything','both','each','each other','either','everybody','everyone','everything','few','he','her','hers','herself','him','himself','his','I','it','its','itself','many','me','mine','myself','neither','no_one','nobody','none','nothing','one','one another','other','ours','ourselves','several','she','some','somebody','someone','something','such','that','theirs','them','themselves','these','they','this','those','us','we','what','whatever','which','whichever','who','whoever','whom','whomever','whose','you','yours','yourself','yourselves','aboard','about','above','absent','according to','across','after','against','ahead','ahead of','all over','along','alongside','amid','amidst','among','amongst','anti','around','as','as of','as to','aside','astraddle','astride','at','away from','bar','barring','because of','before','behind','below','beneath','beside','besides','between','beyond','but','by','by the time of','circa','close by','close to','concerning','considering','despite','down','due to','during','except','except for','excepting','excluding','failing','following','for','for all','from','given','in','in between','in front of','in keeping with','in place of','in spite of','in view of','including','inside','instead of','into','less','like','minus','near','near to','next to','notwithstanding','of','off','on','on top of','onto','opposite','other than','out','out of','outside','over','past','pending','per','pertaining to','plus','regarding','respecting','round','save','saving','similar to','since','than','thanks to','through','throughout','thru','till',/*'to',*/'toward','towards','under','underneath','unlike','until','unto','up','up to','upon','versus','via','wanting','with','within','without','a','all','an','another','any','both','each','either','every','her','his','its','my','neither','no','other','our','per','some','that','the','their','these','this','those','whatever','whichever','your','accordingly','after','albeit','although',/*'and',*/'as','because','before','both','but','consequently','either','for','hence','however','if','neither','nevertheless','nor','once','or','since','so','than','that','then','thence','therefore',/*'tho'',*/'though','thus','till','unless','until','when','whenever','where','whereas','wherever','whether','while','whilst','yet','be able to','can','could','dare','had better','have to','may','might','must','need to','ought','ought to','shall','should','used to','will','would');
+$FUNCTION_WORDS = array('a bit of','a couple of','a few','a good deal of','a good many','a great deal of','a great many','a lack of','a little','a little bit of','a majority of','a minority of','a number of','a plethora of','a quantity of','all','an amount of','another','any','both','certain','each','either','enough','few','fewer','heaps of','less','little','loads','lots','many','masses of','more','most','much','neither','no','none','numbers of','part','plenty of','quantities of','several','some','the lack of','the majority of','the minority of','the number of','the plethora of','the remainder of','the rest of','the whole','tons of','various','all','another','any','anybody','anyone','anything','both','each','each other','either','everybody','everyone','everything','few','he','her','hers','herself','him','himself','his','I','it','its','itself','many','me','mine','myself','neither','no_one','nobody','none','nothing','one','one another','other','ours','ourselves','several','she','some','somebody','someone','something','such','that','theirs','them','themselves','these','they','this','those','us','we','what','whatever','which','whichever','who','whoever','whom','whomever','whose','you','yours','yourself','yourselves','aboard','about','above','absent','according to','across','after','against','ahead','ahead of','all over','along','alongside','amid','amidst','among','amongst','anti','around','as','as of','as to','aside','astraddle','astride','at','away from','bar','barring','because of','before','behind','below','beneath','beside','besides','between','beyond','but','by','by the time of','circa','close by','close to','concerning','considering','despite','down','due to','during','except','except for','excepting','excluding','failing','following','for','for all','from','given','in','in between','in front of','in keeping with','in place of','in spite of','in view of','including','inside','instead of','into','less','like','minus','near','near to','next to','notwithstanding',/*'of',*/'off','on','on top of','onto','opposite','other than','out','out of','outside','over','past','pending','per','pertaining to','plus','regarding','respecting','round','save','saving','similar to','since','than','thanks to','through','throughout','thru','till',/*'to',*/'toward','towards','under','underneath','unlike','until','unto','up','up to','upon','versus','via','wanting','with','within','without','a','all','an','another','any','both','each','either','every','her','his','its','my','neither','no','other','our','per','some','that','the','their','these','this','those','whatever','whichever','your','accordingly','after','albeit','although',/*'and',*/'as','because','before','both','but','consequently','either','for','hence','however','if','neither','nevertheless','nor','once','or','since','so','than','that','then','thence','therefore',/*'tho'',*/'though','thus','till','unless','until','when','whenever','where','whereas','wherever','whether','while','whilst','yet','be able to','can','could','dare','had better','have to','may','might','must','need to','ought','ought to','shall','should','used to','will','would');
+$ADJECTIVE_ENDINGS = array('able', 'ible', 'al', 'ful', 'ic', 'ive', 'less', 'ous', 'ete');
 function count_matches($haystack, $needles) {
 	$ret = 0;
 	foreach($haystack as $li) {
@@ -51,7 +52,7 @@ function search_with_tags($terms, $tags, $cb, $args=null) {
 	return $ret;
 }
 function process_description($descr) {
-	global $FUNCTION_WORDS;
+	global $FUNCTION_WORDS, $ADJECTIVE_ENDINGS;
 	sort($FUNCTION_WORDS, SORT_STRING);
 	//foreach($FUNCTION_WORDS as $key=>$fword)
 	//	$FUNCTION_WORDS[$key] = strtolower($fword);
@@ -60,7 +61,8 @@ function process_description($descr) {
 	$remove = array('/\. [A-Z][^.]*primarily to/',
 					'/\([A-Za-z]* [A-Za-z]*\)/',
 					'/Applications ?(of|to)?/',
-					'/([Aa]n)? ?[Ii]ntroduction ?(to)?/'
+					'/([Aa]n)? ?[Ii]ntroduction ?(to)?/',
+					'/[Rr]eview of/',
 					);
 	foreach($remove as $pattern) {
 		$chunks = preg_split($pattern, $descr, null, PREG_SPLIT_NO_EMPTY);
@@ -69,6 +71,14 @@ function process_description($descr) {
 
 	$chunks = preg_split('/- and /', $descr, null, PREG_SPLIT_NO_EMPTY);
 	if($chunks && count($chunks) > 1) $descr = $chunks[0].'- & '.$chunks[1];
+
+	foreach($ADJECTIVE_ENDINGS as $ae) {
+		$chunks = preg_split("/$ae and /", $descr, null, PREG_SPLIT_NO_EMPTY);
+		if($chunks && count($chunks) > 1) {
+			$descr = $chunks[0]."$ae & ".$chunks[1];
+			break;
+		}
+	}
 
 	if($c=preg_match_all('/(\w+) (\w+) (and) /', $descr, $matches, PREG_OFFSET_CAPTURE)) {
 		//$shift = 0;
@@ -88,7 +98,7 @@ function process_description($descr) {
 	$pdelimiters = array(	', and ', ',', '\.', ':', ';', '!', '\\?', '\\(', '\\)',
 							'examples?');
 	/* Require following and trailing spaces */
-	$wdelimiters = array(	/*'and',*/ 'between', 'to', 'include', 'including', 'Introduction to',
+	$wdelimiters = array(	'and', 'between', 'to', 'include', 'including', 'Introduction to',
 							'[Tt]echniques( for)?', '[Tt]echniques to (monitor|calculate)' );
 	foreach($pdelimiters as $key=>$val)
 		$pdelimiters[$key] = $val;
@@ -103,6 +113,11 @@ function process_description($descr) {
 		$line = ereg_replace("^[a-z]?[a-z]?$", "", $chunk);
 		$words = preg_split('/ /', $line, 0, PREG_SPLIT_NO_EMPTY);
 		$left = array();
+		if(count($words) == 0) {
+			continue;
+		} else if(count($words) == 1) {
+			if(preg_match('/[Aa]pplication(s?)/', $words[0])) continue;
+		}
 		foreach($words as $word) {
 			$word = ereg_replace("[() ]", "", $word);
 			if(!array_search($word, $FUNCTION_WORDS))
@@ -157,12 +172,9 @@ function cached_file_update($url, $key) {
 	Error::generate('debug', "cached_file_update $url");
 	profiling_start('uncached_file_get_contents');
 	$text = file_get_contents($url);
-	/*$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$text = curl_exec($ch);
-	curl_close($ch);*/
 	profiling_end('uncached_file_get_contents');
 	profiling_start('caching file_get_contents');
+	Error::generate('debug', "Preempted $url ($key)");
 	Error::disableLogging();
 	db_query(	"REPLACE INTO primitive_cache (url, content) VALUES ('%s', '%s')",
 				$key, $text );
@@ -177,11 +189,13 @@ function cached_file_get_contents($url, $keep_logging_enabled=false) {
 	$md5url = md5($url);
 	$exists = db_query("SELECT * FROM primitive_cache WHERE url='%s'", $md5url);
 	Error::disableLogging();
-	$lcond = (!$exists || !($ret = db_get_list_result($exists)));
+	$ret = db_get_list_result($exists);
+	$lcond = (!$exists || !$ret);
 	if($lcond) {
 		Error::enableLogging();
 		db_query("INSERT IGNORE INTO primitive_cache_lock (id,locked) VALUES ('%s','0')",$md5url);
-		$timeout = 100000;
+		$timeout = 10000000;
+		profiling_start('cached_get_file spinlock');
 		while($lcond && db_check_transaction('primitive_cache', $md5url) && $timeout > 0) {
 			$stime = 100000;
 			usleep($stime);
@@ -189,6 +203,7 @@ function cached_file_get_contents($url, $keep_logging_enabled=false) {
 			$exists = db_query("SELECT * FROM primitive_cache WHERE url='%s'", $md5url);
 			$lcond = (!$exists || !($ret = db_get_list_result($exists)));
 		}
+		profiling_end('cached_get_file spinlock');
 		$locked = $lcond && db_start_transaction('primitive_cache', $md5url);
 	} else {
 		Error::enableLogging();
@@ -206,7 +221,7 @@ function cached_file_get_contents($url, $keep_logging_enabled=false) {
 	if($lcond) {
 		db_end_transaction('primitive_cache', $md5url);
 	}
-	$exists = db_query("DELETE FROM primitive_cache WHERE url='%s'", $md5url);
+	//$exists = db_query("DELETE FROM primitive_cache WHERE url='%s'", $md5url);
 	return $fret;
 }
 function utime() {

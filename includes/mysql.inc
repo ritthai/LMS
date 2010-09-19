@@ -133,6 +133,7 @@ function db_get_error() {
 
 function db_start_transaction($table, $id, $blocking=true) {
 	global $mysqli;
+	profiling_start('db_start_transaction');
 	$silent = false;
 	$affected = 0;
 	$timeout = 60000000; // 1 min
@@ -146,6 +147,7 @@ function db_start_transaction($table, $id, $blocking=true) {
 		$affected = db_affected_rows();
 		$silent = true;
 	}
+	profiling_end('db_start_transaction');
 	return !$silent && ($affected > 0); // success on first try?
 }
 function db_check_transaction($table, $id) {

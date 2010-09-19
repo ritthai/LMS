@@ -37,7 +37,7 @@
 <?php		foreach($subject['youtube'] as $k=>$res) {
 				//$width = $res['media:thumbnail']['width']; $height = $res['media:thumbnail']['height'];
 				$width = 118; $height = 88;
-				$id = "youtube$ok_$k";
+				$id = "youtube$ok"."_$k";
 				$src = $res['thumbnail_url'];
 				$content = $res['src'];
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
@@ -69,34 +69,93 @@
 <?php	} ?>
 
 			<ul class="result_list">
-<?php	if($subject['google'] && count($subject['google'])) { ?>
-<?php		foreach($subject['google'] as $k=>$res) {
-				$title = clean(limit($res['title'],' from Google Search',65));
+<?php	if($subject['wikipedia'] && count($subject['wikipedia'])) { ?>
+<?php		foreach($subject['wikipedia'] as $k=>$res) {
+				$title = clean(limit(ucfirst(strtolower($res['title'])),' from Wikipedia',56));
 				$link = $res['link'];
-				$id = "google$ok_$k";
+				$id = "wikipedia$ok"."_$k";
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
-				<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
-					<li>
-						<?php echo $title; ?>
-					</li>
+		<a class="bodylink wikipedia_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $res['title']; ?>" target="_blank">
+			<li id="<?php echo "li_$id"; ?>">
+				<?php echo $title; ?>
+				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
+					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteDown">&nbsp;</div>
 				</a>
+				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
+					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteUp">&nbsp;</div>
+				</a>
+			</li>
+		</a>
+<?php		} ?>
+<?php	} ?>
+
+<?php	if($subject['google'] && count($subject['google'])) { ?>
+<?php		foreach($subject['google'] as $k=>$res) {
+				$title = clean(limit(ucfirst(strtolower($res['title'])),' from Google Search',56));
+				$link = $res['link'];
+				$id = "google$ok"."_$k";
+				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
+				else $fulltitle = clean($res['title']);
+				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
+?>
+		<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
+			<li id="<?php echo "li_$id"; ?>">
+				<?php echo $title; ?>
+				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
+					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteDown">&nbsp;</div>
+				</a>
+				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
+					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteUp">&nbsp;</div>
+				</a>
+			</li>
+		</a>
 <?php		} ?>
 <?php	} ?>
 
 <?php	if($subject['itunesu'] && count($subject['itunesu'])) { ?>
 <?php		foreach($subject['itunesu'] as $k=>$res) {
-				$title = clean(limit($res['title'], ' on iTunes U', 65));
-				$id = "itunesu$ok_$k";
+				$title = clean(limit(ucfirst(strtolower($res['title'])), ' on iTunes U', 56));
+				$id = "itunesu$ok"."_$k";
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 ?>
 		<a class="bodylink itunesu_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
-			<li>
+			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
+				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
+					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteDown">&nbsp;</div>
+				</a>
+				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
+					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
+												'<?php echo User::GetAuthenticatedID(); ?>',
+												'result');">
+					<div class="voteUp">&nbsp;</div>
+				</a>
 			</li>
 		</a>
 <?php		} ?>
@@ -104,8 +163,8 @@
 
 <?php	if($subject['khanacad'] && count($subject['khanacad'])) { ?>
 <?php		foreach($subject['khanacad'] as $k=>$res) {
-				$title = clean(limit($res['title'], ' on Khan Academy', 65));
-				$id = "khanacad$ok_$k";
+				$title = clean(limit(ucfirst(strtolower($res['title'])), ' on Khan Academy', 56));
+				$id = "khanacad$ok"."_$k";
 				if($CONFIG['debug']) $fulltitle = clean($res['title'])."<br>Rating: $res[rating]";
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
@@ -114,13 +173,15 @@
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
 				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
-					href="javascript:voteDown(	'<?php echo $res['id']; ?>',
+					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
 												'<?php echo User::GetAuthenticatedID(); ?>',
 												'result');">
 					<div class="voteDown">&nbsp;</div>
 				</a>
 				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
-					href="javascript:voteUp(	'<?php echo $res['id']; ?>',
+					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
+												'<?php echo $res['id']; ?>',
 												'<?php echo User::GetAuthenticatedID(); ?>',
 												'result');">
 					<div class="voteUp">&nbsp;</div>

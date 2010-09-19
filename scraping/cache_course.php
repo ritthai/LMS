@@ -63,7 +63,6 @@ if(!$status) {
 $clients = array();
 $data = array();
 $completed = array();
-$lasttime = microtime();
 $curl_stack = array();
 $in_progress = array();
 $mch = curl_multi_init();
@@ -105,11 +104,11 @@ while(true) {
 	}
 	if($db_reconnect_delta > 3600*1000*1000) {
 		db_close();
+		fputs($fp, "\r\n$GLOBALS[client] RECONNECTING TO DATABASE\r\n");
 		db_connect();
 		$db_reconnect_delta = 0;
 	}
 	$timeout = (count($completed)>0||count($in_progress)>0) ? 10000 : 1000000;
-	if(count($completed)>0||count($in_progress)>0) $lasttime = microtime();
 	$r = array_merge(array($sock), $clients);
 	$w=$e=NULL;
 	profiling_start('idle');
@@ -204,7 +203,8 @@ while(true) {
 							curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
 							//curl_setopt($ch, CURLOPT_FORBID_REUSE, false);
 							curl_setopt($ch, CURLOPT_FRESH_CONNECT, false);
-							curl_setopt($ch, CURLOPT_STDERR, $logpath);
+							//curl_setopt($ch, CURLOPT_STDERR, $fp);
+							curl_setopt($ch, CURLOPT_USERAGENT, $CONFIG['user_agent']);
 							// TODO: look into CURLOPT_RANGE
 							array_push($curl_stack, $ch);
 							Error::generate('debug', "Received: $val");
