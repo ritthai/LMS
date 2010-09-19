@@ -139,7 +139,7 @@ abstract class EAV {
 		}
 
 		if($attribprops & static::ATTRIB_PROP_UNIQUE) {
-			$res = db_query("SELECT attrib,stringdata,intdata FROM %s_data WHERE id='%d'",
+			$res = db_query("SELECT attrib,stringdata,intdata,options FROM %s_data WHERE id='%d'",
 							static::subGetClass(), $id);
 		} else {
 			$res = db_query("SELECT %s FROM %s_data WHERE id='%d' AND attrib='%d'",

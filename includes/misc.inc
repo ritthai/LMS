@@ -63,6 +63,14 @@ function process_description($descr) {
 					'/Applications ?(of|to)?/',
 					'/([Aa]n)? ?[Ii]ntroduction ?(to)?/',
 					'/[Rr]eview of/',
+					'/([Pp]ractical) applications( of)?/',
+					'/[Aa]re used/',
+					'/(as )?motivation/',
+					'/[Ss]olution(s)? of/',
+					'/[Ss]?(ome|pecific)? ?[Tt]opics (covered )?in(clude)?/',
+					'/[Pp]itfalls( of)?/',
+					'/[Ww]idely used/',
+					'/[Ff]ocus(ing|ed) on/',
 					);
 	foreach($remove as $pattern) {
 		$chunks = preg_split($pattern, $descr, null, PREG_SPLIT_NO_EMPTY);
@@ -117,6 +125,8 @@ function process_description($descr) {
 			continue;
 		} else if(count($words) == 1) {
 			if(preg_match('/[Aa]pplication(s?)/', $words[0])) continue;
+		} else if(count($words) > 4) {
+			continue;
 		}
 		foreach($words as $word) {
 			$word = ereg_replace("[() ]", "", $word);
@@ -125,7 +135,19 @@ function process_description($descr) {
 		}
 		array_push($chunks2, htmlspecialchars(implode(" ", $left), ENT_COMPAT, 'UTF-8', false));
 	}
-	return $chunks2;
+	// Unique, ignore plural
+	$ret = array();
+	$singulars = array();
+	foreach($chunks2 as $cnk) {
+		$sngr = depluralize(strtolower($cnk));
+		if(in_array($sngr, $singulars)) {
+			continue;
+		} else {
+			$ret[] = strtolower($cnk);
+			$singulars[] = $sngr;
+		}
+	}
+	return $ret;
 }
 $async_socks = array(); $async_sockids = array();
 function async_cache_connect($target) {
@@ -251,4 +273,26 @@ function filter_result($result, $constraints) {
 		if(!$pass) return false;
 	}
 	return true;
+}
+// http://sites.google.com/site/chrelad/notes-1/pluraltosingularwithphp
+function depluralize($word) {
+    $rules = array( 
+        'ss'  => false,
+		'ces' => 'x',
+        'os'  => 'o', 
+        'ies' => 'y', 
+        'xes' => 'x', 
+        'oes' => 'o', 
+        'ies' => 'y', 
+        'ves' => 'f', 
+        's' => '');
+    // Loop through all the rules and do the replacement. 
+    foreach(array_keys($rules) as $key){
+        if(substr($word, (strlen($key) * -1)) != $key) 
+            continue;
+        if($key === false) 
+            return $word;
+        return substr($word, 0, strlen($word) - strlen($key)) . $rules[$key]; 
+    }
+    return $word;
 }

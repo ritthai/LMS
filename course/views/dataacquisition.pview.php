@@ -10,11 +10,7 @@
 	<div class="all_result_content" id="all_result_content_<?php echo $subject['comment_id']; ?>">
 <?php	if(false && !User::AuthenticatedUserHasMatchingAttrib('topicfav', $subject['comment_id'])) { ?>
 		<div id="favs_<?php echo $subject['comment_id']; ?>">
-			<a	class="bodylink" id="add_to_favs_<?php echo $subject['comment_id']; ?>"
-				href="javascript:addToFavs(	'<?php echo $subject['comment_id']; ?>',
-											'<?php echo User::GetAuthenticatedID(); ?>',
-											'topic',
-											'<?php echo clean($subject['subject']); ?>' );">
+			<a class="bodylink" id="add_to_favs_<?php echo $subject['comment_id']; ?>" href="javascript:addToFavs('<?php echo $subject['comment_id']; ?>', '<?php echo User::GetAuthenticatedID(); ?>', 'topic', '<?php echo clean($subject['subject']); ?>' );">
 				<div class="addToFavs">&nbsp;</div>
 				[Add to favs]
 			</a>
@@ -81,18 +77,10 @@
 		<a class="bodylink wikipedia_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $res['title']; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
-					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteDown">&nbsp;</div>
 				</a>
-				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
-					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_up_<?php echo $res['id']; ?>" href="javascript:voteUp('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteUp">&nbsp;</div>
 				</a>
 			</li>
@@ -112,18 +100,10 @@
 		<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
-					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteDown">&nbsp;</div>
 				</a>
-				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
-					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_up_<?php echo $res['id']; ?>" href="javascript:voteUp('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteUp">&nbsp;</div>
 				</a>
 			</li>
@@ -142,18 +122,10 @@
 		<a class="bodylink itunesu_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
-					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteDown">&nbsp;</div>
 				</a>
-				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
-					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_up_<?php echo $res['id']; ?>" href="javascript:voteUp('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteUp">&nbsp;</div>
 				</a>
 			</li>
@@ -172,18 +144,10 @@
 		<a class="bodylink khanacad_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a	class="bodylink" id="vote_down_<?php echo $res['id']; ?>"
-					href="javascript:voteDown(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteDown">&nbsp;</div>
 				</a>
-				<a	class="bodylink" id="vote_up_<?php echo $res['id']; ?>"
-					href="javascript:voteUp(	'<?php echo $args['course']['id']; ?>',
-												'<?php echo $res['id']; ?>',
-												'<?php echo User::GetAuthenticatedID(); ?>',
-												'result');">
+				<a class="bodylink" id="vote_up_<?php echo $res['id']; ?>" href="javascript:voteUp('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 					<div class="voteUp">&nbsp;</div>
 				</a>
 			</li>

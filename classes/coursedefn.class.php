@@ -93,7 +93,7 @@ class CourseDefn {
 		$res = db_query("
 			SELECT id,code,title,descr,university
 				FROM		coursedefns
-				WHERE		title REGEXP '^%s*'
+				WHERE		title REGEXP '^%s.*'
 							$constraint
 				ORDER BY	$orderby",
 			$title);
@@ -110,12 +110,11 @@ class CourseDefn {
 		$res = db_query("
 			SELECT id,code,title,descr,university
 				FROM		coursedefns
-				WHERE		code REGEXP '^%s*'
+				WHERE		code REGEXP '^%s.*'
 							$constraint
 				ORDER BY	$orderby",
-			$code);
+			str_replace(' ', '', $code));
 		$ret = db_get_list_of_assoc($res);
 		return $ret;
 	}
 }
-?>

@@ -30,12 +30,13 @@
 <div class="holder">
 	<header><div id="logo"><a class="headerlink" href="/"><img src="/images/navigation/logo.png" /></a></div>
 <?php	/*****	SEARCH	*****/ ?>
-<?php	if($args['university']) { ?>
+<?php	if((isset($args['university']) && $u = $args['university']) || (isset($_SESSION['university']) && $u = $_SESSION['university'])) { ?>
 			<div id="search">
 				<div style="position: relative; margin-right: 5px; padding-top: 5px">
 					<form action="/search" method="get" class="search_form">
 						<input type="text" class="search_form" id="search_terms" name="terms" <?php setDefaultText('Search for a course'); ?> /><br/>
 						<input type="hidden" id="search_id" name="id" /><br/>
+						<input type="hidden" id="university" name="university" value="<?php echo $u['id']; ?>" /><br/>
 					</form>
 				</div>
 			</div>
@@ -46,19 +47,19 @@
 	<nav>
 		<h5>
 				<!--<a class="breadcrumblink" href="/">ClassMate</a>-->
-<?php	if(($c = $args['country']) || (isset($_SESSION['country']) && $c = $_SESSION['country'])) { ?>
+<?php	if((isset($args['country']) && $c = $args['country']) || (isset($_SESSION['country']) && $c = $_SESSION['country'])) { ?>
 			>	<a class="breadcrumblink" href="/areas?<?php echo "country=$c[id]"; ?>">
 					<?php echo $c['name']; ?></a>
 <?php	} ?>
-<?php	if(($a = $args['area']) || (isset($_SESSION['area']) && $a = $_SESSION['area'])) { ?>
+<?php	if((isset($args['area']) && $a = $args['area']) || (isset($_SESSION['area']) && $a = $_SESSION['area'])) { ?>
 			>	<a class="breadcrumblink" href="/universities?<?php echo "area=$a[id]"; ?>">
 					<?php echo $a['name']; ?></a>
 <?php	} ?>
-<?php	if(($u = $args['university']) || (isset($_SESSION['university']) && $u = $_SESSION['university'])) { ?>
+<?php	if((isset($args['university']) && $u = $args['university']) || (isset($_SESSION['university']) && $u = $_SESSION['university'])) { ?>
 			>	<a class="breadcrumblink" href="/subjects?<?php echo "university=$u[id]"; ?>">
 					<?php echo $u['name']; ?></a>
 <?php	} ?>
-<?php	if(($o = $args['code']) || (isset($_SESSION['code']) && $o = $_SESSION['code'])) { ?>
+<?php	if((isset($args['code']) && $o = $args['code']) || (isset($_SESSION['code']) && $o = $_SESSION['code'])) { ?>
 			>	<a class="breadcrumblink" href="/subject?<?php echo "code=$o&university=$u[id]"; ?>">
 					<?php echo $o; ?></a>
 <?php	} ?>

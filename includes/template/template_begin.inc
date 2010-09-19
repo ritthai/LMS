@@ -16,6 +16,10 @@ if($_SERVER['REQUEST_URI'] != '/user/login' && $_SERVER['REQUEST_URI'] != '/user
 	Error::generate('debug', 'Rendering login. Last rendered page: '.$_SESSION['last_rendered_page']);
 }
 
+// Add to recently viewed courses
+$pageviewid = User::GetAuthenticatedID() ? User::GetAuthenticatedID() : -1;
+if(isset($args['comment_id']) && $args['comment_id']) Pageview::Create(array('id' => $pageviewid, 'comment_id' => $args['comment_id']));
+
 Error::showSeparator();
 Error::setBgColour("#000");
 @include("$ROOT/includes/html_utils.inc");
@@ -42,11 +46,11 @@ Error::setBgColour("#000");
             jQuery.noConflict();
 			var RegisteredGlobals = new Array();
 <?php		jsRegisterGlobal('AuthenticatedUserAvatar', User::GetAvatar(User::GetAuthenticatedID()));	?>
-<?php		jsRegisterGlobal('CourseCID', $args['comment_id']);	?>
+<?php		jsRegisterGlobal('CourseCID', isset($args['comment_id']) ? $args['comment_id'] : 1);	?>
         //--></script>
         <script type="text/javascript" src="/fancybox/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
         <script type="text/javascript" src="/js/jquery.qtip.min.js"> </script>
-<?php   if($args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>
+<?php   if(isset($args['university']) && $args['university']) jsSetupAutocompleteWithId('search_form', 'search_terms', 'search_id', 'courses', 4); ?>
         <script type="text/javascript" src="/js/vidpanel.js"> </script>
 		<script type="text/javascript" src="/js/comment.js"> </script>
 		<script type="text/javascript" src="/js/favs.js"> </script>

@@ -5,11 +5,12 @@ function wikipedia_process_term($term) {
 	$pts = explode('and', $pts[0], 2);
 	//$pts = str_replace('&amp;', '&', $pts[0]);
 	$pts = $pts[0];
-	if($pts[strlen($pts)-2] != 'e') {
+	/*if($pts[strlen($pts)-2] != 'e') {
 		$ret = rtrim(urlencode($pts), 's');
 	} else {
 		$ret = urlencode($pts);
-	}
+	}*/
+	$ret = urlencode(depluralize($pts));
 	return $ret;
 }
 function prefetch_wikipedia_search($procd_descr) {
@@ -32,7 +33,7 @@ function wikipedia_search($procd_descr) {
 
 	$title = urlencode($arr['query']['allpages'][0]['title']);
 	// this is probably a topic from a random unintended field like "frequency analysis (cryptoanalysis)"
-	if(strlen($title) > strlen($TERMS) + 5 || strrchr($title, '%28')) {
+	if(strlen($title) < strlen($TERMS) - 5 || strlen($title) > strlen($TERMS) + 5 || strrchr($title, '%28')) {
 		return array();
 	}
 	$store = array(	'title'	=> urldecode(str_replace('+',' ',$title)),

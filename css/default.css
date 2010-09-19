@@ -252,6 +252,16 @@ div#sidebar_fav_courses {
 	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
 	color: #545454;
 }
+div#sidebar_recent_courses {
+	text-align: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
+div#sidebar_course_recommendations {
+	text-align: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
 div.sidebar_fav_course {
 	text-align: right;
 	float: right;

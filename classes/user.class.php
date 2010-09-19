@@ -32,7 +32,8 @@ class User extends EAV {
 							array( 'TOPICFAV',	static::ATTRIB_TYPE_INT,
 												static::ATTRIB_PROP_NONE ),
 							array( 'COURSEFAV',	static::ATTRIB_TYPE_INT,
-												static::ATTRIB_PROP_NONE ) );
+												static::ATTRIB_PROP_NONE ),
+							 );
 	}
 	protected static function subGetRoles() {
 		// Note: Not all of these apply to a User.
@@ -67,6 +68,9 @@ class User extends EAV {
 	/**
 		Public Functions
 	*/
+	public static function GetAttribID($attribstr) {
+		return static::get_attrib_id($attribstr);
+	}
 	public static function enterStatusMode() {
 		static::$MODE = 'status';
 	}
@@ -91,7 +95,7 @@ class User extends EAV {
 				$storeval = static::get_role_id($val);
 				break;
 			case 'PASSWORD':
-				$storeval = hash('sha256', $SALT.$val);
+				$storeval = static::_hash($val);
 				break;
 			default:
 				$storeval = $val;
@@ -259,7 +263,7 @@ class User extends EAV {
 		return $_SESSION['userid'];
 	}
 	private static function _hash($pass) {
-		return hash('sha256', $SALT.$pass);
+		return hash('sha256', static::$SALT.$pass);
 	}
 	public static function GenerateForgottenPasswordKey($name) {
 		$id = static::get_id($name);

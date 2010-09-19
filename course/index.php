@@ -5,6 +5,7 @@ $memcached = new Memcached();
 $memcached->addServer('localhost', 11211);
 
 controller_prefix();
+if(isset($_SESSION)) Error::setPrepend($_SESSION);
 Error::generate('debug', 'start controller');
 
 @include("$ROOT/includes/tags.inc");
@@ -90,6 +91,17 @@ if($action == 'search2') $action = 'search';
 $args['actions'] = $ACTIONS;
 $args['action'] = $action;
 $args['favs'] = User::GetAttribs('fav');
+
+function reset_loading_screen_counter() {
+	if(isset($_SESSION)) {
+		foreach($_SESSION as $k=>$v) {
+			if(preg_match('/loading_screen_count.*/', $k)) {
+				$_SESSION[$k] = 0;
+			}
+		}
+	}
+}
+reset_loading_screen_counter();
 
 profiling_start('action');
 if($action == 'invalidate') {
@@ -372,7 +384,7 @@ if($action == 'invalidate') {
 		$p = $params['terms'];
 		$uni = 1;
 		if(isset($params['university']) && $params['university']) $uni = $params['university'];
-		else if(isset($_SESSION['university']) && $_SESSION['university']) $uni = $_SESSION['university'];
+		else if(isset($_SESSION['university']) && $_SESSION['university']) $uni = $_SESSION['university']['id'];
 		$res = CourseDefn::ListAllStartingWithCode($p, 'code', $uni);
 		if($res && count($res) > 0) {
 			$crs = new CourseDefn( intval($res[0]['id']) );
@@ -414,16 +426,16 @@ if($action == 'invalidate') {
 										'name'	=> Area::GetName($areaid));
 			$args['country']	= array('id'	=> ($countryid = Area::GetCountryID($args['area'])),
 										'name'	=> Country::GetName($countryid));
-			if(!isset($_SESSION['loading_screen_count'])) {
-				$_SESSION['loading_screen_count'] = 1;
-			} else if($_SESSION['loading_screen_count']++ > 2) {
+			if(!isset($_SESSION['loading_screen_count'.$crs->cid])) {
+				$_SESSION['loading_screen_count'.$crs->cid] = 1;
+			} else if($_SESSION['loading_screen_count'.$crs->cid]++ > 3) {
 				// we're stuck in a loading screen loop. uh oh.
 				$page = "$ROOT/includes/template/error.php";
 				Error::generate('prod_debug', 'Stuck in a loading loop!');
 				Error::generate('prod_debug', $procd_descr);
 				Error::generate('prod_debug', $args);
 			} else {
-				$_SESSION['loading_screen_count']++;
+				$_SESSION['loading_screen_count'.$crs->cid]++;
 			}
 			ob_start();
 			include($page);
@@ -512,7 +524,7 @@ if($action == 'invalidate') {
 		profiling_end('process description and/or get topics from db');
 
 		profiling_start('deal with tags and procd_descr');
-		$_SESSION['loading_screen_count'] = 0;
+		$_SESSION['loading_screen_count'.$crs->cid] = 0;
 		Error::generate('debug', 'starting deal with tags and procd_descr');
 		$search_results = $memcached->get(''.$crs->cid);
 		if(!$search_results) {
@@ -574,6 +586,7 @@ if($action == 'invalidate') {
 									'name'	=> Area::GetName($areaid));
 		$args['country']	= array('id'	=> ($countryid = Area::GetCountryID($args['area'])),
 									'name'	=> Country::GetName($countryid));
+		reset_loading_screen_counter();
 		profiling_end('wrap up processing and package data for the view');
 		include("views/search.view.php");
 	}
@@ -612,16 +625,16 @@ if($action == 'invalidate') {
 	include("views/index.view.php");
 }
 end:
-if($c = $args['country']) {
+if(isset($args['country']) && $c = $args['country']) {
 	$_SESSION['country'] = $c;
 }
-if($a = $args['area']) {
+if(isset($args['area']) && $a = $args['area']) {
 	$_SESSION['area'] = $a;
 }
-if($u = $args['university']) {
+if(isset($args['university']) && $u = $args['university']) {
 	$_SESSION['university'] = $u;
 }
-if($o = $args['code']) {
+if(isset($args['code']) && $o = $args['code']) {
 	$_SESSION['code'] = $o;
 }
 profiling_end('view');

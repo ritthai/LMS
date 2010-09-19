@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS users, user_data;
 DROP TABLE IF EXISTS files, file_data, files_lock;
 DROP TABLE IF EXISTS comments, comment_data, comments_lock;
+DROP TABLE IF EXISTS pageviews;
 #DROP PROCEDURE IF EXISTS SetForgottenPassTimestamp, ValidateForgottenPassTimestamp;
 # EAV
 CREATE TABLE users (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -48,6 +49,14 @@ CREATE TABLE comment_data (	id INT NOT NULL,
 							intdata INT,
 							stringdata TEXT	);
 CREATE INDEX comment_attribs ON comment_data (id,attrib);
+
+CREATE TABLE pageviews (	id INT NOT NULL, # user id
+							comment_id INT NOT NULL, # comment id of resource
+							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+CREATE INDEX pageview_time ON pageviews (creation_timestamp);
+CREATE INDEX pageview_id ON pageviews (id);
+CREATE INDEX pageview_comment_id ON pageviews (comment_id);
+
 CREATE TABLE IF NOT EXISTS migrations (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
@@ -63,7 +72,7 @@ INSERT
 			('1','4',NULL,'2013'),
 			('1','5',NULL,'jonathankoff@gmail.com'),
 			('1','6','1',NULL),
-			('1','7',NULL,'4849dbe379f854b72953e5ebcb8ba182db17ecd855eea6917b0e07cb28be1a21');
+			('1','7',NULL,'29d1d9c975cc38353ff25336f95d83559aa7a909ec8aefe2e96ed03b312d7b4d');
 INSERT
 	INTO user_data (id, attrib, intdata, stringdata)
 	VALUES	('2','1',NULL,'tyler'),
@@ -72,7 +81,7 @@ INSERT
 			('2','4',NULL,'2014?'),
 			('2','5',NULL,'t.freedman@gmail.com'),
 			('2','6','1',NULL),
-			('2','7',NULL,'ba488084afbd42e4f54801db954c50c91634021eced3cd4ae7a3bfc1757922b6');
+			('2','7',NULL,'fcdbb6fa38d66468fff683cb992bc875280ae44963af2cfdc93a89c9d6d50c9a');
 			#mudkipz
 
 #INSERT
@@ -87,4 +96,12 @@ INSERT
 INSERT
 	INTO migrations ()
 	VALUES ();
+# Favourite Courses
+INSERT
+	INTO user_data (id, attrib, intdata)
+	VALUES	(1, 12, 3),
+			(1, 12, 116),
+			(1, 12, 117),
+			(1, 12, 1978),
+			(1, 12, 1979);
 

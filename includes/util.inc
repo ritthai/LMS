@@ -1,5 +1,6 @@
 <?php
 function redirect_raw($url) {
+	global $HTMLROOT;
 	if(!$url) return false;
 	if($url[0] == '/') $url = "$HTMLROOT$url";
 	//header("Status: 200");
