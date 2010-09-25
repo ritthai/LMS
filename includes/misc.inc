@@ -296,3 +296,10 @@ function depluralize($word) {
     }
     return $word;
 }
+function get_int_session_id() {
+	return base_convert(md5(session_id()), 16, 10);
+}
+function get_viewer_id() {
+	$uid = User::GetAuthenticatedID();
+	return $uid ? $uid : get_int_session_id();
+}

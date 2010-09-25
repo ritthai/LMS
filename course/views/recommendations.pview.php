@@ -29,17 +29,27 @@
                         <div id="course_recommendations" class="hidden">
 <?php	}	?>
                             <div id="sidebar_course_recommendations">People who viewed this course also viewed:</div>
+								<div id="sidebar_hidden_tags" class="hidden">
 <?php   $ctr = 0;
 		Error::setPrepend($other_views);
 		Error::generate('debug', 'Recommendation array');
 		foreach($other_views as $k=>$v) {
-			if(++$ctr == 5) break; // limit to 5 top results
+			if(++$ctr == 10) break; // limit to 5 top results
             $id = intval($k);
             $subj = ucfirst(Comment::GetSubject($id));
 			$crs = new CourseDefn( $subj );
 			$success = $crs->load();
 			$hrefid = $crs->id;
+			// cloudinizr javascript is in template_end
+			for($i=0; $i < $v; $i++) {
+				echo strtoupper("$subj ");
+			}
 ?>
+<?php	} ?>
+							</div>
+							<div id="sidebar_tagcloud">&nbsp;</div>
+						</div>
+<!--
 							<div class="sidebar_fav_course_container">
 								<a href="/search?id=<?php echo $hrefid; ?>">
 									<div class="sidebar_fav_course">
@@ -48,5 +58,4 @@
 								</a>
 								<div style="clear:both"></div>
 							</div>
-<?php	} ?>
-						</div>
+-->

@@ -83,6 +83,7 @@ function alertContents() {
 }
 function addToFavs(cid, owner, type, subj) {
 	id = "add_to_favs_"+cid;
+	if(id == last_id) return;
 	if($("logged_in").innerHTML == "n") {
 		old_href = jQuery("#"+id).attr('href');
 		jQuery("#"+id).fancybox({

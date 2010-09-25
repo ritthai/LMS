@@ -71,7 +71,11 @@ if($action == 'ajaxlogin') {
     header("Content-Type: text/html");
 	
 	$error = 'You have successfully logged in!';
+	$vid = get_viewer_id();
 	$status = User::Authenticate($params['name'], $params['password'], $error);
+	if($status) {
+		Pageview::RenameUser($vid, get_viewer_id());
+	}
 	// Window will reload if message starts with 'Y'
 	echo $error;
 	die('');
@@ -181,10 +185,12 @@ if($action == 'ajaxlogin') {
 		include("views/show.view.php");
 	}
 } else if($action == 'login') {
+	$vid = get_viewer_id();
 	session_regenerate_id();
 	$res = User::Authenticate($params['name'], $params['password'], $error);
 	if($res) {
 		Error::generate('notice', 'Authentication successful');
+		Pageview::RenameUser($vid, get_viewer_id());
 		if(isset($_SESSION) && $_SESSION['last_rendered_page']) {
 			redirect_raw($_SESSION['last_rendered_page']);
 		} else {
@@ -288,6 +294,7 @@ if($action == 'ajaxlogin') {
 		$upload_path = $upload_dir.hash('sha256', $_FILES['file']['name']);
 		if($params['type'] == 2) { //avatar
 			$upload_path = $upload_dir.'AVATAR';
+			$fullname = $upload_dir.'AVATARFULL';
 			$dstw = 39;
 			$dsth = 39;
 			list($srcw, $srch) = getimagesize($tmpname);
@@ -300,6 +307,8 @@ if($action == 'ajaxlogin') {
 			$srcy	= ($srch - $smside)/2;
 
 			imagecopyresampled($imgdst, $imgsrc, 0, 0, $srcx, $srcy, $dstw, $dsth, $smside, $smside);
+
+			imagepng($imgsrc, "$ROOT/$fullname");
 			imagepng($imgdst, $tmpname);
 
 			imagedestroy($imgsrc);

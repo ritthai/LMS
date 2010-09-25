@@ -43,7 +43,7 @@ db_query("CREATE TABLE coursedefns
 db_query("CREATE FULLTEXT INDEX course_titles ON coursedefns (title);");
 db_query("CREATE INDEX course_codes ON coursedefns (university, code);");
 
-db_query("DROP TABLE primitive_cache_lock;");
+/*db_query("DROP TABLE primitive_cache_lock;");
 // Below, id is url. This was done for compatibility with db transaction funcs
 db_query("CREATE TABLE primitive_cache_lock
 					(	id			CHAR(32),
@@ -56,7 +56,7 @@ db_query("CREATE TABLE primitive_cache
 						content		TEXT,
 						timestamp	TIMESTAMP(8) DEFAULT NOW(),
 						PRIMARY KEY(url));");
-db_query("CREATE INDEX primitive_cache_urls ON primitive_cache (url);");
+db_query("CREATE INDEX primitive_cache_urls ON primitive_cache (url);");*/
 
 db_query("DROP TABLE universities;");
 db_query("CREATE TABLE universities

@@ -29,6 +29,8 @@ function jsSetupAutocompleteWithId($form_id, $textfield_id, $idtextfield_id, $wo
 			echo "varname: \"val\",\r\n";
 			echo "json: true,\r\n";
 			echo "cache: false,\r\n";
+			echo "delay: 0,\r\n";
+			echo "timeout: 10000,\r\n";
 			if($minchars > 0) echo "minchars: $minchars,\r\n";
 			echo "callback: function(obj) { \$('$form_id').submit(); },\r\n";
 			echo "maxresults: 22\r\n";
@@ -50,6 +52,8 @@ function jsSetupAutocomplete($form_id, $textfield_id, $word_list, $minchars=0) {
 			echo "script: \"$qstr\",\r\n";
 			echo "varname: \"val\",\r\n";
 			echo "json: true,\r\n";
+			echo "delay: 0,\r\n";
+			echo "timeout: 10000,\r\n";
 			echo "cache: false,\r\n";
 			if($minchars > 0) echo "minchars: $minchars,\r\n";
 			if($form_id == '') {

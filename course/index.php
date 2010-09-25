@@ -169,7 +169,8 @@ if($action == 'invalidate') {
 	case 'courses':
 		// TODO: This is not safe for multiple universities.
 		$arr = array();
-		$lst = CourseDefn::ListAllStartingWithTitle($params['val']);
+		//$lst = CourseDefn::ListAllStartingWithTitle($params['val']);
+		$lst = CourseDefn::ListAllContainingTitle($params['val']);
 		foreach($lst as $elem) {
 			// id, code, title, descr, university
 			$arr[] = array($elem['id'], $elem['title'], $elem['code']);
@@ -373,13 +374,14 @@ if($action == 'invalidate') {
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
 	header("Content-Type: text/html");
-	die(db_check_transaction('comments', $params['cid']));
+	$status = db_check_transaction('comments', $params['cid']) == 0;
+	die($status ? '0' : '1');
 } else if($action == 'show' || $action == 'search') {
 	$success = false;
 	if(isset($params['id']) && $params['id']) {
 		$p = (int)$params['id'];
-		$crs = new CourseDefn( $p );
-		$success = $crs->load();
+		$icrs = new CourseDefn( $p );
+		$success = $icrs->load();
 	} else if(isset($params['terms'])) {
 		$p = $params['terms'];
 		$uni = 1;
@@ -387,8 +389,8 @@ if($action == 'invalidate') {
 		else if(isset($_SESSION['university']) && $_SESSION['university']) $uni = $_SESSION['university']['id'];
 		$res = CourseDefn::ListAllStartingWithCode($p, 'code', $uni);
 		if($res && count($res) > 0) {
-			$crs = new CourseDefn( intval($res[0]['id']) );
-			$success = $crs->load();
+			$icrs = new CourseDefn( intval($res[0]['id']) );
+			$success = $icrs->load();
 		}
 	}
 	if(!$success) {
@@ -400,42 +402,42 @@ if($action == 'invalidate') {
         }
 	} else { 
 		profiling_start('process description and/or get topics from db');
-		$exists = ($procd_descr = Comment::ListAll($crs->cid, 2));
-		$locked = db_check_transaction("comments", $crs->cid);
+		$exists = ($procd_descr = Comment::ListAll($icrs->cid, 2));
+		$locked = db_check_transaction("comments", $icrs->cid);
 		if(!$exists || $locked) {
 			// display loading page
 			$page = "$ROOT/includes/template/loading.php";
-			$args['pagetitle']		= "$crs->title ($crs->code)";
+			$args['pagetitle']		= "$icrs->title ($icrs->code)";
 			$args['pageurl']		= $_SERVER['REQUEST_URI'];
-			$args['course']			= array('id'	=> $crs->id,
-											'title'	=> $crs->title,
-											'code'	=> $crs->code,
-											'descr' => $crs->descr);
+			$args['course']			= array('id'	=> $icrs->id,
+											'title'	=> $icrs->title,
+											'code'	=> $icrs->code,
+											'descr' => $icrs->descr);
 			$args['searchresults']	= $search_results;
-			$args['comment_id']		= $crs->cid;
+			$args['comment_id']		= $icrs->cid;
 			$args['comments']		= array_map(function($a) { return $a['id']; },
-												Comment::ListAll($crs->cid) );
+												Comment::ListAll($icrs->cid) );
 			$args['actions']		= $ACTIONS;
 
 			$_SESSION['lastargs'] = $args;
-			preg_match('/^[a-zA-Z]+/', $crs->code, $matches);
+			preg_match('/^[a-zA-Z]+/', $icrs->code, $matches);
 			$args['code']		= $matches[0];
-			$args['university']	= array('id'	=> $crs->university,
-										'name'	=> University::GetName($crs->university));
+			$args['university']	= array('id'	=> $icrs->university,
+										'name'	=> University::GetName($icrs->university));
 			$args['area']		= array('id'	=> ($areaid = University::GetAreaID($args['university']['id'])),
 										'name'	=> Area::GetName($areaid));
 			$args['country']	= array('id'	=> ($countryid = Area::GetCountryID($args['area'])),
 										'name'	=> Country::GetName($countryid));
-			if(!isset($_SESSION['loading_screen_count'.$crs->cid])) {
-				$_SESSION['loading_screen_count'.$crs->cid] = 1;
-			} else if($_SESSION['loading_screen_count'.$crs->cid]++ > 3) {
+			if(!isset($_SESSION['loading_screen_count'.$icrs->cid])) {
+				$_SESSION['loading_screen_count'.$icrs->cid] = 1;
+			} else if($_SESSION['loading_screen_count'.$icrs->cid]++ > 3) {
 				// we're stuck in a loading screen loop. uh oh.
 				$page = "$ROOT/includes/template/error.php";
 				Error::generate('prod_debug', 'Stuck in a loading loop!');
 				Error::generate('prod_debug', $procd_descr);
 				Error::generate('prod_debug', $args);
 			} else {
-				$_SESSION['loading_screen_count'.$crs->cid]++;
+				$_SESSION['loading_screen_count'.$icrs->cid]++;
 			}
 			ob_start();
 			include($page);
@@ -447,7 +449,7 @@ if($action == 'invalidate') {
 			flush();
 			session_write_close();
 			// this will spinlock if the course is locked
-			$job_taken = db_start_transaction("comments", $crs->cid);
+			$job_taken = db_start_transaction("comments", $icrs->cid);
 			$lock_acquired = true;
 		} else {
 			$lock_acquired = false;
@@ -457,46 +459,46 @@ if($action == 'invalidate') {
 			async_cache_connect(2);
 			async_cache_connect(3);
 			//Comment::enableInitMode();
-			$procd_descr = process_description($crs->descr);
+			$procd_descr = process_description($icrs->descr);
 			if(count($procd_descr) == 0) $procd_descr[] = 'N/A';
-			$ids = $descrs = $tagss = array();
+			$ids = $desicrs = $tagss = array();
 			foreach($procd_descr as $key => $topic) {
 				// Cache topic
 				$id = Comment::Create(array('subject'	=> $topic,
 											'type'		=> 2, // topic
-											'id'		=> $crs->cid));
+											'id'		=> $icrs->cid));
 				if($topic == 'N/A') { // placeholder to indicate that there are no topics
 					continue;
 				}
 				$procd_descr[$key] = array($id, $topic);
 
 				// Cache topic result
-				$tags = split('[,]', get_tags($crs));
+				$tags = split('[,]', get_tags($icrs));
 				$descr = $topic;
 				if($descr === '') continue;
 				if($descr === ' ') continue;
 				$descr = ereg_replace('[^A-Za-z0-9&; -]', '', $descr);
 
 				$ids[$key] = $id;
-				$descrs[$key] = $descr;
+				$desicrs[$key] = $descr;
 				$tagss[$key] = $tags;
 
-				prefetch_search('youtube', $descr, $tags, $crs);
-				prefetch_search('google', $descr, $tags, $crs);
-				prefetch_search('khanacad', $descr, $tags, $crs);
-				prefetch_search('wikipedia', $descr, $tags, $crs);
-				prefetch_search('itunesu', $descr, $tags, $crs);
+				prefetch_search('youtube', $descr, $tags, $icrs);
+				prefetch_search('google', $descr, $tags, $icrs);
+				prefetch_search('khanacad', $descr, $tags, $icrs);
+				prefetch_search('wikipedia', $descr, $tags, $icrs);
+				prefetch_search('itunesu', $descr, $tags, $icrs);
 			}
 			foreach($procd_descr as $key => $topic) {
 				$id = $ids[$key];
-				$descr = $descrs[$key];
+				$descr = $desicrs[$key];
 				$tags = $tagss[$key];
 				$results = array_merge(
-						perform_search('khanacad', $descr, $tags, $crs),
-						perform_search('youtube', $descr, $tags, $crs),
-						perform_search('google', $descr, $tags, $crs),
-						perform_search('wikipedia', $descr, $tags, $crs),
-						perform_search('itunesu', $descr, $tags, $crs));
+						perform_search('khanacad', $descr, $tags, $icrs),
+						perform_search('youtube', $descr, $tags, $icrs),
+						perform_search('google', $descr, $tags, $icrs),
+						perform_search('wikipedia', $descr, $tags, $icrs),
+						perform_search('itunesu', $descr, $tags, $icrs));
 				Error::generate('debug', $results);
 				foreach($results as $res) {
 					$res['subject'] = $res['title'];
@@ -510,7 +512,7 @@ if($action == 'invalidate') {
 			async_cache_disconnect(1);
 			async_cache_disconnect(2);
 			async_cache_disconnect(3);
-			$memcached->delete(''.$crs->cid);
+			$memcached->delete(''.$icrs->cid);
 		} else {
 			foreach($procd_descr as $key => $topic) {
 				// cid, subject, timestamp
@@ -518,18 +520,18 @@ if($action == 'invalidate') {
 			}
 		}
 		if($lock_acquired) {
-			db_end_transaction('comments', $crs->cid);
+			db_end_transaction('comments', $icrs->cid);
 			goto end;
 		}
 		profiling_end('process description and/or get topics from db');
 
 		profiling_start('deal with tags and procd_descr');
-		$_SESSION['loading_screen_count'.$crs->cid] = 0;
+		$_SESSION['loading_screen_count'.$icrs->cid] = 0;
 		Error::generate('debug', 'starting deal with tags and procd_descr');
-		$search_results = $memcached->get(''.$crs->cid);
+		$search_results = $memcached->get(''.$icrs->cid);
 		if(!$search_results) {
 			$search_results = array();
-			$topics = Comment::ListAll($crs->cid, 2); // topic
+			$topics = Comment::ListAll($icrs->cid, 2); // topic
 			Error::generate('debug', $topics);
 			foreach($topics as $topic) {
 				$topicid = $topic['id']; $topicsubject = $topic['subject'];
@@ -560,28 +562,28 @@ if($action == 'invalidate') {
 				Error::generate('debug', "finishing deal with tags and procd_descr, topic $topicid/$topicsubject, result:");
 				Error::generate('debug', $search_results);
 			}
-			$memcached->set(''.$crs->cid, $search_results);
+			$memcached->set(''.$icrs->cid, $search_results);
 		}
 		profiling_end('deal with tags and procd_descr');
 
 		profiling_start('wrap up processing and package data for the view');
-		$args['pagetitle']		= "$crs->title ($crs->code)";
+		$args['pagetitle']		= "$icrs->title ($icrs->code)";
 		$args['pageurl']		= $_SERVER['REQUEST_URI'];
-		$args['course']			= array('id'	=> $crs->id,
-										'title'	=> $crs->title,
-										'code'	=> $crs->code,
-										'descr' => $crs->descr);
+		$args['course']			= array('id'	=> $icrs->id,
+										'title'	=> $icrs->title,
+										'code'	=> $icrs->code,
+										'descr' => $icrs->descr);
 		$args['searchresults']	= $search_results;
-		$args['comment_id']		= $crs->cid;
+		$args['comment_id']		= $icrs->cid;
 		$args['comments']		= array_map(	function($a) { return $a['id']; },
-												Comment::ListAll($crs->cid) );
+												Comment::ListAll($icrs->cid) );
 		$args['actions']		= $ACTIONS;
 
 		$_SESSION['lastargs'] = $args;
-		preg_match('/^[a-zA-Z]+/', $crs->code, $matches);
+		preg_match('/^[a-zA-Z]+/', $icrs->code, $matches);
 		$args['code']		= $matches[0];
-		$args['university']	= array('id'	=> $crs->university,
-									'name'	=> University::GetName($crs->university));
+		$args['university']	= array('id'	=> $icrs->university,
+									'name'	=> University::GetName($icrs->university));
 		$args['area']		= array('id'	=> ($areaid = University::GetAreaID($args['university']['id'])),
 									'name'	=> Area::GetName($areaid));
 		$args['country']	= array('id'	=> ($countryid = Area::GetCountryID($args['area'])),

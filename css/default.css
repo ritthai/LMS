@@ -179,14 +179,14 @@ a.nicebodylink:link, a.nicebodylink:visited { color: #638C0F; text-decoration: u
 	float: right;
 	width: 16px;
 	height: 16px;
-	background: transparent url("../images/famfamfam_silk_icons_v013/icons/thumb_up.png") no-repeat;
+	background: transparent url("../images/fatcow-hosting-icons-1700/16x16/thumb_up.png") no-repeat;
 }
 .voteDown {
 	display: inline;
 	float: right;
 	width: 16px;
 	height: 16px;
-	background: transparent url("../images/famfamfam_silk_icons_v013/icons/thumb_down.png") no-repeat;
+	background: transparent url("../images/fatcow-hosting-icons-1700/16x16/thumb_down.png") no-repeat;
 }
 ul.result_list {
 	list-style-type: none;
@@ -340,4 +340,12 @@ input.submit_comment, input.submit_university {
 }
 .hidden {
 	display: none;
+}
+.tagcloud_hover {
+	color: #655;
+}
+div#sidebar_tagcloud {
+	text-align: right;
+	padding-left: 0px;
+	text-transform: uppercase;
 }

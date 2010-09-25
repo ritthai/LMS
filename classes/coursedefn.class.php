@@ -100,6 +100,23 @@ class CourseDefn {
 		$ret = db_get_list_of_assoc($res);
 		return $ret;
 	}
+	static function ListAllContainingTitle($title, $orderby='title', $uni=false) {
+		if($uni) {
+			$uni = mysql_real_escape_string($uni);
+			$constraint = "AND university=$uni";
+		} else {
+			$constraint = '';
+		}
+		$res = db_query("
+			SELECT id,code,title,descr,university
+				FROM		coursedefns
+				WHERE		title REGEXP '.*%s.*'
+							$constraint
+				ORDER BY	$orderby",
+			$title);
+		$ret = db_get_list_of_assoc($res);
+		return $ret;
+	}
 	static function ListAllStartingWithCode($code, $orderby='code', $uni=false) {
 		if($uni) {
 			$uni = mysql_real_escape_string($uni);

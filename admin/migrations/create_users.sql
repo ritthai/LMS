@@ -50,11 +50,11 @@ CREATE TABLE comment_data (	id INT NOT NULL,
 							stringdata TEXT	);
 CREATE INDEX comment_attribs ON comment_data (id,attrib);
 
-CREATE TABLE pageviews (	id INT NOT NULL, # user id
+CREATE TABLE pageviews (	id VARCHAR(32) NOT NULL, # user id or session_id
 							comment_id INT NOT NULL, # comment id of resource
 							creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE INDEX pageview_time ON pageviews (creation_timestamp);
-CREATE INDEX pageview_id ON pageviews (id);
+CREATE INDEX pageview_id ON pageviews (id (7));
 CREATE INDEX pageview_comment_id ON pageviews (comment_id);
 
 CREATE TABLE IF NOT EXISTS migrations (
@@ -100,8 +100,7 @@ INSERT
 INSERT
 	INTO user_data (id, attrib, intdata)
 	VALUES	(1, 12, 3),
-			(1, 12, 116),
-			(1, 12, 117),
-			(1, 12, 1978),
-			(1, 12, 1979);
+			(1, 12, 118),
+			(1, 12, 1987),
+			(1, 12, 1988);
 

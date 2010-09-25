@@ -33,3 +33,13 @@
 
 <?php Error::enableLogging(); ?>
 
+<?php /* cloudinizr cloud tag in the sidebar */ ?>
+<script type="text/javascript">
+	jQuery("#sidebar_tagcloud").html(jQuery("#sidebar_hidden_tags").html()).cloudinizr();
+	jQuery("#sidebar_tagcloud span").hover(
+		function() { jQuery(this).addClass('tagcloud_hover'); },
+		function() { jQuery(this).removeClass('tagcloud_hover'); }
+	);
+	jQuery("#sidebar_tagcloud span").click(function() { window.location = "/search?terms="+jQuery(this).html(); });
+</script>
+

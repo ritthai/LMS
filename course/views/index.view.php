@@ -7,6 +7,10 @@
 ?>
 
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
+<script type="text/javascript">
+	img = new Image(1,1);
+	img.src = "/images/navigation/blank.png";
+</script>
 <?php	jsSetupAutocomplete('uni_form', 'uni', 'universities'); ?>
 <?php include("$TEMPLATEROOT/template_notices.inc"); ?>
 

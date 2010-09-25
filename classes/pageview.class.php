@@ -11,6 +11,10 @@ class Pageview {
 					$pvcfg['id'], $pvcfg['comment_id']
 					);
 	}
+	public static function RenameUser($from, $to) {
+		db_query(	"UPDATE pageviews SET id='%d' WHERE id='%d'",
+					$to, $from );
+	}
 	public static function ListAllForUser($user_id) {
 		$res=db_query("	SELECT id, comment_id, creation_timestamp
 						FROM pageviews

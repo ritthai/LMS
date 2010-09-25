@@ -25,10 +25,11 @@
 
 <hr/>-->
 
-<?php	foreach($args['courses'] as $course) { ?>
+<?php	usort($args['courses'], function($a,$b) { return $a['code'] > $b['code']; });
+		foreach($args['courses'] as $course) { ?>
 	<p>
 		<a class="bodylink" href="/search?id=<?php echo $course['id']; ?>">
-			<?php echo "$course[title] ($course[code])"; ?>
+			<?php echo "($course[code]) $course[title]"; ?>
 		</a>
 	</p>
 <?php	} ?>
