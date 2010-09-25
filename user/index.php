@@ -75,6 +75,7 @@ if($action == 'ajaxlogin') {
 	$status = User::Authenticate($params['name'], $params['password'], $error);
 	if($status) {
 		Pageview::RenameUser($vid, get_viewer_id());
+		session_regenerate_id();
 	}
 	// Window will reload if message starts with 'Y'
 	echo $error;
