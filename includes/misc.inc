@@ -71,10 +71,16 @@ function process_description($descr) {
 					'/[Pp]itfalls( of)?/',
 					'/[Ww]idely used/',
 					'/[Ff]ocus(ing|ed) on/',
+					'/[Hh]owever/',
+					'/[Aa]ctivity/',
+					'/[Bb]e introduced/',
+					'/[Ss]tudents/',
 					);
 	foreach($remove as $pattern) {
 		$chunks = preg_split($pattern, $descr, null, PREG_SPLIT_NO_EMPTY);
-		if($chunks && count($chunks) > 1) $descr = $chunks[0].' '.$chunks[1];
+		if($chunks && count($chunks) > 1) {
+			$descr = implode($chunks, ' ');
+		}
 	}
 
 	$chunks = preg_split('/- and /', $descr, null, PREG_SPLIT_NO_EMPTY);
@@ -121,10 +127,16 @@ function process_description($descr) {
 		$line = ereg_replace("^[a-z]?[a-z]?$", "", $chunk);
 		$words = preg_split('/ /', $line, 0, PREG_SPLIT_NO_EMPTY);
 		$left = array();
+		Error::setPrepend($words);
+		Error::generate('debug', "sdfg $words[0]");
 		if(count($words) == 0) {
 			continue;
 		} else if(count($words) == 1) {
 			if(preg_match('/[Aa]pplication(s?)/', $words[0])) continue;
+			else if(preg_match('/[Oo]ral/', $words[0])) continue;
+			else if(preg_match('/[Ww]ritten/', $words[0])) continue;
+			else if(preg_match('/[Gg]raphical/', $words[0])) continue;
+			else if(preg_match('/[Ff]ocus/', $words[0])) continue;
 		} else if(count($words) > 4) {
 			continue;
 		}
@@ -133,7 +145,9 @@ function process_description($descr) {
 			if(!array_search($word, $FUNCTION_WORDS))
 				array_push($left, $word);
 		}
-		array_push($chunks2, htmlspecialchars(implode(" ", $left), ENT_COMPAT, 'UTF-8', false));
+		if(count($left) > 0) {
+			array_push($chunks2, htmlspecialchars(implode(" ", $left), ENT_COMPAT, 'UTF-8', false));
+		}
 	}
 	// Unique, ignore plural
 	$ret = array();

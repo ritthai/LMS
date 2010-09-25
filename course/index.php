@@ -112,7 +112,7 @@ if($action == 'invalidate') {
 	$memcached->delete($crs->cid);
 	db_query("DELETE FROM comments WHERE id='%d' AND type='2'", $crs->cid);
 	db_query("DELETE FROM comments WHERE parent='%d' AND type='2'", $crs->cid);
-	db_query("UPDATE locked='0' WHERE id='%d'", $crs->cid);
+	db_query("UPDATE comments_lock SET locked='0' WHERE id='%d'", $crs->cid);
 } else if($action == 'countries') {
 	$args['countries'] = Country::ListAll();
 	$args['pagetitle'] = 'Choose a Country';
