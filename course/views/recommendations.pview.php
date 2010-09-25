@@ -33,15 +33,22 @@
 <?php   $ctr = 0;
 		Error::setPrepend($other_views);
 		Error::generate('debug', 'Recommendation array');
+		$reduced_recs = array(); $i = 0;
 		foreach($other_views as $k=>$v) {
-			if(++$ctr == 10) break; // limit to 5 top results
+			$reduced_recs[$i++] = $v;
+		} $n_rrecs = $i;
+		Error::setPrepend($reduced_recs);
+		Error::generate('debug', 'Reduced Recommendation array');
+		$topn = 10; // limit to $topn top results
+		foreach($other_views as $k=>$v) {
+			if(++$ctr == $topn) break; // limit to $topn top results
             $id = intval($k);
             $subj = ucfirst(Comment::GetSubject($id));
 			$crs = new CourseDefn( $subj );
 			$success = $crs->load();
 			$hrefid = $crs->id;
 			// cloudinizr javascript is in template_end
-			for($i=0; $i < $v; $i++) {
+			for($i=0; $i < $v/$reduced_recs[min(10,$n_rrecs-1)]; $i++) {
 				echo strtoupper("$subj ");
 			}
 ?>
