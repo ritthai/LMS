@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_URI'] != '/user/login' && $_SERVER['REQUEST_URI'] != '/user
 }
 
 // Add to recently viewed courses
-if(isset($args['comment_id']) && $args['comment_id']) {
+if(!isset($args['private']) && isset($args['comment_id']) && $args['comment_id']) {
 	Pageview::Create(array(
 		'id' => get_viewer_id(),
 		'comment_id' => $args['comment_id']));

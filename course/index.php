@@ -414,6 +414,7 @@ if($action == 'invalidate') {
 											'code'	=> $icrs->code,
 											'descr' => $icrs->descr);
 			$args['searchresults']	= $search_results;
+			$args['private']		= true; // do not track as a pageview
 			$args['comment_id']		= $icrs->cid;
 			$args['comments']		= array_map(function($a) { return $a['id']; },
 												Comment::ListAll($icrs->cid) );
