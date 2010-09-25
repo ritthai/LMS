@@ -16,8 +16,8 @@ if (typeof(bsn) == "undefined")
 
 if (typeof(_b.Autosuggest) == "undefined")
 	_b.Autosuggest = {};
-else
-	alert("Autosuggest is already set!");
+//else
+	//alert("Autosuggest is already set!");
 
 
 
@@ -284,7 +284,7 @@ _b.AutoSuggest.prototype.doAjaxRequest = function (input)
 	var input = this.sInp;
 	
 	var onSuccessFunc = function (req) { pointer.setSuggestions(req, input) };
-	var onErrorFunc = function (status) { alert("AJAX error: "+status); };
+	var onErrorFunc = function (status) { /*alert("AJAX error: "+status);*/ };
 
 	var myAjax = new _b.Ajax();
 	myAjax.makeRequest( url, meth, onSuccessFunc, onErrorFunc );
