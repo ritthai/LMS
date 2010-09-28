@@ -204,7 +204,7 @@ abstract class EavAdjList {
 			$ret = db_insert_id();
 			db_query("INSERT INTO %ss_lock (locked) VALUES ('0')", static::subGetClass());
 		} else {
-			Error::generate('notice', static::subGetClass().'name already taken.');
+			Error::generate('notice', static::subGetClass().' name already taken.');
 			$ret = false;
 		}
 		return $ret;

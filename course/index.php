@@ -181,6 +181,16 @@ if($action == 'invalidate') {
 			$arr[] = array($elem['id'], $elem['code'], $elem['title']);
 		}
 		break;
+	// TODO: decide if it's okay to do this, especially without auth
+	case 'users':
+		$lst = User::ListAllStartingWithName($params['val']);
+		$arr = array();
+		foreach($lst as $k=>$v) {
+			$usr = User::GetAttribs($v['id']);
+			foreach($usr as $l=>$w) $usr[$w[0]] = $w[1];
+			$arr[] = array($v['id'], $usr['NAME'], "$usr[UNIVERSITY], $usr[GRADYEAR]");
+		}
+		break;
 	default:
 		die('');
 	}

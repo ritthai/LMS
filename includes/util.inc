@@ -24,9 +24,17 @@ function redirect(/*$controller='user', $action=''*/) {
 	header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
     if($controller == '') {
-		$loc = "Location: $HTMLROOT/$action";
-	} else {
+		if($action == 'user') {
+			$loc = "Location: $HTMLROOT";
+		} else {
+			$loc = "Location: $HTMLROOT/$action";
+		}
+	} else if($controller === 'user' && $action === '') {
+		$loc = "Location: $HTMLROOT/";
+	} else if($controller) {
 		$loc = "Location: $HTMLROOT/$controller/$action";
+	} else {
+		$loc = "Location: $HTMLROOT";
 	}
 	header($loc, true, 303);
 	Error::generate('debug', "Redirecting to $loc");

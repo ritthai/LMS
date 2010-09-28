@@ -169,7 +169,7 @@ end:
 		if($CONFIG['debug']) {
 			return sprintf("%s | %s > %s [%d] %s\r\n",
 							$GLOBALS['client'],
-							isset($GLOBALS['userid'])?$GLOBALS['userid']:'-',
+							substr((string)get_viewer_id(), 0, 5),
 							number_format(profiling_get_elapsed('all')),
 							$error['priority'], $error['msg']);
 		} else {

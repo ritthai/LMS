@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS users, user_data;
 DROP TABLE IF EXISTS files, file_data, files_lock;
 DROP TABLE IF EXISTS comments, comment_data, comments_lock;
 DROP TABLE IF EXISTS pageviews;
+DROP TABLE IF EXISTS privatemessages, privatemessage_data;
 #DROP PROCEDURE IF EXISTS SetForgottenPassTimestamp, ValidateForgottenPassTimestamp;
 # EAV
 CREATE TABLE users (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -56,6 +57,25 @@ CREATE TABLE pageviews (	id VARCHAR(32) NOT NULL, # user id or session_id
 CREATE INDEX pageview_time ON pageviews (creation_timestamp);
 CREATE INDEX pageview_id ON pageviews (id (7));
 CREATE INDEX pageview_comment_id ON pageviews (comment_id);
+
+#CREATE TABLE privatemessages (	id VARCHAR(32) NOT NULL AUTOINCREMENT,
+#								creator_user_id INT NOT NULL,
+#								mailbox_user_id INT NOT NULL,
+#								subject VARCHAR(64),
+#								body TEXT,
+#								creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+CREATE TABLE privatemessages (	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+								subject VARCHAR(64),
+								parent INT NOT NULL, # mailbox
+								type INT NOT NULL,
+								creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
+CREATE INDEX privatemessages_mailbox_user_id ON privatemessages (parent, creation_timestamp);
+CREATE TABLE privatemessage_data (	id INT NOT NULL,
+									attrib INT NOT NULL,
+									options INT NOT NULL,
+									intdata INT,
+									stringdata TEXT	);
+CREATE INDEX privatemessage_data_id ON privatemessage_data (id, attrib);
 
 CREATE TABLE IF NOT EXISTS migrations (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

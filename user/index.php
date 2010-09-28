@@ -37,6 +37,15 @@ $ACTIONS = array(
 								array()),
 	'usercp'				=> new HttpAction("$PAGE_REL_URL/", 'get',
 								array()),
+	// compose private message
+	'submitprivatemessage'	=> new HttpAction("$PAGE_REL_URL/privatemessage", 'post',
+								array('user', 'msg')),
+	'privatemessage'		=> new HttpAction("$PAGE_REL_URL/privatemessage", 'get',
+								array()),
+	'listprivatemessages'	=> new HttpAction("$PAGE_REL_URL/listprivatemessages", 'get',
+								array()),
+	'showprivatemessage'	=> new HttpAction("$PAGE_REL_URL/showprivatemessage", 'get',
+								array('id')),
 	);
 
 $PAGE_TITLE = "User management";
@@ -63,7 +72,54 @@ if($action == 'uploadavatar') {
 	$args['uploadtype'] = 2; // avatar
 }
 
-if($action == 'ajaxlogin') {
+if($action == 'showprivatemessage') {
+	$args['userinfo']['id'] = User::GetAuthenticatedID();
+	if(!$args['userinfo']['id']) {
+		$_SESSION['last_rendered_page'] = $_SERVER['REQUEST_URI'];
+		redirect('user', 'login');
+	} else {
+		$pm = PrivateMessage::GetWithID($params['id']);
+		$args['privatemessage'] =
+			array(	'creator' => User::GetAttrib($pm['creator'], 'name'),
+					'creation_timestamp' => $pm['creation_timestamp'],
+					'subject' => $pm['subject'],
+					'message' => $pm['body'] );
+		include("$ROOT/user/views/showprivatemessage.view.php");
+	}
+} else if($action == 'listprivatemessages') {
+	$args['userinfo']['id'] = User::GetAuthenticatedID();
+	if(!$args['userinfo']['id']) {
+		$_SESSION['last_rendered_page'] = $_SERVER['REQUEST_URI'];
+		redirect('user', 'login');
+	} else {
+		$args['privatemessages'] = PrivateMessage::ListAll($args['userinfo']['id']);
+		include("$ROOT/user/views/listprivatemessages.view.php");
+	}
+} else if($action == 'submitprivatemessage') {
+	$args['userinfo']['id'] = User::GetAuthenticatedID();
+	if(!$args['userinfo']['id']) {
+		$_SESSION['saved'] = $params;
+		redirect('user', 'login');
+	} else {
+		$status = PrivateMessage::Create(
+			array(	'mailbox'	=> User::GetUserID($params['user']),
+					'creator'	=> $args['userinfo']['id'],
+					'subject'	=> $params['subject'],
+					'body'		=> $params['msg']));
+		if(!$status) {
+			include("$ROOT/user/views/privatemessage.view.php");
+		} else {
+			redirect('user', 'listprivatemessages');
+		}
+	}
+} else if($action == 'privatemessage') {
+	$args['userinfo']['id'] = User::GetAuthenticatedID();
+	if(!$args['userinfo']['id']) {
+		$_SESSION['last_rendered_page'] = $_SERVER['REQUEST_URI'];
+		redirect('user', 'login');
+	}
+	include("$ROOT/user/views/privatemessage.view.php");
+} else if($action == 'ajaxlogin') {
 	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
     header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
     header("Cache-Control: no-cache, must-revalidate");
@@ -83,12 +139,14 @@ if($action == 'ajaxlogin') {
 } else if($action == 'usercp') {
 	$args['userinfo']['id'] = User::GetAuthenticatedID();
 	if(!$args['userinfo']['id']) {
-		Error::generate('warn', 'Must be logged in to see this page.');
+		/*Error::generate('warn', 'Must be logged in to see this page.');
 		if(isset($_SESSION['last_rendered_page']) && $_SESSION['last_rendered_page'] != $_SERVER['REQUEST_URI']) {
             redirect_raw($_SESSION['last_rendered_page']);
         } else {
             redirect();
-        }
+        }*/
+		$_SESSION['last_rendered_page'] = $_SERVER['REQUEST_URI'];
+		redirect('user', 'login');
 	}
 	include("$ROOT/user/views/usercp.view.php");
 } else if($action == 'create') {

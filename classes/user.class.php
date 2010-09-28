@@ -125,7 +125,20 @@ class User extends EAV {
 			Error::generate('debug', 'Could not query database in static::ListAll');
 			return array();
 		}
-		return db_get_list_result($res, array('id', 'name', 'creation_timestamp'));
+		return db_get_list_of_assoc($res);
+	}
+	public static function ListAllStartingWithName($name) {
+		$res = db_query("SELECT * FROM users
+							WHERE name REGEXP '^%s.*'
+							ORDER BY creation_timestamp",
+						$name
+			);
+		$ret = array();
+		if(!$res) {
+			Error::generate('debug', 'Could not query database in static::ListAllStartingWithName');
+			return array();
+		}
+		return db_get_list_of_assoc($res);
 	}
 	public static function SetAttrib($id, $attrib, $val) {
 		if(is_int($attrib)) {
@@ -257,7 +270,6 @@ class User extends EAV {
 	}
 	public static function GetAuthenticatedID() {
 		if(!static::IsAuthenticated()) {
-			Error::generate('debug', 'Not authenticated in GetAuthenticatedID in static::Authenticate');
 			return false;
 		}
 		return $_SESSION['userid'];

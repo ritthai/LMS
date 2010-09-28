@@ -182,7 +182,7 @@ abstract class EAV {
 		if(!$id || $id==0) { Error::generate('debug', 'id is 0'); return array(); }
 		$res = db_query("SELECT attrib FROM %s_data WHERE id='%d'",
 						static::subGetClass(), $id);
-		if( !$res || !($ret = db_get_list_result($res)) ) {
+		if( !$res || !($ret = db_get_list_of_results($res)) ) {
 			Error::generate('debug', 'Could not query database in get_attribs');
 			return array();
 		}
