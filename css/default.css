@@ -349,3 +349,10 @@ div#sidebar_tagcloud {
 	padding-left: 0px;
 	text-transform: uppercase;
 }
+
+.unread_pm {
+	color: #000;
+}
+.read_pm {
+	color: #777;
+}

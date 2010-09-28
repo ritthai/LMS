@@ -1,5 +1,10 @@
 <?php
 class PrivateMessage extends EavAdjList {
+	/**
+		Known types:
+			1. Unread
+			2. Read
+	*/
 	protected static function subGetClass() {
 		return 'privatemessage';
 	}
@@ -42,7 +47,9 @@ class PrivateMessage extends EavAdjList {
 	}
 	public static function ListAll($id=1, $type=1) {
 		Error::generate('debug', "Comment::ListAll($id, $type)");
-		$ret = static::eav_list($id, $type);
+		$ret = static::eav_list($id, $type,
+			'ORDER BY node.creation_timestamp'
+			);
 		if(!$ret) $ret = array();
 		return array_reverse($ret, true);
 	}
@@ -94,5 +101,8 @@ class PrivateMessage extends EavAdjList {
 	public static function GetTimestamp($id) {
 		$ret = static::get_with_id($id);
 		return $ret['creation_timestamp'];
+	}
+	public static function MarkAsRead($id) {
+		db_query("UPDATE privatemessages SET flags = flags | 1 WHERE id='%d'", $id);
 	}
 }

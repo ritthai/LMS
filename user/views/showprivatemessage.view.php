@@ -18,8 +18,5 @@
 	<p>Message:</p>
 	<textarea name="msg" rows="10" cols="60"><?php echo $args['privatemessage']['message']; ?></textarea>
 	
-
-	<br><input type="submit" value="Send message" />
-
 <?php include("$TEMPLATEROOT/template_end.inc"); ?>
 

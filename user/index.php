@@ -84,6 +84,7 @@ if($action == 'showprivatemessage') {
 					'creation_timestamp' => $pm['creation_timestamp'],
 					'subject' => $pm['subject'],
 					'message' => $pm['body'] );
+		PrivateMessage::MarkAsRead($params['id']);
 		include("$ROOT/user/views/showprivatemessage.view.php");
 	}
 } else if($action == 'listprivatemessages') {
@@ -93,6 +94,11 @@ if($action == 'showprivatemessage') {
 		redirect('user', 'login');
 	} else {
 		$args['privatemessages'] = PrivateMessage::ListAll($args['userinfo']['id']);
+		Error::generate('debug', $args['privatemessages']);
+		foreach($args['privatemessages'] as $k=>$pm) {
+			$args['privatemessages'][$k]['creator'] =
+				User::GetAttrib(PrivateMessage::GetAttrib($pm['id'], 'creator'), 'name');
+		}
 		include("$ROOT/user/views/listprivatemessages.view.php");
 	}
 } else if($action == 'submitprivatemessage') {

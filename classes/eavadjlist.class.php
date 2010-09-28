@@ -209,17 +209,18 @@ abstract class EavAdjList {
 		}
 		return $ret;
 	}
-	protected static function eav_list($id, $type=1) {
+	protected static function eav_list($id, $type=1, $orderby=0) {
+		if($orderby===0) $orderby = "ORDER BY node.creation_timestamp DESC";
 		if(!$id||$id==0) { Error::generate('debug', 'id is 0'); return array(); }
 		$ret = db_query( '
-			SELECT node.id, node.subject, node.creation_timestamp
+			SELECT node.*
 				FROM		%ss AS node,
 							%ss AS parent
 				WHERE		node.parent = parent.id
 					AND		parent.id	= \'%d\'
 					AND		node.type	= \'%d\'
-				ORDER BY	node.creation_timestamp DESC
-			', static::subGetClass(), static::subGetClass(), $id, $type );
+				%s
+			', static::subGetClass(), static::subGetClass(), $id, $type, $orderby );
 		if(!$ret) {
 			Error::generate('debug', 'Could not query db in hierarchical eav list');
 			return array();

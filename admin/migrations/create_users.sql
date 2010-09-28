@@ -68,6 +68,8 @@ CREATE TABLE privatemessages (	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 								subject VARCHAR(64),
 								parent INT NOT NULL, # mailbox
 								type INT NOT NULL,
+# 1: read; 
+								flags INT NOT NULL DEFAULT 0,
 								creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 CREATE INDEX privatemessages_mailbox_user_id ON privatemessages (parent, creation_timestamp);
 CREATE TABLE privatemessage_data (	id INT NOT NULL,

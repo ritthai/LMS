@@ -17,22 +17,23 @@
 
 		<table>
 			<tr>
-				<th>id</th>
 				<th>subject</th>
+				<th>from</th>
 				<th>creation_timestamp</th>
 			</tr>
 <?php	foreach($args['privatemessages'] as $pm) {	?>
+<?php		$cls = $pm['flags'] & 1 ? 'read_pm' : 'unread_pm'; ?>
 			<tr>
 				<td><a href="<?php echo $args['actions']['showprivatemessage']->getLink(array('id'=>$pm['id'])); ?>">
-						<?php echo $pm['id']; ?>
+						<div class="<?php echo $cls; ?>"><?php echo $pm['subject']; ?></div>
 					</a>
 				</td>
 				<td><a href="<?php echo $args['actions']['showprivatemessage']->getLink(array('id'=>$pm['id'])); ?>">
-						<?php echo $pm['subject']; ?>
+						<div class="<?php echo $cls; ?>"><?php echo $pm['creator']; ?></div>
 					</a>
 				</td>
 				<td><a href="<?php echo $args['actions']['showprivatemessage']->getLink(array('id'=>$pm['id'])); ?>">
-						<?php echo $pm['creation_timestamp']; ?>
+						<div class="<?php echo $cls; ?>"><?php echo $pm['creation_timestamp']; ?></div>
 					</a>
 				</td>
 			</tr>
