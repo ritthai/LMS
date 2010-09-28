@@ -105,4 +105,24 @@ class PrivateMessage extends EavAdjList {
 	public static function MarkAsRead($id) {
 		db_query("UPDATE privatemessages SET flags = flags | 1 WHERE id='%d'", $id);
 	}
+	public static function GetUnreadCount($id) {
+		db_query("SELECT	COUNT(*)
+					FROM	privatemessages
+					WHERE	parent='%d'
+						AND !(flags&1)
+						AND type='1'",
+				$id
+			);
+		return db_get_result();
+	}
+	public static function GetReadCount($id) {
+		db_query("SELECT	COUNT(*)
+					FROM	privatemessages
+					WHERE	parent='%d'
+						AND flags&1
+						AND type='1'",
+				$id
+			);
+		return db_get_result();
+	}
 }

@@ -36,11 +36,17 @@
 						<div style="clear:both"> </div>
 <?php   /*****  PRIVATE MESSAGES    *****/  ?>
                         <div id="sidebar_private_messages_box">
-                            <div id="sidebar_private_messages">&nbsp;Private Messages</div>
+                            <div id="sidebar_private_messages">&nbsp;<a href="/user/listprivatemessages">Private Messages</a></div>
                             <div class="privateMessages">&nbsp;</div>
                         </div>
 						<div style="clear:both"> </div>
-                        <div id="sidebar_message_totals">0 Unread, Total 3</div>
+                        <div id="sidebar_message_totals">
+<?php	$_id = User::GetAuthenticatedID();
+		$unread = PrivateMessage::GetUnreadCount($_id);
+		$read = PrivateMessage::GetReadCount($_id);
+?>
+							<?php echo $unread; ?> Unread, Total <?php echo $unread+$read; ?>
+						</div>
 						<div style="clear:both"> </div>
 						<br>
 <?php   /*****  TRACKED COURSES *****/  ?>
