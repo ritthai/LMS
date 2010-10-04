@@ -9,7 +9,9 @@ class User extends EAV {
 	protected static function subGetAttribs() {
 		return array(	1=>	array( 'NAME',		static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),
-							array( 'REALNAME',	static::ATTRIB_TYPE_STRING,
+							array( 'FIRSTNAME',	static::ATTRIB_TYPE_STRING,
+												static::ATTRIB_PROP_UNIQUE ),
+							array( 'LASTNAME',	static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),
 							array( 'UNIVERSITY',static::ATTRIB_TYPE_STRING,
 												static::ATTRIB_PROP_UNIQUE ),

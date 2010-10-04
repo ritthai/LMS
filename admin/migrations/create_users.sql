@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS files, file_data, files_lock;
 DROP TABLE IF EXISTS comments, comment_data, comments_lock;
 DROP TABLE IF EXISTS pageviews;
 DROP TABLE IF EXISTS privatemessages, privatemessage_data;
+DROP TABLE IF EXISTS similarities;
 #DROP PROCEDURE IF EXISTS SetForgottenPassTimestamp, ValidateForgottenPassTimestamp;
 # EAV
 CREATE TABLE users (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -83,27 +84,36 @@ CREATE TABLE IF NOT EXISTS migrations (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 
+CREATE TABLE IF NOT EXISTS similarities (
+	cid1 INT NOT NULL, # comment id 1
+	cid2 INT NOT NULL, # comment id 2
+	val DECIMAL(3,3) NOT NULL # value representing similarity
+	);
+CREATE INDEX similarity_main ON similarities (cid1, val);
+
 INSERT
 	INTO users (name)
 	VALUES ('jkoff'), ('tyler');
 INSERT
 	INTO user_data (id, attrib, intdata, stringdata)
 	VALUES	('1','1',NULL,'jkoff'),
-			('1','2',NULL,'Jonathan Koff'),
-			('1','3',NULL,'University of Waterloo'),
-			('1','4',NULL,'2013'),
-			('1','5',NULL,'jonathankoff@gmail.com'),
-			('1','6','1',NULL),
-			('1','7',NULL,'29d1d9c975cc38353ff25336f95d83559aa7a909ec8aefe2e96ed03b312d7b4d');
+			('1','2',NULL,'Jonathan'),
+			('1','3',NULL,'Koff'),
+			('1','4',NULL,'University of Waterloo'),
+			('1','5',NULL,'2013'),
+			('1','6',NULL,'jonathankoff@gmail.com'),
+			('1','7','1',NULL),
+			('1','8',NULL,'29d1d9c975cc38353ff25336f95d83559aa7a909ec8aefe2e96ed03b312d7b4d');
 INSERT
 	INTO user_data (id, attrib, intdata, stringdata)
 	VALUES	('2','1',NULL,'tyler'),
-			('2','2',NULL,'Tyler Freedman'),
-			('2','3',NULL,'Ryerson University'),
-			('2','4',NULL,'2014?'),
-			('2','5',NULL,'t.freedman@gmail.com'),
-			('2','6','1',NULL),
-			('2','7',NULL,'fcdbb6fa38d66468fff683cb992bc875280ae44963af2cfdc93a89c9d6d50c9a');
+			('2','2',NULL,'Tyler'),
+			('2','3',NULL,'Freedman'),
+			('2','4',NULL,'Ryerson University'),
+			('2','5',NULL,'2014?'),
+			('2','6',NULL,'t.freedman@gmail.com'),
+			('2','7','1',NULL),
+			('2','8',NULL,'fcdbb6fa38d66468fff683cb992bc875280ae44963af2cfdc93a89c9d6d50c9a');
 			#mudkipz
 
 #INSERT

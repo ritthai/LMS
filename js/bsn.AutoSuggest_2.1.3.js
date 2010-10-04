@@ -426,7 +426,8 @@ _b.AutoSuggest.prototype.createList = function(arr)
 		a.appendChild(span);
 		
 		a.name = i+1;
-		a.onclick = function () { pointer.setHighlightedValue(); return false; };
+		idtextfield = this.idtextfield;
+		a.onclick = function () { pointer.setHighlightedValue(id); return false; };
 		a.onmouseover = function () { pointer.setHighlight(this.name); };
 		
 		var li = _b.DOM.cE(  "li", {title: id}, a  );
@@ -569,11 +570,12 @@ _b.AutoSuggest.prototype.clearHighlight = function()
 };
 
 
-_b.AutoSuggest.prototype.setHighlightedValue = function ()
+_b.AutoSuggest.prototype.setHighlightedValue = function (id, idtextfield)
 {
 	if (this.iHigh)
 	{
 		this.sInp = this.fld.value = this.aSug[ this.iHigh-1 ].value;
+		if(idtextfield) $("#"+this.idtextfield).val(id);
 		
 		// move cursor to end of input (safari)
 		//

@@ -262,6 +262,11 @@ div#sidebar_course_recommendations {
 	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
 	color: #545454;
 }
+div#sidebar_course_similarities {
+	text-align: right;
+	font: 14px "Gotham Rounded Bold", Verdana, sans-serif;
+	color: #545454;
+}
 div.sidebar_fav_course {
 	text-align: right;
 	float: right;
@@ -355,4 +360,55 @@ div#sidebar_tagcloud {
 }
 .read_pm {
 	color: #777;
+}
+
+/* create form */
+#create_form table {
+ 	border-spacing: 0px;
+ 	border-collapse: collapse;
+ 	empty-cells: show;
+}
+
+#create_form .label {
+ 	padding-top: 2px;
+ 	padding-right: 8px;
+ 	vertical-align: top;
+ 	text-align: right;
+ 	width: 125px;
+ 	white-space: nowrap;
+}
+
+#create_form .field {
+ 	padding-bottom: 10px;
+	white-space: nowrap;
+}
+
+#create_form .status {
+ 	padding-top: 2px;
+	padding-left: 8px;
+ 	vertical-align: top;
+	width: 246px;
+ 	white-space: nowrap;
+}
+
+#create_form .textfield {
+ 	width: 150px;
+}
+
+#create_form label.error {
+	background: transparent url("../images/famfamfam_silk_icons_v013/icons/cancel.png") no-repeat 0px 0px;
+ 	padding-left: 16px;
+ 	padding-bottom: 2px;
+ 	font-weight: bold;
+ 	color: #EA5200;
+}
+
+#create_form label.checked {
+	background: transparent url("../images/famfamfam_silk_icons_v013/icons/accept.png") no-repeat 0px 0px;
+}
+
+#create_form .success_msg {
+	font-weight: bold;
+	color: #0060BF;
+	margin-left: 19px;
 }

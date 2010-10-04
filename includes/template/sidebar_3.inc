@@ -8,3 +8,7 @@ You are not logged in.
 <br>
 
 <?php include("$ROOT/course/views/recommendations.pview.php"); ?>
+
+<br>
+
+<?php include("$ROOT/course/views/similar.pview.php"); ?>

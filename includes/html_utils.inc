@@ -64,6 +64,7 @@ function jsSetupAutocomplete($form_id, $textfield_id, $word_list, $minchars=0) {
 			echo "maxresults: 22\r\n";
 		echo "};\r\n";
 		echo "var as$form_id = new bsn.AutoSuggest('$textfield_id', options);\r\n";
+		echo "as$form_id.idtextfield = ''";
 	echo "});\r\n";
 	echo "--> </script>\r\n";
 }

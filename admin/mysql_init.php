@@ -141,6 +141,13 @@ foreach($xml as $a) {
 		$cd->cid = $cid;
 		$cd->university = $uni_id;
 		$cd->save();
+/*		// This code is SLOW (increases runtime by 10x):
+		$procd_descr = process_description($cd->descr);
+		foreach($procd_descr as $k => $topic) {
+			// add to sparse matrix for similarity computation
+			// prefetch relevant links with low priority
+		}
+*/
 	}
 }
 profiling_end('create courses');
@@ -150,4 +157,3 @@ $memcached->flush();
 
 profiling_end('all');
 profiling_print_summary();
-?>

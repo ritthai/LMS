@@ -4,7 +4,7 @@ class CourseDefn {
 	public $code;
 	public $title;
 	public $descr;
-	public $cid; // comment thread id
+	public $cid; // resource identifier
 	public $university;
 	function __construct($code) {
 		$this->id = $this->code = $this->title = $this->descr = false;
@@ -50,7 +50,7 @@ class CourseDefn {
 		$this->cid = $ret['cid'];
 		$this->university = $ret['university'];
 		
-		return true;
+		return $this;
 	}
 	static function ListAll($uni=false) {
 		if($uni) {
@@ -133,5 +133,26 @@ class CourseDefn {
 			str_replace(' ', '', $code));
 		$ret = db_get_list_of_assoc($res);
 		return $ret;
+	}
+	function getSimilar() {
+		$res = db_query("
+			SELECT crs.id AS crsid, similarity.val AS similarityval, crs.cid AS crscid
+				FROM	similarities	AS similarity,
+						coursedefns		AS crs
+				WHERE	similarity.cid1 = '%d'
+					AND	similarity.val >= 0.2
+					AND crs.cid = similarity.cid2
+					AND crs.university = '%d' ",
+			$this->cid, $this->university );
+		$ret = db_get_list_of_assoc($res);
+		if($ret) {
+			$fin = array();
+			foreach($ret as $k=>$v) {
+				$fin[$v['crscid']] = $v['similarityval'];
+			}
+			return $fin;
+		} else {
+			return array();
+		}
 	}
 }

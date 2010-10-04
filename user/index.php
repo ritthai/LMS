@@ -3,6 +3,7 @@
 @db_connect();
 
 @require_once("$ROOT/includes/recaptchalib.php");
+@require_once("Validate.php");
 
 controller_prefix();
 
@@ -11,8 +12,8 @@ $PAGE_REL_URL = "$HTMLROOT/$CONTROLLER";
 $UPLOAD_ROOT = "$CONTROLLER/uploads";
 $ACTIONS = array(
 	'create'				=> new HttpAction("$PAGE_REL_URL/create", 'post',
-								array(	'name', 'realname', 'email', 'password',
-										'recaptcha_challenge_field', 'recaptcha_response_field')),
+								array(	'name', 'firstname', 'lastname', 'email', 'password', 'password_confirm',
+										'terms', 'recaptcha_challenge_field', 'recaptcha_response_field')),
 	'list'					=> new HttpAction("$PAGE_REL_URL/list", 'get',
 								array()),
 	'show'					=> new HttpAction("$PAGE_REL_URL/show", 'get',
@@ -162,14 +163,17 @@ if($action == 'showprivatemessage') {
 												$params['recaptcha_challenge_field'], $params['recaptcha_response_field'] );
 	if(!$recaptcha_resp->is_valid) {
 		$args['recaptcha_error'] = $recaptcha_resp->error;
-		Error::generate('notice', 'Incorrect captcha answer.');
+		Error::generate('warn', 'Incorrect captcha answer.');
 		$authorized = false;
-		$args['name']		= $params['name'];
-		$args['realname']	= $params['realname'];
-		$args['university']	= $params['university'];
-		$args['gradyear']	= $params['gradyear'];
-		$args['email']		= $params['email'];
-		$args['password']	= $params['password'];
+		$args['name']				= $params['name'];
+		$args['firstname']			= $params['firstname'];
+		$args['lastname']			= $params['lastname'];
+		$args['university']			= $params['university'];
+		$args['gradyear']			= $params['gradyear'];
+		$args['email']				= $params['email'];
+		$args['password']			= $params['password'];
+		$args['password_confirm']	= $params['password_confirm'];
+		$args['terms']				= $params['terms'];
 	}
 	foreach($params as $k=>$v) {
 		switch($k) {
@@ -180,14 +184,49 @@ if($action == 'showprivatemessage') {
 				$authorized = false;
 				break;
 			}
-		case 'name':
-		case 'realname':
+			// Fallthrough
 		case 'email':
+			if(!Validate::email($v, array('use_rfc822' => true))) {
+				$authorized = false;
+				Error::generate('warn', 'Invalid email address.');
+				break;
+			}
+			// Fallthrough
 		case 'password':
-			$filtered_params[$k] = $v;
-			break;
+			$p1 = $v;
+			if(strlen($v) < 8) {
+				$authorized = false;
+				Error::generate('warn', 'Passwords must be at least 8 characters in length.');
+				break;
+			}
+			// Fallthrough
+		case 'repeat_password':
+			if($p1 != $v) {
+				$authorized = false;
+				Error::generate('warn', 'Passwords do not match.');
+				break;
+			}
+			// Fallthrough
+		case 'terms':
+			if(!$v) {
+				$authorized = false;
+				Error::generate('warn', 'Passwords do not match.');
+				break;
+			}
+			// Fallthrough
+		case 'name':
+			if(User::GetUserID($v)) {
+				$authorized = false;
+				Error::generate('warn', 'Username is already taken.');
+				break;
+			}
+			// Fallthrough
+		case 'firstname':
+			// Fallthrough
+		case 'lastname':
+			// Fallthrough
 		default:
-			// complain about extra params?
+			$filtered_params[$k] = $v;
 		}
 	}
 	if($authorized) $id = User::Create($filtered_params);
@@ -433,10 +472,14 @@ if($action == 'showprivatemessage') {
 			redirect();
 		}
 		break;
+	case 'create':
+		$args['name'] = $args['firstname'] = $args['lastname'] = $args['university'] = $args['gradyear']
+			= $args['email'] = $args['recaptcha_error'] = '';
+		include("views/$action.view.php");
+		break;
 	case 'list':
 		$args['userlist'] = User::ListAll();
 		// Fallthrough
-	case 'create':
 	case 'login':
 	case 'forgot_password':
 	case 'reset_password':

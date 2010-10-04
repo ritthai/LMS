@@ -62,8 +62,8 @@ if(!$status) {
 }
 $clients = array();
 $data = array();
-$completed = array();
-$curl_stack = array();
+$completed = new PriorityQueue();
+$curl_stack = new PriorityQueue();
 $in_progress = array();
 $mch = curl_multi_init();
 $mcr = null;
@@ -108,14 +108,14 @@ while(true) {
 		db_connect();
 		$db_reconnect_delta = 0;
 	}
-	$timeout = (count($completed)>0||count($in_progress)>0) ? 10000 : 1000000;
+	$timeout = ($completed->size()>0||count($in_progress)>0) ? 10000 : 1000000;
 	$r = array_merge(array($sock), $clients);
 	$w=$e=NULL;
 	profiling_start('idle');
 	if(socket_select($r, $w, $e, $timeout/1000000, $timeout%1000000) < 1) {
 		profiling_end('idle');
 		while(($mcr = curl_multi_exec($mch, $active)) === CURLM_CALL_MULTI_PERFORM) ;
-		if(count($completed) > 0 || count($in_progress) > 0) {
+		if($completed->size() > 0 || count($in_progress) > 0) {
 			profiling_start('start of cycle');
 			$info = curl_multi_info_read($mch);
 			if($info) {
@@ -139,9 +139,9 @@ while(true) {
 				$n_reqs_procd++;
 				fputs($fp, "Daemon $GLOBALS[client] processed $top\r\n");
 				Error::generate('debug', "Processed $top");
-			} else if(count($in_progress) < $max_simult_queries && count($curl_stack) > 0) {
-				$ch = array_shift($curl_stack);
-				$top = array_shift($completed);
+			} else if(count($in_progress) < $max_simult_queries && $curl_stack->size() > 0) {
+				$ch = $curl_stack->pop();
+				$top = $completed->pop();
 				$md5top = md5($top);
 
 				db_query("INSERT IGNORE INTO primitive_cache_lock (id,locked) VALUES ('%s','0')",$md5top);
@@ -193,8 +193,11 @@ while(true) {
 							$data[intval($s)] .= $read;
 							$read = '';
 							$val = strtok($data[intval($s)], ' ');
+							// Format: <3 char CMD>,<URL><space>
+							// CMD: <1 digit priority><1 digit reserved><1 digit reserved>
+							$cmd = strtok($data[intval($s)], ',');
 							$data[intval($s)] = strtok(' ');
-							array_push($completed, $val);
+							$completed->insert(intval($cmd[0]),$val);
 							$ch = curl_init($val);
 							curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 							curl_setopt($ch, CURLOPT_FAILONERROR, true);
@@ -206,7 +209,7 @@ while(true) {
 							//curl_setopt($ch, CURLOPT_STDERR, $fp);
 							curl_setopt($ch, CURLOPT_USERAGENT, $CONFIG['user_agent']);
 							// TODO: look into CURLOPT_RANGE
-							array_push($curl_stack, $ch);
+							$curl_stack->insert(0,$ch);
 							Error::generate('debug', "Received: $val");
 							fputs($fp, "Daemon $GLOBALS[client] received $val\r\n");
 							$n_reqs_recvd++;

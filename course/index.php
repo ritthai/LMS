@@ -59,7 +59,7 @@ $ACTIONS = array(	'search'				=> new HttpAction("$PAGE_REL_URL/search", 'get',
 					'index'					=> new HttpAction("$PAGE_REL_URL/", 'get',
 												array()),
 					'autocomplete'			=> new HttpAction("$PAGE_REL_URL/autocomplete", 'get',
-												array('list', 'val')),
+												array('list')),
 					'favs'					=> new HttpAction("$PAGE_REL_URL/favs", 'post',
 												array('cid', 'owner', 'type')),
 					'favsrm'				=> new HttpAction("$PAGE_REL_URL/favsrm", 'post',
@@ -144,16 +144,29 @@ if($action == 'invalidate') {
 										$args['universities']);
 	include("$ROOT/course/views/universities.view.php");
 } else if($action == 'autocomplete') {
+	$val = '';
+	$validation_mode = false; // return true/false instead of results?
+	$invert_validation = false; // when true indicates a negative response
+	if(isset($params['val'])) {
+		$val = $params['val'];
+		$validation_mode = false;
+	} else if(isset($params['name'])) {
+		$val = $params['name'];
+		$validation_mode = true;
+	} else if(isset($params['university'])) {
+		$val = str_replace("%20", " ", $params['university']);
+		$validation_mode = true;
+	}
 	switch($params['list']) {
 	case 'countries':
-		$arr = Country::ListAllMatching($params['val']);
+		$arr = Country::ListAllMatching($val);
 		foreach($arr as $k=>$v) {
 			$arr[$k] = array($v['id'], $v['name']);
 		}
 		break;
 	case 'areas':
 		$arr = Area::ListAllMatching(	isset($params['country'])?$params['country']:false,
-										$params['val']);
+										$val);
 		foreach($arr as $k=>$v) {
 			$arr[$k] = array($v['id'], $v['name'], "$v[country_name]");
 		}
@@ -161,7 +174,7 @@ if($action == 'invalidate') {
 	case 'universities':
 		$arr = University::ListAllMatching(	isset($params['area'])?$params['area']:false,
 											isset($params['country'])?$params['country']:false,
-											$params['val']);
+											$val);
 		foreach($arr as $k=>$v) {
 			$arr[$k] = array($v['id'], $v['name'], "$v[area_name], $v[country_name]");
 		}
@@ -169,13 +182,13 @@ if($action == 'invalidate') {
 	case 'courses':
 		// TODO: This is not safe for multiple universities.
 		$arr = array();
-		//$lst = CourseDefn::ListAllStartingWithTitle($params['val']);
-		$lst = CourseDefn::ListAllContainingTitle($params['val']);
+		//$lst = CourseDefn::ListAllStartingWithTitle($val);
+		$lst = CourseDefn::ListAllContainingTitle($val);
 		foreach($lst as $elem) {
 			// id, code, title, descr, university
 			$arr[] = array($elem['id'], $elem['title'], $elem['code']);
 		}
-		$lst = CourseDefn::ListAllStartingWithCode($params['val']);
+		$lst = CourseDefn::ListAllStartingWithCode($val);
 		foreach($lst as $elem) {
 			// id, code, title, descr, university
 			$arr[] = array($elem['id'], $elem['code'], $elem['title']);
@@ -183,13 +196,14 @@ if($action == 'invalidate') {
 		break;
 	// TODO: decide if it's okay to do this, especially without auth
 	case 'users':
-		$lst = User::ListAllStartingWithName($params['val']);
+		$lst = User::ListAllStartingWithName($val);
 		$arr = array();
 		foreach($lst as $k=>$v) {
 			$usr = User::GetAttribs($v['id']);
 			foreach($usr as $l=>$w) $usr[$w[0]] = $w[1];
 			$arr[] = array($v['id'], $usr['NAME'], "$usr[UNIVERSITY], $usr[GRADYEAR]");
 		}
+		$invert_validation = true;
 		break;
 	default:
 		die('');
@@ -200,21 +214,30 @@ if($action == 'invalidate') {
     header("Pragma: no-cache");
 	header("Content-Type: application/json");
 
-	echo '{ results: [';
-	foreach($arr as $key => $val) {
-		if($key != 0) echo ',';
-		if(is_array($val)) {
-			$v0 = $val[0];
-			$v1 = $val[1];
-			$v2 = $val[2];
-		} else {
-			$v0 = $key;
-			$v1 = $val;
-			$v2 = '';
+	$bool_result = false;
+	if($validation_mode) {
+		foreach($arr as $k=>$v) {
+			if(is_array($v) && $v[1] == $val) $bool_result = true;
+			else if(!is_array($v) && v1 == $val) $bool_result = true;
 		}
-		echo "{ id: \"$v0\", value: \"$v1\", info: \"$v2\" }";
+		echo ($bool_result^$invert_validation) ? 'true' : 'false';
+	} else {
+		echo '{ results: [';
+		foreach($arr as $k=>$v) {
+			if($k != 0) echo ',';
+			if(is_array($v)) {
+				$v0 = $v[0];
+				$v1 = str_replace("&amp;", "&", $v[1]);
+				$v2 = $v[2];
+			} else {
+				$v0 = $k;
+				$v1 = $v;
+				$v2 = '';
+			}
+			echo "{ id: \"$v0\", value: \"$v1\", info: \"$v2\" }";
+		}
+		echo '] }';
 	}
-	echo '] }';
 } else if($action == 'subjects') {
 	$args['pagetitle']		= 'Choose a Subject';
 	$university	= $params['university'];
@@ -236,14 +259,6 @@ if($action == 'invalidate') {
 		$subjects[$k] = array(	'code'	=> $k,
 								'title'	=> $v );
 	}
-	/*foreach($subjects as $k=>$v) {
-		// id,code,title,descr,university
-		$subjects[$k] = array(	'id'			=> $v[0],
-								'code'			=> $v[1],
-								'title'			=> $v[2],
-								'descr'			=> $v[3],
-								'university'	=> $v[4] );
-	}*/
 	$args['subjects'] = $subjects;
 	include("views/subjects.view.php");
 } else if($action == 'subject') {
@@ -580,7 +595,7 @@ if($action == 'invalidate') {
 		profiling_start('wrap up processing and package data for the view');
 		$args['pagetitle']		= "$icrs->title ($icrs->code)";
 		$args['pageurl']		= $_SERVER['REQUEST_URI'];
-		$args['course']			= array('id'	=> $icrs->id,
+		$args['course']			= array('id'	=> (int)($icrs->id),
 										'title'	=> $icrs->title,
 										'code'	=> $icrs->code,
 										'descr' => $icrs->descr);

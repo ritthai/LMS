@@ -35,11 +35,15 @@
 
 <?php /* cloudinizr cloud tag in the sidebar */ ?>
 <script type="text/javascript">
-	jQuery("#sidebar_tagcloud").html(jQuery("#sidebar_hidden_tags").html()).cloudinizr();
-	jQuery("#sidebar_tagcloud span").hover(
-		function() { jQuery(this).addClass('tagcloud_hover'); },
-		function() { jQuery(this).removeClass('tagcloud_hover'); }
-	);
-	jQuery("#sidebar_tagcloud span").click(function() { window.location = "/search?terms="+jQuery(this).html(); });
+	function setup_tagcloud($id) {
+		jQuery("#"+$id).html(jQuery("#"+$id+"_hidden").html()).cloudinizr();
+		jQuery("#"+$id+" span").hover(
+			function() { jQuery(this).addClass('tagcloud_hover'); },
+			function() { jQuery(this).removeClass('tagcloud_hover'); }
+		);
+		jQuery("#"+$id+" span").click(function() { window.location = "/search?terms="+jQuery(this).html(); });
+	}
+	setup_tagcloud("sidebar_recommendation_tagcloud");
+	setup_tagcloud("sidebar_similarities_tagcloud");
 </script>
 

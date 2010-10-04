@@ -193,14 +193,16 @@ function async_cache_disconnect($target) {
 	Error::generate('debug', "unlink status: $status");
     chdir($old); // Restore the old working directory   
 }
-function async_cache_file($url, $target=1) {
+function async_cache_file($url, $target=1, $priority=5) {
 	global $async_socks;
 
 	Error::generate('debug', "async_cache_file $url");
 	profiling_start('async_cache_file');
 
+	$cmd = $priority.'--';
+
 	if(!isset($async_socks[$target])) async_cache_connect($target);
-	if(isset($async_socks[$target])) socket_write($async_socks[$target], "$url ");
+	if(isset($async_socks[$target])) socket_write($async_socks[$target], "$cmd$url ");
 
 	profiling_end('async_cache_file');
 }

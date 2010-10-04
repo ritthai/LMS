@@ -29,7 +29,7 @@
                         <div id="course_recommendations" class="hidden">
 <?php	}	?>
                             <div id="sidebar_course_recommendations">People who viewed this course also viewed:</div>
-								<div id="sidebar_hidden_tags" class="hidden">
+								<div id="sidebar_recommendation_tagcloud_hidden" class="hidden">
 <?php   $ctr = 0;
 		Error::setPrepend($other_views);
 		Error::generate('debug', 'Recommendation array');
@@ -54,7 +54,7 @@
 ?>
 <?php	} ?>
 							</div>
-							<div id="sidebar_tagcloud">&nbsp;</div>
+							<div id="sidebar_recommendation_tagcloud">&nbsp;</div>
 						</div>
 <!--
 							<div class="sidebar_fav_course_container">
