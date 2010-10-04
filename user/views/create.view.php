@@ -9,8 +9,11 @@
 <?php include("$TEMPLATEROOT/template_begin.inc"); ?>
 <?php   jsSetupAutocomplete(''/* don't submit form */, 'university', 'universities'); ?>
 <script src="<?php echo $HTMLROOT; ?>/js/jquery.validate.js"> </script>
+<script src="<?php echo $HTMLROOT; ?>/js/jquery.validate.password.js"> </script>
+<link rel="stylesheet" type="text/css" media="screen" src="<?php echo $HTMLROOT; ?>/css/jquery.validate.password.css" />
 <script type="text/javascript">
 jQuery(document).ready(function() {
+	// http://bassistance.de/jquery-plugins/jquery-plugin-password-validation/
 	// http://docs.jquery.com/Plugins/validation
 	// http://jquery.bassistance.de/validate/demo/milk/
 	jQuery("#create_form").validate({
@@ -32,6 +35,7 @@ jQuery(document).ready(function() {
 			password: {
 				required: true,
 				minlength: 8
+				//password: "#name"
 			},
 			password_confirm: {
 				required: true,
@@ -141,7 +145,14 @@ jQuery(document).ready(function() {
 	<tr>
 		<td class="label"><label for="password">Password</label><em>*</em></td>
 		<td class="field"><input type="password" id="password" name="password" /></td>
-		<td class="status"></td>
+		<td class="status">
+			<!--<div class="password-meter">
+				<div class="password-meter-message">&nbsp;</div>
+				<div class="password-meter-bg">
+					<div class="password-meter-bar"></div>
+				</div>
+			</div>-->
+		</td>
 	</tr>
 	<tr>
 		<td class="label"><label for="password_confirm">Confirm Password</label><em>*</em></td>
