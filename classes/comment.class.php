@@ -146,6 +146,8 @@ class Comment extends EavAdjList {
 		if(!$res1 || db_affected_rows() != 1) {
 			return false;
 		} else {
+			$res2 = db_query("INSERT IGNORE INTO comment_data (id, attrib, intdata) VALUES ('%d', '%d', '%d')",
+							$cid, static::get_attrib_id('rating'), 0);
 			$res2 = db_query("UPDATE comment_data SET intdata = intdata + %d WHERE attrib='%d' AND id='%d'",
 							intval($val), static::get_attrib_id('rating'), $cid);
 			return ($res2 && db_affected_rows() == 1);

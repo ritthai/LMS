@@ -15,6 +15,7 @@
 				$ownerid = Comment::GetAttrib($id, 'owner');
 				$owner = User::GetAttrib($ownerid, 'name');
 				$body = Comment::GetAttrib($id, 'body');
+				$rating = Comment::GetAttrib($id, 'rating');
 				$comment_stack[] = array($cid, $jsid, $flags, $comments, $text);
 				$cid = $id;
 				$jsid = uniqid();
@@ -31,6 +32,13 @@
         <h5><?php echo $subject; ?>
 			- Posted at <?php echo $timestamp; ?>
 			by <?php echo $owner; ?>
+			<a class="bodylink" id="vote_down_<?php echo $cid; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $cid; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
+				<div class="voteDown">&nbsp;</div>
+			</a>
+			<a class="bodylink" id="vote_up_<?php echo $cid; ?>" href="javascript:voteUp('<?php echo $args['course']['id']; ?>','<?php echo $cid; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
+				<div class="voteUp">&nbsp;</div>
+			</a>
+			- <?php echo $rating; ?> Points
 		</h5>
         <p><?php echo $body; ?></p>
 <?php	$comment_stack[] = array($cid, $jsid, $flags, $comments, $text);
