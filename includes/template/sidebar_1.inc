@@ -1,4 +1,4 @@
-						<div id="sidebar_realname"><?php echo User::GetAuthenticatedAttrib('realname'); ?></div>
+						<div id="sidebar_realname"><?php echo User::GetAuthenticatedAttrib('firstname'); ?> <?php echo User::GetAuthenticatedAttrib('lastname'); ?></div>
                         <div id="sidebar_university"> <?php echo User::GetAuthenticatedAttrib('university'); ?>
                         <?php echo User::GetAuthenticatedAttrib('gradyear'); ?></div>
 						<div id="sidebar_options_and_profile">

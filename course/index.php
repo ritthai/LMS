@@ -91,6 +91,7 @@ if($action == 'search2') $action = 'search';
 $args['actions'] = $ACTIONS;
 $args['action'] = $action;
 $args['favs'] = User::GetAttribs('fav');
+//$args['favs'] = User::GetAttrib(User::GetAuthenticatedID(), 'fav');
 
 function reset_loading_screen_counter() {
 	if(isset($_SESSION)) {
@@ -387,10 +388,10 @@ if($action == 'invalidate') {
         Error::generate('warn', 'Must be logged in to post a comment.', Error::$FLAGS['single']);
         die('Must be logged in to post a comment.');
 	} else if(!($cid = Comment::Create(
-			array(	'subject'	=> $params['subject'],
-					'body'		=> $params['body'],
+			array(	'subject'	=> xssfilterstring($params['subject']),
+					'body'		=> xssfilterstring($params['body']),
 					'owner'		=> User::GetAuthenticatedID(),
-					'id'		=> $params['cid'] ) ) ) ) {
+					'id'		=> xssfilterint($params['cid']) ) ) ) ) {
         Error::generate('warn', 'Could not create comment.', Error::$FLAGS['single']);
 	}
 } else if($action == 'check_lock') { // check the status of a comment lock

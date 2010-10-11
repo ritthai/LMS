@@ -5,21 +5,19 @@ Domain names in the .com and .net domains can now be registered
 with many different competing registrars. Go to http://www.internic.net
 for detailed information.
 
-   Domain Name: BURNTHEMIDNIGHTOIL.COM
-   Registrar: WILD WEST DOMAINS, INC.
-   Whois Server: whois.wildwestdomains.com
-   Referral URL: http://www.wildwestdomains.com
+   Domain Name: CLASSMAIT.COM
+   Registrar: FABULOUS.COM PTY LTD.
+   Whois Server: whois.fabulous.com
+   Referral URL: http://www.fabulous.com
    Name Server: NS1.PARKED.COM
    Name Server: NS2.PARKED.COM
    Status: clientDeleteProhibited
-   Status: clientRenewProhibited
    Status: clientTransferProhibited
-   Status: clientUpdateProhibited
-   Updated Date: 09-dec-2009
-   Creation Date: 27-nov-2008
-   Expiration Date: 27-nov-2010
+   Updated Date: 21-apr-2010
+   Creation Date: 23-may-2005
+   Expiration Date: 23-may-2011
 
->>> Last update of whois database: Thu, 23 Sep 2010 05:44:03 UTC <<<
+>>> Last update of whois database: Mon, 11 Oct 2010 03:21:20 UTC <<<
 
 NOTICE: The expiration date displayed in this record is the date the
 registrar's sponsorship of the domain name registration in the registry is
@@ -54,54 +52,37 @@ reserves the right to modify these terms at any time.
 
 The Registry database contains ONLY .COM, .NET, .EDU domains and
 Registrars.
-The data contained in this Registrar's Whois database,
-while believed by the registrar to be reliable, is provided "as is"
-with no guarantee or warranties regarding its accuracy. This information
-is provided for the sole purpose of assisting you in obtaining
-information about domain name registration records. Any use of
-this data for any other purpose is expressly forbidden without
-the prior written permission of this registrar.  By submitting an
-inquiry, you agree to these terms of usage and limitations of warranty.
-In particular, you agree not to use this data to allow, enable, or
-otherwise make possible, dissemination or collection of this data, in
-part or in its entirety, for any purpose, such as the transmission of
-unsolicited advertising and solicitations of any kind, including spam.
-You further agree not to use this data to enable high volume, automated
-or robotic electronic processes designed to collect or compile this data
-for any purpose, including mining this data for your own personal or
-commercial purposes.
 
-Please note: the owner of the domain name is specified in the "registrant" field.
-In most cases, the Registrar is not the owner of domain names listed in this database.
+This domain is protected by Whois Privacy Services Pty Ltd. For more information please visit www.whoisprivacyservices.com.au
 
+Domain classmait.com:
+  Whois Privacy Services Pty Ltd
+  Domain Hostmaster, Customer ID : 01451929488264
+  01451929488264-8743bf@whoisprivacyservices.com.au
+  GPO Box 1717
+  Brisbane, QLD 4001 AU
 
-Registrant:
-   ABC Productions
-   P.O. Box 915
-   Hermosa Beach, California 90254
-   United States
+Administrative contact:
+Technical contact:
+Billing contact:
+  Whois Privacy Services Pty Ltd
+  Domain Hostmaster, Customer ID : 01451929488264
+  01451929488264-8743bf@whoisprivacyservices.com.au
+  GPO Box 1717
+  Brisbane, QLD 4001 AU
+  Phone: Phone: +61.730070090
+  Fax: Phone: +61.730070091
 
-   Registered through: DomainHollywood.com
-   Domain Name: BURNTHEMIDNIGHTOIL.COM
-      Created on: 27-Nov-08
-      Expires on: 27-Nov-10
-      Last Updated on: 09-Dec-09
+Record dates:
+  Record created on: 2005-05-23 07:25:40 UTC
+  Record modified on: 2010-04-21 22:05:13 UTC
+  Record expires on: 2011-05-23 UTC
 
-   Administrative Contact:
-      Productions, ABC  production@abcproductions.com
-      P.O. Box 915
-      Hermosa Beach, California 90254
-      United States
-      3107971100      Fax --
+Nameservers:
+  ns1.parked.com:
+    69.46.226.23
+  ns2.parked.com:
+    69.46.227.24
 
-   Technical Contact:
-      Productions, ABC  production@abcproductions.com
-      P.O. Box 915
-      Hermosa Beach, California 90254
-      United States
-      3107971100      Fax --
-
-   Domain servers in listed order:
-      NS1.PARKED.COM
-      NS2.PARKED.COM
+Note: Automated collection of data from this database is strictly prohibited.
 

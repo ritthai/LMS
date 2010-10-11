@@ -1,11 +1,26 @@
-<div id="comment_box_<?php echo $cid; ?>">
+<?php /* $cid,$jsid,$flags,$comments,$text */ ?>
+<?php	if($cid > 1) { ?>
+<div class="search_result">
+<?php	include("$ROOT/course/views/toggleswitch.pview.php"); ?>
+<?php	startToggleBlock($jsid); ?>
+
+<div id="comment_box_<?php echo $jsid; ?>">
 <?php   if($comments) { ?>
 <?php		foreach($comments as $id) {
-	$subject = Comment::GetSubject($id);
-	$timestamp = Comment::GetTimestamp($id);
-	$ownerid = Comment::GetAttrib($id, 'owner');
-	$owner = User::GetAttrib($ownerid, 'name');
-    $body = Comment::GetAttrib($id, 'body');
+				if(is_array($id)) { // array of objects, not ids :-/
+					$id = $id['id'];
+				}
+				$subject = Comment::GetSubject($id);
+				$timestamp = Comment::GetTimestamp($id);
+				$ownerid = Comment::GetAttrib($id, 'owner');
+				$owner = User::GetAttrib($ownerid, 'name');
+				$body = Comment::GetAttrib($id, 'body');
+				$comment_stack[] = array($cid, $jsid, $flags, $comments, $text);
+				$cid = $id;
+				$jsid = uniqid();
+				$flags = 1;
+				$comments = Comment::ListAll($cid, 1);
+				$text = "See more comments ";
 ?>
 	<div class="comment">
 		<div class="avatar">
@@ -18,39 +33,26 @@
 			by <?php echo $owner; ?>
 		</h5>
         <p><?php echo $body; ?></p>
+<?php	$comment_stack[] = array($cid, $jsid, $flags, $comments, $text);
+		$jsid = uniqid();
+		$text = "Reply";
+		include("$ROOT/course/views/toggleswitch.pview.php");
+		startToggleBlock($jsid);
+		include("$ROOT/course/views/commentreply.pview.php");
+		endToggleBlock($jsid);
+		list($cid, $jsid, $flags, $comments, $text) = array_pop($comment_stack);
+?>
     </div>
 
-	<a href="javascript:toggleContentPanel(<?php echo $id; ?>);">
-		Reply to comment
-	</a>
-	<div class="comment_box" id="comment_box_<?php echo $id; ?>" style="display:none">
-		<?php $args['actions']['post']->AJAX_FORM_BEGIN('class="comment_form"'); ?>
-Leave a comment:<br/>
-Subject:	<input style="margin-left: 15px; margin-bottom: 5px" size=30 type="text" name="subject" value="" /><br>
-Comment:	<textarea cols=40 rows=5 name="body"> </textarea><br>
-			<input type="hidden" name="course" value="<?php echo $args['course']['code']; ?>" />
-			<input type="hidden" name="owner" value="<?php echo User::GetAuthenticatedAttrib('name'); ?>" />
-			<input type="hidden" name="cid" value="<?php echo $id; ?>" />
-			<input class="submit_comment" type="image" src="/images/navigation/comment.png" name="submit" onclick="javascript:submit_comment(
-				this.parentNode,
-				'comment_box_<?php echo $id; ?>')" />
-		<?php $args['actions']['post']->AJAX_FORM_END(); ?>
-	</div>
-<?php       }   ?>
-<?php   }   ?>
+<?php			if($comments && count($comments) > 0) include("$ROOT/course/views/comment.pview.php");
+				list($cid, $jsid, $flags, $comments, $text) = array_pop($comment_stack);
+			}
+		}
+?>
 </div>
 
-<div class="comment_box">
-<?php $args['actions']['post']->AJAX_FORM_BEGIN('class="comment_form"'); ?>
-    Leave a comment:<br/>
-    Subject:        <input style="margin-left: 15px; margin-bottom: 5px" size=30 type="text" name="subject" value="" /><br>
-    Comment:        <textarea cols=40 rows=5 name="body"></textarea><br>
-                    <input type="hidden" name="course" value="<?php echo $args['course']['code']; ?>" />
-                    <input type="hidden" name="owner" value="<?php echo User::GetAuthenticatedAttrib('name'); ?>" />
-                    <input type="hidden" name="cid" value="<?php echo $cid; ?>" />
-					<input class="submit_comment" type="image" src="/images/navigation/comment.png" name="submit"
-                            onclick="javascript:submit_comment(
-                                        this.parentNode,
-                                        'comment_box_<?php echo $cid; ?>')" />
-<?php $args['actions']['post']->AJAX_FORM_END(); ?>
-</div>
+<?php		include("$ROOT/course/views/commentreply.pview.php"); ?>
+
+	</div>
+<?php		endToggleBlock($jsid); ?>
+<?php	} // if($cid != 0) ?>

@@ -45,18 +45,10 @@
 <?php } ?>
 
 <?php	/*****	COMMENTS	*****/	?>
-<?php	$boxid = $args['comment_id'] + 1000000000; ?>
-<div class="search_result">
-	<a href="javascript:toggleContentPanel(<?php echo $boxid; ?>);">
-		<div class="expand" id="expand_<?php echo $boxid; ?>">&nbsp;</div>
-		<div class="topic_name">Comment on <?php echo $args['course']['code']; ?></div>
-	</a>
-	<div class="all_result_content" id="all_result_content_<?php echo $boxid; ?>">
-<?php	$cid = $args['comment_id']; $comments = $args['comments'];
+<?php	$cid = $args['comment_id']; $jsid = uniqid(); $flags = 1; $text = 'Comment on "'.$args['course']['code'].'"'; ?>
+<?php	$comments = $args['comments'];
 		include("$ROOT/course/views/comment.pview.php");
 ?>
-	</div>
-</div>
 
 <?php include("$TEMPLATEROOT/template_end.inc"); ?>
 

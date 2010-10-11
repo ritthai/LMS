@@ -34,10 +34,12 @@
 			}
 			$c++;
 			$title_rest = substr($subject['title'], 1);
+			$formatted_out = "$first_letter$title_rest ($subject[code])";
+			$formatted_out = str_replace("Jewish", "<br>Jewish", $formatted_out);
 ?>
 <?php echo $begin; ?>
 	<a class="bodylink" href="/subject?<?php echo "code=$subject[code]&university={$args['university']['id']}"; ?>">
-		<?php echo "$first_letter$title_rest ($subject[code])"; ?>
+		<?php echo $formatted_out; ?>
 	</a>
 <?php echo $end; ?>
 <?php		$prev_letter = $subject['title'][0];

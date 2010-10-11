@@ -94,14 +94,10 @@ function slideToggle(el, bShow){
     });
   }
 };
-var last_cid = 0;
-var last_comment_cid = 0;
-function closeContentPanel(cid) {
-	id = "#all_result_content_"+cid;
-	img = "#expand_"+cid;
-	jQuery(id).slideUp();
-	jQuery(img).removeClass('collapse');
-	jQuery(img).addClass('expand');
+function closeContentPanel(cid, jsid, flags) {
+	jQuery("#all_result_content_"+jsid).slideUp();
+	jQuery("#expand_"+jsid).removeClass('collapse');
+	jQuery("#expand_"+jsid).addClass('expand');
 }
 function scroll(duration) {
 	if(duration > 0) {
@@ -110,7 +106,31 @@ function scroll(duration) {
 		scroll(duration - 50);
 	}
 }
-function toggleContentPanel(cid) {
+var cur_cid = 0;
+var cur_jsid = 0;
+function toggleContentPanel(cid, jsid, flags) {
+	if(!(flags & 1)) {
+		if(cur_jsid > 0) {
+			jQuery("#all_result_content_"+cur_jsid).slideUp(400);
+			jQuery("#expand_"+cur_jsid).removeClass('collapse');
+			jQuery("#expand_"+cur_jsid).addClass('expand');
+		}
+		cur_cid = cid;
+		cur_jsid = jsid;
+	}
+	if(jQuery("#all_result_content_"+jsid).is(":hidden")) {
+		jQuery("#all_result_content_"+jsid).slideDown(400);
+		jQuery("#expand_"+jsid).removeClass('expand');
+		jQuery("#expand_"+jsid).addClass('collapse');
+	} else {
+		jQuery("#all_result_content_"+jsid).slideUp();
+		jQuery("#expand_"+jsid).removeClass('collapse');
+		jQuery("#expand_"+jsid).addClass('expand');
+	}
+	/*
+	tcid = cid;
+	if(flags & 1) cid = 1000000000;
+	// cid >= 1000000000 means something that can be open at the same time as a course
 	if(cid < 1000000000 && last_cid != 0 && last_cid != cid) {
 		id = "#all_result_content_"+last_cid;
 		img = "#expand_"+last_cid;
@@ -127,9 +147,9 @@ function toggleContentPanel(cid) {
 		jQuery(img).addClass('expand');
 	}
 	if(cid < 1000000000) last_cid = cid;
-	else if(cid >= 1000000000) last_comment_cid = cid;
-	id = "#all_result_content_"+cid;
-	img = "#expand_"+cid;
+	else if(cid >= 1000000000) last_comment_cid = tcid;
+	id = "#all_result_content_"+tcid;
+	img = "#expand_"+tcid;
 	if(jQuery(id).is(":hidden")) {
 		jQuery(id).slideDown(400);
 		//jQuery(id).show().animate({height: height}, {duration: 250});
@@ -142,6 +162,7 @@ function toggleContentPanel(cid) {
 		jQuery(img).removeClass('collapse');
 		jQuery(img).addClass('expand');
 	}
+	*/
 }
 function toggleVidPanel(cid) {
 	var panel_width = jQuery("#vid_panel_"+cid).width() + 5;

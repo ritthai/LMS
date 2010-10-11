@@ -3,7 +3,7 @@
 		$crs->load();
 		$similarities = $crs->getSimilar();
 		arsort($similarities);
-		if($other_views && count($other_views) > 0) {	?>
+		if($similarities && count($similarities) > 0) {	?>
                         <div id="course_similarities">
 <?php	} else {	?>
                         <div id="course_similarities" class="hidden">

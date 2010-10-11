@@ -1,34 +1,19 @@
 <?php	$tooltipdata = array();
 		foreach($args['searchresults'] as $ok => $subject) {
+			$cid = $subject['comment_id'];
+			$jsid = uniqid();
+			$flags = 0;
+			$comments = $subject['comments'];
+			$text = "Comment on &quot;".clean($subject['subject'])."&quot;";
 ?>
 
 <div class="search_result">
-	<a href="javascript:toggleContentPanel(<?php echo $subject['comment_id']; ?>);">
-		<div class="expand" id="expand_<?php echo $subject['comment_id']; ?>">&nbsp;</div>
-		<div class="topic_name"><?php echo clean($subject['subject']); ?></div>
-	</a>
-	<div class="all_result_content" id="all_result_content_<?php echo $subject['comment_id']; ?>">
-<?php	if(false && !User::AuthenticatedUserHasMatchingAttrib('topicfav', $subject['comment_id'])) { ?>
-		<div id="favs_<?php echo $subject['comment_id']; ?>">
-			<a class="bodylink" id="add_to_favs_<?php echo $subject['comment_id']; ?>" href="javascript:addToFavs('<?php echo $subject['comment_id']; ?>', '<?php echo User::GetAuthenticatedID(); ?>', 'topic', '<?php echo clean($subject['subject']); ?>' );">
-				<div class="addToFavs">&nbsp;</div>
-				[Add to favs]
-			</a>
-		</div>
-<?php	} ?>
-<?php	if(false && $subject['youtube'] && count($subject['youtube'])) { ?>
-		<div>
-			<a href="javascript:toggleVidPanel(<?php echo $subject['comment_id']; ?>);">
-				<div class="addToFavs">&nbsp;</div>
-				[Toggle vids]
-			</a>
-		</div>
-		<div class="result_content" id="result_content_<?php echo $subject['comment_id']; ?>">
-<?php	} else { ?>
-		<div class="novid_result_content" id="novid_result_content_<?php echo $subject['comment_id']; ?>">
-<?php	} ?>
+<?php	$text = clean($subject['subject']); include("$ROOT/course/views/toggleswitch.pview.php"); ?>
+<?php	startToggleBlock($jsid); ?>
+		<div class="novid_result_content" id="novid_result_content_<?php echo $jsid; ?>">
+<?php	/***** YOUTUBE *****/ ?>
 <?php	if($subject['youtube'] && count($subject['youtube'])) { ?>
-			<div class="vid_panel_horiz" id="vid_panel_<?php echo $subject['comment_id']; ?>">
+			<div class="vid_panel_horiz" id="vid_panel_<?php echo $jsid; ?>">
 <?php		$default_caption = 'Mouse over a video to see its title.'; ?>
 <?php		foreach($subject['youtube'] as $k=>$res) {
 				//$width = $res['media:thumbnail']['width']; $height = $res['media:thumbnail']['height'];
@@ -40,7 +25,7 @@
 				else $fulltitle = clean($res['title']);
 				$tooltipdata[] = array('id'=>$id, 'fulltitle'=>$fulltitle);
 				$title = clean(limit($res['title'], ' on YouTube', 65));
-				$caption = "$('youtube_caption_$subject[comment_id]')";
+				$caption = "$('youtube_caption_$jsid')";
 ?>
 				<div class="youtube_frame">
 				<div	class="youtube_thumb"
@@ -58,13 +43,14 @@
 				<?php //echo $res['title'] ? $res['title'].' on YouTube' : '-'; ?>
 <?php		} ?>
 				<div style="clear:both"></div>
-				<div class="youtube_caption" id="youtube_caption_<?php echo $subject['comment_id']; ?>">
+				<div class="youtube_caption" id="youtube_caption_<?php echo $jsid; ?>">
 					<?php echo $default_caption; ?>
 				</div>
 			</div>
 <?php	} ?>
 
 			<ul class="result_list">
+<?php	/***** WIKIPEDIA *****/ ?>
 <?php	if($subject['wikipedia'] && count($subject['wikipedia'])) { ?>
 <?php		foreach($subject['wikipedia'] as $k=>$res) {
 				$title = clean(limit(ucfirst(strtolower($res['title'])),' from Wikipedia',56));
@@ -88,6 +74,7 @@
 <?php		} ?>
 <?php	} ?>
 
+<?php	/***** GOOGLE *****/ ?>
 <?php	if($subject['google'] && count($subject['google'])) { ?>
 <?php		foreach($subject['google'] as $k=>$res) {
 				$title = clean(limit(ucfirst(strtolower($res['title'])),' from Google Search',56));
@@ -111,6 +98,7 @@
 <?php		} ?>
 <?php	} ?>
 
+<?php	/***** ITUNESU *****/ ?>
 <?php	if($subject['itunesu'] && count($subject['itunesu'])) { ?>
 <?php		foreach($subject['itunesu'] as $k=>$res) {
 				$title = clean(limit(ucfirst(strtolower($res['title'])), ' on iTunes U', 56));
@@ -133,6 +121,7 @@
 <?php		} ?>
 <?php	} ?>
 
+<?php	/***** KHANACAD *****/ ?>
 <?php	if($subject['khanacad'] && count($subject['khanacad'])) { ?>
 <?php		foreach($subject['khanacad'] as $k=>$res) {
 				$title = clean(limit(ucfirst(strtolower($res['title'])), ' on Khan Academy', 56));
@@ -159,21 +148,16 @@
 			<div style="clear:both"> </div>
 		</div>
 
-<?php   $boxid = $subject['comment_id'] + 1000000000; ?>
-<div class="search_result">
-    <a href="javascript:toggleContentPanel(<?php echo $boxid; ?>);">
-        <div class="expand" id="expand_<?php echo $boxid; ?>">&nbsp;</div>
-        <div class="topic_name">Comment on &quot;<?php echo clean($subject['subject']); ?>&quot;</div>
-    </a>
-    <div class="all_result_content" id="all_result_content_<?php echo $boxid; ?>">
 <?php   /*****  COMMENTS    *****/  ?>
-<?php   $cid = $subject['comment_id']; $comments = $subject['comments'];
+<?php	$comment_stack[] = array($cid, $jsid, $flags, $comments, $text);
+		$cid = $subject['comment_id'];
+		$jsid = uniqid();
+		$flags = 1;
+		$text = "Comment on &quot;".clean($subject['subject'])."&quot;";
 		include("$ROOT/course/views/comment.pview.php");
+		list($cid, $jsid, $flags, $comments, $text) = array_pop($comment_stack);
 ?>
-	</div>
-</div>
-
-	</div>
+<?php	endToggleBlock($jsid); ?>
 </div>
 
 <?php } // for each subject ?>

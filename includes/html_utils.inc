@@ -92,3 +92,9 @@ function limit($str, $postfix, $n) {
 		return $str.$postfix;
 	}
 }
+function startToggleBlock($jsid) {
+	echo "<div class=\"all_result_content\" id=\"all_result_content_$jsid\">";
+}
+function endToggleBlock($jsid) {
+	echo "</div>";
+}

@@ -319,3 +319,10 @@ function get_viewer_id() {
 	$uid = User::GetAuthenticatedID();
 	return $uid ? $uid : get_int_session_id();
 }
+function xssfilterstring($str) {
+	return htmlspecialchars($str, ENT_COMPAT, 'UTF-8', false);
+}
+function xssfilterint($n) {
+	//return int_val($n);
+	return $n;
+}
