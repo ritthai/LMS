@@ -36,7 +36,18 @@
 <?php	/*****	COURSE DESCRIPTION	*****/	?>
 <?php   if($action == 'search') {  ?>
 	<div id="description_word">Description:</div>
-	<p id="description"><?php echo clean($args['course']['descr']); ?></p>
+	<p id="description">
+		<?php echo clean($args['course']['descr']); ?>
+	</p>
+	<p>
+		<a class="bodylink" id="vote_down_<?php echo $args['comment_id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $args['comment_id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
+			<div class="voteDown">&nbsp;</div>
+		</a>
+		<a class="bodylink" id="vote_up_<?php echo $args['comment_id']; ?>" href="javascript:voteUp('<?php echo $args['course']['id']; ?>','<?php echo $args['comment_id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
+			<div class="voteUp">&nbsp;</div>
+		</a>
+		Course rating: <?php echo Comment::GetAttrib($args['comment_id'], 'rating'); ?>
+	</p>
 <?php	}	?>
 
 <?php	/*****	SEARCH RESULTS	*****/	?>
