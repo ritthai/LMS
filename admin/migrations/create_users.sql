@@ -61,9 +61,10 @@ CREATE INDEX pageview_id ON pageviews (id (7));
 CREATE INDEX pageview_comment_id ON pageviews (comment_id);
 
 CREATE TABLE resourcereports (	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, # unique ID
-								comment_id INT NOT NULL, # comment id of resource
+								resource_id INT NOT NULL, # id of resource
 								user_id INT NOT NULL, # user who reported the resource
 								status INT NOT NULL DEFAULT 0, # 0 = open, 1 = closed
+								type INT NOT NULL DEFAULT 0, # 0 = comment, 1 = pm
 								comments TEXT DEFAULT '', # why did you report this?
 								creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 

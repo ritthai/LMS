@@ -32,7 +32,7 @@
         <h5><?php echo $subject; ?>
 			- Posted at <?php echo $timestamp; ?>
 			by <?php echo $owner; ?>
-			<a class="bodylink" id="report_<?php echo $cid; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $cid; ?>','');">
+			<a class="bodylink" id="report_<?php echo $cid; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $cid; ?>','',0);">
 				<div class="report">&nbsp;</div>
 			</a>
 			<a class="bodylink" id="vote_down_<?php echo $cid; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $cid; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">

@@ -27,6 +27,9 @@
 				<td><a href="<?php echo $args['actions']['showprivatemessage']->getLink(array('id'=>$pm['id'])); ?>">
 						<div class="<?php echo $cls; ?>"><?php echo $pm['subject']; ?></div>
 					</a>
+					<a class="bodylink" id="report_<?php echo $pm['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $pm['id']; ?>','',1);">
+						<div class="report">&nbsp;</div>
+					</a>
 				</td>
 				<td><a href="<?php echo $args['actions']['showprivatemessage']->getLink(array('id'=>$pm['id'])); ?>">
 						<div class="<?php echo $cls; ?>"><?php echo $pm['creator']; ?></div>

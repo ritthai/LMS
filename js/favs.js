@@ -1,7 +1,7 @@
 var http_request = false;
 var last_id, last_type, last_cid, last_subj, last_owner;
 var vote_last_id, vote_last_type, vote_last_cid, vote_last_owner, vote_last_req;
-var report_last_id, report_last_cid, report_last_uid, report_last_comments;
+var report_last_id, report_last_cid, report_last_uid, report_last_comments, report_last_type;
 var last_req;
 function makePOSTRequest(url, parameters) {
 	http_request = false;
@@ -193,7 +193,7 @@ function voteDown(courseid, cid, owner, type) {
 					+ "&type=" + encodeURI( type );
 	makePOSTRequest('/votedown', poststr);
 }
-function report(uid, cid, comments) {
+function report(uid, cid, comments, type) {
 	id = "report_"+cid;
 	if($("logged_in").innerHTML == "n") {
 		old_href = jQuery("#"+id).attr('href');
@@ -213,12 +213,14 @@ function report(uid, cid, comments) {
 	report_last_id = id;
 	report_last_cid = cid;
 	report_last_uid = uid;
+	report_last_type = type;
 	report_last_comments = comments;
 	last_req = 4;
 	$(id).innerHTML = "Reporting...";
 
 	var poststr = "cid=" + encodeURI( cid )
 					+ "&uid=" + encodeURI( uid )
+					+ "&type=" + encodeURI( type )
 					+ "&comments=" + encodeURI( comments );
 	makePOSTRequest('/reports/create', poststr);
 }

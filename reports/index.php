@@ -9,7 +9,7 @@ $CONTROLLER			= 'reports';
 $CONTROLLER_PERMS	= 'admin';
 $ACTIONS			= array(
 	'create'	=> new HttpAction("$PAGE_REL_URL/create", 'post',
-					array('uid', 'cid', 'comments'),
+					array('uid', 'cid', 'comments', 'type'),
 					'any'),
 	'list'		=> new HttpAction("$PAGE_REL_URL/list", 'get',
 					array(),
@@ -39,13 +39,23 @@ if($action && $ACTIONS[$action]) {
 	check_perms(User::HasPermissions($CONTROLLER_PERMS) || $bypass_auth);
 }
 
+function get_subject($resource_id, $type) {
+	switch($type) {
+	case 0: // comment
+		return Comment::GetSubject($resource_id);
+	case 1: // pm
+		return PrivateMessage::GetSubject($resource_id);
+	default:
+		return '';
+	}
+}
 
 if($action == 'show') {
 	$id = $params['id'];
 	$attribs = ResourceReport::Get($id);
 	$args['info'] = array();
 	$attribs['user_name'] = User::GetAttrib($attribs['user_id'], 'name');
-	$attribs['comment_subject'] = Comment::GetSubject($attribs['comment_id']);
+	$attribs['resource_subject'] = get_subject($attribs['resource_id'], $attribs['type']);
 	if(!$attribs) {
 		Error::generate('notice', 'Invalid ID in action show.');
 		header("Location: $PAGE_REL_URL");
@@ -58,7 +68,7 @@ if($action == 'show') {
 } else if($action == 'create') {
 	if(!$params['uid'] || !User::IsAuthenticated()) {
         check_perms(false);
-	} else if(!ResourceReport::Create(array('user_id'=>User::GetAuthenticatedID(), 'comment_id'=>$params['cid'], 'comments'=>$params['comments']))) {
+	} else if(!ResourceReport::Create(array('user_id'=>User::GetAuthenticatedID(), 'resource_id'=>$params['cid'], 'comments'=>$params['comments'], 'type'=>$params['type']))) {
 		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 		header("Cache-Control: no-cache, must-revalidate");
@@ -84,7 +94,7 @@ if($action == 'show') {
 		$args['list'] = ResourceReport::ListAll();
 		foreach($args['list'] as $k=>$v) {
 			$args['list'][$k]['user_name'] = User::GetAttrib($v['user_id'], 'name');
-			$args['list'][$k]['comment_subject'] = Comment::GetSubject($v['comment_id']);
+			$args['list'][$k]['resource_subject'] = get_subject($v['resource_id'], $v['type']);
 		}
 		include("views/$action.view.php");
 		break;

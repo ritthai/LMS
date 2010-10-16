@@ -16,8 +16,8 @@
         <table>
             <tr>
                 <th>id<hr/></th>
-                <th>comment_id<hr/></th>
-                <th>comment_subject<hr/></th>
+                <th>resource_id<hr/></th>
+                <th>resource_subject<hr/></th>
                 <th>user_name<hr/></th>
                 <th>status<hr/></th>
                 <th>creation_timestamp<hr/></th>
@@ -28,8 +28,8 @@
                         <?php echo $elem['id']; ?>
                     </a>
                 </td>
-                <td><?php echo $elem['comment_id']; ?></td>
-                <td><?php echo limit($elem['comment_subject'], '', 40); ?></td>
+                <td><?php echo $elem['resource_id'].' ('.$elem['type'].')'; ?></td>
+                <td><?php echo limit($elem['resource_subject'], '', 40); ?></td>
                 <td><?php echo $elem['user_name']; ?></td>
                 <td><?php echo $elem['status'] == 0 ? 'open' : 'closed'; ?></td>
                 <td><?php echo $elem['creation_timestamp']; ?></td>

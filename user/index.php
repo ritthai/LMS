@@ -84,6 +84,7 @@ if($action == 'showprivatemessage') {
 			array(	'creator' => User::GetAttrib($pm['creator'], 'name'),
 					'creation_timestamp' => $pm['creation_timestamp'],
 					'subject' => $pm['subject'],
+					'id' => $params['id'],
 					'message' => $pm['body'] );
 		PrivateMessage::MarkAsRead($params['id']);
 		include("$ROOT/user/views/showprivatemessage.view.php");

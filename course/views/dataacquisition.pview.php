@@ -63,7 +63,7 @@
 		<a class="bodylink wikipedia_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $res['title']; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','');">
+				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','',0);">
 					<div class="report">&nbsp;</div>
 				</a>
 				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
@@ -90,7 +90,7 @@
 		<a class="bodylink google_link" href="<?php echo $link; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','');">
+				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','',0);">
 					<div class="report">&nbsp;</div>
 				</a>
 				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
@@ -116,7 +116,7 @@
 		<a class="bodylink itunesu_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','');">
+				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','',0);">
 					<div class="report">&nbsp;</div>
 				</a>
 				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
@@ -142,7 +142,7 @@
 		<a class="bodylink khanacad_link" href="<?php echo $res['url']; ?>" id="<?php echo $id; ?>" title="<?php echo $fulltitle; ?>" target="_blank">
 			<li id="<?php echo "li_$id"; ?>">
 				<?php echo $title; ?>
-				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','');">
+				<a class="bodylink" id="report_<?php echo $res['id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $res['id']; ?>','',0);">
 					<div class="report">&nbsp;</div>
 				</a>
 				<a class="bodylink" id="vote_down_<?php echo $res['id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $res['id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
