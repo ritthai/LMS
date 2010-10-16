@@ -24,8 +24,9 @@ class ResourceReport {
 	public static function Get($id) {
 		$res=db_query("	SELECT *
 						FROM resourcereports
+						WHERE id='%d'
 						LIMIT 1",
-					$comment_id
+					$id
 				);
 		return db_get_assoc($res);
 	}

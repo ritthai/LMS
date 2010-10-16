@@ -44,6 +44,8 @@ if($action == 'show') {
 	$id = $params['id'];
 	$attribs = ResourceReport::Get($id);
 	$args['info'] = array();
+	$attribs['user_name'] = User::GetAttrib($attribs['user_id'], 'name');
+	$attribs['comment_subject'] = Comment::GetSubject($attribs['comment_id']);
 	if(!$attribs) {
 		Error::generate('notice', 'Invalid ID in action show.');
 		header("Location: $PAGE_REL_URL");
@@ -82,6 +84,7 @@ if($action == 'show') {
 		$args['list'] = ResourceReport::ListAll();
 		foreach($args['list'] as $k=>$v) {
 			$args['list'][$k]['user_name'] = User::GetAttrib($v['user_id'], 'name');
+			$args['list'][$k]['comment_subject'] = Comment::GetSubject($v['comment_id']);
 		}
 		include("views/$action.view.php");
 		break;
