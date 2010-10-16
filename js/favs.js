@@ -74,7 +74,6 @@ function alertContents() {
 				//sidebar_fav_course
 			} else if(last_req == 4) {
 				$(report_last_id).innerHTML = getReportedStr(result);
-				alert(result);
 			} else {
 				window.location.reload(true);
 			}
