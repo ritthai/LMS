@@ -40,6 +40,9 @@
 		<?php echo clean($args['course']['descr']); ?>
 	</p>
 	<p>
+		<a class="bodylink" id="report_<?php echo $args['comment_id']; ?>" href="javascript:report('<?php echo User::GetAuthenticatedID(); ?>','<?php echo $args['comment_id']; ?>','');">
+			<div class="report">&nbsp;</div>
+		</a>
 		<a class="bodylink" id="vote_down_<?php echo $args['comment_id']; ?>" href="javascript:voteDown('<?php echo $args['course']['id']; ?>','<?php echo $args['comment_id']; ?>','<?php echo User::GetAuthenticatedID(); ?>','result');">
 			<div class="voteDown">&nbsp;</div>
 		</a>
