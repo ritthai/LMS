@@ -1,6 +1,7 @@
 var http_request = false;
 var last_id, last_type, last_cid, last_subj, last_owner;
 var vote_last_id, vote_last_type, vote_last_cid, vote_last_owner, vote_last_req;
+var report_last_id, report_last_cid, report_last_uid, report_last_comments;
 var last_req;
 function makePOSTRequest(url, parameters) {
 	http_request = false;
@@ -31,6 +32,9 @@ function makePOSTRequest(url, parameters) {
 	http_request.send(parameters);
 }
 
+function getReportedStr(str) {
+	return str;
+}
 function getAddToFavsStr(str) {
 	return "<div class=\"sidebar_add_to_favs\">"+str+"</div>\
             <div class=\"addToFavs\" style=\"float:right\">&nbsp;</div>";
@@ -68,6 +72,9 @@ function alertContents() {
 				$("fav_"+last_type+"s").innerHTML += getAddedFavStr();
 				jQuery("#fav_courses").toggleClass("hidden", false);
 				//sidebar_fav_course
+			} else if(last_req == 4) {
+				$(report_last_id).innerHTML = getReportedStr(result);
+				alert(result);
 			} else {
 				window.location.reload(true);
 			}
@@ -186,4 +193,33 @@ function voteDown(courseid, cid, owner, type) {
 					+ "&owner=" + encodeURI( owner )
 					+ "&type=" + encodeURI( type );
 	makePOSTRequest('/votedown', poststr);
+}
+function report(uid, cid, comments) {
+	id = "report_"+cid;
+	if($("logged_in").innerHTML == "n") {
+		old_href = jQuery("#"+id).attr('href');
+		jQuery("#"+id).fancybox({
+			'scrolling'		: 'no',
+			'titleShow'		: false,
+			'onClosed'		: function() {
+				jQuery("#login_error").hide();
+			}
+		});
+		jQuery("#"+id).attr('href', '#login_form');
+		jQuery("#"+id).click();
+		jQuery("#"+id).attr('href', old_href);
+		return;
+	}
+
+	report_last_id = id;
+	report_last_cid = cid;
+	report_last_uid = uid;
+	report_last_comments = comments;
+	last_req = 4;
+	$(id).innerHTML = "Reporting...";
+
+	var poststr = "cid=" + encodeURI( cid )
+					+ "&uid=" + encodeURI( uid )
+					+ "&comments=" + encodeURI( comments );
+	makePOSTRequest('/reports/create', poststr);
 }

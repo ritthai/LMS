@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS comments, comment_data, comments_lock;
 DROP TABLE IF EXISTS pageviews;
 DROP TABLE IF EXISTS privatemessages, privatemessage_data;
 DROP TABLE IF EXISTS similarities;
+DROP TABLE IF EXISTS resourcereports;
 #DROP PROCEDURE IF EXISTS SetForgottenPassTimestamp, ValidateForgottenPassTimestamp;
 # EAV
 CREATE TABLE users (		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -58,6 +59,13 @@ CREATE TABLE pageviews (	id VARCHAR(32) NOT NULL, # user id or session_id
 CREATE INDEX pageview_time ON pageviews (creation_timestamp);
 CREATE INDEX pageview_id ON pageviews (id (7));
 CREATE INDEX pageview_comment_id ON pageviews (comment_id);
+
+CREATE TABLE resourcereports (	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, # unique ID
+								comment_id INT NOT NULL, # comment id of resource
+								user_id INT NOT NULL, # user who reported the resource
+								status INT NOT NULL DEFAULT 0, # 0 = open, 1 = closed
+								comments TEXT DEFAULT '', # why did you report this?
+								creation_timestamp TIMESTAMP(8) DEFAULT NOW() );
 
 #CREATE TABLE privatemessages (	id VARCHAR(32) NOT NULL AUTOINCREMENT,
 #								creator_user_id INT NOT NULL,
