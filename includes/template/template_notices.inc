@@ -33,7 +33,7 @@
 <?php	if((isset($args['university']) && $u = $args['university']) || (isset($_SESSION['university']) && $u = $_SESSION['university'])) { ?>
 			<div id="search">
 				<div style="position: relative; margin-right: 5px; padding-top: 5px">
-					<form action="/search" method="get" class="search_form">
+					<form action="/search" method="get" class="search_form" id="search_form">
 						<input type="text" class="search_form" id="search_terms" name="terms" <?php setDefaultText('Search for a course'); ?> /><br/>
 						<input type="hidden" id="search_id" name="id" /><br/>
 						<input type="hidden" id="university" name="university" value="<?php echo $u['id']; ?>" /><br/>
