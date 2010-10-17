@@ -582,7 +582,7 @@ if($action == 'invalidate') {
 							'google'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'google', 'rating'=>0)); } ),
 							'wikipedia'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'wikipedia', 'rating'=>0)); } ),
 							'khanacad'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'khanacad', 'rating'=>1.1)); } ),
-							'itunesu'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'itunesu', 'rating'=>0)); } ),
+							'itunesu'	=> array_filter( $results, function ($elem) { return filter_result($elem, array('source'=>'itunesu', 'rating'=>1)); } ),
 							'comment_id'=> $topicid,
 							'comments'	=> array_map( function($a) { return $a['id']; }, Comment::ListAll($topicid) )
 							));
